@@ -1,0 +1,52 @@
+{
+  "id": "space-op-ui",
+  "title": "Space Opera - User Interface",
+  "description": "Overhauls the Foundry UI. Theme for Space Opera games. Fork of LCARS UI. <p>*** Join the official Discord server: <a href=\"https://discord.gg/foundryvtt\"> Official Discord</a></p><p>*** Rejoignez la communauté Francophone: <a href=\"https://discord.gg/pPSDNJk\">Francophone Discord</a></p>",
+  "authors": [
+    {
+      "name": "Fabulist",
+      "url": "https://foundryvtt.com/community/fabulist",
+      "flags": {}
+    },
+    {
+      "name": "Sasmira",
+      "email": "sasmyra@gmail.com",
+      "url": "https://foundryvtt.com/community/sasmira",
+      "flags": {}
+    }
+  ],
+  "version": "11.315.1806.1",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11"
+  },
+  "esmodules": [
+    "scripts/sta-lcars-ui.js"
+  ],
+  "styles": [
+    "styles/sta-lcars-ui.css"
+  ],
+  "media": [
+    {
+        "type": "setup",
+        "caption": "Space Opera Ui",
+        "thumbnail": "/modules/space-op-ui/artwork/space-opera-thumb.webp"
+    }],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "fr",
+      "name": "French (Français)",
+      "path": "lang/fr.json",
+      "flags": {}
+    }
+  ],
+  "url": "https://gitlab.com/sasmira/space-op-ui",
+  "manifest": "https://gitlab.com/sasmira/space-op-ui/-/raw/main/module/module.json",
+  "download": "https://gitlab.com/sasmira/space-op-ui/-/jobs/artifacts/v11.315.1806.1/raw/space-op-ui.zip?job=build"
+}

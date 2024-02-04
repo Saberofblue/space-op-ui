@@ -1,0 +1,22 @@
+image: python:3-alpine
+
+before_script:
+  - apk update
+  - apk add zip
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - zip space-op-ui.zip -r module -x ".*"
+  artifacts:
+    expire_in: never
+    name: space-op-ui
+    when: on_success
+    paths:
+      - space-op-ui.zip
+  when: on_success
+  only:
+    - tags

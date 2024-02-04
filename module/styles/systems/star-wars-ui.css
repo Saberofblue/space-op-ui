@@ -1,0 +1,350 @@
+:root{
+    --glassy: 0px 0px 3px 0px rgba(255, 255, 255, 0.4) inset, 0px 0px 2px 1px rgba(0, 0, 0, 1), 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    --glassy-shadow: var(--glassy) , var(--box-shadow);
+    --glass-bg: rgba(20, 20, 20, 0.6);
+    --glass-bg-light: rgba(255, 255, 255, 0.1);
+    --glass-bg-dark: rgba(0, 0, 0, 0.7);
+    --pf2e-shadow-is-dark: 0px 1px var(--pf2e-half-transparent-dark);
+    --pf2e-translucent-middle: var(--pf2e-translucent-middle-for-light);
+    --pf2e-translucent-middle-for-light: hsla(0, 0%, 80%,0.5);
+    --pf2e-translucent-very: var(--pf2e-translucent-very-for-light);
+    --pf2e-transcluent-very-for-light: hsla(0, 0%, 60%,0.2);
+    --header-text-shadow: var(--pf2e-shadow-is-dark);
+    --pf2e-shadow-is-dark: 0px 1px var(--pf2e-half-transparent-dark);
+    --filter-dark: invert(100%) drop-shadow(0px 1px 1px black);
+    --pf2e-half-transparent-dark: hsla(0, 0%, 0%,0.5);
+    --color-text-hyperlink: #ff6400;
+    --gold-and-glow: 0 0 0 1px var(--tertiary), 0 0 0 2px #9f725b, inset 0 0 3px rgba(255, 255, 255, .5);
+    --red: #5e0000;
+    --red-light:#ff0000;
+    --custom-trait:#61180e;
+    --green: #91a82a;
+    --pfui-main-color: #cfbda7;
+    --pfui-main-grey-color: #98968a;
+    --rpg-styled-ui-color: #837360;
+    --primary-remaster: hsl(153, 100%, 8%);
+	--primary-light-remaster: hsl(170, 96%, 19%);
+    
+    --border-radius: 3px;
+    --border-radius-5: 5px;
+    --box-shadow: 0px 1px 3px 1px black;
+    --box-shadow-light: inset 0 0 0 1px rgba(255, 255, 255, 0.15), inset 0 0 0 2px rgba(0, 0, 0, 0.4), inset 0px 0px 3px 1px var(--color-cool-3);
+    --text-shadow: 0px 1px 2px black;
+
+    --rarity-common: #7e7e7e;
+    --rarity-uncommon: #ff6400;
+    --rarity-rare: #0062ff;
+    --rarity-unique: #e127e1;
+
+
+/* Foundry2
+====================================================== */
+    --color-warm-1: #ee9b3a;
+    --color-warm-2: #c9593f;
+    --color-warm-3: #5d142b;
+    --color-warm-4: #420418;
+    --color-warm-5: #26020d;
+    --color-cool-1: #b1a0d4;
+    --color-cool-2: #79689c;
+    --color-cool-3: #584a75;
+    --color-cool-4: #302831;
+    --color-cool-5: #0b0a13;
+    --color-cool-5-25: rgba(11, 10, 19, 0.25);
+    --color-cool-5-50: rgba(11, 10, 19, 0.5);
+    --color-cool-5-75: rgba(11, 10, 19, 0.75);
+    --color-cool-5-90: rgba(11, 10, 19, 0.9);
+    --color-light-1: #f7f3e8;
+    --color-light-2: #efe6d8;
+    --color-light-3: #e7d1b1;
+    --color-light-4: #d0b8a3;
+    --color-light-5: #9f8475;
+    --color-light-6: #816b66;
+    --color-level-error: #ce0707;
+    --color-level-error-bg: rgba(105, 0, 8, 0.8);
+    --color-level-error-border: #750003;
+    --color-level-info: #59a1f6;
+    --color-level-info-bg: rgba(47, 80, 132, 0.8);
+    --color-level-info-border: #5c87b9;
+    --color-level-success: #26b231;
+    --color-level-success-bg: rgba(26, 107, 34, 0.8);
+    --color-level-success-border: #1b8f23;
+    --color-level-warning: #ee9b3a;
+    --color-level-warning-bg: rgba(214, 150, 0, 0.8);
+    --color-level-warning-border: #b18404;
+    --color-scrollbar: #5d142b;
+    --color-scrollbar-border: #8d151b;
+}
+
+
+/*System
+************************/
+@font-face {
+    font-family: "EarthOrbiter";
+    src: url("./fonts/EarthOrbiterBold-vzD9.otf")format("opentype");
+}
+.system-starwarsffg #pause > figcaption
+{
+    font-family:'EarthOrbiter';
+    font-size: xx-large;
+    text-shadow: var(--text-shadow);
+}
+.system-starwarsffg #pause > img {
+    content: url("./paused/paused-logo.webp");
+    height: 128px;
+    width: 128px;
+    left: calc(50% - 64px);
+}
+.starwarsffg.app .window-content {
+    color: var(--pfui-main-color);
+    text-shadow: var(--text-shadow);
+}
+button:disabled {
+    color: var(--color-cool-5);
+}
+.system-starwarsffg input[type="text"], 
+.system-starwarsffg input[type="number"], 
+.system-starwarsffg input[type="password"], 
+.system-starwarsffg input[type="date"], 
+.system-starwarsffg input[type="time"], 
+.system-starwarsffg select, 
+.system-starwarsffg textarea {
+    color: #f7e06e;
+    background: var(--color-cool-5-50);
+    border-width: 1px!important;
+    border-style: solid!important;
+    border-radius: 0px;
+    border-color: #00273f!important;
+    text-shadow: var(--text-shadow);
+
+}
+.system-starwarsffg .initiative-dialog .pool-additional img {
+    border: 1px dotted white;
+}
+.system-starwarsffg .filepicker .favorites .path {
+    border: unset;
+    color: var(--color-warm-1);
+    background: var(--color-warm-3);
+    border-radius: 3px;
+}
+.system-starwarsffg .filepicker .directory > li {
+    color: var(--pfui-main-color);
+    font-weight: normal!important;
+    text-shadow: var(--text-shadow);
+}
+.system-starwarsffg input[type="checkbox"]:checked,
+.system-starwarsffg input[type="radio"]:checked {
+    accent-color: var(--green);
+}
+.system-starwarsffg .directory .directory-header .header-search input {
+    background: var(--color-warm-1);
+    border-radius: 0;
+    border: none;
+    color: var(--color-text-light-highlight);
+    transition: all 0.2s;
+}
+
+
+/*Chat
+************************/
+.system-starwarsffg .destiny-flip.dPoolDark {
+    background-color: khaki;
+    color: black;
+    text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .destiny-flip.dPoolLight {
+    background-color: #b8383b;
+    color: white;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg .dice-result .roll-success {
+    font-size: large;
+    color: var(--green);
+    filter:contrast(5);
+}
+.starwarsffg .dice-result .roll-failure {
+    font-size: large;
+    color: var(--red-light);
+}
+
+
+/*Swffg destiny
+************************/
+.swffg-destiny {
+    background: unset;
+    border: unset;
+    border-radius: 5px;
+    box-shadow: unset;
+    box-sizing: content-box;
+    color: var(--pfui-main-color);
+    gap: 5px;
+}
+.swffg-destiny .group-manager {
+    padding: 1px 0px 0px 2px;
+}
+.swffg-destiny .destiny-points {
+    color: var(--pfui-main-color);
+    box-shadow: unset;
+    background: var(--color-cool-5);
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+}
+.swffg-destiny .destiny-points:hover {
+    color:var(--color-warm-1);
+    text-shadow: 0 0 15px var(--red-light);
+}
+#destiny-tracker .dropdown-content a {
+    padding: 3px 4px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    color: var(--pfui-main-color);
+    background: var(--color-cool-5);
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    margin-bottom: 5px;
+}
+#destiny-tracker .dropdown-content a:hover {
+    color:var(--color-warm-1);
+    text-shadow: 0 0 15px var(--red-light);
+}
+
+/*Character Sheet
+************************/
+.system-starwarsffg table td, 
+.system-starwarsffg table th {
+    color: var(--color-warm-1);
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg.sheet.actor .character .header-fields .drag-note {
+    color: var(--pfui-main-color);
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg.sheet.actor .character .header-fields .drag-note:hover {
+    color: var(--green);
+    text-shadow: 0 0 8px white;
+}
+.starwarsffg .block-background {
+    background-color: var(--color-cool-4);
+}
+.starwarsffg .attribute .shadow-right .shadow-text {
+    color: white;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg .tabs .item {
+    font-weight: normal;
+    background-color: rgba(47, 80, 132, 0.8);
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg .tabs .item:hover {
+    color: #fcf5cf;
+}
+.starwarsffg.sheet.actor .character .sheet-body .general .resource.full table thead, 
+.starwarsffg.sheet.actor .character .sheet-body .obligation .resource.full table thead {
+    background: rgba(47, 80, 132, 0.8);
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg.sheet.actor .characteristic-item .characteristic {
+    border-radius: 50%;
+    border: 5px double black;
+    border-color: #00273f;
+}
+.starwarsffg .skillsGrid .skillTable .careerskill-rank {
+    margin-top: 1px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--color-cool-4);
+}
+
+
+/*Item Sheet
+************************/
+.starwarsffg.sheet.item .characteristic .characteristic-value.restricted::after {
+    color: var(--red-light);
+}
+.starwarsffg .attributes .attributes-header {
+    padding: 5px;
+    margin: 0 0 5px 0;
+    border: unset;
+    border-radius: 5px;
+    font-weight: bold;
+    background: rgba(47, 80, 132, 0.8);
+}
+.starwarsffg .item-sheet-vehicle-weapon .charname input {
+    color: #cccae3;
+}
+.starwarsffg .item-sheet-vehicle-weapon .block-background {
+    color: black;
+}
+.starwarsffg .item-sheet-weapon .charname input {
+    color: #bffebf;
+}
+.starwarsffg .item-sheet-weapon .block-background {
+    color: black;
+}
+.starwarsffg .item-sheet-armor .charname input {
+    color: #e9c09e;
+}
+.starwarsffg .item-sheet-armor .block-background {
+    color: black;
+}
+.starwarsffg .item-sheet-talent .charname input {
+    color: var(--red-light);
+}
+.starwarsffg .item-sheet-criticalinjury .charname input {
+    color: var(--red-light);
+}
+.starwarsffg .item-sheet-criticalinjury .block-background {
+    color: black;
+}
+.starwarsffg .item-sheet-gear .charname input {
+    color: #e9c6fd;
+}
+.starwarsffg .item-sheet-modifiers .charname input {
+    color: #e9c6fd;
+}
+.starwarsffg .talent-background {
+    background-color: var(--color-cool-4);
+}
+.starwarsffg .item-sheet-forcepower .talent-cost input {
+    background: var(--color-cool-5-50);
+}
+.starwarsffg .item-sheet-signatureability .talent-cost input {
+    background: var(--color-cool-5-50);
+}
+
+
+/*journal-entry-page
+************************/
+.system-starwarsffg .journal-entry-page .journal-page-content blockquote:not(h6+p+ul+blockquote, h6+p+blockquote, h6+ul+blockquote, h6+blockquote) {
+    color: var(--pfui-main-color);
+    border-left-width: 0;
+    border-top: 2px solid var(--color-cool-5);
+    border-bottom: 2px solid var(--color-cool-5);
+    background-color: var(--color-warm-3);
+    border-radius: 5px;
+    padding: 4px 12px;
+    margin-left: 0;
+    margin-right: 0;
+    box-shadow: var(--glassy-shadow);
+}
+.system-starwarsffg .journal-entry-page section.secret {
+    padding: 0 5px;
+    border-top: 1px solid var(--color-border-dark-5);
+    border-bottom: 1px solid var(--color-border-dark-5);
+    background: #584a754d;
+    border-radius: var(--border-radius-5);
+    box-shadow: var(--glassy-shadow);
+}
+.system-starwarsffg .journal-entry-page section.secret button.reveal {
+    box-shadow: var(--glassy-shadow);
+}
+.system-starwarsffg .journal-entry-page section.secret.revealed {
+    background: none!important;
+}
