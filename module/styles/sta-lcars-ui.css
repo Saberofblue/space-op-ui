@@ -59,12 +59,15 @@
     border: none;
     margin: 1rem 0 0;
   }
-  h1,
+  h1, 
   h2 {
     color: #f7e06e;
     font-family: "Teko", sans-serif;
     text-transform: uppercase;
-  }
+    background: #00273f!important;
+    text-shadow: var(--text-shadow);
+    box-shadow: var(--glassy);
+}
   p {
     margin: 0 0 0.5em;
   }
@@ -186,14 +189,17 @@
     color: #f7e06e;
     background-color: #0f0f0fef;
   }
-  .button {
+  button {
     background-color: #0077af;
     border: none;
     border-radius: 15px;
-  }
+    text-transform: uppercase;
+    text-shadow: var(--text-shadow);
+    box-shadow: var(--glassy);
+}
   .button:hover {
     background-color: #009dff;
-    box-shadow: none;
+    box-shadow: var(--glassy);
   }
   .button:focus {
     box-shadow: none;

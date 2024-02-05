@@ -86,6 +86,7 @@
 {
     font-family:'EarthOrbiter';
     font-size: xx-large;
+    text-transform: uppercase;
     text-shadow: var(--text-shadow);
 }
 .system-starwarsffg #pause > img {
@@ -160,11 +161,47 @@ button:disabled {
     font-size: large;
     color: var(--green);
     filter:contrast(5);
+    text-shadow: var(--text-shadow);
 }
 .starwarsffg .dice-result .roll-failure {
     font-size: large;
-    color: var(--red-light);
+    color: var(--color-warm-2);
+    filter:contrast(5);
+    text-shadow: var(--text-shadow);
 }
+.starwarsffg .ffgDiceArray {
+    justify-content: center;
+}
+.system-starwarsffg #chat-log .chat-message .message-header {
+    background-color: #00273f;
+    padding: 0 4px 0 8px;
+    color: white;
+    margin: 0px;
+    padding: 8px 4px 0px 4px;
+    line-height: normal;
+    box-shadow: 0px 0px 1px black inset;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 35px;
+    border: 3px double #3e000078;
+    text-shadow: var(--text-shadow);
+}
+.system-starwarsffg #chat-log .chat-message .message-content {
+    border-left: 4px solid #00273f25;
+    border-radius: 15px;
+    padding: 4px 4px 0px 4px;
+    color: #dfdfdf;
+    background-color: #00273f75;
+    text-shadow: var(--text-shadow);
+}
+.system-starwarsffg #chat-log.chat-message .message-content b {
+    color:var(--color-warm-1);
+}
+.system-starwarsffg span.dietype.threat {
+    color: revert;
+}
+
 
 
 /*Swffg destiny
