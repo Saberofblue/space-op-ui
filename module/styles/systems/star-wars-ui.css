@@ -115,6 +115,10 @@ body {
     color: var(--green);
     text-shadow: 0 0 15px var(--red-light);
 }
+.system-starwarsffg form .notes, 
+.system-starwarsffg form .hint {
+    color: #afafaf!important;
+}
 .system-starwarsffg #pause > figcaption
 {
     font-family:'EarthOrbiter';
@@ -128,10 +132,52 @@ body {
     width: 128px;
     left: calc(50% - 64px);
 }
-.starwarsffg.app .window-content {
+.system-starwarsffg .app {
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: var(--border-radius-5);
     color: var(--pfui-main-color);
-    text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .window-header {
+    background: none;
+    background-color: var(--color-cool-5-75)!important;
+    border-radius: var(--border-radius-5)!important;
+    margin: 3px 0px!important;
+    backdrop-filter: blur(10px);
+    text-shadow: 0 0 15px var(--red-light);
+    border: 1px solid var(--red);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--box-shadow);
+}
+.system-starwarsffg .window-content {
     padding: 8px 2px 5px 0px;
+    color: var(--pfui-main-color)!important;
+    box-shadow: var(--box-shadow);
+    border-radius: var(
+    --border-radius-5);
+    margin: 3px 1px;
+    backdrop-filter: blur(10px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg .dialog,
+.system-starwarsffg .form.app,
+.system-starwarsffg .sheet.app,
+.system-starwarsffg .data-import.app,
+.system-starwarsffg .sheet.folder-edit,
+.system-starwarsffg .sheet.journal-entry.app,
+.system-starwarsffg .package-configuration.app {
+    backdrop-filter: blur(10px);
+}
+.system-starwarsffg .window-app .window-resizable-handle {
+    border: 1px solid var(--red);
+    color: var(--color-warm-1);
+    background: var(--color-cool-5-50);
+    backdrop-filter: blur(10px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--box-shadow);
 }
 button:disabled {
     color: var(--color-cool-5);
@@ -199,6 +245,8 @@ button:disabled {
     background-color: var(--color-cool-5-90)!important;
 }
 .system-starwarsffg button,
+.system-starwarsffg .dialog .dialog-buttons button,
+.system-starwarsffg .dialog .dialog-buttons button.default,
 .system-starwarsffg .folder-edit .window-content form button {
     font-family: 'EarthOrbiter';
     text-transform: inherit;
@@ -209,8 +257,11 @@ button:disabled {
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     box-shadow: var(--glassy);
+    border:unset;
 }
 .system-starwarsffg button:hover,
+.system-starwarsffg .dialog .dialog-buttons button:hover,
+.system-starwarsffg .dialog .dialog-buttons button.default:hover,
 .system-starwarsffg .folder-edit .window-content form button:hover {
    color: var(--color-warm-1);
    background-color: var(--color-cool-5-75);
@@ -893,6 +944,12 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 
 /*Actor
 ************************/
+.system-starwarsffg .directory .directory-item {
+    text-shadow: 0 0 15px var(--red-light);
+    background: var(--color-cool-5-50);
+    border-radius: 25px 0 0 25px;
+    margin: 3px 0px 7px 3px;
+}
 .system-starwarsffg .directory .directory-item.document {
     border: none;
     margin: 3px 0px 7px 3px;
@@ -1056,10 +1113,33 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background-color: var(--color-cool-5-75);
     box-shadow: var(--glassy);
 }
-
+.system-starwarsffg .form-group > label {
+    color: var(--color-warm-1);
+    font-size: larger;
+    text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .package-configuration aside.sidebar .entry-filter {
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-5-50);
+    backdrop-filter: blur(5px);
+    box-shadow: var(--box-shadow);
+}
+.system-starwarsffg .package-configuration aside.sidebar nav.tabs .category-tab {
+    border-bottom: 1px dotted var(--red);
+    color: var(--color-warm-1);
+    text-shadow: var(--text-shadow);
+}
 
 /*Swffg destiny
 ************************/
+.system-starwarsffg #destiny-tracker .window-content {
+    box-shadow: unset;
+    background-color: unset!important;
+    margin: unset;
+    backdrop-filter: unset;
+    filter: unset;
+    border: none;
+}
 .swffg-destiny {
     background: unset;
     border: unset;
@@ -1319,16 +1399,8 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border-radius: 50%;
     background: var(--color-cool-4);
 }
-.starwarsffg .window-resizable-handle,
-.system-starwarsffg .sheet.journal-entry .window-resizable-handle {
-    border: 1px solid var(--red);
-    color: var(--color-warm-1);
-    background: var(--color-cool-5-50);
-    backdrop-filter: blur(10px);
-    text-shadow: 0 0 15px var(--red-light);
-    filter: drop-shadow(0px 1px 1px black);
-    box-shadow: var(--box-shadow);
-}
+
+
 /*Character Sheet
 ************************/
 /*Equipment
@@ -1507,45 +1579,9 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 /*Dialog
 ************************/
-.system-starwarsffg .dialog, 
-.system-starwarsffg .sheet.folder-edit, 
-.system-starwarsffg .sheet.journal-entry.app {
-    background: none;
-    border: none;
-    box-shadow: none;
-    border-radius: var(--border-radius-5);
-    color: var(--pfui-main-color);
-    backdrop-filter: blur(10px);
-}
-.system-starwarsffg .dialog .window-header,
-.system-starwarsffg .sheet.folder-edit .window-header,
-.system-starwarsffg .sheet.journal-entry .window-header {
-    background: none;
-    box-shadow: var(--box-shadow);
-    background-color: var(--color-cool-5-75);
-    border-radius: var(--border-radius-5);
-    margin: 0px 1px;
-    backdrop-filter: blur(10px);
-    text-shadow: 0 0 15px var(--red-light);
-    filter: drop-shadow(0px 1px 1px black);
-    border: 1px solid var(--red);
-    box-shadow: var(--box-shadow);
-}
-.system-starwarsffg .dialog .window-content,
-.system-starwarsffg .sheet.folder-edit .window-content,
 .system-starwarsffg .sheet.journal-entry .journal-sidebar,
 .system-starwarsffg .sheet.journal-entry .journal-entry-content {
-    color: var(--pfui-main-color);
-    box-shadow: var(--box-shadow);
-    background-color: var(--color-cool-5-25)!important;
-    border-radius: var(
-    --border-radius-5);
-    margin: 3px 1px;
-    backdrop-filter: blur(10px);
-    text-shadow: 0 0 15px var(
-    --red-light);
-    filter: drop-shadow(0px 1px 1px black);
-    border: 1px solid var(--red);
+    background-color: var(--color-cool-5-25);
 }
 .system-starwarsffg .dialog .window-content .dialog-content {
     color: var(--color-warm-1)!important;

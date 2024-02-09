@@ -4,6 +4,9 @@
 ## Compatibility
 - Ready for v11 version.
 
+## v11.315.1806.4
+- Star Wars ffg ui rework done.
+
 ## v11.315.1806.3
 - Star Wars ffg ui reworked (not finished)
 
