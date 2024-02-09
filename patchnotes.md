@@ -1,8 +1,11 @@
 # Patch Notes
 
+
 ## Compatibility
 - Ready for v11 version.
 
+## v11.315.1806.3
+- Star Wars ffg ui reworked (not finished)
 
 ## v11.315.1806.2
 - Improved Core code

@@ -107,14 +107,15 @@
     border-top: 1px solid transparent;
 }
 #module-management nav.list-filters input {
+    background: var(--color-cool-5-90);
+    color: var(--color-warm-1);
     border: 1px solid transparent;
-    background: var(--color-warm-1);
-    color: var(--color-cool-5);
     font-size: larger;
     border-radius: 5px;
     margin: 1px;
     height: 25px;
     text-shadow: var(--text-shadow);
+    box-shadow: var(--box-shadow-light);
 }
 #module-management .package-list .package-title {
     color: #f7e06e;

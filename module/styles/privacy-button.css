@@ -89,6 +89,7 @@
   border: 1px solid var(--color-cool-5);
   box-shadow: var(--glassy);
   background: var(--color-cool-5);
+  text-shadow: unset;
 }
 
 #rpg-ui-buttons button i {
