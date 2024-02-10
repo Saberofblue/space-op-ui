@@ -13,8 +13,9 @@ To install, follow these instructions:
 https://gitlab.com/sasmira/space-op-ui/-/raw/main/module/module.json
 3.  Click Install and wait for installation to complete.
 
-## Improved Space Opera UI for Star Wars FFG
+## Please note: The appearance of the interface differs depending on the system. The examples below show the interface corresponding to the system for which it was created.
+### Improved Space Opera UI for Star Wars FFG
 ![image](space-op-swffg.jpg)
 
-## Improved Space Opera/LCARS UI for Star Trek Adventures
+### Improved Space Opera/LCARS UI for Star Trek Adventures
 ![image](LCARS-UI-for-Star-Trek-Adventures.png)

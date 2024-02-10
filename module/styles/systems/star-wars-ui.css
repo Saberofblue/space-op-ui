@@ -293,9 +293,7 @@ button:disabled {
     color: var(--pfui-main-color);
     background-color: var(--color-cool-5-50);
     border-radius: 25px;
-    backdrop-filter: blur(5px);
-    text-shadow: 0 0 15px var(--red-light);
-    filter: drop-shadow(0px 1px 1px black);
+    text-shadow: var(--text-shadow);
     box-shadow: var(--glassy);
     border:unset;
 }
@@ -1349,6 +1347,14 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 .system-starwarsffg table tr:nth-child(even) {
     background-color: var(--color-cool-4);
+}
+.starwarsffg.sheet.actor .character .header-fields .specialization-pill, 
+.starwarsffg.sheet.actor .character .header-fields .species-pill, 
+.starwarsffg.sheet.actor .character .header-fields .career-pill, 
+.starwarsffg.sheet.actor .character .header-fields .signatureability-pill, 
+.starwarsffg.sheet.actor .character .header-fields .forcepower-pill {
+    background-color: var(--color-cool-3);
+    border: 1px solid var(--color-warm-2);
 }
 .system-starwarsffg table td, 
 .system-starwarsffg table th {

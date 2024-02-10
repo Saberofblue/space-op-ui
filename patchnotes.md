@@ -5,6 +5,10 @@
 - Ready for v11 version.
 
 
+## v11.315.1806.7
+- Updated Compatibility with Starwarsffg
+- Fixed error in journals where images masked options. 
+
 ## v11.315.1806.6
 - Updated Compatibility with Starwarsffg
 - Fixed Compatibility with actor sheet v2
