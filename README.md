@@ -1,4 +1,4 @@
-# Space Opera User Interface.
+# Space Opera Ui for SWFFG/STA.
 A dodgy fork of [LCARS UI](https://github.com/FabulistVtt/sta-lcars-ui) by [Fabulist](https://github.com/FabulistVtt). I wanted to be able to use this interface on all Space Opera games like :
 - Star Wars FFG.
 - Star Trek Adventures.

@@ -5,7 +5,7 @@
 - Ready for v11 version.
 
 
-## v11.315.1806.5
+## v11.315.1806.6
 - Updated Compatibility with Starwarsffg
 - Fixed Compatibility with actor sheet v2
 - Integrated Status Halo module.
