@@ -24,6 +24,7 @@
     --rpg-styled-ui-color: #837360;
     --primary-remaster: hsl(153, 100%, 8%);
 	--primary-light-remaster: hsl(170, 96%, 19%);
+    --sta-main-color: #f7e06e;
     
     --border-radius: 3px;
     --border-radius-5: 5px;
@@ -161,6 +162,19 @@ body {
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
 }
+.starwarsffg.sheet.actor.v2 .window-content {
+    background-color: var(--color-cool-5-25)!important;
+    backdrop-filter: unset;
+    filter: unset;
+}
+.starwarsffg.sheet.actor.v2 .tabs .item {
+    line-height: normal;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg.sheet.actor.v2 .tabs .item.active {
+    color: var(--red);
+    background: var(--color-warm-1)!important;
+}
 .system-starwarsffg .dialog,
 .system-starwarsffg .form.app,
 .system-starwarsffg .sheet.app,
@@ -189,14 +203,18 @@ button:disabled {
 .system-starwarsffg input[type="time"], 
 .system-starwarsffg select, 
 .system-starwarsffg textarea {
-    color: #f7e06e;
+    color: var(--sta-main-color);
     background: var(--color-cool-5-50);
     border-width: 1px!important;
     border-style: solid!important;
     border-radius: 0px;
-    border-color: #00273f!important;
+    border-color: transparent!important;
     text-shadow: var(--text-shadow);
-
+}
+.system-starwarsffg input[type="search"] {
+    background: var(--color-cool-5-25);
+    color: var(--pfui-main-color);
+    border: 1px solid var(--color-cool-5-25);
 }
 .system-starwarsffg input[type="color"][data-edit] {
     border: 2px groove var(--red);
@@ -210,10 +228,32 @@ button:disabled {
     background: var(--color-warm-3);
     border-radius: 3px;
 }
+.system-starwarsffg .filepicker .directory {
+    border: unset;
+}
 .system-starwarsffg .filepicker .directory > li {
     color: var(--pfui-main-color);
     font-weight: normal!important;
     text-shadow: var(--text-shadow);
+    background: var(--color-cool-5-25);
+    filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg .filepicker .current-dir button {
+    font-family: 'EarthOrbiter';
+    text-transform: inherit;
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-5-50);
+    border-radius: 25px;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--glassy);
+    border: unset;
+}
+.system-starwarsffg .filepicker .current-dir button:hover {
+    color: var(--color-warm-1);
+    background-color: var(--color-cool-5-75);
+    box-shadow: var(--box-shadow);
 }
 .system-starwarsffg input[type="checkbox"]:checked,
 .system-starwarsffg input[type="radio"]:checked {
@@ -290,8 +330,7 @@ button:disabled {
     font-family: 'EarthOrbiter';
     text-transform: inherit;
 }
-.system-starwarsffg h1, 
-.system-starwarsffg h2 {
+.system-starwarsffg h1 {
     background: transparent;
     color: var(--color-warm-1);
     font-family: 'EarthOrbiter';
@@ -300,6 +339,23 @@ button:disabled {
     border-radius: 5px;
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg h2 {
+    background: transparent;
+    color: var(--sta-main-color);
+    font-family: 'EarthOrbiter';
+    text-transform: inherit;
+    box-shadow: unset;
+    border-radius: 5px;
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg h3.nue {
+    border-top: 1px dotted var(--red);
+    border-bottom: 1px dotted var(--red);
+}
+.system-starwarsffg p.nue {
+    color: var(--pfui-main-color);
 }
 .system-starwarsffg #context-menu {
     color: var(--color-warm-1);
@@ -768,7 +824,7 @@ button:disabled {
     border: 3px double var(--red)!important;
 }
 .system-starwarsffg #chat-form textarea {
-    color: #f7e06e;
+    color: var(--sta-main-color);
     background: #000;
     background-color: var(--color-cool-5-50);
     border-radius: 5px;
@@ -855,14 +911,23 @@ button:disabled {
     filter: drop-shadow(0px 1px 1px black);
     margin: inherit;
 }
-.system-starwarsffg #chat-log.chat-message .message-content b {
+.system-starwarsffg #chat-log .chat-message .message-content b {
     color:var(--color-warm-1);
+}
+.system-starwarsffg #chat-log .chat-message .item-details {
+    text-align: center;
+    padding: unset;
+    margin: 5px;
+    color: var(--color-cool-1);
+    background: var(--color-cool-5-25);
+    border: 1px dotted var(--color-warm-1);
+    border-radius: 10px;
+    text-shadow: var(--text-shadow);
+    filter: drop-shadow(0px 1px 1px black);
 }
 .system-starwarsffg span.dietype.threat {
     color: revert;
 }
-
-
 section.chat-sidebar .jump-to-bottom > a {
     color: var(--pfui-main-color);
     background-color: var(--color-cool-5-75);
@@ -922,7 +987,12 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border-top: 1px solid var(--color-warm-1);
     border-bottom: 1px solid var(--color-warm-1);
 }
-
+.system-starwarsffg .combat-sidebar li.combatant .token-image {
+    margin: 0;
+    border-radius: 25px!important;
+    height: var(--sidebar-item-height)!important;
+    width: var(--sidebar-item-height)!important;
+}
 
 /*Scene
 ************************/
@@ -1333,7 +1403,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 .starwarsffg.sheet.actor .character .sheet-body .general .resource.full table thead, 
 .starwarsffg.sheet.actor .character .sheet-body .obligation .resource.full table thead {
-    background: rgba(47, 80, 132, 0.8);
+    background: var(--red);
     text-shadow: var(--text-shadow);
 }
 .starwarsffg.sheet.actor .characteristic-item .characteristic {
@@ -1405,8 +1475,26 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 ************************/
 /*Equipment
 ************************/
+.starwarsffg .items {
+    padding: 5px 5px;
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-cool-5-75);
+    border-radius: 10px;
+    text-shadow: 0 0 15px var(--red-light);
+    border: 1px solid var(--red);
+}
 .starwarsffg .items .items-header {
     color: var(--color-warm-1);
+}
+.starwarsffg .items .items-list .item .toggle-equipped {
+    color: var(--green);
+}
+.system-starwarsffg .item-details .item-properties .tag {
+    color: var(--pfui-main-color);
+    border: 1px solid var(--color-warm-1);
+    border-radius: 0px;
+    background: var(--red);
+    text-shadow: var(--text-shadow);
 }
 
 /*Character Sheet
@@ -1417,20 +1505,6 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     color: var(--color-warm-1);
 }
 
-/*Character Sheet
-************************/
-/*Bio
-************************/
-.starwarsffg .items {
-    padding: 5px 5px;
-    box-shadow: var(--box-shadow);
-    background-color: var(--color-cool-5-25);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    text-shadow: 0 0 15px var(--red-light);
-    filter: drop-shadow(0px 1px 1px black);
-    border: 1px solid var(--red);
-}
 /*Character Sheet
 ************************/
 /*Bio
@@ -1609,6 +1683,33 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background-color: var(--color-cool-5-75);
     box-shadow: var(--box-shadow);
 }
+.system-starwarsffg form .form-group span.units {
+    color: var(--pfui-main-color);
+}
+.system-starwarsffg form .form-group.slim .form-fields > label {
+    color: var(--pfui-main-color);
+}
+.system-starwarsffg .sheet nav.sheet-tabs {
+    border-top: unset;
+    border-bottom: unset;
+}
+.system-starwarsffg .sheet nav.sheet-tabs .item {
+    background: var(--color-cool-5-25);
+    border: none;
+    box-shadow: var(--glassy);
+}
+.system-starwarsffg input[type="range"] + .range-value {
+    color: var(--sta-main-color);
+    background: var(--color-cool-5-50);
+    border: 1px solid #00273f;
+    border-radius: 25px;
+    text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .sheet nav.sheet-tabs .item.active {
+    color: #f7e06e;
+    background: var(--red)!important;
+    text-shadow: var(--text-shadow);
+}
 /*Sidebar Popout
 ************************/
 .system-starwarsffg .app.sidebar-popout {
@@ -1627,4 +1728,107 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
+}
+
+/* Token Hud 
+*************************/
+#token-hud .status-effects {
+    background: none;
+    box-shadow: none;
+    border: none;
+    padding: 0px;
+    top: -65px;
+    gap: 8px;
+    color: var(--pfui-main-color);
+}
+#token-hud .status-effects .title-bar {
+    color: var(--pfui-main-color);
+    font-size: var(--font-size-20);
+    text-transform: uppercase;
+    top: -40px;
+    border: 1px solid var(--color-cool-5);
+    background: linear-gradient(45deg, var(--color-cool-3), var(--color-cool-5));
+    box-shadow: var(--box-shadow);
+    text-shadow: 0 0 3px black;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(5px);
+}
+.placeable-hud .control-icon.active {
+    background: var(--color-cool-4);
+    border: 1px solid var(--color-warm-1);
+}
+
+.placeable-hud .control-icon picture:hover {
+    opacity: 1;
+    filter: brightness(1.1) saturate(1.5)!important;
+}
+.placeable-hud input[type="text"] {
+    background: none;
+    border-radius: var(--border-radius);
+    background-color: radial-gradient(var(--color-cool-5-50), transparent);
+    box-shadow: var(--box-shadow);
+    transition: text-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out, border 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, backdrop-filter 0.15s ease-in-out, border-radius 0.15s;
+    color: var(--pfui-main-color);
+    text-shadow: 0px 0px 3px black;
+    backdrop-filter: brightness(0.8) blur(5px);
+    filter: drop-shadow(0px 1px 1px black);
+}
+
+.placeable-hud .control-icon {
+    border-radius: 50%;
+    background: none;
+    box-shadow: var(--box-shadow);
+    transition: text-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out, border 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, backdrop-filter 0.15s ease-in-out, border-radius 0.15s;
+    color: var(--pfui-main-color);
+    text-shadow: 0px 0px 5px black;
+    backdrop-filter: blur(5px);
+    filter: drop-shadow(0px 1px 1px black);
+}
+.placeable-hud .control-icon img {
+    filter: brightness(0.7) sepia(1) grayscale(0.7) drop-shadow(0px 1px 1px black);
+}
+
+#token-hud .status-effects .effect-control {
+    box-shadow: var(--box-shadow);
+    filter: sepia(1) brightness(0.6);
+    text-shadow: 0px 0px 3px black;
+    background: linear-gradient(45deg, var(--color-cool-3), var(--color-cool-5-25));
+}
+#token-hud .status-effects .effect-control:hover {
+    opacity: 1;
+    filter: contrast(1);
+}
+#token-hud .status-effects .effect-control.overlay {
+    border: 2px solid var(--red-light);
+}
+#token-hud .status-effects .effect-control img {
+    border: none;
+    border-radius: 50%;
+    height: 100%;
+    width:100%;
+    opacity: 1;
+    box-shadow: var(--box-shadow);
+}
+#token-hud .status-effects .effect-control.active {
+    filter: brightness(1.1) saturate(1);
+}
+#token-hud .status-effects .effect-control.active img {
+    border: 2px solid var(--color-warm-1);
+    filter: brightness(1.1) saturate(1);
+    opacity: 0.75;
+}
+#token-hud .status-effects .effect-control:not(.active):hover img {
+    border: 2px solid var(--green);
+    opacity: 1;
+}
+#token-hud .status-effects .effect-control .badge {
+    right: 0px;
+    top: 0px;
+    width: 1.2rem;
+    color: var(--pfui-main-color);
+    background-color: var(--red);
+    border: 1px solid var(--color-cool-5);
+    border-radius: 0PX 25% 0PX 0PX;
+    box-shadow: var(--box-shadow);
+    text-shadow: 0px 1px 2px black;
 }

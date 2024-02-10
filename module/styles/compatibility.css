@@ -75,8 +75,55 @@
     --color-scrollbar-border: #8d151b;
 }
 
+/*Automated Animations
+************************/
+/* https://github.com/DFreds/dfreds-effects-panel */
+#AA-autorec-settings .window-content > *, 
+#AA-item-settings .window-content > *, 
+#AA-ae-settings .window-content > * {
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-5-25);
+    border: none;
+    border-radius: 25px;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--glassy);
+}
+header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
+    color: var(--color-warm-1);
+}
+.aa-tabs.svelte-auto-1gugmsw button.svelte-auto-1gugmsw {
+    color: var(--color-warm-1);
+}
+.aa-tabs.svelte-auto-1gugmsw.svelte-auto-1gugmsw {
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-5-25);
+    border: none;
+    border-radius: 25px;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--glassy);
+}
+
+/*Dfreds effects panel
+************************/
+/* https://github.com/DFreds/dfreds-effects-panel */
+.effect-panel .effect-item .temporary.icon {
+    border-radius: 10%;
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    background-color: var(--color-cool-5-25);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--glassy-shadow);
+}
+
+
+
 /*Module-Management
 ************************/
+/* https://github.com/mouse0270/module-credits */
 #module-management .package-list .package {
     border-bottom: 1px dotted var(--color-cool-1);
 }
@@ -119,4 +166,69 @@
 #module-management .package-list .package-title {
     color: #f7e06e;
     text-transform: uppercase;
+}
+
+
+/* Monk's Little Details */
+/*https://github.com/ironmonk88/monks-little-details*/
+.group-header {
+    background-color: var(--color-cool-5-50);
+    box-shadow: var(--box-shadow);
+    text-shadow: 0 0 15px var(--red-light);
+}
+#token-hud.monks-little-details .status-effects .effect-control {
+  border-radius: unset;
+}
+#token-hud.placeable-hud.monks-little-details .status-effects {
+  background: none;
+  filter: brightness(1.1) saturate(1);
+}
+#token-hud.placeable-hud.monks-little-details .status-effects .effect-control {
+  border: none;
+  opacity: unset;
+  border-radius: var(--border-radius);
+}
+#token-hud.placeable-hud.monks-little-details .status-effects .effect-control.active {
+    border: 1px solid var(--color-cool-5);
+    opacity: 1;
+    background: linear-gradient(45deg, var(--color-cool-3), var(--color-cool-5));
+    box-shadow: 0px 5px 20px 3px black, 0px 0px 50px 30px color-mix(in srgb, var(--color-cool-5) 10%, transparent);
+    filter: brightness(1.1) saturate(1.5);
+    border-radius: var(--border-radius-5);
+    text-shadow: 0px 1px 2px black;
+}
+#token-hud.placeable-hud.monks-little-details .status-effects .effect-control.active .effect-name {
+    color: var(--pfui-main-color);
+  opacity: unset;
+}
+#token-hud.placeable-hud.monks-little-details .status-effects .effect-name {
+  opacity: unset;
+  padding-right: 4px;
+  color: var(--pfui-main-color);
+  font-size:  12px;
+}
+#token-hud.monks-little-details .status-effects .clear-all {
+    bottom: 103%;
+    right: 1px;
+    padding: 1px 17px 1px 17px;
+    color: var(--pfui-main-color);
+    box-shadow: var(--box-shadow);
+    filter: sepia(1) brightness(0.6);
+    text-shadow: 0px 0px 3px black;
+    background: linear-gradient(45deg, var(--color-cool-3), var(--color-cool-5-25));
+}
+#token-hud.monks-little-details .status-effects .clear-all:hover {
+    opacity: 1;
+    filter: contrast(1);
+}
+.compendium-sidebar .directory-list .compendium-type h3 {
+    font-family: 'EarthOrbiter';
+    text-transform: inherit;
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-5-50);
+    border-radius: 25px 0 0 25px;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--glassy);
 }
