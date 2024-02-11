@@ -12,6 +12,10 @@
 
 ## v11.315.1806.7
 - Updated Compatibility with Starwarsffg
+- Added Compatibility with Mandar Theme. (WIP)
+
+## v11.315.1806.7
+- Updated Compatibility with Starwarsffg
 - Fixed error in journals where images masked options. 
 
 ## v11.315.1806.6
