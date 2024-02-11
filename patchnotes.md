@@ -5,6 +5,11 @@
 - Ready for v11 version.
 
 
+## v11.315.1806.8
+- Improved Compatibility with Starwarsffg
+- Added Compatibility with Mandar Theme. (WIP)
+- Fixed some errors and added of others
+
 ## v11.315.1806.7
 - Updated Compatibility with Starwarsffg
 - Fixed error in journals where images masked options. 
