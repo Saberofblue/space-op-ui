@@ -93,8 +93,20 @@
     src: url("./fonts/EarthOrbiterBold-vzD9.otf")format("opentype");
 }
 @font-face {
+    font-family: "AurebeshBold";
+    src: url("./fonts/Aurebesh-Bold.otf")format("opentype");
+}
+@font-face {
     font-family: "STJediSE";
     src: url("./fonts/STJedise.ttf")format("truetype");
+}
+@font-face {
+    font-family: "EotESymbol";
+    src: url("./fonts/EotESymbol-Regular-PLUS.otf") format("opentype");
+  }
+@font-face {
+    font-family: "GenesysSymbol";
+    src: url("./fonts/Genesys.ttf") format("truetype");
 }
 @keyframes glow {
     from {
@@ -128,6 +140,11 @@ body {
 .system-starwarsffg form .notes, 
 .system-starwarsffg form .hint {
     color: #afafaf!important;
+}
+.system-starwarsffg .flex-group-center, 
+.system-starwarsffg .flex-group-left, 
+.system-starwarsffg .flex-group-right {
+    border: 1px solid transparent;
 }
 .system-starwarsffg #pause > figcaption {
     font-family:'EarthOrbiter';
@@ -235,6 +252,16 @@ button:disabled {
     font-family: inherit;
     background: var(--color-cool-5-90);
 }
+.starwarsffg .dice-pool-dialog .pool-value {
+    border: unset;
+    background-color: var(--color-cool-2);
+    border-radius: 25px;
+    box-shadow: var(--box-shadow-light);
+}
+.starwarsffg .dice-pool-dialog .pool-value input {
+    color: var(--color-warm-1);
+    text-shadow: var(--text-shadow);
+}
 .system-starwarsffg .initiative-dialog .pool-additional img {
     border: 1px dotted white;
 }
@@ -259,7 +286,7 @@ button:disabled {
     text-transform: inherit;
     color: var(--pfui-main-color);
     background-color: var(--color-cool-5-50);
-    border-radius: 25px;
+    border-radius: 50%;
     backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
@@ -270,6 +297,27 @@ button:disabled {
     color: var(--color-warm-1);
     background-color: var(--color-cool-5-75);
     box-shadow: var(--box-shadow);
+}
+.system-starwarsffg .filepicker .display-modes a {
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-5-50);
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--glassy);
+    border: unset;
+}
+.system-starwarsffg .filepicker .display-modes a:hover {
+    color: var(--color-warm-1);
+    background-color: var(--color-cool-5-75);
+    box-shadow: var(--box-shadow);
+}
+.system-starwarsffg .filepicker .display-modes a.active {
+    color: var(--color-warm-5);
+    background-color:var(--color-warm-1);
+    box-shadow: var(--glassy);
+    text-shadow: 0 0 15px var(--red-light);
 }
 .system-starwarsffg input[type="checkbox"]:checked,
 .system-starwarsffg input[type="radio"]:checked {
@@ -987,9 +1035,6 @@ button:disabled {
     font-size: large;
     color: var(--red-light)!important;
 }
-.system-starwarsffg span.dietype.threat {
-    color: revert;
-}
 section.chat-sidebar .jump-to-bottom > a {
     color: var(--pfui-main-color);
     background-color: var(--color-cool-5-75);
@@ -1112,6 +1157,12 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--glassy-shadow);
     height: 35px;
 }
+.system-starwarsffg .directory .directory-item .document-name a {
+    display: grid;
+    height: 22px;
+    align-content: center;
+    margin: 7px;
+}
 .system-starwarsffg .directory .directory-item img {
     border-radius: 25px 0 0 25px;
     box-shadow: var(--glassy-shadow);
@@ -1135,6 +1186,13 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     height: 30px;
     border-radius: 25px 0 0 25px;
 }
+.system-starwarsffg .directory .journalentry .document-name a {
+    display: grid;
+    height: 20px;
+    align-content: center;
+    margin: 7px;
+}
+
 
 /*Playlist
 ************************/
@@ -1266,61 +1324,6 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     text-transform: uppercase;
     color: var(--sta-main-color)!important;
     background: var(--color-cool-5-25);
-}
-
-
-/*Swffg destiny
-************************/
-#destiny-tracker .window-content {
-    box-shadow: unset;
-    background-color: unset!important;
-    margin: unset;
-    backdrop-filter: unset;
-    filter: unset;
-    border: none;
-}
-.swffg-destiny {
-    background: unset;
-    border: unset;
-    border-radius: 5px;
-    box-shadow: unset;
-    box-sizing: content-box;
-    color: var(--pfui-main-color);
-    gap: 2px;
-}
-.swffg-destiny .group-manager {
-    padding: 1px 0px 0px 2px;
-}
-.swffg-destiny .destiny-points {
-    color: var(--pfui-main-color);
-    box-shadow: unset;
-    background: var(--color-cool-5);
-    border-radius: 5px;
-    backdrop-filter: blur(5px);
-    text-shadow: 0 0 15px var(--red-light);
-    filter: drop-shadow(0px 1px 1px black);
-}
-.swffg-destiny .destiny-points:hover {
-    color:var(--color-warm-1);
-    text-shadow: 0 0 15px var(--red-light);
-}
-#destiny-tracker .dropdown-content a {
-    padding: 3px 4px!important;
-    text-decoration: none;
-    display: block;
-    font-size: 15px;
-    color: var(--pfui-main-color);
-    background: var(--color-cool-5);
-    border-radius: 5px;
-    backdrop-filter: blur(5px);
-    text-shadow: 0 0 15px var(--red-light);
-    filter: drop-shadow(0px 1px 1px black);
-    margin-bottom: 5px;
-    width: 100%!important;
-}
-#destiny-tracker .dropdown-content a:hover {
-    color:var(--color-warm-1);
-    text-shadow: 0 0 15px var(--red-light);
 }
 
 
@@ -1506,6 +1509,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .system-starwarsffg table {
     width: 95%;
     margin: 5px 0px 5px 5px;
+    background: var(--color-cool-5-25);
 }
 .system-starwarsffg table tr:nth-child(even) {
     background-color: var(--color-cool-4);
@@ -1830,12 +1834,19 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 .starwarsffg .talent-background {
     background-color: var(--color-cool-4)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg .item-sheet-forcepower .talent-cost {
+    background: var(--color-cool-5)!important;
+    color: var(--red-light)!important;
 }
 .starwarsffg .item-sheet-forcepower .talent-cost input {
     background: var(--color-cool-5-50)!important;
+    color: var(--green)!important;
 }
 .starwarsffg .item-sheet-signatureability .talent-cost input {
     background: var(--color-cool-5-50)!important;
+    color: var(--green)!important;
 }
 /*Dialog
 ************************/
@@ -1892,7 +1903,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     text-shadow: var(--text-shadow);
 }
 .system-starwarsffg .sheet nav.sheet-tabs .item.active {
-    color: #f7e06e;
+    color: var(--sta-main-color);
     background: var(--red)!important;
     text-shadow: var(--text-shadow);
     --notchSize: 9px;
@@ -2054,9 +2065,6 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border-top: unset!important;
     border-image: unset!important;
 }
-.system-starwarsffg span.dietype.advantage {
-    color: var(--color-cool-1)!important;
-}
 .starwarsffg .header-fields .minion-name {
     background: none!important;
 }
@@ -2087,4 +2095,309 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .starwarsffg .item-sheet-vehicle-attachment .characteristic-item, 
 .starwarsffg .item-sheet-vehicle-attachment .block-background {
     background-color: var(--color-cool-5-50)!important;
+}
+
+span.dietype.starwars {
+  font-family: "EotESymbol", sans-serif;
+}
+span.dietype.genesys {
+  font-family: "GenesysSymbol", sans-serif;
+}
+span.dietype.ability {
+  color: var(--green)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.advantage {
+  color: var(--color-cool-1)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.boost {
+  color: lightskyblue!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.challenge {
+  color: var(--red-light)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.dark {
+  color: var(--color-cool-5)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.despair {
+  color: var(--color-cool-5)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.difficulty {
+  color: var(--rarity-unique)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.forcepoint {
+  color: var(--color-cool-5)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.failure {
+  color: var(--color-cool-5)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.force {
+  color: var(--color-cool-1)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.light {
+  color: var(--color-cool-1)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.proficiency {
+  color: var(--sta-main-color)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.setback {
+  color: var(--color-cool-5)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.success {
+  color: var(--color-cool-1)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.threat {
+  color: var(--color-cool-1)!important;
+  text-shadow: var(--text-shadow);
+}
+span.dietype.triumph {
+  color: var(--color-cool-1)!important;
+  text-shadow: var(--text-shadow);
+}
+
+.starwarsffg span.dietype.starwars {
+    font-family: "EotESymbol", sans-serif;
+}
+.starwarsffg span.dietype.genesys {
+    font-family: "GenesysSymbol", sans-serif;
+}
+.starwarsffg span.dietype.ability {
+    color: var(--green)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.advantage {
+    color: var(--green)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.boost {
+    color: lightskyblue!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.challenge {
+    color: var(--red-light)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.dark {
+    color: var(--color-cool-5)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.despair {
+    color: var(--color-warm-2)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.difficulty {
+    color: var(--rarity-unique)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.forcepoint {
+    color: white!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.failure {
+    color: var(--color-cool-1)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.force {
+    color: white!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.light {
+    color: white!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.proficiency {
+    color: var(--sta-main-color)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.setback {
+    color: var(--color-cool-5)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.success {
+    color: var(--green)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.threat {
+    color: var(--color-cool-1)!important;
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.triumph {
+    color: var(--color-warm-1)!important;
+    text-shadow: var(--text-shadow);
+}
+
+/* Destiny tracker
+*************************/
+#destiny-tracker {
+  box-shadow: none;
+  background: transparent;
+  position: absolute;
+  /* Dropdown Button */
+  /* Dropdown button on hover & focus */
+  /* The container <div> - needed to position the dropdown content */
+  /* Dropdown Content (Hidden by Default) */
+  /* Change color of dropdown links on hover */
+  /* Show the dropdown menu on hover */
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+}
+#destiny-tracker .window-content {
+    box-shadow: unset;
+    background-color: unset!important;
+    margin: unset;
+    backdrop-filter: unset;
+    filter: unset;
+    border: none;
+}
+#destiny-tracker header.window-header {
+  display: none;
+}
+.swffg-destiny .group-manager {
+    padding: 1px 0px 0px 2px;
+}
+#destiny-tracker .dropbtn {
+  background: url("../../../ui/denim075.png") repeat;
+  color: white;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  text-shadow: 0 0 5px black;
+}
+#destiny-tracker .dropbtn i {
+  margin: 0;
+}
+#destiny-tracker .dropbtn:hover, #destiny-tracker .dropbtn:focus {
+  background-color: var(--color-cool-5-90);
+  box-shadow: 0 0 1rem #ff6400;
+}
+#destiny-tracker .dropdown {
+  position: relative;
+  display: inline-block;
+}
+#destiny-tracker .dropdown-content {
+  display: contents;
+  position: absolute;
+  background: url("../../../ui/denim075.png") repeat;
+  max-width: 50px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+#destiny-tracker .dropdown-content a {
+    padding: 8px 4px!important;
+    text-decoration: none;
+    display: grid;
+    font-size: 15px;
+    color: var(--pfui-main-color);
+    background: var(--color-cool-5);
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    margin-bottom: 5px;
+    width: 100%!important;
+}
+#destiny-tracker .dropdown-content a:hover {
+    color:var(--color-warm-1);
+    text-shadow: 0 0 15px var(--red-light);
+}
+#destiny-tracker .dropdown:hover .dropbtn {
+  --color-text-hyperlink: #ff6400;
+  background-color: var(--color-text-hyperlink);
+}
+#destiny-tracker .show {
+  display: block;
+  width: 200%;
+}
+#destiny-tracker .show a:hover {
+    --color-text-hyperlink: #ff6400;
+    background-color: var(--color-text-hyperlink);
+}
+.swffg-destiny-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+.swffg-destiny {
+  box-sizing: content-box;
+  color: var(--pfui-main-color);
+  font-family: "warnock-pro", "sans-serif";
+  font-size: 2rem;
+  height: auto;
+  bottom: 0px;
+  line-height: auto;
+  margin: 0.5rem;
+  pointer-events: none;
+  text-align: center;
+  width: auto;
+  display: flex;
+  z-index: 70;
+  background: unset;
+  border: unset;
+  border-radius: 5px;
+  box-shadow: unset;
+  gap: 2px;
+}
+.swffg-destiny.swffg-groupmanager {
+  pointer-events: auto;
+}
+.swffg-destiny #destinyLight {
+  background: var(--color-cool-5-90) url("./artwork/dice/starwars/lightside.webp") no-repeat center;
+  background-size: contain;
+}
+.swffg-destiny #destinyDark {
+  background: var(--color-cool-5-90) url("./artwork/dice/starwars/darkside.webp") no-repeat center;
+  background-size: contain;
+}
+.swffg-destiny .destiny-points {
+    flex: 0 0 4rem;
+    position: relative;
+    cursor: pointer;
+    padding: 0.25rem;
+    pointer-events: auto;
+    margin: 0.25rem;
+    width: 4rem;
+    height: 4rem;
+    line-height: 3.25rem;
+    text-shadow: var(--text-shadow)!important;
+    border-radius: 50%;
+    box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.75);
+    color: var(--red-light);
+    font-size: xxx-large;
+    font-weight: bold;
+    filter: drop-shadow(0px 1px 1px black);
+}
+.swffg-destiny .destiny-points:hover {
+    box-shadow: 0 0 1rem #ff6400;
+    filter: drop-shadow( 0 0 5px var(--red-light));
+}
+.swffg-destiny .destiny-points span {
+  bottom: 0;
+  color: var(--color-warm-1);
+  font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif;
+  text-transform: uppercase;
+  text-shadow: var(--text-shadow);
+  font-size: 0.75rem;
+  left: 50%;
+  line-height: 0.5rem;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 80px;
+}
+.swffg-destiny #context-menu {
+  font-size: 0.875rem;
+}
+.ffg-destiny-roll {
+  cursor: pointer;
 }

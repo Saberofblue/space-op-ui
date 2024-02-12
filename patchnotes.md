@@ -5,6 +5,15 @@
 - Ready for v11 version.
 
 
+## v11.315.1806.9
+- Improved Compatibility with Starwarsffg
+- Improved Compatibility with Mandar Theme. (WIP)
+- Switching basic destiny window with Mandar destiny window.
+- Added an option to correct problem to scroll until the end of the sheets in the default theme.
+- Fixed font colours hard to see under the Mandar theme.
+- Fixed issue [#3](https://gitlab.com/sasmira/space-op-ui/-/issues/3)
+- Fixed some errors and added of others
+
 ## v11.315.1806.8
 - Improved Compatibility with Starwarsffg
 - Added Compatibility with Mandar Theme. (WIP)

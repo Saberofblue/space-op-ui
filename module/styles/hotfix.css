@@ -1,0 +1,29 @@
+/* Actor
+************************/
+.starwarsffg.sheet.actor.v2 .character .sheet-body .skillsTablesGrid {
+    height: unset!important;
+}
+.starwarsffg.sheet.actor .character .sheet-body .skillsTablesGrid {
+    height: unset!important;
+}
+.starwarsffg.sheet.actor.v2 .skillsTablesGrid {
+    max-height: calc(100% - 33.1875rem);
+}
+.starwarsffg.sheet.actor .skillsTablesGrid {
+    max-height: calc(100% - 36.1875rem);
+}
+
+/* Minion
+************************/
+.starwarsffg.sheet.actor.v2 .minion .sheet-body .skillsTablesGrid {
+    height: unset!important;
+}
+.starwarsffg.sheet.actor .minion .sheet-body .skillsTablesGrid {
+    height: unset!important;
+}
+.starwarsffg.sheet.actor.v2 .minion .skillsTablesGrid {
+    max-height: calc(100% - 32.1rem);
+}
+.starwarsffg.sheet.actor .minion .skillsTablesGrid {
+    max-height: calc(100% - 32.1875rem);
+}

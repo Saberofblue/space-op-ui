@@ -126,6 +126,7 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
 /* https://github.com/mouse0270/module-credits */
 #module-management .package-list .package {
     border-bottom: 1px dotted var(--color-cool-1);
+    background: var(--color-cool-5-25);
 }
 #module-management .package-list .package .package-overview .tag.expand {
     background: var(--glass-bg-light);
@@ -164,10 +165,13 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     box-shadow: var(--box-shadow-light);
 }
 #module-management .package-list .package-title {
-    color: #f7e06e;
-    text-transform: uppercase;
+    color: var(--sta-main-color);
+    text-shadow: var(--text-shadow);
 }
-
+#module-management nav.list-filters a.filter.active {
+    background: var(--color-cool-5-25);
+    border-bottom: 2px solid var(--red-light);
+}
 
 /* Monk's Little Details */
 /*https://github.com/ironmonk88/monks-little-details*/
@@ -231,4 +235,173 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     box-shadow: var(--glassy);
+}
+
+
+/* Monk's TokenBar */
+/* https://github.com/ironmonk88/monks-tokenbar */
+:root{
+    --monks-border-color: #6b6155;
+}
+#tokenbar .token {
+    border: 1px solid transparent;
+    border-radius: unset;
+    margin: 2px;
+    text-shadow: 0 0 15px var(--red-light);
+    background: unset;
+    box-shadow: unset;
+}
+#tokenbar .bar-controls div#tokenbar-move-handle {
+    background: unset;
+}
+#tokenbar .token-list {
+    border: 1px solid transparent;
+}
+#tokenbar .bar-controls > div > .toggle-collapse {
+    color: var(--color-warm-1);
+}
+#tokenbar .token .token-icon {
+    border: none;
+    box-shadow: unset;
+    background: transparent;
+    backdrop-filter: blur(5px);
+}#tokenbar .token .token-stat i {
+    color: var(--green);
+    filter: drop-shadow(0px 1px 1px black);
+}
+#tokenbar .token .token-stat {
+    color: var(--color-warm-1)!important;
+    filter: drop-shadow(0px 1px 1px black);
+}
+#tokenbar .token .token-stats {
+    background: var(--color-cool-5-75);
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    filter: drop-shadow(0px 1px 1px black);
+}
+#tokenbar .bar-controls {
+    color: var(--pfui-main-color);
+    text-shadow: var(--text-shadow);
+    border: 1px solid transparent;
+    box-shadow: unset;
+    background: var(--color-cool-5-75);
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+}
+#tokenbar .bar-controls .tokenbar-buttons div.active:not(.disabled) i, 
+#tokenbar[movement="free"] #movement-free:not(.disabled) i, 
+#tokenbar[movement="none"] #movement-none:not(.disabled) i, 
+#tokenbar[movement="combat"] #movement-combat:not(.disabled) i {
+    color: var(--color-warm-1);
+    border: 1px solid var(--color-warm-2);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: contrast(1.5);
+}
+
+#chat .monks-tokenbar.chat-card .card-header {
+    padding: 3px 0;
+    border-top: 2px groove var(--monks-border-color);
+    border-bottom: 2px groove var(--monks-border-color);
+}
+
+#chat .monks-tokenbar.chat-card .card-footer {
+    border-top: 2px groove var(--monks-border-color);
+}
+
+#chat .monks-tokenbar.chat-card .card-footer span {
+    border-right: 2px groove var(--monks-border-color);
+    font-size: 9px;
+}
+
+.monks-tokenbar .footer-button {
+    width: 18px;
+    height: 18px;
+    float: right;
+    font-size: 11px;
+    line-height: 11px;
+    padding: 0px 2px;
+}
+
+#chat .monks-tokenbar .sheet .items-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    color: var(--pfui-main-color);
+}
+
+#chat .monks-tokenbar.chat-card .card-header h3 {
+    color: var(--pfui-main-color)
+}
+
+#chat #requestsavingthrow .request-header {
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    color: var(--pfui-main-color);
+    background: black;
+    border: 2px solid var(--border-color);
+    padding: 1px 8px;
+}
+
+#chat .monks-tokenbar .sheet .items-list .item-name h3,
+#chat .monks-tokenbar .sheet .items-list .item-name h4 {
+    margin: 0;
+    white-space: nowrap;
+    overflow-x: hidden;
+    color: var(--pfui-main-color);
+    font-weight: bold;
+    padding: 1px 4px;
+
+    background: rgba(0, 0, 0, 0.43);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+}
+
+#chat .monks-tokenbar .sheet .items-list .items-header {
+    height: 28px;
+    margin: 2px 0;
+    padding: 0;
+    align-items: center;
+    font-weight: bold;
+    flex-wrap: nowrap;
+
+    background: rgba(0, 0, 0, 0.43);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+}
+
+#chat .monks-tokenbar.chat-card .sheet .items-list {
+    padding: 0;
+}
+.monks-tokenbar .sheet .items-list .items-header {
+    color: var(--color-warm-1);
+    background: none;
+    background-color: var(--color-cool-5-75)!important;
+    border-radius: var(--border-radius-5)!important;
+    margin: 3px 0px!important;
+    backdrop-filter: blur(10px);
+    text-shadow: 0 0 15px var(--red-light);
+    border: 1px solid var(--red);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--box-shadow);
+}
+.monks-tokenbar .sheet .items-list .item:last-child {
+    border-bottom: none;
+    color: var(--green);
+    text-shadow: var(--text-shadow);
+    border-radius: 25px;
+}
+.monks-tokenbar.editstats .tt-menu {
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-5-90);
+}
+.monks-tokenbar.pick-icon .font-picker .icon {
+    background-color: var(--color-cool-5-25);
+    color: var(--green);
+    text-shadow: var(--text-shadow);
+    border-radius: 25px;
 }

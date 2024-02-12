@@ -1,4 +1,7 @@
 {
+    "RPGUI.SETTINGS.HOTFIX": "Turn off the HOTFIX for the Default theme.",
+    "RPGUI.SETTINGS.HOTFIX_HINT": "You must disable the HOTFIX for the default theme if you're using the Mandar theme.",
+
     "RPGUI.SETTINGS.TOKEN_EFFECT_HUD": "Adjust token effects HUD?",
     "RPGUI.SETTINGS.TOKEN_EFFECT_HUD_HINT": "Makes effects circular and arranges them outside the token, or on the token ring for larger tokens",
 

@@ -23,7 +23,20 @@ Hooks.on("init", () => {
 		}
   });
 
+	game.settings.register('space-op-ui', 'hotfix', {
+		name: game.i18n.localize('RPGUI.SETTINGS.HOTFIX'),
+		hint: game.i18n.localize('RPGUI.SETTINGS.HOTFIX_HINT'),
+		scope: "client",
+		type: Boolean,
+		default: false,
+		config: true,
+		onChange: () => {
+			location.reload();
+		}
+	});
+
   if (game.settings.get('space-op-ui', 'adjustTokenEffectsHudToggle')) { rpgUIAddTokenEffectsHud() }
+  if (!game.settings.get('space-op-ui', 'hotfix')) { rpgUIAddHotfix() }
 
   ChatRollPrivacy.init();
 });
@@ -40,4 +53,14 @@ function rpgUIAddTokenEffectsHud() {
   head.insertBefore(mainCss, head.lastChild);
 
   setTimeout(() => enableStatusHalo(), 700);
+}
+
+function rpgUIAddHotfix() {
+	const head = document.getElementsByTagName("head")[0];
+	const mainCss = document.createElement("link");
+	mainCss.setAttribute("rel", "stylesheet")
+	mainCss.setAttribute("type", "text/css")
+	mainCss.setAttribute("href", "modules/space-op-ui/styles/hotfix.css")
+	mainCss.setAttribute("media", "all")
+	head.insertBefore(mainCss, head.lastChild);
 }
