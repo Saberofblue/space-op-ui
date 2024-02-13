@@ -129,13 +129,14 @@ body {
     color: var(--green);
     text-shadow: 0 0 15px var(--red-light);
 }
-.system-starwarsffg .rollable:hover,
+.system-starwarsffg .rollable:hover, 
 .system-starwarsffg .rollable:focus {
     color: var(--green);
     background: var(--color-warm-1);
     border-radius: 25px;
     text-shadow: none;
     cursor: pointer;
+    animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg form .notes, 
 .system-starwarsffg form .hint {
@@ -180,16 +181,12 @@ body {
     padding: 8px 2px 5px 2px;
     color: var(--pfui-main-color)!important;
     box-shadow: var(--box-shadow);
-    border-radius: var(
-    --border-radius-5);
+    border-radius: var(--border-radius-5);
     margin: 3px 1px;
-    backdrop-filter: blur(10px);
     text-shadow: 0 0 15px var(--red-light);
-    filter: drop-shadow(0px 1px 1px black);
 }
 .starwarsffg.sheet.actor.v2 .window-content {
     padding: 8px 2px 5px 2px;
-    background-color: var(--color-cool-5-25)!important;
     backdrop-filter: unset;
     filter: unset;
 }
@@ -203,13 +200,14 @@ body {
     background: var(--color-warm-1)!important;
     height: 2rem;
 }
-.system-starwarsffg .dialog,
-.system-starwarsffg .form.app,
-.system-starwarsffg .sheet.app,
-.system-starwarsffg .data-import.app,
-.system-starwarsffg .sheet.folder-edit,
-.system-starwarsffg .sheet.journal-entry.app,
-.system-starwarsffg .package-configuration.app {
+.system-starwarsffg .dialog, 
+.system-starwarsffg .form.app, 
+.system-starwarsffg .sheet.app, 
+.system-starwarsffg .data-import.app, 
+.system-starwarsffg .sheet.folder-edit, 
+.system-starwarsffg .sheet.journal-entry.app, 
+.system-starwarsffg .package-configuration.app, 
+.system-starwarsffg .roll-builder-dialog {
     backdrop-filter: blur(10px);
 }
 .system-starwarsffg .window-app .window-resizable-handle {
@@ -355,7 +353,7 @@ button:disabled {
     font-family: 'EarthOrbiter';
     text-transform: inherit;
     color: var(--pfui-main-color);
-    background-color: var(--color-cool-5-50);
+    Background: radial-gradient(var(--color-cool-4), var(--color-cool-5-90));
     border-radius: 25px;
     text-shadow: var(--text-shadow);
     box-shadow: var(--glassy);
@@ -367,15 +365,15 @@ button:disabled {
 }
 .system-starwarsffg button.resetMedical.fas.fa-recycle:hover {
     font-family: 'Font Awesome 5 Free';
-    color: var(--color-cool-5);
-    background-color: var(--green);
+    color: var(--green);
     box-shadow: var(--box-shadow-light);
+    animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg #sidebar button {
     font-family: 'EarthOrbiter';
     text-transform: inherit;
     color: var(--pfui-main-color);
-    background-color: var(--color-cool-5-50);
+    Background: radial-gradient(var(--color-cool-4), var(--color-cool-5-90));
     border-radius: 25px;
     box-shadow: var(--glassy);
     backdrop-filter: blur(5px);
@@ -390,11 +388,13 @@ button:disabled {
    color: var(--color-warm-1);
    background-color: var(--color-cool-5-75);
    box-shadow: var(--box-shadow-light);
+   animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg #sidebar button:hover {
    color: var(--color-warm-1);
    background-color: var(--color-cool-5-75);
    box-shadow: var(--box-shadow);
+   animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg #sidebar .sidebar-tab .directory-header .create-entity, 
 .system-starwarsffg #sidebar .sidebar-tab .directory-header .create-folder {
@@ -411,6 +411,7 @@ button:disabled {
     color: var(--color-warm-1);
     background-color: var(--color-cool-5-75);
     box-shadow: var(--box-shadow);
+    animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg li.folder > .folder-header h3 {
     color: antiquewhite;
@@ -583,12 +584,14 @@ button:disabled {
     color: var(--color-text-hyperlink);
     border-color: var(--color-text-hyperlink);
     box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+    animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover {
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);
     border-color: var(--color-text-hyperlink);
     box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+    animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.active > i.fas, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.active i.far, 
@@ -612,15 +615,25 @@ button:disabled {
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover.active i.fa-regular {
     background-color: var(--color-cool-5);
     box-shadow: var(--box-shadow);
+    animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover.active {
     border-color: var(--color-cool-5);
     box-shadow: var(--box-shadow);
+    animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg #controls ol.control-tools > li > i.fas, 
 .system-starwarsffg #controls ol.control-tools > li i.far, 
-.system-starwarsffg #controls ol.control-tools > li i.fa-solid, 
+.system-starwarsffg #controls ol.control-tools > li i.fa-solid,
+.system-starwarsffg #controls ol.control-tools > li i.fa-jedi, 
 .system-starwarsffg #controls ol.control-tools > li i.fa-regular {
+    box-sizing: content-box;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    vertical-align: top;
+    margin-left: 3px;
     border: 1px solid var(--red);
     color: var(--pfui-main-color);
     background-color: var(--color-cool-5-50);
@@ -632,7 +645,8 @@ button:disabled {
 }
 .system-starwarsffg #controls ol.control-tools > li.active > i.fas, 
 .system-starwarsffg #controls ol.control-tools > li.active i.far, 
-.system-starwarsffg #controls ol.control-tools > li.active i.fa-solid, 
+.system-starwarsffg #controls ol.control-tools > li.active i.fa-solid,
+.system-starwarsffg #controls ol.control-tools > li.active i.fa-jedi,
 .system-starwarsffg #controls ol.control-tools > li.active i.fa-regular {
     background-color: var(--color-cool-5-50);
     --color-text-hyperlink: #ff6400;
@@ -648,7 +662,8 @@ button:disabled {
 }
 .system-starwarsffg #controls ol.control-tools > li:hover.active > i.fas, 
 .system-starwarsffg #controls ol.control-tools > li:hover.active i.far, 
-.system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-solid, 
+.system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-solid,
+.system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-jedi, 
 .system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-regular {
     background-color: var(--color-cool-5);
     box-shadow: var(--box-shadow);
@@ -659,23 +674,27 @@ button:disabled {
 }
 .system-starwarsffg #controls ol.control-tools > li:hover > i.fas, 
 .system-starwarsffg #controls ol.control-tools > li:hover i.far, 
-.system-starwarsffg #controls ol.control-tools > li:hover i.fa-solid, 
+.system-starwarsffg #controls ol.control-tools > li:hover i.fa-solid,
+.system-starwarsffg #controls ol.control-tools > li:hover i.fa-jedi,
 .system-starwarsffg #controls ol.control-tools > li:hover i.fa-regular {
     background-color: var(--color-cool-5-50);
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);
     border-color: var(--color-text-hyperlink);
     box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+    animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg #controls ol.control-tools > li:hover {
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);
     border-color: var(--color-text-hyperlink);
     box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+    animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle > i.fas, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle i.far, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle i.fa-solid, 
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle i.fa-jedi, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle i.fa-regular {
     border: 2px solid var(--red-light);
     background-color: var(--color-cool-5-90);
@@ -684,21 +703,25 @@ button:disabled {
 }
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover > i.fas, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover i.far, 
-.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover i.fa-solid, 
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover i.fa-solid,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover i.fa-jedi, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover i.fa-regular {
     background-color: var(--color-cool-5-50);
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);
     border-color: var(--color-text-hyperlink);
     box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+    animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover {
     border-color: var(--green);
     box-shadow: var(--box-shadow);
+    animation: glow 0.75s infinite alternate;
 }
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active > i.fas, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.far, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-solid, 
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-jedi,  
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-regular {
     border: 2px solid var(--green);
     background-color: var(--color-cool-5-90);
@@ -712,6 +735,7 @@ button:disabled {
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active > i.fas:hover, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.far:hover, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-solid:hover, 
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-jedi:hover, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-regular:hover {
     background-color: var(--color-cool-5-50);
     --color-text-hyperlink: #ff6400;
@@ -722,7 +746,9 @@ button:disabled {
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active:hover {
     border-color: var(--red-light);
     box-shadow: var(--box-shadow);
+    animation: glow 0.75s infinite alternate;
 }
+
 
 /* Ui-bottom
 ************************/
@@ -1141,7 +1167,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     margin: 3px 0px 7px 3px;
     color: var(--color-warm-1);
     text-shadow: 0 0 15px var(--red-light);
-    background-color: var(--color-cool-5-90);
+    background: linear-gradient(45deg, var(--color-cool-4), var(--color-cool-5-50));
     border-radius: 25px 0 0 25px;
     border-bottom: 2px solid var(--color-cool-4);
 }
@@ -1501,13 +1527,14 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border: 1px solid var(--red);
 }
 .starwarsffg.sheet.actor .character .header-fields .profile-img {
+    background: linear-gradient(45deg, var(--color-cool-4), var(--color-cool-5-25));
     margin: 3px;
     border-radius: 10px;
 }
 .starwarsffg.sheet.actor .character .header-fields .header-name input {
     margin: 1%;
     box-shadow: var(--box-shadow);
-    background: var(--color-cool-5-25);
+    background: linear-gradient(45deg, var(--color-cool-4), var(--color-cool-5-25))!important;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     text-shadow: 0 0 15px var(--red-light);
@@ -1518,7 +1545,10 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .system-starwarsffg table {
     width: 95%;
     margin: 5px 0px 5px 5px;
-    background: var(--color-cool-5-25);
+    background: var(--color-cool-5-50);
+    --notchSize: 9px;
+    -webkit-clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
+    clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
 }
 .system-starwarsffg table tr:nth-child(even) {
     background-color: var(--color-cool-4);
@@ -1614,7 +1644,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     height: 1rem;
     line-height: 0.9rem;
     box-shadow: var(--box-shadow);
-    background-color: var(--color-cool-5-50);
+    background-color: var(--color-cool-5-75);
     border-radius: 10px;
     backdrop-filter: blur(10px);
     text-shadow: 0 0 15px var(--red-light);
@@ -1646,7 +1676,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .starwarsffg .characteristics .characteristic-item {
     padding: 5px;
     box-shadow: var(--box-shadow);
-    background-color: var(--color-cool-5-50)!important;
+    background-color: var(--color-cool-5-75)!important;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     text-shadow: 0 0 15px var(--red-light);
@@ -1670,7 +1700,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .starwarsffg .items {
     padding: 5px 5px!important;
     box-shadow: var(--box-shadow)!important;
-    background-color: var(--color-cool-5-75)!important;
+    background-color: var(--color-cool-5-90)!important;
     border-radius: 10px;
     text-shadow: 0 0 15px var(--red-light);
     border: 1px solid var(--red);
@@ -1743,7 +1773,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 ************************/
 .starwarsffg .block-background {
     box-shadow: var(--box-shadow);
-    background-color: var(--color-cool-5-50)!important;
+    background-color: var(--color-cool-5-75)!important;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     text-shadow: 0 0 15px var(--red-light);
@@ -1751,17 +1781,20 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border: 1px solid var(--red);
 }
 .starwarsffg .minion .profile-img {
+    background: linear-gradient(45deg, var(--color-cool-4), var(--color-cool-5-25));
     --notchSize: 9px;
     -webkit-clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
     clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
 }
 .starwarsffg.sheet header.sheet-header h1 input {
+    background: linear-gradient(45deg, var(--color-cool-4), var(--color-cool-5-25))!important;
+    border: 1px dotted var(--red)!important;
     --notchSize: 9px;
     -webkit-clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
-    clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
+    clip-path: polygon(0% var(
+    --notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
     filter: drop-shadow(0px 1px 1px black);
 }
-
 
 /*Item Sheet
 ************************/
@@ -1786,7 +1819,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 .starwarsffg.sheet.item img {
     box-shadow: var(--box-shadow);
-    background-color: var(--color-cool-5-75);
+    background: linear-gradient(45deg, var(--color-cool-3), var(--color-cool-5-50));
     border-radius: var(--border-radius-5);
     backdrop-filter: blur(10px);
     text-shadow: 0 0 15px var(--red-light);
@@ -1870,7 +1903,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 ************************/
 .system-starwarsffg .sheet.journal-entry .journal-sidebar,
 .system-starwarsffg .sheet.journal-entry .journal-entry-content {
-    background-color: var(--color-cool-5-25);
+    background-color: var(--color-cool-5-50);
 }
 .system-starwarsffg .dialog .window-content .dialog-content {
     color: var(--color-warm-1)!important;
@@ -1909,7 +1942,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border-bottom: unset;
 }
 .system-starwarsffg .sheet nav.sheet-tabs .item {
-    background: var(--color-cool-5-25);
+    background: var(--color-cool-5-75);
     border: none;
     box-shadow: var(--glassy);
 }
@@ -1919,6 +1952,14 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border: 1px solid #00273f;
     border-radius: 25px;
     text-shadow: var(--text-shadow);
+}
+.starwarsffg.sheet.item.v2 .tabs .item.active {
+    color: var(--sta-main-color);
+    background: var(--red)!important;
+    text-shadow: var(--text-shadow);
+    --notchSize: 9px;
+    -webkit-clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
+    clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
 }
 .system-starwarsffg .sheet nav.sheet-tabs .item.active {
     color: var(--sta-main-color);
@@ -1983,7 +2024,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .placeable-hud input[type="text"] {
     background: none;
     border-radius: var(--border-radius);
-    background-color: radial-gradient(var(--color-cool-5-50), transparent);
+    background: radial-gradient(var(--color-cool-5-50), transparent);
     box-shadow: var(--box-shadow);
     transition: text-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out, border 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, backdrop-filter 0.15s ease-in-out, border-radius 0.15s;
     color: var(--pfui-main-color);
@@ -2082,6 +2123,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     text-shadow: var(--text-shadow);
     background-color: var(--green)!important;
     border: 1px solid var(--color-cool-5);
+    animation: glow 0.75s infinite alternate;
 }
 .starwarsffg .header-fields .row div {
     color: unset!important;
@@ -2298,7 +2340,6 @@ span.dietype.triumph {
     padding: 1px 0px 0px 2px;
 }
 #destiny-tracker .dropbtn {
-  background: url("../../../ui/denim075.png") repeat;
   color: white;
   font-size: 12px;
   border: none;
@@ -2319,7 +2360,6 @@ span.dietype.triumph {
 #destiny-tracker .dropdown-content {
   display: contents;
   position: absolute;
-  background: url("../../../ui/denim075.png") repeat;
   max-width: 50px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -2408,8 +2448,9 @@ span.dietype.triumph {
     filter: drop-shadow(0px 1px 1px black);
 }
 .swffg-destiny .destiny-points:hover {
-    box-shadow: 0 0 1rem #ff6400;
+    box-shadow: 0 0 1.2rem #ff6400;
     filter: drop-shadow( 0 0 5px var(--red-light));
+    animation: glow 0.75s infinite alternate;
 }
 .swffg-destiny .destiny-points span {
   bottom: 0;

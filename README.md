@@ -17,5 +17,8 @@ https://gitlab.com/sasmira/space-op-ui/-/raw/main/module/module.json
 ### Improved Space Opera UI for Star Wars FFG
 ![image](space-op-swffg.jpg)
 
+#### Warning : There are two themes in SWFFG system. Don't forget to use this option (see below) if you use Mandar Theme.
+![image](space-op-swffg-warning.jpg)
+
 ### Improved Space Opera/LCARS UI for Star Trek Adventures
 ![image](LCARS-UI-for-Star-Trek-Adventures.png)

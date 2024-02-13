@@ -5,6 +5,16 @@
 - Ready for v11 version.
 
 
+## v11.315.1806.11
+- Improved Compatibility with Starwarsffg
+- Improved Compatibility with Mandar Theme. (WIP)
+- Improved overall visual quality.
+- Fixed blur effect application in the roll dialogue window.
+- Fixed v2 sheet buttons for sheet elements and other windows.
+- Fixed visual of SWFFG enhancement button.
+- Added an animation glow on the buttons hover.
+- Fixed some errors and added of others.
+
 ## v11.315.1806.10
 - Improved Compatibility with Starwarsffg
 - Improved Compatibility with Mandar Theme. (WIP)
