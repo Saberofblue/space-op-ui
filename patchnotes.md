@@ -5,6 +5,11 @@
 - Ready for v11 version.
 
 
+## v11.315.1806.12
+- Improved Compatibility with Starwarsffg
+- Improved Compatibility with Mandar Theme. (WIP)
+- Fixed some errors and added of others.
+
 ## v11.315.1806.11
 - Improved Compatibility with Starwarsffg
 - Improved Compatibility with Mandar Theme. (WIP)

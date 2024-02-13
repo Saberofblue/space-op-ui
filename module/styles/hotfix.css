@@ -10,7 +10,7 @@
     max-height: calc(100% - 33.1875rem);
 }
 .starwarsffg.sheet.actor .skillsTablesGrid {
-    max-height: calc(100% - 36.1875rem);
+    max-height: calc(100% - 34.1875rem);
 }
 
 /* Minion
@@ -25,7 +25,7 @@
     max-height: calc(100% - 32.1rem);
 }
 .starwarsffg.sheet.actor .minion .skillsTablesGrid {
-    max-height: calc(100% - 32.1875rem);
+    max-height: calc(100% - 34.1875rem);
 }
 
 /* Force-power sheet
@@ -64,4 +64,7 @@
 }
 .starwarsffg.sheet.actor.v2 .vehicle .sheet-body {
     max-height: calc(100% - 29.875rem);
+}
+.starwarsffg .resource.split {
+    width: auto;
 }

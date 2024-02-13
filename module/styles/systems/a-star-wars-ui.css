@@ -1066,6 +1066,10 @@ button:disabled {
     -webkit-clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
     clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
 }
+.system-starwarsffg #chat-log .chat-message h2.item-name {
+    font-size: 18px;
+    margin-top: 5px;
+}
 .starwarsffg .item-display .item-miss {
     font-size: large;
     color: var(--red-light)!important;
@@ -1506,7 +1510,9 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     font-size: 10.5pt;
     margin-bottom: 5px;
     margin-top: 5px;
-    min-height: 140px;
+    min-height: 145px;
+    height: 145px;
+    overflow-y: auto;
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-50);
     border-radius: 10px;
@@ -1532,7 +1538,6 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border-radius: 10px;
 }
 .starwarsffg.sheet.actor .character .header-fields .header-name input {
-    margin: 1%;
     box-shadow: var(--box-shadow);
     background: linear-gradient(45deg, var(--color-cool-4), var(--color-cool-5-25))!important;
     border-radius: 10px;
@@ -2470,4 +2475,7 @@ span.dietype.triumph {
 }
 .ffg-destiny-roll {
   cursor: pointer;
+}
+.starwarsffg.sheet.item.v2 {
+    background-color: unset!important;
 }
