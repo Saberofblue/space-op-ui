@@ -324,7 +324,7 @@ button:disabled {
 .system-starwarsffg .directory .directory-header .header-search {
     margin: 3px 0px 0px 0px;
     color: var(--pfui-main-color);
-    background-color: var(--color-cool-5-50);
+    background-color: var(--color-cool-5-75);
     border-radius: 25px 0 0 25px;
     backdrop-filter: blur(5px);
     box-shadow: var(--box-shadow);
@@ -453,14 +453,14 @@ button:disabled {
     filter: drop-shadow(0px 1px 1px black);
     background-color: var(--color-cool-5-25);
     backdrop-filter: blur(10px);
-    box-shadow: var(--glassy-shadow);
+    box-shadow: var(--glassy);
 }
 .system-starwarsffg #context-menu li.context-item:hover {
     color: var(--color-warm-1);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     background-color: var(--color-cool-5-25);
-    box-shadow: var(--glassy-shadow);
+    box-shadow: var(--glassy);
 }
 
 
@@ -1231,6 +1231,29 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     align-content: center;
     margin: 7px;
 }
+.sheet.journal-entry .pages-list .page-heading .page-title {
+    color: var(--color-warm-1);
+}
+.sheet.journal-entry .pages-list .h2 .heading-link {
+    text-indent: var(--level-indent);
+    color: var(--sta-main-color);
+}
+.sheet.journal-entry .pages-list .h2 .heading-link:hover {
+    color: var(--green)!important;
+    text-shadow: var(--text-shadow);
+}
+.sheet.journal-entry .pages-list .h3 .heading-link {
+    text-indent: calc(1.5 * var(--level-indent));
+    color: var(--color-cool-1);
+}
+.sheet.journal-entry .pages-list .h3 .heading-link:hover {
+    color: var(--green)!important;
+    text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .sheet.journal-entry .pages-list .heading-link {
+    font-size: var(--font-size-11);
+}
+
 
 
 /*Playlist
@@ -1343,7 +1366,9 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--glassy);
 }
 .system-starwarsffg .form-group > label {
-    color: var(--color-warm-1);
+    color: var(--color-cool-1);
+    background: var(--color-cool-5-25);
+    border-radius: 25px;
     font-size: larger;
     text-shadow: var(--text-shadow);
 }
@@ -1402,6 +1427,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 .system-starwarsffg .sheet.journal-entry .pages-list .directory-item.active:first-of-type {
     border-top: 1px solid var(--color-warm-1);
+    background-color: var(--color-cool-5-75);
 }
 .system-starwarsffg .prosemirror menu button {
     border-radius: 25px;
@@ -1906,9 +1932,11 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 /*Dialog
 ************************/
-.system-starwarsffg .sheet.journal-entry .journal-sidebar,
+.system-starwarsffg .sheet.journal-entry .journal-sidebar {
+    background-color: transparent;
+}
 .system-starwarsffg .sheet.journal-entry .journal-entry-content {
-    background-color: var(--color-cool-5-50);
+    background-color: var(--color-cool-5-75);
 }
 .system-starwarsffg .dialog .window-content .dialog-content {
     color: var(--color-warm-1)!important;

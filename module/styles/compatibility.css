@@ -75,6 +75,11 @@
     --color-scrollbar-border: #8d151b;
 }
 
+@font-face {
+    font-family: "EarthOrbiter";
+    src: url("./fonts/EarthOrbiterBold-vzD9.otf")format("opentype");
+}
+
 /*Automated Animations
 ************************/
 /* https://github.com/DFreds/dfreds-effects-panel */
@@ -172,6 +177,223 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     background: var(--color-cool-5-25);
     border-bottom: 2px solid var(--red-light);
 }
+#module-management .package-list .package-metadata, 
+#module-management .package-list .package-description {
+    color: white;
+}
+
+/* Monk's Enhanced Journal */
+/*https://github.com/ironmonk88/monks-enhanced-journal*/
+.monks-enhanced-journal.app {
+    background: transparent!important;
+    backdrop-filter: blur(10px);
+    filter: drop-shadow(0px 1px 1px black);
+}
+.monks-enhanced-journal .enhanced-journal-header {
+    background-color: unset;
+}
+.monks-enhanced-journal .tab-bar .tab-button {
+    color: var(--color-warm-1);
+}
+.monks-enhanced-journal .tab-bar .tab-button:hover {
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink);
+    text-shadow: 0 0 8px var(--color-text-hyperlink);
+}
+.monks-enhanced-journal .tab-bar .journal-tab.active, 
+.monks-enhanced-journal .tab-bar .journal-tab:last-child {
+    border-radius: 0 17px 0 17px;
+    margin-right: 3px;
+    border: 1px solid var(--red);
+    text-shadow: 0 0 15px var(--red-light);
+    background: var(--color-cool-5-90);
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink);
+    border-color: var(--color-text-hyperlink);
+    box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.monks-enhanced-journal .tab-bar .journal-tab {
+    border-radius: 0 17px 0 17px;
+    margin-right: 5px;
+    border: 1px solid var(--red);
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-5-25);
+    text-shadow: 0 0 15px var(--red-light);
+    box-shadow: var(--box-shadow);
+}
+.monks-enhanced-journal .tab-bar .journal-tab:hover,
+.monks-enhanced-journal .enhanced-journal-header .bookmark-bar .bookmark-button:hover {
+    background: var(--color-cool-4);
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink)!important;
+    border-color: var(--color-text-hyperlink)!important;
+    box-shadow: 0 0 6px inset var(--color-text-hyperlink)!important;
+}
+.monks-enhanced-journal .enhanced-journal-header > * {
+    border-bottom: 1px dotted var(--color-warm-3);
+}
+.monks-enhanced-journal .enhanced-journal-header .bookmark-bar .bookmark-button.add-bookmark {
+    border: 1px solid var(--color-warm-1);
+    color: var(--pfui-main-color);
+    background: var(--color-cool-5-25);
+}
+.monks-enhanced-journal .enhanced-journal-header .bookmark-bar .bookmark-button {
+    border-radius: 0 17px 0 17px;
+    border-color: var(--color-cool-2);
+    color: var(--color-cool-1);
+    background: var(--color-cool-5-90);
+    text-shadow: 0 0 15px var(--red-light);
+}
+.monks-enhanced-journal .enhanced-journal-header .navigation {
+    color: var(--color-warm-1);
+    background-color: var(--color-cool-5-75)!important;
+    border-radius: var(--border-radius-5)!important;
+    text-shadow: 0 0 15px var(--red-light);
+    border: 1px solid var(--red);
+    box-shadow: var(--box-shadow);
+}
+.monks-enhanced-journal .enhanced-journal-header .navigation .nav-button.disabled {
+    border-color: unset;
+    color: var(--pfui-main-color);
+    Background: radial-gradient(var(--color-cool-4), var(--color-cool-5-90));
+    border-radius: 25px;
+    box-shadow: var(--glassy);
+    text-shadow: 0 0 15px var(--red-light);
+    border: unset;
+}
+.monks-enhanced-journal .enhanced-journal-header .navigation .nav-button:not(.disabled):hover {
+    background: var(--color-cool-5-25);
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink)!important;
+    border-color: var(--color-text-hyperlink)!important;
+    box-shadow: 0 0 6px inset var(--color-text-hyperlink)!important;
+}
+.monks-enhanced-journal .enhanced-journal-header .navigation hr.vertical {
+    border-right: 1px dotted var(--color-warm-3);
+}
+.monks-enhanced-journal .enhanced-journal-header .navigation .nav-button {
+    Background: radial-gradient(var(--color-cool-4), var(--color-cool-5-90));
+    box-shadow: var(--glassy);
+    text-shadow: 0 0 15px var(--red-light);
+    border: 1px solid var(--color-warm-3);
+}
+.monks-enhanced-journal .enhanced-journal-header .navigation .nav-button:hover {
+    color: var(--color-warm-1);
+    background-color: var(--color-cool-5-75);
+    box-shadow: var(--box-shadow);
+    animation: glow 0.75s infinite alternate;
+}
+.monks-enhanced-journal .enhanced-journal .journal-sheet-container .sidebar.directory {
+    background: transparent;
+}
+.journal-entry.journal-sheet .directory .directory-list {
+    border-right: 1px dotted var(--color-warm-3);
+}
+.monks-enhanced-journal .enhanced-journal .sheet.journal-entry .journal-entry-content {
+    background: var(--color-cool-5-50);
+}
+.monks-enhanced-journal .directory-sidebar {
+    background: transparent;
+    border-left: 1px dotted var(--color-warm-3);
+}
+.monks-enhanced-journal .directory-sidebar > section .directory-header {
+    background-color: transparent;
+    border-bottom: 1px dotted var(--color-warm-3);
+    color: unset;
+}
+.monks-enhanced-journal .directory .directory-header .header-actions.action-buttons button {
+    font-family: 'EarthOrbiter';
+    text-transform: inherit;
+    color: var(--pfui-main-color);
+    Background: radial-gradient(var(--color-cool-4), var(--color-cool-5-90));
+    border-radius: 25px;
+    box-shadow: var(--glassy);
+    backdrop-filter: blur(5px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    border: unset;
+}
+.monks-enhanced-journal .directory .directory-header .header-actions.action-buttons button:hover {
+    color: var(--color-warm-1)!important;
+    background-color: var(--color-cool-5-75);
+    box-shadow: var(--box-shadow-light)!important;
+    animation: glow 0.75s infinite alternate;
+}
+.monks-enhanced-journal .enhanced-journal-footer {
+    padding: 5px 6px;
+    border-top: 1px solid var(--mej-footer-border);
+    color: var(--color-warm-1);
+    background-color: var(--color-cool-5-75)!important;
+    border-radius: var(--border-radius-5)!important;
+    text-shadow: 0 0 15px var(--red-light);
+    border: 1px solid var(--red);
+    box-shadow: var(--box-shadow);
+}
+.monks-enhanced-journal .enhanced-journal-footer .nav-button {
+    border-color: unset;
+    color: var(--pfui-main-color);
+    Background: radial-gradient(var(--color-cool-4), var(--color-cool-5-90));
+    box-shadow: var(--glassy);
+    text-shadow: 0 0 15px var(--red-light);
+    border: unset;
+}
+.monks-enhanced-journal .enhanced-journal-footer .nav-button:not(.disabled):hover {
+    cursor: pointer;
+    text-shadow: 0 0 8px red;
+    background: var(--color-cool-5-25);
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink)!important;
+    border-color: var(--color-text-hyperlink)!important;
+    box-shadow: 0 0 6px inset var(--color-text-hyperlink)!important;
+}
+.monks-journal-sheet.sheet .journal-subsheet.blank .recently-viewed {
+    font-family:"EarthOrbiter";
+    border-radius: 5px;
+    color: var(--sta-main-color);
+    background-color: var(--color-cool-5-50);
+    border: 1px solid var(--red-swffg);
+}
+.monks-journal-sheet.sheet .journal-subsheet.blank .recent-link, 
+.monks-journal-sheet.sheet .journal-subsheet.blank .new-link {
+    color: var(--color-cool-1);
+}
+.monks-journal-sheet.sheet .journal-subsheet.blank .recent-link:hover, 
+.monks-journal-sheet.sheet .journal-subsheet.blank .new-link:hover {
+    --color-text-hyperlink: #ff6400;
+    text-shadow: 0 0 8px var(--color-text-hyperlink);
+    color: var(--sta-main-color);
+}
+
+
+/* Monk's hotbar expansion */
+/* https://foundryvtt.com/packages/monks-hotbar-expansion */
+#hotbar .hotbar-page {
+    overflow: visible;
+    gap: 4px;
+    bottom: 70px;
+}
+#hotbar .action-bar.no-arrows + .bar-controls span.page-number, #hotbar .hotbar-page .bar-controls span.page-number, #hotbar .hotbar-page .bar-controls i {
+    box-shadow: var(--box-shadow-light);
+    background: var(--color-cool-5-75);
+    border: 1px solid var(--color-warm-1);
+    backdrop-filter: blur(3px);
+}
+#hotbar .hotbar-page .action-bar {
+    margin: 0px 5px 0px 3px;
+}
+#hotbar .bar-controls {
+    border-radius: var(--border-radius);
+    background: none;
+    background-color: var(--color-cool-5-50);
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--color-border-dark);
+}
+#hotbar .hotbar-page .macro-list {
+    gap: 8px;
+    margin: -4px 31px 0px 0px;
+    border: none;
+}
+
 
 /* Monk's Little Details */
 /*https://github.com/ironmonk88/monks-little-details*/
