@@ -11,6 +11,7 @@
 - Added Compatibility with Monk's Enhanced Journal.
 - Added Compatibility with Monk's Hotbar Expansion.
 - Added Compatibility with Dice Tray.
+- Tentative improve performance (reduce blur effect).
 - Fixed some errors and added of others.
 
 ## v11.315.1806.12
