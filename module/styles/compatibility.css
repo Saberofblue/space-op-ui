@@ -146,6 +146,7 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     background: var(--color-cool-5-25)!important;
     border: 1px solid var(--red)!important;
     box-shadow: var(--box-shadow)!important;
+    backdrop-filter: blur(3px); /* Impact Perf */
 }
 .dice-tray button:hover {
     --color-text-hyperlink: #ff6400;
