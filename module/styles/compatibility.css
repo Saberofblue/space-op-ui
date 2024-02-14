@@ -112,6 +112,7 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     box-shadow: var(--glassy);
 }
 
+
 /*Dfreds effects panel
 ************************/
 /* https://github.com/DFreds/dfreds-effects-panel */
@@ -120,10 +121,47 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     background-color: var(--color-cool-5-25);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     box-shadow: var(--glassy-shadow);
 }
 
+
+/* Dice Tray */
+/* https://gitlab.com/asacolips-projects/foundry-mods/foundry-vtt-dice-calculator */
+
+.dice-tray {
+    position: relative;
+    padding: 0 4px;
+}
+.dice-tray button div.dice {
+    background-color: var(--pfui-main-grey-color);
+}
+.dice-tray button div.dice:hover {
+    background-color: #ff6400!important;    
+}
+
+.dice-tray button {
+    border-radius: var(--border-radius)!important;
+    text-align: center;
+    background: var(--color-cool-5-25)!important;
+    border: 1px solid var(--red)!important;
+    box-shadow: var(--box-shadow)!important;
+}
+.dice-tray button:hover {
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink)!important;
+    border-color: var(--color-text-hyperlink)!important;
+    box-shadow: 0 0 6px inset var(--color-text-hyperlink)!important;
+}
+.dice-tray input[type="text"] {
+    color: var(--color-warm-1)!important;
+    background: radial-gradient(var(--color-cool-5-50), transparent)!important;
+    box-shadow: var(--glassy-shadow);
+    backdrop-filter: blur(5px);
+}
+.dice-calculator > button, .dice-calculator .dice-calculator--button {
+    color: var(--color-warm-1)!important;
+}
 
 
 /*Module-Management
@@ -186,7 +224,7 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
 /*https://github.com/ironmonk88/monks-enhanced-journal*/
 .monks-enhanced-journal.app {
     background: transparent!important;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     filter: drop-shadow(0px 1px 1px black);
 }
 .monks-enhanced-journal .enhanced-journal-header {
@@ -605,7 +643,7 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     background-color: var(--color-cool-5-75)!important;
     border-radius: var(--border-radius-5)!important;
     margin: 3px 0px!important;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     border: 1px solid var(--red);
     filter: drop-shadow(0px 1px 1px black);

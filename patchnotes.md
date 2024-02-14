@@ -5,11 +5,12 @@
 - Ready for v11 version.
 
 
-## v11.315.1806.14
+## v11.315.1806.15
 - Improved Compatibility with Starwarsffg
 - Improved Compatibility with Mandar Theme. (WIP)
 - Added Compatibility with Monk's Enhanced Journal.
 - Added Compatibility with Monk's Hotbar Expansion.
+- Added Compatibility with Dice Tray.
 - Fixed some errors and added of others.
 
 ## v11.315.1806.12

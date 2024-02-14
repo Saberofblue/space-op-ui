@@ -190,7 +190,7 @@ body {
     background-color: var(--color-cool-5-75)!important;
     border-radius: var(--border-radius-5)!important;
     margin: 3px 0px!important;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     border: 1px solid var(--red);
     filter: drop-shadow(0px 1px 1px black);
@@ -233,7 +233,7 @@ body {
     border: 1px solid var(--red);
     color: var(--color-warm-1);
     background: var(--color-cool-5-50);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(3px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     box-shadow: var(--box-shadow);
@@ -471,7 +471,7 @@ button:disabled {
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     background-color: var(--color-cool-5-25);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     box-shadow: var(--glassy);
 }
 .system-starwarsffg #context-menu li.context-item:hover {
@@ -491,7 +491,7 @@ button:disabled {
     border: 1px solid var(--red);
     color: var(--pfui-main-color);
     background: var(--color-cool-5-50);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     box-shadow: var(--box-shadow);
@@ -509,7 +509,7 @@ button:disabled {
     border: 1px solid var(--red);
     color: var(--pfui-main-color);
     background: var(--color-cool-5-50);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     box-shadow: var(--box-shadow);
@@ -562,7 +562,7 @@ button:disabled {
     border: 2px solid var(--red);
     color: var(--color-warm-1);
     background: var(--color-cool-3);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: var(--text-shadow);
     filter: drop-shadow(0px 1px 1px black);
     box-shadow: var(--box-shadow);
@@ -1044,7 +1044,7 @@ button:disabled {
     color: var(--pfui-main-color);
     background-color: var(--color-cool-5-25);
     border-radius: 5px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     margin: inherit;
@@ -1131,7 +1131,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     padding: 4px 4px 0px 4px;
     color: var(--color-warm-1);
     background-color: var(--color-cool-5-25);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
 }
@@ -1139,7 +1139,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border-left: none;
     color: var(--color-warm-1);
     background-color: var(--color-cool-5-25);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
 }
@@ -1202,7 +1202,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     filter: drop-shadow(0px 1px 1px black);
     background-color: var(--color-cool-5-25);
     border-radius: 25px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     box-shadow: var(--glassy-shadow);
 }
 
@@ -1302,7 +1302,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background-color: var(--color-cool-5-25);
     box-shadow: unset;
     border-radius: 5px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     color: var(--pfui-main-color);
@@ -1338,7 +1338,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .system-starwarsffg .directory .directory-footer:not(:empty) {
     color: var(--color-warm-1);
     background: var(--color-cool-5-25);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
 }
@@ -1358,7 +1358,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background-color: var(--color-cool-5-25);
     box-shadow: unset;
     border-radius: 5px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     color: var(--pfui-main-color);
@@ -1538,14 +1538,14 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border: none;
     border-radius: var(--border-radius-5);
     color: var(--pfui-main-color);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
 }
 .starwarsffg.sheet.actor .window-header {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-75);
     border-radius: var(--border-radius-5);
     margin: 0px 1px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -1560,7 +1560,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-50);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -1571,7 +1571,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-50);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -1585,7 +1585,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background: linear-gradient(45deg, var(--color-cool-4), var(--color-cool-5-25))!important;
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red)!important;
@@ -1621,7 +1621,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-50);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -1655,7 +1655,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-50);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -1682,7 +1682,6 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-50);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -1695,7 +1694,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-75);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -1707,7 +1706,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-50);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -1717,7 +1716,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-50);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -1726,8 +1725,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     padding: 5px;
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-75)!important;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red)!important;
@@ -1794,7 +1792,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border: 1px solid var(--red);
     color: var(--color-warm-1);
     background: var(--color-cool-5-50);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     box-shadow: var(--box-shadow);
@@ -1824,7 +1822,6 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-75)!important;
     border-radius: 10px;
-    backdrop-filter: blur(10px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -1854,14 +1851,14 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border: none;
     border-radius: var(--border-radius-5);
     color: var(--pfui-main-color);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
 }
 .starwarsffg.sheet.item .window-header {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-75);
     border-radius: var(--border-radius-5);
     margin: 0px 1px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -1870,7 +1867,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background: linear-gradient(45deg, var(--color-cool-3), var(--color-cool-5-50));
     border-radius: var(--border-radius-5);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red)!important;
@@ -2027,14 +2024,14 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border: none;
     border-radius: var(--border-radius-5);
     color: var(--pfui-main-color);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
 }
 .system-starwarsffg .app.sidebar-popout .window-header {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-75);
     border-radius: var(--border-radius-5);
     margin: 0px 1px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
@@ -2152,7 +2149,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-50);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red);
