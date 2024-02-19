@@ -6,7 +6,7 @@
 
 
 
-## v11.315.1806.18
+## v11.315.1806.19
 - Improved overall visual quality.
 - Fixed some errors and added of others.
 

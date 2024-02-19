@@ -1671,7 +1671,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background: none;
 }
 .starwarsffg .attribute .block-background {
-    padding: 5px 5px;
+    padding: 4px 5px;
     box-shadow: var(--box-shadow);
     background-color: var(--color-cool-5-50);
     border-radius: 10px;
@@ -1718,7 +1718,12 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid var(--red)!important;
-    --notchSize: 9px!important;
+    --notchSize: 10px!important;
+}
+.starwarsffg .characteristics .characteristic-item.flex-group-center {
+    --notchSize: 9px;
+    -webkit-clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
+    clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
 }
 .starwarsffg .skillsGrid .skillTable .careerskill-rank {
     margin-top: 1px;
