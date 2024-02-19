@@ -327,6 +327,7 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
 }
 .journal-entry.journal-sheet .directory .directory-list {
     border-right: 1px dotted var(--color-warm-3);
+    padding: unset;
 }
 .monks-enhanced-journal .enhanced-journal .sheet.journal-entry .journal-entry-content {
     background: var(--color-cool-5-50);
