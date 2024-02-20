@@ -227,18 +227,28 @@ body {
     background: var(--color-warm-1)!important;
     height: 2rem;
 }
-.system-starwarsffg .dialog, 
-.system-starwarsffg .form.app, 
+
 .system-starwarsffg .sheet.app,
+.system-starwarsffg .sheet.journal-entry.app {
+    backdrop-filter: blur(10px);
+}
+.system-starwarsffg .dialog,
+.system-starwarsffg .form.app, 
 .system-starwarsffg #lootables,
-.system-starwarsffg #module-warning,
 .system-starwarsffg .filepicker.app,
-.system-starwarsffg .data-import.app, 
-.system-starwarsffg .sheet.folder-edit, 
-.system-starwarsffg .sheet.journal-entry.app, 
+.system-starwarsffg .scene-sheet.app,
+.system-starwarsffg .token-sheet.app,
+.system-starwarsffg .data-import.app,
+.system-starwarsffg .combat-sheet.app,
+.system-starwarsffg .sheet.folder-edit,
+.system-starwarsffg .group-manager.app,
 .system-starwarsffg .package-configuration.app,
 .system-starwarsffg .roll-builder-dialog {
     backdrop-filter: blur(10px);
+    background: var(--color-cool-5-50);
+}
+.sheet.journal-entry .scrollable {
+    background-color: transparent;
 }
 .system-starwarsffg .window-app .window-resizable-handle {
     border: 1px solid var(--red);
@@ -1281,7 +1291,6 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border-radius: 25px 0 0 25px;
     border-bottom: 2px solid var(--color-cool-4);
     box-shadow: var(--box-shadow);
-    backdrop-filter: blur(10px);
 }
 .system-starwarsffg .playlists-sidebar .global-control .playlist-header {
     margin: 3px 0px 0px 0px;
