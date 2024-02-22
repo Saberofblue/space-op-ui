@@ -232,24 +232,6 @@ body {
 .system-starwarsffg .sheet.journal-entry.app {
     backdrop-filter: blur(10px);
 }
-.system-starwarsffg .dialog,
-.system-starwarsffg .form.app, 
-.system-starwarsffg #lootables,
-.system-starwarsffg .filepicker.app,
-.system-starwarsffg .scene-sheet.app,
-.system-starwarsffg .token-sheet.app,
-.system-starwarsffg .data-import.app,
-.system-starwarsffg .combat-sheet.app,
-.system-starwarsffg .sheet.folder-edit,
-.system-starwarsffg .group-manager.app,
-.system-starwarsffg .package-configuration.app,
-.system-starwarsffg .roll-builder-dialog {
-    backdrop-filter: blur(10px);
-    background: var(--color-cool-5-50);
-}
-.sheet.journal-entry .scrollable {
-    background-color: transparent;
-}
 .system-starwarsffg .window-app .window-resizable-handle {
     border: 1px solid var(--red);
     color: var(--color-warm-1);
@@ -596,7 +578,7 @@ button:disabled {
 ************************/
 .system-starwarsffg #controls ol.sub-controls.active .control-tool > i.fas, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool i.far, 
-.system-starwarsffg #controls ol.sub-controls.active .control-tool i.fa-solid, 
+.system-starwarsffg #controls ol.sub-controls.active .control-tool i.fa-solid,
 .system-starwarsffg #controls ol.sub-controls.active .control-tool i.fa-regular {
     border: 1px solid var(--red);
     color: var(--pfui-main-color);
@@ -608,7 +590,7 @@ button:disabled {
 }
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover > i.fas, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover i.far, 
-.system-starwarsffg #controls ol.sub-controls.active .control-tool:hover i.fa-solid, 
+.system-starwarsffg #controls ol.sub-controls.active .control-tool:hover i.fa-solid,
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover i.fa-regular {
     background-color: var(--color-cool-5-50);
     --color-text-hyperlink: #ff6400;
@@ -1419,6 +1401,12 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 
 /*journal-entry-page
 ************************/
+.system-starwarsffg .journal-sheet.journal-entry-page.text {
+    background: var(--color-cool-5-75);
+}
+.system-starwarsffg .sheet.journal-entry .scrollable {
+    background-color: transparent;
+}
 .system-starwarsffg .journal-entry-page .journal-page-content blockquote:not(h6+p+ul+blockquote, h6+p+blockquote, h6+ul+blockquote, h6+blockquote) {
     color: var(--pfui-main-color);
     border-left-width: 0;

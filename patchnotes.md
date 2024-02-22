@@ -5,6 +5,10 @@
 - Ready for v11 version.
 
 
+## v11.315.1806.21
+- Updated Compatibility with Starwarsffg.
+- Added Compatibility GM-Notes.
+- Fixed some errors and added of others.
 
 ## v11.315.1806.20
 - Improved overall visual quality.
