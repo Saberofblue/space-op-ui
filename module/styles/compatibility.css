@@ -97,7 +97,7 @@
 .system-starwarsffg .package-configuration.app,
 .system-starwarsffg .roll-builder-dialog {
     backdrop-filter: blur(10px);
-    background: var(--color-cool-5-50);
+    background: var(--color-cool-5-50)!important;
 }
 
 /* END
