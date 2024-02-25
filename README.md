@@ -1,6 +1,6 @@
 # FFG Star Wars Space Opera Ui.
 Overhauls the Foundry UI and  StarWarsFFG games. Based on a dodgy fork of [LCARS UI](https://github.com/FabulistVtt/sta-lcars-ui) by [Fabulist](https://github.com/FabulistVtt). 
-- Join the [official Discord server](https://discord.gg/foundryvtt\)
+- Join the [official Discord server](https://discord.gg/foundryvtt)
 - Rejoignez le [Discord Officiel de la communauté Francophone](https://discord.gg/pPSDNJk)
 
 ### System supported
