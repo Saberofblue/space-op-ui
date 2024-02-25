@@ -1,9 +1,10 @@
-# Space Opera Ui for SWFFG/STA.
-A dodgy fork of [LCARS UI](https://github.com/FabulistVtt/sta-lcars-ui) by [Fabulist](https://github.com/FabulistVtt). I wanted to be able to use this interface on all Space Opera games like :
-- Star Wars FFG.
-- Star Trek Adventures.
-- Metal Adventures.
+# FFG Star Wars Space Opera Ui.
+Overhauls the Foundry UI and  StarWarsFFG games. Based on a dodgy fork of [LCARS UI](https://github.com/FabulistVtt/sta-lcars-ui) by [Fabulist](https://github.com/FabulistVtt). 
+- Join the [official Discord server](https://discord.gg/foundryvtt\)
+- Rejoignez le [Discord Officiel de la communauté Francophone](https://discord.gg/pPSDNJk)
 
+### System supported
+- Star Wars FFG Only
 
 ## Installation
 To install, follow these instructions:
@@ -19,6 +20,3 @@ https://gitlab.com/sasmira/space-op-ui/-/raw/main/module/module.json
 
 #### Warning : There are two themes in SWFFG system. Don't forget to use this option (see below) if you use Mandar Theme.
 ![image](space-op-swffg-warning.jpg)
-
-### Improved Space Opera/LCARS UI for Star Trek Adventures
-![image](LCARS-UI-for-Star-Trek-Adventures.png)

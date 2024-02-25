@@ -5,6 +5,13 @@
 - Ready for v11 version.
 
 
+## v11.315.1806.23
+- Removed Compatibility with other systems.
+- Changed Module name.
+- Fixed visibility with tierce modules.
+- Improved overall visual quality.
+- Fixed some errors and added of others.
+
 ## v11.315.1806.22
 - Updated Compatibility with Starwarsffg.
 - Added Compatibility GM-Notes.

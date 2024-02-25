@@ -1,7 +1,7 @@
 {
   "id": "space-op-ui",
-  "title": "Space Opera Ui for SWFFG/STA",
-  "description": "Overhauls the Foundry UI. Theme for Space Opera games. Fork of LCARS UI. <p>*** Join the official Discord server: <a href=\"https://discord.gg/foundryvtt\"> Official Discord</a></p><p>*** Rejoignez la communauté Francophone: <a href=\"https://discord.gg/pPSDNJk\">Francophone Discord</a></p>",
+  "title": "FFG Star Wars Space Opera Ui",
+  "description": "Overhauls the Foundry UI and  StarWarsFFG games. Based on a fork of LCARS UI. <p>*** Join the official Discord server: <a href=\"https://discord.gg/foundryvtt\"> Official Discord</a></p><p>*** Rejoignez la communauté Francophone: <a href=\"https://discord.gg/pPSDNJk\">Francophone Discord</a></p>",
   "authors": [
     {
       "name": "Fabulist",
@@ -15,24 +15,37 @@
       "flags": {}
     }
   ],
-  "version": "11.315.1806.22",
+  "version": "11.315.1806.23",
   "compatibility": {
     "minimum": "11",
     "verified": "11"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "starwarsffg",
+        "manifest": "https://raw.githubusercontent.com/StarWarsFoundryVTT/StarWarsFFG/master/system.json",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
   },
   "esmodules": [
     "scripts/sta-lcars-ui.js"
   ],
   "styles": [
     "styles/compatibility.css",
-    "styles/sta-lcars-ui.css"
+    "styles/core.css"
   ],
   "media": [
     {
-        "type": "setup",
-        "caption": "Space Opera Ui",
-        "thumbnail": "/modules/space-op-ui/artwork/space-opera-thumb.webp"
-    }],
+      "type": "setup",
+      "caption": "Space Opera Ui",
+      "thumbnail": "/modules/space-op-ui/artwork/space-opera-thumb.webp",
+      "loop": false,
+      "flags": {}
+    }
+  ],
   "languages": [
     {
       "lang": "en",
@@ -49,5 +62,5 @@
   ],
   "url": "https://gitlab.com/sasmira/space-op-ui",
   "manifest": "https://gitlab.com/sasmira/space-op-ui/-/raw/main/module/module.json",
-  "download": "https://gitlab.com/sasmira/space-op-ui/-/jobs/artifacts/v11.315.1806.22/raw/space-op-ui.zip?job=build"
+  "download": "https://gitlab.com/sasmira/space-op-ui/-/jobs/artifacts/v11.315.1806.23/raw/space-op-ui.zip?job=build"
 }

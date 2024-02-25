@@ -79,29 +79,7 @@
     font-family: "EarthOrbiter";
     src: url("./fonts/EarthOrbiterBold-vzD9.otf")format("opentype");
 }
-/*Tinted Windows
-************************/
-.system-starwarsffg .dialog,
-.system-starwarsffg .form.app,
-.system-starwarsffg #lootables,
-.system-starwarsffg .filepicker.app,
-.system-starwarsffg #support-details,
-.system-starwarsffg .scene-sheet.app,
-.system-starwarsffg .token-sheet.app,
-.system-starwarsffg .data-import.app,
-.system-starwarsffg .combat-sheet.app,
-.system-starwarsffg #invitation-links,
-.system-starwarsffg .sheet.folder-edit,
-.system-starwarsffg .group-manager.app,
-.system-starwarsffg .gm-notes.sheet.app,
-.system-starwarsffg .package-configuration.app,
-.system-starwarsffg .roll-builder-dialog {
-    backdrop-filter: blur(10px);
-    background: var(--color-cool-5-50)!important;
-}
 
-/* END
-*************************/
 
 /*Automated Animations
 ************************/

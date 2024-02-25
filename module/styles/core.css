@@ -103,11 +103,6 @@
   nav#navigation {
     left: 20px;
   }
-  .window-content {
-    background-image: none !important;
-    background-color: transparent !important;
-    color: #dfdfdf;
-  }
   .app {
     background-image: none;
     background-color: #0f0f0fef;
@@ -122,7 +117,7 @@
   }
   .app .window-content {
     background-image: none !important;
-    background-color: transparent !important;
+    background-color: transparent;
     color: #dfdfdf;
   }
   .minimized.window-header {
