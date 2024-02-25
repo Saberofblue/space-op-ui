@@ -5,6 +5,12 @@
 - Ready for v11 version.
 
 
+## v11.315.1806.24
+- Fixed edit content windows for weapons, Weapons vehicle, Armors, Gears & Species.
+- Added in Game Details a hyperlink for  Report issue.
+- Added in Game Details a hyperlink if you'd like to offer me a coffee !
+- Fixed some errors and added of others.
+
 ## v11.315.1806.23
 - Removed Compatibility with other systems.
 - Changed Module name.

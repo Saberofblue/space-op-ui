@@ -64,3 +64,12 @@ function rpgUIAddHotfix() {
 	mainCss.setAttribute("media", "all")
 	head.insertBefore(mainCss, head.lastChild);
 }
+
+Hooks.on('renderSidebarTab', async (object, html) => {
+	if (object instanceof Settings) {
+	  const details = html.find('#game-details')
+	  const list = document.createElement('ul')
+	  list.innerHTML = await renderTemplate('modules/space-op-ui/templates/settings-info.hbs')
+	  details.append(list.firstChild)
+	}
+});

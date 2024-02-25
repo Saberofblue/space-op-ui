@@ -1351,13 +1351,12 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background-color: var(--color-cool-5)!important;
 }
 .system-starwarsffg .settings-sidebar #game-details {
-    background-color: var(--color-cool-5-25);
+    background-color: var(--color-cool-5-75);
     box-shadow: unset;
     border-radius: 5px;
-    backdrop-filter: blur(5px);
-    text-shadow: 0 0 15px var(--red-light);
+    text-shadow: var(--text-shadow);
     filter: drop-shadow(0px 1px 1px black);
-    color: var(--pfui-main-color);
+    color: var(--color-cool-1);
 }
 .system-starwarsffg .settings-sidebar li.folder > .folder-header {
     border-radius: 0 25px 25px 0;

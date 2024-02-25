@@ -68,3 +68,36 @@
 .starwarsffg .resource.split {
     width: auto;
 }
+
+/*Editor-content
+************************/
+.starwarsffg.sheet .item-sheet-armor .editor-content {
+    height: calc(100% + -9.25rem);
+}
+.starwarsffg.sheet.item.v2 .item-sheet-armor .editor-content {
+    height: calc(100% - 7.25rem);
+}
+.starwarsffg.sheet .item-sheet-gear .editor-content {
+    height: calc(100% - 4.75rem);
+}
+.starwarsffg.sheet.item.v2 .item-sheet-gear .editor-content {
+    height: calc(100% - 3.75rem);
+}
+.starwarsffg.sheet .item-sheet-vehicle-weapon .editor-content {
+    height: calc(100% + -4.25rem);
+}
+.starwarsffg.sheet .item-sheet-species .editor-content {
+    height: calc(100% - 1.25rem);
+}
+.starwarsffg.sheet.item.v2 .item-sheet-species .editor-content {
+    height: calc(100% - 0.25rem);
+}
+.starwarsffg.sheet.item.v2 .item-sheet-vehicle-weapon .editor-content {
+    height: calc(100% - 15.75rem);
+}
+.starwarsffg.sheet .item-sheet-weapon .editor-content {
+    height: calc(100% - 8.75rem);
+}
+.starwarsffg.sheet.item.v2 .item-sheet-weapon .editor-content {
+    height: calc(100% - 3.75rem);
+}
