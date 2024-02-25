@@ -4,7 +4,7 @@ Overhauls the Foundry UI and  StarWarsFFG games. Based on a dodgy fork of [LCARS
 - Rejoignez le [Discord Officiel de la communauté Francophone](https://discord.gg/pPSDNJk)
 
 ### System supported
-- Star Wars FFG Only
+- [Star Wars FFG](https://github.com/StarWarsFoundryVTT/StarWarsFFG) Only
 
 ## Installation
 To install, follow these instructions:
