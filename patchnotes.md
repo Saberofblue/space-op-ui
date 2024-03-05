@@ -5,6 +5,10 @@
 - Ready for v11 version.
 
 
+## v11.315.1806.25
+- Improved visibility of skills tables in the sheets
+- Fixed scrollbar rendering with last versions of Chrome.
+
 ## v11.315.1806.24
 - Fixed edit content windows for weapons, Weapons vehicle, Armors, Gears & Species.
 - Added in Game Details a hyperlink for  Report issue.

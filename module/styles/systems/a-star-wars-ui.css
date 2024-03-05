@@ -84,15 +84,25 @@
     --color-level-warning-border: #b18404;
     --color-scrollbar: #5d142b;
     --color-scrollbar-border: #8d151b;
+
+    --scrollbar-color-thumb: var(--color-cool-5);
+    --scrollbar-color-track: none;
+    --scrollbar-width: thin;
+    --scrollbar-width-legacy: 3px;
 }
 
 
 /* scrollbar
 ************************/
-.system-starwarsffg ::-webkit-scrollbar-thumb {
-    background: radial-gradient(var(--color-cool-4), var(--color-cool-5));
-    border: 1px dotted var(--color-cool-3);
+* {
+    scrollbar-color: initial;
+    scrollbar-width: auto!important;
 }
+::-webkit-scrollbar-thumb {
+    background: radial-gradient(var(--color-cool-4), var(--color-cool-5))!important;
+    border: 1px dotted var(--color-cool-3)!important;
+}
+
 
 
 /* FPS
@@ -1643,6 +1653,13 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     color: var(--color-warm-1)!important;
     background-color: var(--red-swffg)!important;
 }
+.starwarsffg .skillsGrid .skillTable div.skill > div {
+    background: var(--color-cool-4);
+    text-shadow: var(--text-shadow);
+}
+.starwarsffg .skillsGrid .dice-pool img[src*="black-minus"]  {
+    border: 1px #333 solid !important;
+}
 .starwarsffg.sheet.actor .character .header-fields .drag-note {
     color: var(--pfui-main-color);
     text-shadow: var(--text-shadow);
@@ -1745,7 +1762,8 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: var(--color-cool-4);
+    background: var(--color-cool-5);
+    box-shadow: var(--box-shadow-light);
 }
 
 

@@ -261,13 +261,6 @@
   .tox {
     background-color: #dfdfdf;
   }
-  ::-webkit-scrollbar-thumb {
-    background: #00273f;
-    border-color: transparent;
-  }
-  ::-webkit-scrollbar-track {
-    box-shadow: none;
-  }
   .tabs .item.active {
     color: #f7e06e;
     text-shadow: unset;
