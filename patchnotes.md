@@ -5,6 +5,11 @@
 - Ready for v11 version.
 
 
+## v11.315.1806.26
+- Changed color of directory item documentation for a better visibility
+- Changed color of Setback dice for a better visibility
+- Fixed missing code on the native token hub.
+
 ## v11.315.1806.25
 - Improved visibility of skills tables in the sheets
 - Fixed scrollbar rendering with last versions of Chrome.

@@ -1193,7 +1193,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .system-starwarsffg .directory .directory-item.document {
     border: none;
     margin: 3px 0px 7px 3px;
-    color: var(--color-warm-1);
+    color: var(--sta-main-color);
     text-shadow: 0 0 15px var(--red-light);
     background: linear-gradient(45deg, var(--color-cool-4), var(--color-cool-5));
     border-radius: 25px 0 0 25px;
@@ -2129,6 +2129,10 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     filter: drop-shadow(0px 1px 1px black);
     border: 1px solid black;
 }
+.placeable-hud .control-icon img {
+    filter: drop-shadow(0px 1px 1px black);
+    transition: text-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out, border 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, backdrop-filter 0.15s ease-in-out, border-radius 0.15s;
+}
 .placeable-hud .control-icon[data-action=visibility]:not(.disabled, :disabled):hover, 
 .placeable-hud .control-icon[data-action=effects]:not(.disabled, :disabled):hover, 
 .placeable-hud .control-icon[data-action=combat]:not(.disabled, :disabled):hover, 
@@ -2435,7 +2439,7 @@ span.dietype.triumph {
     text-shadow: var(--text-shadow);
 }
 .starwarsffg span.dietype.setback {
-    color: var(--color-cool-5)!important;
+    color: var(--color-cool-3)!important;
     text-shadow: var(--text-shadow);
 }
 .starwarsffg span.dietype.success {
