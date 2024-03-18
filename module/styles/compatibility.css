@@ -39,26 +39,42 @@
 
 /* Foundry2
 ====================================================== */
+    --color-light-1: #f7f3e8;
+    --color-light-1-90: #f7f3e890;
+    --color-light-2: #efe6d8;
+    --color-light-2-90: #efe6d890;
+    --color-light-3: #e7d1b1;
+    --color-light-3-90: #e7d1b190;
+    --color-light-4: #d0b8a3;
+    --color-light-4-90: #d0b8a390;
+    --color-light-5: #9f8475;
+    --color-light-5-90: #9f847590;
+    --color-light-6: #816b66;
+    --color-light-6-90: #816b6690;
     --color-warm-1: #ee9b3a;
+    --color-warm-1-90: #ee9b3a90;
     --color-warm-2: #c9593f;
+    --color-warm-2-90: #c9593f90;
     --color-warm-3: #5d142b;
+    --color-warm-3-90: #5d142b90;
     --color-warm-4: #420418;
+    --color-warm-4-90: #42041890;
     --color-warm-5: #26020d;
+    --color-warm-5-90: #26020d90;
     --color-cool-1: #b1a0d4;
+    --color-cool-1-90: #b1a0d490;
     --color-cool-2: #79689c;
+    --color-cool-2-90: #79689c90;
     --color-cool-3: #584a75;
+    --color-cool-3-90: #584a7590;
     --color-cool-4: #302831;
+    --color-cool-4-90: #30283190;
     --color-cool-5: #0b0a13;
     --color-cool-5-25: rgba(11, 10, 19, 0.25);
     --color-cool-5-50: rgba(11, 10, 19, 0.5);
     --color-cool-5-75: rgba(11, 10, 19, 0.75);
     --color-cool-5-90: rgba(11, 10, 19, 0.9);
-    --color-light-1: #f7f3e8;
-    --color-light-2: #efe6d8;
-    --color-light-3: #e7d1b1;
-    --color-light-4: #d0b8a3;
-    --color-light-5: #9f8475;
-    --color-light-6: #816b66;
+
     --color-level-error: #ce0707;
     --color-level-error-bg: rgba(105, 0, 8, 0.8);
     --color-level-error-border: #750003;
@@ -170,7 +186,7 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
 ************************/
 /* https://github.com/mouse0270/module-credits */
 #module-management .package-list .package {
-    border-bottom: 1px dotted var(--color-cool-1);
+    border-bottom: 1px dotted var(--color-cool-1-90);
     background: var(--color-cool-5-25);
 }
 #module-management .package-list .package .package-overview .tag.expand {
@@ -210,6 +226,7 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     box-shadow: var(--box-shadow-light);
 }
 #module-management .package-list .package-title {
+    font-family: sans-serif;
     color: var(--sta-main-color);
     text-shadow: var(--text-shadow);
 }
@@ -667,4 +684,69 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     color: var(--green);
     text-shadow: var(--text-shadow);
     border-radius: 25px;
+}
+
+
+/*SPOTLIGHT OMNISEARCH*/
+#spotlight .window-content, 
+#spotlight main header input[type=search]:focus, 
+#spotlight main header input[type=search]:hover {
+    font-family: sans-serif;
+    background: unset;
+    color: var(--sta-main-color)!important;
+    background-color: unset!important;
+    text-shadow: var(--text-shadow);
+}
+
+/*QUICK INSERT*/
+.quick-insert-app {
+    background: none;
+    border: none;
+    border-radius: var(--border-radius);
+    background: none;
+    background-color: var(--glass-bg);
+    box-shadow: var(--glassy);
+    box-shadow: var(--box-shadow);
+    backdrop-filter: blur(5px);
+    color: var(--text-color-1);
+    text-shadow: 0px 1px 2px black;
+}
+.quick-insert-app .quick-insert-result li img {
+    border: 1px solid var(--tertiary);
+    border-radius: var(--border-radius);
+    background-color: var(--alt);
+}
+.quick-insert-app .search-selected a {
+    background: var(--primary);
+    text-shadow: 0px 1px 2px black !important;
+    border-radius: var(--border-radius);
+}
+.quick-insert-result li a:hover {
+    background: none;
+    background-color: var(--glass-bg);
+}
+.quick-insert-app .search-selected a:hover {
+    background: unset;
+    background-color: var(--glass-bg);
+}
+.quick-insert-app .search-selected a span.sub,
+.quick-insert-result li a:hover span.sub {
+    color: var(--text-color-4);
+}
+.quick-insert-app .search-editable-input {
+    background: none;
+}
+.quick-insert-hint {
+    background: none;
+}
+.quick-insert-result {
+    background: none;
+}
+.quick-insert-result li a i.action-icon {
+    opacity: 1;
+    color: var(--text-color-3);
+    background: rgba(255, 255, 255, 0.1333333333);
+}
+.quick-insert-result li span.sub {
+    color: var(--text-color-5);
 }

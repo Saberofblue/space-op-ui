@@ -2,9 +2,6 @@
     "RPGUI.SETTINGS.HOTFIX": "Désactive le HOTFIX du thême par défaut.",
     "RPGUI.SETTINGS.HOTFIX_HINT": "Vous devez obligatoirement désactiver le HOTFIX pour le thème par défaut si vous utilisez le thème Mandar.",
 
-    "RPGUI.SETTINGS.TOKEN_EFFECT_HUD": "Afficher les Conditions en cercle ?",
-    "RPGUI.SETTINGS.TOKEN_EFFECT_HUD_HINT": "Place les effets en cercle et les arrange à l'extérieur du jeton ou sur le pourtour du jetons pour les jetons plus grands",
-
     "RPGUI.SETTINGS.EnableTitle": "Boutons de jet : Remplacer le sélecteur de type de jet par des boutons",
     "RPGUI.SETTINGS.EnableHint": "Remplacer le menu déroulant de sélection de type de jet par un ensemble de quatre boutons.",
     "RPGUI.SETTINGS.ReplaceButtonsTitle": "Boutons de jet : Utiliser le style de bouton sur tous les boutons de chat",

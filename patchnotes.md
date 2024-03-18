@@ -5,6 +5,14 @@
 - Ready for v11 version.
 
 
+
+## v11.315.1806.27
+- Improved Core code
+- Remove Status Halo integration.
+- Added Compatibility with Quick Insert Module
+- Added Compatibility with Spotlight Omniresearch Module
+- Fixed some errors and added of others.
+
 ## v11.315.1806.26
 - Changed color of directory item documentation for a better visibility
 - Changed color of Setback dice for a better visibility

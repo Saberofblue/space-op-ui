@@ -11,18 +11,6 @@ Hooks.on('ready', async () => {
 
 Hooks.on("init", () => {
   
-  game.settings.register('space-op-ui', 'adjustTokenEffectsHudToggle', {
-		name: game.i18n.localize('RPGUI.SETTINGS.TOKEN_EFFECT_HUD'),
-		hint: game.i18n.localize('RPGUI.SETTINGS.TOKEN_EFFECT_HUD_HINT'),
-		scope: "world",
-		type: Boolean,
-		default: true,
-		config: true,
-		onChange: () => {
-			location.reload();
-		}
-  });
-
 	game.settings.register('space-op-ui', 'hotfix', {
 		name: game.i18n.localize('RPGUI.SETTINGS.HOTFIX'),
 		hint: game.i18n.localize('RPGUI.SETTINGS.HOTFIX_HINT'),
@@ -35,7 +23,6 @@ Hooks.on("init", () => {
 		}
 	});
 
-  if (game.settings.get('space-op-ui', 'adjustTokenEffectsHudToggle')) { rpgUIAddTokenEffectsHud() }
   if (!game.settings.get('space-op-ui', 'hotfix')) { rpgUIAddHotfix() }
 
   ChatRollPrivacy.init();
@@ -44,16 +31,6 @@ Hooks.on("init", () => {
 Hooks.once('setup', function () {
 	ChatRollPrivacy.setup();
 });
-
-function rpgUIAddTokenEffectsHud() {
-  const head = document.getElementsByTagName("head")[0];
-  const mainCss = document.createElement("script");
-  mainCss.setAttribute("type", "text/javascript")
-  mainCss.setAttribute("src", "modules/space-op-ui/scripts/status-halo.js")
-  head.insertBefore(mainCss, head.lastChild);
-
-  setTimeout(() => enableStatusHalo(), 700);
-}
 
 function rpgUIAddHotfix() {
 	const head = document.getElementsByTagName("head")[0];
