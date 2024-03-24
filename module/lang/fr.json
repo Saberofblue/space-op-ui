@@ -5,5 +5,27 @@
     "RPGUI.SETTINGS.EnableTitle": "Boutons de jet : Remplacer le sélecteur de type de jet par des boutons",
     "RPGUI.SETTINGS.EnableHint": "Remplacer le menu déroulant de sélection de type de jet par un ensemble de quatre boutons.",
     "RPGUI.SETTINGS.ReplaceButtonsTitle": "Boutons de jet : Utiliser le style de bouton sur tous les boutons de chat",
-    "RPGUI.SETTINGS.ReplaceButtonsHint": "Restylez les autres boutons de chat pour qu'ils aient la même apparence que les nouveaux boutons de jet."
+    "RPGUI.SETTINGS.ReplaceButtonsHint": "Restylez les autres boutons de chat pour qu'ils aient la même apparence que les nouveaux boutons de jet.",
+
+    "PAUSEICON.path_name":       "Emplacement du fichier de l'icône de pause : ",
+    "PAUSEICON.path_hint":       "Dossier et nom de fichier où se trouve votre icône de pause alternative dans les données Foundry VTT. Cliquez sur le bouton du sélecteur pour sélectionner votre icône. Tapez 'None', pour aucune image.",
+    "PAUSEICON.opacity_name":    "Opacité %:",
+    "PAUSEICON.opacity_hint":    "Valeur comprise entre 0 et 100, plus la valeur est faible, plus le résultat est transparent.",
+    "PAUSEICON.text_name":       "Message de pause : ",
+    "PAUSEICON.text_hint":       "Message qui s'affiche lors de la pause.",
+    "PAUSEICON.speed_name":      "Vitesse: ",
+    "PAUSEICON.speed_hint":      "Secondes par rotation, 0 signifie aucune rotation.",
+    "PAUSEICON.dimensionX_name": "Dimension (largeur) : ",
+    "PAUSEICON.dimensionX_hint": "Largeur de l'icône en pixels.",
+    "PAUSEICON.dimensionY_name": "Dimension (hauteur) : ",
+    "PAUSEICON.dimensionY_hint": "Hauteur de l'icône en pixels.",
+    "PAUSEICON.fontSize_name":   "Taille de la police :",
+    "PAUSEICON.fontSize_hint":   "Taille de la police en em, la valeur par défaut est 2",
+    "PAUSEICON.shadow_name":     "Ombre portée (on/off) : ",
+    "PAUSEICON.shadow_hint":     "Lorsque cette option est activée, une ombre portée apparaît sous le texte.",
+    "PAUSEICON.textColor_name":  "Couleur : ",
+    "PAUSEICON.textColor_hint":  "Soit le code hexadécimal (par exemple #f7e06e), soit le nom de la couleur HTML (par exemple CornflowerBlue).",
+    "PAUSEICON.saveButton":      "Enregistrer les paramètres",
+    "PAUSEICON.settings":        "Paramétrage de la Pause : ",
+    "PAUSEICON.settingsButton":  "Paramètres"
 }

@@ -6,6 +6,9 @@
 
 
 
+## v11.315.1806.28
+- The Alternative Pause Icon module has been integrated into the Ui.
+
 ## v11.315.1806.27
 - Improved Core code
 - Remove Status Halo integration.
