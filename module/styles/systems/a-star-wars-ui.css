@@ -107,6 +107,10 @@
     --scrollbar-width-legacy: 3px;
 }
 
+@font-face {
+    font-family: "EarthOrbiter";
+    src: url("./fonts/EarthOrbiterBold-vzD9.otf")format("opentype");
+}
 
 /* scrollbar
 ************************/
@@ -261,12 +265,18 @@ body {
 .starwarsffg.sheet.actor.v2 .tabs .item {
     text-shadow: var(--text-shadow);
     color: var(--pfui-main-color);
+    font-size: 16pt;
     height: 2rem;
+    flex: 0 0 1rem;
+    line-height: 1.5rem;
 }
 .starwarsffg.sheet.actor.v2 .tabs .item.active {
     color: var(--red);
     background: var(--color-warm-1)!important;
+    font-size: 16pt;
     height: 2rem;
+    flex: 0 0 1rem;
+    line-height: 1.5rem;
 }
 .system-starwarsffg .window-app .window-resizable-handle {
     border: 1px solid var(--red);
@@ -811,13 +821,16 @@ button:disabled {
     box-shadow: var(--box-shadow);
 }
 .system-starwarsffg #hotbar .bar-controls {
-    color: var(--red-light);
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink);
     text-shadow: var(--text-shadow);
     backdrop-filter: blur(3px);
 }
 .system-starwarsffg #hotbar .macro .macro-key {
     font-family: 'EarthOrbiter';
     text-transform: inherit;
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink);
 }
 .system-starwarsffg #hotbar .macro.inactive {
     background: var(--color-cool-5-75);
@@ -2334,6 +2347,45 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background-color: var(--color-cool-5-50)!important;
 }
 
+/* Actor
+************************/
+.starwarsffg.sheet.actor.v2 .character .sheet-body .skillsTablesGrid {
+    height: unset!important;
+}
+.starwarsffg.sheet.actor .character .sheet-body .skillsTablesGrid {
+    height: unset!important;
+}
+.starwarsffg.sheet.actor.v2 .skillsTablesGrid {
+    max-height: calc(100% - 4.75rem);
+}
+.starwarsffg.sheet.actor .skillsTablesGrid {
+    max-height: calc(100% - 4rem);
+}
+
+/* Minion
+************************/
+.starwarsffg.sheet.actor.v2 .minion .sheet-body .skillsTablesGrid {
+    height: unset!important;
+}
+.starwarsffg.sheet.actor .minion .sheet-body .skillsTablesGrid {
+    height: unset!important;
+}
+.starwarsffg.sheet.actor.v2 .minion .skillsTablesGrid {
+    max-height: calc(100% - 4rem);
+}
+.starwarsffg.sheet.actor .minion .skillsTablesGrid {
+    max-height: calc(100% - 4rem);
+}
+/* Other sheets
+************************/
+.starwarsffg .item-sheet-forcepower .sheet-body {
+    height: calc(100% - 13.5rem)!important;
+}
+.starwarsffg.sheet.actor .vehicle .sheet-body {
+    height: calc(100% - 33rem)!important;
+}
+/* Dice Colors
+************************/
 span.dietype.starwars {
   font-family: "EotESymbol", sans-serif;
 }
@@ -2566,7 +2618,7 @@ span.dietype.triumph {
 .swffg-destiny {
   box-sizing: content-box;
   color: var(--pfui-main-color);
-  font-family: "warnock-pro", "sans-serif";
+  font-family: "Roboto Condensed", sans-serif!important;
   font-size: 2rem;
   height: auto;
   bottom: 0px;
@@ -2586,13 +2638,16 @@ span.dietype.triumph {
 .swffg-destiny.swffg-groupmanager {
   pointer-events: auto;
 }
+.starwarsffg .group-manager {
+    color: var(--color-cool-1)!important;
+}
 .swffg-destiny #destinyLight {
-  background: var(--color-cool-5-90) url("./artwork/dice/starwars/lightside.webp") no-repeat center;
-  background-size: contain;
+  background: var(--color-cool-5-90) url("./artwork/dice/starwars/lightside.webp") no-repeat center!important;
+  background-size: contain!important;
 }
 .swffg-destiny #destinyDark {
-  background: var(--color-cool-5-90) url("./artwork/dice/starwars/darkside.webp") no-repeat center;
-  background-size: contain;
+  background: var(--color-cool-5-90) url("./artwork/dice/starwars/darkside.webp") no-repeat center!important;
+  background-size: contain!important;
 }
 .swffg-destiny .destiny-points {
     flex: 0 0 4rem;
@@ -2604,10 +2659,11 @@ span.dietype.triumph {
     width: 4rem;
     height: 4rem;
     line-height: 3.25rem;
-    text-shadow: var(--text-shadow)!important;
+    text-shadow: 1px 2px 1px black;
     border-radius: 50%;
     box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.75);
-    color: var(--red-light);
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink);
     font-size: xxx-large;
     font-weight: bold;
     filter: drop-shadow(0px 1px 1px black);
