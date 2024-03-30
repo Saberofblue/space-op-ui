@@ -15,7 +15,7 @@
       "flags": {}
     }
   ],
-  "version": "11.315.1807.1",
+  "version": "11.315.1808.1",
   "compatibility": {
     "minimum": "11",
     "verified": "11"
@@ -27,8 +27,8 @@
         "manifest": "https://raw.githubusercontent.com/StarWarsFoundryVTT/StarWarsFFG/master/system.json",
         "type": "system",
         "compatibility": {
-          "minimum": "1.807",
-          "verified": "1.807"
+          "minimum": "1.808",
+          "verified": "1.808"
         }
       }
     ]
@@ -66,5 +66,5 @@
   ],
   "url": "https://gitlab.com/sasmira/space-op-ui",
   "manifest": "https://gitlab.com/sasmira/space-op-ui/-/raw/main/module/module.json",
-  "download": "https://gitlab.com/sasmira/space-op-ui/-/jobs/artifacts/v11.315.1807.1/raw/space-op-ui.zip?job=build"
+  "download": "https://gitlab.com/sasmira/space-op-ui/-/jobs/artifacts/v11.315.1808.1/raw/space-op-ui.zip?job=build"
 }

@@ -5,10 +5,16 @@
 - Ready for v11 version.
 
 
+## v11.315.1808.1
+- Improved Core code
+- Updated Compatibility Starwarsffg v1.808.
+- Fixed vehicles windows resize.
+- Fixed some errors and added of others.
+
 ## v11.315.1807.1
 - Improved Core code
 - Updated Compatibility Starwarsffg v1.807.
-- Disabled HOTFIXE file by default.
+- Disabled HOTFIX file by default.
 
 ## v11.315.1806.28
 - The Alternative Pause Icon module has been integrated into the Ui.
