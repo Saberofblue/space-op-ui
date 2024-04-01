@@ -2060,6 +2060,17 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     box-shadow: var(--glassy);
     height: 1rem;
     line-height: 0rem;
+    --notchSize: 0.5rem;
+    -webkit-clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
+    clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
+}
+.system-starwarsffg .token-sheet nav.sheet-tabs .item {
+    background: var(--color-cool-5-75);
+    font-size: small;
+    border: none;
+    box-shadow: var(--glassy);
+    height: 2.8rem;
+    line-height: 1rem;
 }
 .system-starwarsffg input[type="range"] + .range-value {
     color: var(--sta-main-color);
