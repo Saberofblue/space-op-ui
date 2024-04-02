@@ -1440,6 +1440,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 .system-starwarsffg .package-configuration aside.sidebar nav.tabs .category-tab {
     border-bottom: 1px dotted var(--red);
+    margin: 0 2px 0 0;
     color: var(--color-warm-1);
     text-shadow: var(--text-shadow);
 }
@@ -2057,8 +2058,9 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .system-starwarsffg .sheet nav.sheet-tabs .item {
     background: var(--color-cool-5-75);
     border: none;
+    font-size: small;
     box-shadow: var(--glassy);
-    height: 1rem;
+    height: 1.5rem;
     line-height: 0rem;
     --notchSize: 0.5rem;
     -webkit-clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));

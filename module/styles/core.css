@@ -691,7 +691,7 @@
     padding-right: 0px;
   }
   #controls {
-    padding-top: 5px;
+    padding: 5px 2px;
   }
   #controls ol.control-tools.main-controls {
     margin-left: 5px;
