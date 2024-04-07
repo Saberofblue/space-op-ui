@@ -5,7 +5,10 @@
 - Ready for v11 version.
 
 
-## v11.315.1808.2
+## v11.315.1808.4
+- Added Compatibility with Adventure Exporter
+
+## v11.315.1808.3
 - Improved Core code
 - Updated Compatibility Starwarsffg v1.808.
 - Fixed vehicles windows resize.

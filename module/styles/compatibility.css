@@ -97,6 +97,68 @@
 }
 
 
+/* Adventurer Exporter */
+.sheet.adventure-importer .adventure-header h1 {
+    color: var(--color-warm-1);
+    text-shadow: var(--text-shadow);
+}
+.sheet.adventure-importer figure.adventure-banner img {
+    box-shadow: var(--box-shadow);
+}
+.sheet.adventure-importer figure.adventure-banner {
+    color: var(--color-warm-1);
+    text-shadow: var(--text-shadow);
+}
+.sheet.adventure-importer .adventure-overview h2 {
+    color: var(--color-warm-1);
+    text-shadow: var(--text-shadow);
+}
+.sheet.adventure-importer .adventure-overview {
+    color: var(--green);
+    text-shadow: var(--text-shadow);
+}
+.sheet.adventure-exporter .tab.contents a.control {
+    color: var(--green);
+    text-shadow: var(--text-shadow);
+}
+.sheet.adventure-exporter .tab.contents a.control:hover {
+    color: var(--red-light);
+    text-shadow: var(--text-shadow);
+}
+.sheet.adventure-importer .adventure-contents h2 {
+    color: var(--color-warm-1);
+    text-shadow: var(--text-shadow);
+}
+.sheet.adventure-importer .adventure-contents {
+    color: var(--green);
+    text-shadow: var(--text-shadow);
+}
+.sheet.adventure-exporter .tab.contents a.control.new-link:hover {
+    color: var(--red-light);
+    text-shadow: var(--text-shadow);
+}
+.sheet.adventure-exporter .tab.contents h3 {
+    color: antiquewhite;
+    border-top: 1px solid var(--color-warm-2);
+    border-bottom: 1px solid var(--color-warm-2);
+    background-color: var(--red-swffg);
+    border-radius: var(--border-radius-5);
+}
+.sheet.adventure-exporter .tab.contents h4.update {
+    border: 1px solid var(--red);
+    color: var(--color-warm-1);
+    background: var(--color-cool-5-75);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+}
+.sheet.adventure-exporter .tab.contents h4.update:hover {
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink);
+    border-color: var(--color-text-hyperlink);
+    box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+
+
 /*Automated Animations
 ************************/
 /* https://github.com/DFreds/dfreds-effects-panel */
@@ -749,4 +811,56 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
 }
 .quick-insert-result li span.sub {
     color: var(--text-color-5);
+}
+
+/* Share Media */
+/*https://github.com/DarKDinDoN/share-media*/
+#show-media .media-actions-container .media-actions.loop-action.active .drawer,
+#show-media .media-actions-container .media-actions.mute-action.active .drawer, 
+#show-media .media-actions-container .media-actions.miro-action.active .drawer,
+#show-media .media-actions-container .drawer {
+    border: 1px solid var(--red);
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-4-90);
+    border-radius: 3px;
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--box-shadow);
+}
+#show-media .media-actions-container .actions {
+    border: 1px solid var(--red);
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-4-90);
+    border-radius: 3px;
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--box-shadow);
+}
+#show-media .media-actions-container .drawer:hover,
+#show-media .media-actions-container .media-actions.loop-action .drawer:hover,
+#show-media .media-actions-container .media-actions.mute-action .drawer:hover, 
+#show-media .media-actions-container .media-actions.miro-action .drawer:hover,
+#show-media .media-actions-container .actions span[data-action]:hover {
+    background-color: var(--color-cool-4-90);
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink);
+    border-color: var(--color-text-hyperlink);
+    box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+#show-media .media-actions-container .media-actions.loop-action.active .drawer,
+#show-media .media-actions-container .media-actions.mute-action.active .drawer, 
+#show-media .media-actions-container .media-actions.miro-action.active .drawer {
+    border: 2px solid var(--red-light);
+    background-color: var(--color-cool-4-90);
+    color: var(--red-light);
+    box-shadow: var(--box-shadow);
+}
+#show-media .media-actions-container .media-actions.loop-action .drawer,
+#show-media .media-actions-container .media-actions.mute-action .drawer,
+#show-media .media-actions-container .media-actions.miro-action .drawer,
+#show-media .media-actions-container .media-actions .actions .immersive-action.active {
+    border: 2px solid var(--green);
+    background-color: var(--color-cool-4-90);
+    color: var(--green);
+    box-shadow: var(--box-shadow);
 }
