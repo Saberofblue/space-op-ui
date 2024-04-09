@@ -5,8 +5,9 @@
 - Ready for v11 version.
 
 
-## v11.315.1808.4
+## v11.315.1808.5
 - Added Compatibility with Adventure Exporter
+- Fixed some errors and added of others.
 
 ## v11.315.1808.3
 - Improved Core code

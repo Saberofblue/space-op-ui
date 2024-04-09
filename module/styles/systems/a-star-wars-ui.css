@@ -626,7 +626,8 @@ button:disabled {
 .system-starwarsffg #controls ol.sub-controls.active .control-tool > i.fas, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool i.far, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool i.fa-solid,
-.system-starwarsffg #controls ol.sub-controls.active .control-tool i.fa-regular {
+.system-starwarsffg #controls ol.sub-controls.active .control-tool i.fa-regular,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool i.fa-bookmark {
     border: 1px solid var(--red);
     color: var(--pfui-main-color);
     background-color: var(--color-cool-5-75);
@@ -636,7 +637,8 @@ button:disabled {
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover > i.fas, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover i.far, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover i.fa-solid,
-.system-starwarsffg #controls ol.sub-controls.active .control-tool:hover i.fa-regular {
+.system-starwarsffg #controls ol.sub-controls.active .control-tool:hover i.fa-regular,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool:hover i.fa-bookmark {
     background-color: var(--color-cool-5-75);
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);
@@ -654,7 +656,8 @@ button:disabled {
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.active > i.fas, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.active i.far, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.active i.fa-solid, 
-.system-starwarsffg #controls ol.sub-controls.active .control-tool.active i.fa-regular {
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.active i.fa-regular,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.active i.fa-bookmark {
     background-color: var(--color-cool-5-75);
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);
@@ -670,7 +673,8 @@ button:disabled {
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover.active > i.fas, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover.active i.far, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool:hover.active i.fa-solid, 
-.system-starwarsffg #controls ol.sub-controls.active .control-tool:hover.active i.fa-regular {
+.system-starwarsffg #controls ol.sub-controls.active .control-tool:hover.active i.fa-regular,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool:hover.active i.fa-bookmark {
     background-color: var(--color-cool-5);
     box-shadow: var(--box-shadow);
     animation: glow 0.75s infinite alternate;
@@ -683,8 +687,9 @@ button:disabled {
 .system-starwarsffg #controls ol.control-tools > li > i.fas, 
 .system-starwarsffg #controls ol.control-tools > li i.far, 
 .system-starwarsffg #controls ol.control-tools > li i.fa-solid,
-.system-starwarsffg #controls ol.control-tools > li i.fa-jedi, 
-.system-starwarsffg #controls ol.control-tools > li i.fa-regular {
+.system-starwarsffg #controls ol.control-tools > li i.fa-jedi,
+.system-starwarsffg #controls ol.control-tools > li i.fa-regular,
+.system-starwarsffg #controls ol.control-tools > li i.fa-bookmark {
     box-sizing: content-box;
     width: 36px;
     height: 36px;
@@ -704,7 +709,8 @@ button:disabled {
 .system-starwarsffg #controls ol.control-tools > li.active i.far, 
 .system-starwarsffg #controls ol.control-tools > li.active i.fa-solid,
 .system-starwarsffg #controls ol.control-tools > li.active i.fa-jedi,
-.system-starwarsffg #controls ol.control-tools > li.active i.fa-regular {
+.system-starwarsffg #controls ol.control-tools > li.active i.fa-regular,
+.system-starwarsffg #controls ol.control-tools > li.active i.fa-bookmark {
     background-color: var(--color-cool-5-75);
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);
@@ -721,7 +727,8 @@ button:disabled {
 .system-starwarsffg #controls ol.control-tools > li:hover.active i.far, 
 .system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-solid,
 .system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-jedi, 
-.system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-regular {
+.system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-regular,
+.system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-bookmark {
     background-color: var(--color-cool-5);
     box-shadow: var(--box-shadow);
 }
@@ -733,7 +740,8 @@ button:disabled {
 .system-starwarsffg #controls ol.control-tools > li:hover i.far, 
 .system-starwarsffg #controls ol.control-tools > li:hover i.fa-solid,
 .system-starwarsffg #controls ol.control-tools > li:hover i.fa-jedi,
-.system-starwarsffg #controls ol.control-tools > li:hover i.fa-regular {
+.system-starwarsffg #controls ol.control-tools > li:hover i.fa-regular,
+.system-starwarsffg #controls ol.control-tools > li:hover i.fa-bookmark {
     background-color: var(--color-cool-5-75);
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);
@@ -752,7 +760,8 @@ button:disabled {
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle i.far, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle i.fa-solid, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle i.fa-jedi, 
-.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle i.fa-regular {
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle i.fa-regular,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle i.fa-bookmark {
     border: 2px solid var(--red-light);
     background-color: var(--color-cool-5-90);
     color: var(--red-light);
@@ -762,7 +771,8 @@ button:disabled {
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover i.far, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover i.fa-solid,
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover i.fa-jedi, 
-.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover i.fa-regular {
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover i.fa-regular,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle:hover i.fa-bookmark {
     background-color: var(--color-cool-5-50);
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);
@@ -779,7 +789,8 @@ button:disabled {
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.far, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-solid, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-jedi,  
-.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-regular {
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-regular,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-bookmark {
     border: 2px solid var(--green);
     background-color: var(--color-cool-5-90);
     color: var(--green);
@@ -793,7 +804,8 @@ button:disabled {
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.far:hover, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-solid:hover, 
 .system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-jedi:hover, 
-.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-regular:hover {
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-regular:hover
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle.active i.fa-bookmark:hover {
     background-color: var(--color-cool-5-75);
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);

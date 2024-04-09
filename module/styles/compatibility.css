@@ -144,6 +144,13 @@
     background-color: var(--red-swffg);
     border-radius: var(--border-radius-5);
 }
+.sheet.adventure-exporter .tab.contents h4.add {
+    border-color: var(--color-cool-2);
+    color: var(--color-cool-1);
+    background: var(--color-cool-5-90);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+}
 .sheet.adventure-exporter .tab.contents h4.update {
     border: 1px solid var(--red);
     color: var(--color-warm-1);
@@ -151,6 +158,7 @@
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
 }
+.sheet.adventure-exporter .tab.contents h4.add:hover,
 .sheet.adventure-exporter .tab.contents h4.update:hover {
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);
