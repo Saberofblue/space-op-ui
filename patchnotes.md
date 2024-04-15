@@ -5,6 +5,10 @@
 - Ready for v11 version.
 
 
+## v11.315.1808.6
+- The Alternative Pause Icon module removed.
+- Added New Game Paused.
+
 ## v11.315.1808.5
 - Added Compatibility with Adventure Exporter
 - Fixed some errors and added of others.

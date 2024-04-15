@@ -166,6 +166,7 @@
     font-family: "GenesysSymbol";
     src: url("./fonts/Genesys.ttf") format("truetype");
 }
+
 @keyframes glow {
     from {
       box-shadow: 0 0 1px 1px #ffb351;
@@ -173,7 +174,74 @@
     to {
       box-shadow: 0 0 3px 3px #ffb351;
     }
+}
+
+/*Game Paused
+************************/
+@keyframes pause-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+@keyframes pulsate {
+    0% {
+      filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    }
+    50% {
+      filter: drop-shadow(0 0 5px var(--red-light));
+    }
+    100% {
+      filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    }
   }
+  #pause > figcaption {
+    font-family: 'EarthOrbiter';
+    font-size: xx-large!important;
+    color: var(--sta-main-color);
+    text-transform: uppercase;
+    text-shadow: var(--text-shadow);
+    animation: pulsate 3s infinite ease-in-out;
+}
+#pause {
+    background: none;
+    height: 128px;
+}
+#pause img {
+    display: none;
+}
+#pause::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    margin-left: -100px;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: url("./paused/pause-inner.svg") no-repeat 50% 50%;
+    animation-name: pause-spin;
+    animation-duration: 10000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+#pause::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    margin-left: -100px;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: url("./paused/pause-outer.svg") no-repeat 50% 50%;
+    animation-name: pause-spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: reverse;
+}
+/*END*/
 body {
     background-image: url(../systems/artwork/Star-Wars_Background.webp);
     background-size: cover;
@@ -205,18 +273,6 @@ body {
 .system-starwarsffg .flex-group-left, 
 .system-starwarsffg .flex-group-right {
     border: 1px solid transparent;
-}
-.system-starwarsffg #pause > figcaption {
-    font-family:'EarthOrbiter';
-    font-size: xx-large;
-    text-transform: uppercase;
-    text-shadow: var(--text-shadow);
-}
-.system-starwarsffg #pause > img {
-    content: url("./paused/paused-logo.webp");
-    height: 128px;
-    width: 128px;
-    left: calc(50% - 64px);
 }
 .system-starwarsffg .app {
     background: none;
