@@ -7,6 +7,7 @@
 
 ## v11.315.1808.6
 - The Alternative Pause Icon module removed.
+- Added Compatibility with Pin Cushion.
 - Added New Game Paused.
 
 ## v11.315.1808.5
