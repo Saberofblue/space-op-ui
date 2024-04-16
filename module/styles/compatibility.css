@@ -93,9 +93,8 @@
 
 @font-face {
     font-family: "EarthOrbiter";
-    src: url("./fonts/EarthOrbiterBold-vzD9.otf")format("opentype");
+    src: url("./systems/fonts/EarthOrbiterBold-vzD9.otf")format("opentype");
 }
-
 
 /* Adventurer Exporter */
 .sheet.adventure-importer .adventure-header h1 {

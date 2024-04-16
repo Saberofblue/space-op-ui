@@ -5,8 +5,8 @@
 - Ready for v11 version.
 
 
-## v11.315.1808.6
-- The Alternative Pause Icon module removed.
+## v11.315.1808.7
+- The Alternative Pause Icon module integration removed.
 - Added Compatibility with Pin Cushion.
 - Added New Game Paused.
 

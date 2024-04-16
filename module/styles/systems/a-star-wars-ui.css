@@ -107,11 +107,6 @@
     --scrollbar-width-legacy: 3px;
 }
 
-@font-face {
-    font-family: "EarthOrbiter";
-    src: url("./fonts/EarthOrbiterBold-vzD9.otf")format("opentype");
-}
-
 /* scrollbar
 ************************/
 * {
