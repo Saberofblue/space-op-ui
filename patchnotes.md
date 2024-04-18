@@ -5,6 +5,12 @@
 - Ready for v11 version.
 
 
+## v11.315.1808.8
+- Added Compatibility with Monk's Sound Enhancement.
+- Improving visibility of different titles in journals.
+- Improved visibility of dice icons in journals.
+- Correction very large dice when a user visualizes the details of his roll.  
+
 ## v11.315.1808.7
 - The Alternative Pause Icon module integration removed.
 - Added Compatibility with Pin Cushion.
