@@ -547,7 +547,7 @@ button:disabled {
 }
 .system-starwarsffg h2 {
     background: transparent;
-    color: var(--sta-main-color);
+    color:var(--sta-main-color);
     font-family: 'EarthOrbiter';
     text-transform: inherit;
     box-shadow: unset;
@@ -1121,6 +1121,16 @@ button:disabled {
 .starwarsffg .dice-tooltip .part-header {
     border-bottom: 1px dotted var(--color-warm-3);
 }
+.system-starwarsffg .dice-tooltip .dice-rolls {
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+.system-starwarsffg .dice-tooltip .dice-rolls .roll {
+    min-width: unset;
+    margin: 0;
+    background-size: 100%;
+}
 .system-starwarsffg #chat-log .chat-message .message-header {
     font-family: 'EarthOrbiter';
     text-transform: inherit;
@@ -1352,12 +1362,32 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     align-content: center;
     margin: 7px;
 }
+.system-starwarsffg .sheet.journal-entry .journal-entry-page h2 {
+    background: transparent;
+    color:var(--color-warm-2);
+    font-family: 'EarthOrbiter';
+    text-transform: inherit;
+    box-shadow: unset;
+    border-radius: 5px;
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg .sheet.journal-entry .journal-entry-page h3 {
+    background: transparent;
+    color: var(--color-cool-1);
+    font-family: 'EarthOrbiter';
+    text-transform: inherit;
+    box-shadow: unset;
+    border-radius: 5px;
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+}
 .sheet.journal-entry .pages-list .page-heading .page-title {
     color: var(--color-warm-1);
 }
 .sheet.journal-entry .pages-list .h2 .heading-link {
     text-indent: var(--level-indent);
-    color: var(--sta-main-color);
+    color:var(--color-warm-2);
 }
 .sheet.journal-entry .pages-list .h2 .heading-link:hover {
     color: var(--green)!important;
@@ -2527,8 +2557,8 @@ span.dietype.ability {
   text-shadow: var(--text-shadow);
 }
 span.dietype.advantage {
-  color: var(--color-cool-1)!important;
-  text-shadow: var(--text-shadow);
+    color: var(--green)!important;
+    text-shadow: var(--text-shadow);
 }
 span.dietype.boost {
   color: lightskyblue!important;
@@ -2539,52 +2569,52 @@ span.dietype.challenge {
   text-shadow: var(--text-shadow);
 }
 span.dietype.dark {
-  color: var(--color-cool-5)!important;
-  text-shadow: var(--text-shadow);
+    color: var(--color-cool-3-90)!important;
+    text-shadow: var(--text-shadow);
 }
 span.dietype.despair {
-  color: var(--color-cool-5)!important;
-  text-shadow: var(--text-shadow);
+    color: var(--color-warm-2)!important;
+    text-shadow: var(--text-shadow);
 }
 span.dietype.difficulty {
   color: var(--rarity-unique)!important;
   text-shadow: var(--text-shadow);
 }
 span.dietype.forcepoint {
-  color: var(--color-cool-5)!important;
-  text-shadow: var(--text-shadow);
+    color: white!important;
+    text-shadow: var(--text-shadow);
 }
 span.dietype.failure {
-  color: var(--color-cool-5)!important;
-  text-shadow: var(--text-shadow);
+    color: var(--color-cool-1)!important;
+    text-shadow: var(--text-shadow);
 }
 span.dietype.force {
-  color: var(--color-cool-1)!important;
-  text-shadow: var(--text-shadow);
+    color: white!important;
+    text-shadow: var(--text-shadow);
 }
 span.dietype.light {
-  color: var(--color-cool-1)!important;
-  text-shadow: var(--text-shadow);
+    color: white!important;
+    text-shadow: var(--text-shadow);
 }
 span.dietype.proficiency {
   color: var(--sta-main-color)!important;
   text-shadow: var(--text-shadow);
 }
 span.dietype.setback {
-  color: var(--color-cool-5)!important;
-  text-shadow: var(--text-shadow);
+    color: var(--color-cool-2-90)!important;
+    text-shadow: var(--text-shadow);
 }
 span.dietype.success {
-  color: var(--color-cool-1)!important;
-  text-shadow: var(--text-shadow);
+    color: var(--green)!important;
+    text-shadow: var(--text-shadow);
 }
 span.dietype.threat {
   color: var(--color-cool-1)!important;
   text-shadow: var(--text-shadow);
 }
 span.dietype.triumph {
-  color: var(--color-cool-1)!important;
-  text-shadow: var(--text-shadow);
+    color: var(--color-warm-1)!important;
+    text-shadow: var(--text-shadow);
 }
 
 .starwarsffg span.dietype.starwars {
@@ -2610,7 +2640,7 @@ span.dietype.triumph {
     text-shadow: var(--text-shadow);
 }
 .starwarsffg span.dietype.dark {
-    color: var(--color-cool-5)!important;
+    color: var(--color-cool-3-90)!important;
     text-shadow: var(--text-shadow);
 }
 .starwarsffg span.dietype.despair {
@@ -2642,7 +2672,7 @@ span.dietype.triumph {
     text-shadow: var(--text-shadow);
 }
 .starwarsffg span.dietype.setback {
-    color: var(--color-cool-3)!important;
+    color: var(--color-cool-3-90)!important;
     text-shadow: var(--text-shadow);
 }
 .starwarsffg span.dietype.success {

@@ -648,22 +648,18 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     text-shadow: 0 0 15px var(--red-light);
     filter: contrast(1.5);
 }
-
 #chat .monks-tokenbar.chat-card .card-header {
     padding: 3px 0;
     border-top: 2px groove var(--monks-border-color);
     border-bottom: 2px groove var(--monks-border-color);
 }
-
 #chat .monks-tokenbar.chat-card .card-footer {
     border-top: 2px groove var(--monks-border-color);
 }
-
 #chat .monks-tokenbar.chat-card .card-footer span {
     border-right: 2px groove var(--monks-border-color);
     font-size: 9px;
 }
-
 .monks-tokenbar .footer-button {
     width: 18px;
     height: 18px;
@@ -672,7 +668,6 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     line-height: 11px;
     padding: 0px 2px;
 }
-
 #chat .monks-tokenbar .sheet .items-list {
     list-style: none;
     margin: 0;
@@ -681,11 +676,9 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     scrollbar-width: thin;
     color: var(--pfui-main-color);
 }
-
 #chat .monks-tokenbar.chat-card .card-header h3 {
     color: var(--pfui-main-color)
 }
-
 #chat #requestsavingthrow .request-header {
     border-radius: 4px;
     white-space: nowrap;
@@ -695,7 +688,6 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     border: 2px solid var(--border-color);
     padding: 1px 8px;
 }
-
 #chat .monks-tokenbar .sheet .items-list .item-name h3,
 #chat .monks-tokenbar .sheet .items-list .item-name h4 {
     margin: 0;
@@ -709,7 +701,6 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     border: 1px solid transparent;
     border-radius: var(--border-radius);
 }
-
 #chat .monks-tokenbar .sheet .items-list .items-header {
     height: 28px;
     margin: 2px 0;
@@ -722,7 +713,6 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     border: 1px solid transparent;
     border-radius: var(--border-radius);
 }
-
 #chat .monks-tokenbar.chat-card .sheet .items-list {
     padding: 0;
 }
@@ -754,6 +744,27 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     text-shadow: var(--text-shadow);
     border-radius: 25px;
 }
+
+
+/* Monk's Sound Enhancement */
+/*https://github.com/ironmonk88/monks-enhanced-journal*/
+.sheet .sound-sheet .items-list .items-header {
+    color: var(--color-warm-1);
+    background: var(--color-cool-5-25);
+    border: none;
+    text-shadow: var(--text-shadow);
+    font-weight: normal;
+}
+.sheet .sound-sheet .items-list .item {
+    color: var(--bg3-alliance-opposition-red);
+    text-shadow: var(--text-shadow);
+    border-bottom: 1px dotted var(--color-cool-3);
+}
+.sheet .sound-sheet .items-list .item .item-name {
+    color: var(--bg3-blue-light);
+}
+
+
 
 /*PIN CUSHION*/
 #journal .pin-cushion-thumbnail {

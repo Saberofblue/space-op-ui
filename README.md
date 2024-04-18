@@ -17,6 +17,3 @@ https://gitlab.com/sasmira/space-op-ui/-/raw/main/module/module.json
 ## Please note: The appearance of the interface differs depending on the system. The examples below show the interface corresponding to the system for which it was created.
 ### Improved Space Opera UI for Star Wars FFG
 ![image](space-op-swffg.jpg)
-
-#### Warning : There are two themes in SWFFG system. Don't forget to use this option (see below) if you use Mandar Theme.
-![image](space-op-swffg-warning.jpg)
