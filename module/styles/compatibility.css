@@ -786,7 +786,7 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
 #spotlight main header input[type=search]:hover {
     font-family: sans-serif;
     background: unset;
-    color: var(--sta-main-color)!important;
+    color: var(--color-cool-1)!important;
     background-color: unset!important;
     text-shadow: var(--text-shadow);
 }

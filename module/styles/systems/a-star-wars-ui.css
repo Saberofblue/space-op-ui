@@ -1164,6 +1164,9 @@ button:disabled {
 .system-starwarsffg #chat-log .chat-message .message-content b {
     color:var(--color-warm-1);
 }
+.system-starwarsffg .chat-message.message .message-content .updateNotification {
+    background: radial-gradient(var(--color-cool-3-90), var(--color-cool-4-90));
+}
 .system-starwarsffg #chat-log .chat-message .item-details {
     text-align: center;
     padding: unset;
@@ -2201,6 +2204,13 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     color: var(--sta-main-color);
     background: var(--red)!important;
     text-shadow: var(--text-shadow);
+}
+form h1.form-header, 
+form h2.form-header, 
+form h3.form-header {
+    color: var(--color-cool-1);
+    border-top: unset;
+    border-bottom: 1px dotted var(--red-swffg);
 }
 /*Sidebar Popout
 ************************/

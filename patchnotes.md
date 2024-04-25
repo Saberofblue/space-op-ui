@@ -5,6 +5,9 @@
 - Ready for v11 version.
 
 
+## v11.315.1809.1
+- Fixed some errors and added of others.
+
 ## v11.315.1808.8
 - Added Compatibility with Monk's Sound Enhancement.
 - Improving visibility of different titles in journals.
