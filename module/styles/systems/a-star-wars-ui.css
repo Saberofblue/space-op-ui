@@ -872,17 +872,6 @@ button:disabled {
 
 /* Ui-bottom
 ************************/
-.system-starwarsffg #players {
-    font-family: 'EarthOrbiter';
-    text-transform: inherit;
-    color: var(--pfui-main-color);
-    background-color: var(--color-cool-5-25);
-    border-radius: 25px;
-    backdrop-filter: blur(10px);
-    text-shadow: 0 0 15px var(--red-light);
-    filter: drop-shadow(0px 1px 1px black);
-    box-shadow: var(--box-shadow);
-}
 .system-starwarsffg #hotbar .bar-controls {
     --color-text-hyperlink: #ff6400;
     color: var(--color-text-hyperlink);
@@ -908,6 +897,43 @@ button:disabled {
     border-radius: 50%;
     border: 2px solid var(--color-cool-2);
     box-shadow: var(--box-shadow);
+}
+
+/* Players
+************************/
+.system-starwarsffg #players {
+    font-family: 'EarthOrbiter';
+    text-transform: inherit;
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink);
+    background-color: var(--color-cool-5-25);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #players h3 .players-mode {
+    font-size: var(--font-size-20);
+    margin: 0 10px;
+    color: var(--color-warm-1);
+}
+.system-starwarsffg #players h3 {
+    margin: 3px;
+    padding: 4px;
+    border-bottom: 2px dotted var(--red-swffg);
+}
+.system-starwarsffg #players ol .player-active {
+    flex: 0 0 10px;
+    height: 10px;
+}
+.system-starwarsffg #players ol .player-name {
+    font-size: x-small;
+    text-shadow: var(--text-shadow);
+}
+.system-starwarsffg #players ol .player-name.self {
+    color: var(--color-cool-1);
+    text-shadow: 0 0 15px var(--red-light);
 }
 
 /* Sidebar
@@ -1378,6 +1404,16 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .system-starwarsffg .sheet.journal-entry .journal-entry-page h3 {
     background: transparent;
     color: var(--color-cool-1);
+    font-family: 'EarthOrbiter';
+    text-transform: inherit;
+    box-shadow: unset;
+    border-radius: 5px;
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg .sheet.journal-entry .journal-entry-page h4 {
+    background: transparent;
+    color: var(--color-level-info);
     font-family: 'EarthOrbiter';
     text-transform: inherit;
     box-shadow: unset;
