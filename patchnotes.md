@@ -5,7 +5,7 @@
 - Ready for v11 version.
 
 
-## v11.315.1809.2
+## v11.315.1809.3
 - Players window skin reworked.
 - Smalltime skin added.
 - H4 titles colored now.

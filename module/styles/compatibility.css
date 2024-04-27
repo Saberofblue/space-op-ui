@@ -900,6 +900,7 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
 /* https://github.com/unsoluble/smalltime */
 #smalltime-app {
     box-shadow: var(--box-shadow);
+    width: 210px !important;
 }
 #smalltime-app .window-content {
     border: 1px solid var(--color-cool-5);
@@ -919,7 +920,6 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     color: var(--color-cool-1);
 }
 #smalltime-app #timeDisplay {
-    font-size: medium;
     background: transparent;
     border: unset;
     text-shadow: var(--text-shadow);
