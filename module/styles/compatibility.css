@@ -585,7 +585,13 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     filter: drop-shadow(0px 1px 1px black);
     box-shadow: var(--glassy);
 }
-
+#chat-log .message.round-marker .message-header .message-delete {
+    color: var(--stat-font);
+    text-shadow: var(--text-shadow);
+}
+#chat-log .message.round-marker .message-header .message-delete:hover {
+    color: var(--red-light);
+}
 
 /* Monk's TokenBar */
 /* https://github.com/ironmonk88/monks-tokenbar */

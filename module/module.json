@@ -15,7 +15,7 @@
       "flags": {}
     }
   ],
-  "version": "11.315.1809.3",
+  "version": "11.315.1809.4",
   "compatibility": {
     "minimum": "11",
     "verified": "11"
@@ -28,7 +28,7 @@
         "type": "system",
         "compatibility": {
           "minimum": "1.808",
-          "verified": "1.808"
+          "verified": "1.809"
         }
       }
     ]
@@ -65,5 +65,5 @@
   ],
   "url": "https://gitlab.com/sasmira/space-op-ui",
   "manifest": "https://gitlab.com/sasmira/space-op-ui/-/raw/main/module/module.json",
-  "download": "https://gitlab.com/sasmira/space-op-ui/-/jobs/artifacts/v11.315.1809.3/raw/space-op-ui.zip?job=build"
+  "download": "https://gitlab.com/sasmira/space-op-ui/-/jobs/artifacts/v11.315.1809.4/raw/space-op-ui.zip?job=build"
 }
