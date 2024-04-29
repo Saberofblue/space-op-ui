@@ -5,6 +5,11 @@
 - Ready for v11 version.
 
 
+## v11.315.1809.5
+- Token Action HUD Classic skin added.
+- Combat Tracker skin reworked.
+- Fixed some errors and added of others.
+
 ## v11.315.1809.3
 - Players window skin reworked.
 - Smalltime skin added.

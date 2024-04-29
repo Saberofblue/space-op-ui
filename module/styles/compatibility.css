@@ -850,6 +850,54 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     color: var(--text-color-5);
 }
 
+/* Token Action HUD Classic */
+/*https://github.com/Drental/fvtt-tokenactionhud*/
+.tah-subtitle,
+#tah-character-name {
+    font-family: 'EarthOrbiter';
+    text-transform: inherit;
+    color: var(--sta-main-color)!important;
+    text-shadow: 0 0 15px var(--red-light)!important;
+    filter: drop-shadow(0px 1px 1px black);
+
+}
+#tah-expand-hud, 
+.tah-category button, 
+.tah-action button {
+    border-radius: 0 17px 0 17px !important;
+    margin-right: 3px;
+    border: 1px solid var(--red) !important;
+    color: var(--pfui-main-color) !important;
+    background: var(--color-cool-5-75) !important;
+    text-shadow: 0 0 15px var(--red-light) !important;
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--box-shadow) !important;
+}
+#tah-expand-hud:hover, 
+.tah-category button:hover, 
+.tah-action button:hover,
+#tah-collapse-expand:hover {
+    background: var(--color-warm-1)!important;
+    color: var(--color-warm-3)!important;
+    border-color: var(--color-warm-1)!important;
+    text-shadow: var(--text-shadow)!important;
+    filter: drop-shadow(0px 1px 1px black)!important;
+    box-shadow: var(--box-shadow)!important;
+}
+.tagify {
+    color: var(--sta-main-color) !important;
+    background: var(--color-cool-5-25) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-radius: 5px;
+    border-color: transparent !important;
+    text-shadow: var(--text-shadow);
+}
+.tagify--empty .tagify__input::before {
+    color: var(--sta-main-color) !important;
+}
+
+
 /* Share Media */
 /*https://github.com/DarKDinDoN/share-media*/
 #show-media .media-actions-container .media-actions.loop-action.active .drawer,
