@@ -593,6 +593,131 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     color: var(--red-light);
 }
 
+
+/* Monk's Scene Navigation */
+/* https://github.com/ironmonk88/monks-scene-navigation */
+#navigation.background .monks-scene-navigation {
+    backdrop-filter: blur(0px);
+}
+#navigation.background .monks-scene-navigation .scene-list {
+    border: unset;
+    background-color: unset;
+    padding-top: 0;
+}
+#navigation .monks-scene-navigation .scene-list > li.context a {
+    background: var(--color-cool-5-90);
+    text-shadow: var(--text-shadow);
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink);
+    border-color: var(--color-text-hyperlink);
+    box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+#navigation .monks-scene-navigation .scene-list > li.active a {
+    text-align: center;
+    box-shadow: unset;
+    text-shadow: var(--text-shadow);
+    border-color: var(--red-light);
+    color: var(--red-light);
+    background: var(--color-cool-5-90);
+    animation: glow 0.75s infinite alternate;
+}
+#navigation .monks-scene-navigation .scene-list > li.active.view a {
+    background: var(--color-warm-1);
+    text-align: center;
+    border-color: var(--color-warm-1);
+    color: var(--color-warm-3);
+    box-shadow: unset;
+    text-shadow: var(--text-shadow);
+}
+#navigation .monks-scene-navigation .scene-list > li.view.gm a {
+    text-align: center;
+    background: var(--color-cool-5-90);
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink);
+    border-color: var(--color-text-hyperlink);
+    box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+    text-shadow: var(--text-shadow);
+}
+#navigation .monks-scene-navigation .scene-list > li.view a {
+    text-align: center;
+    border-color: var(--color-cool-2);
+    color: var(--color-cool-1);
+    background: var(--color-cool-5-90);
+    box-shadow: unset;
+    text-shadow: var(--text-shadow);
+}
+
+#navigation .monks-scene-navigation .scene-list > li.folder a:hover,
+#navigation.background .monks-scene-navigation .scene-list > li.folder.expanded a:hover,
+#navigation .monks-scene-navigation .scene-list > li a:hover,
+#navigation .monks-scene-navigation .scene-list > li.context a:hover,
+#navigation .monks-scene-navigation .scene-list > li.active a:hover,
+#navigation .monks-scene-navigation .scene-list > li.active.view a:hover,
+#navigation .monks-scene-navigation .scene-list > li.view.gm a:hover,
+#navigation .monks-scene-navigation .scene-list > li.view a:hover {
+    text-align: center;
+    box-shadow: unset;
+    text-shadow: var(--text-shadow);
+    border-color: var(--red-light)!important;
+    color: var(--red-light);
+    background: var(--color-cool-5-90);
+}
+#navigation .monks-scene-navigation .scene-list > li a {
+    text-align: center;
+    border-radius: 0px 25px 0px 25px;
+    border: 1px solid var(--red);
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-5-75);
+    text-shadow: 0 0 15px var(--red-light);
+    box-shadow: var(--box-shadow);
+}
+#navigation .monks-scene-navigation .scene-list > li li.active-indicator {
+    font-size: unset;
+    text-align: center;
+    color: var(--color-warm-1);
+    text-shadow: var(--text-shadow);
+}
+#navigation .monks-scene-navigation .scene-list > li.folder a {
+    background-size: 100% 100%;
+    border-top: unset;
+    padding-top: 7px;
+    border-left: unset;
+    border-right: unset;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--red);
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-5-75);
+    text-shadow: 0 0 15px var(--red-light);
+    box-shadow: var(--box-shadow);
+}
+#navigation.background .monks-scene-navigation .scene-list > li.folder.expanded a {
+    background-size: 100% 100%;
+    border-top: unset;
+    padding-top: 7px;
+    border-left: unset;
+    border-right: unset;
+    height: 32px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--red);
+    color: var(--pfui-main-color);
+    background-color: var(--color-cool-5-75);
+    text-shadow: 0 0 15px var(--red-light);
+    box-shadow: var(--box-shadow);
+}
+.sidebar-tab.directory .directory-item.scene.background h3 > a {
+    background-color: unset;
+    padding: unset;
+    border-radius: unset;
+    border: unset;
+    color: unset;
+    max-width: unset;
+    overflow: unset;
+    text-overflow: ellipsis;
+    display: inline-block;
+    height: unset;
+    margin: auto;
+}
+
 /* Monk's TokenBar */
 /* https://github.com/ironmonk88/monks-tokenbar */
 :root{

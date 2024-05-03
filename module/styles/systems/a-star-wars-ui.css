@@ -47,6 +47,8 @@
     --rarity-rare: #0062ff;
     --rarity-unique: #e127e1;
 
+    --color-gradient-linear: linear-gradient( 90deg, rgba(0, 0, 0, 1) 0%, rgba(120, 20, 40, 0.5) 50%, rgba(0, 0, 0, 1) 100% );
+    --color-gradient-radial: radial-gradient( circle, rgba(0, 0, 0, 1) 0%, rgba(120, 20, 40, 0.5) 50%, rgba(0, 0, 0, 1) 100% );
 
 /* Foundry2
 ====================================================== */
@@ -912,6 +914,7 @@ button:disabled {
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
     box-shadow: var(--box-shadow);
+    width: 210px;
 }
 .system-starwarsffg #players h3 .players-mode {
     font-size: var(--font-size-20);
@@ -2014,6 +2017,9 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 .starwarsffg .items .items-list .item .toggle-equipped.active {
     color: var(--green)!important;
+}
+.starwarsffg .items .items-list .item {
+    border-bottom: 1px dotted var(--color-cool-2-90);
 }
 .system-starwarsffg .item-details .item-properties .tag {
     color: var(--pfui-main-color);
