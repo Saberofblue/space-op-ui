@@ -1663,7 +1663,8 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background-color: transparent;
 }
 .system-starwarsffg .journal-entry-page .journal-page-content blockquote:not(h6+p+ul+blockquote, h6+p+blockquote, h6+ul+blockquote, h6+blockquote) {
-    color: var(--pfui-main-color);
+    color: var(--color-warm-1);
+    text-shadow: var(--text-shadow);
     border-left-width: 0;
     border-top: 2px solid var(--color-cool-5);
     border-bottom: 2px solid var(--color-cool-5);
@@ -1684,6 +1685,9 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background: #584a754d;
     border-radius: var(--border-radius-5);
     box-shadow: var(--glassy-shadow);
+    color: var(--color-text-dark-primary);
+    font-style: italic;
+    text-shadow: var(--text-shadow);
 }
 .system-starwarsffg .journal-entry-page section.secret button.reveal {
     box-shadow: var(--glassy-shadow);
@@ -1710,6 +1714,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .system-starwarsffg .prosemirror menu .pm-dropdown {
     background: var(--color-cool-5);
     color: var(--color-warm-1);
+    font-family: fantasy;
 }
 .system-starwarsffg .prosemirror menu button:hover {
     background-color:var(--color-cool-4);
@@ -2192,6 +2197,9 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 .starwarsffg .talent-background.talent-passive .talent-header {
     background-color: #464855;
+}
+.starwarsffg .talent-background .talent-header div {
+    vertical-align: inherit!important;
 }
 .starwarsffg .talent-connector .talent-connector-up, .starwarsffg .talent-connector .talent-connector-side {
     background-color: unset;

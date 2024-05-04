@@ -147,14 +147,29 @@
     border-color: var(--color-cool-2);
     color: var(--color-cool-1);
     background: var(--color-cool-5-90);
-    text-shadow: 0 0 15px var(--red-light);
+    text-shadow: var(--text-shadow);
     filter: drop-shadow(0px 1px 1px black);
 }
 .sheet.adventure-exporter .tab.contents h4.update {
     border: 1px solid var(--red);
     color: var(--color-warm-1);
     background: var(--color-cool-5-75);
-    text-shadow: 0 0 15px var(--red-light);
+    text-shadow: var(--text-shadow);
+    filter: drop-shadow(0px 1px 1px black);
+}
+.sheet.adventure-exporter .tab.contents h4.missing {
+    background: var(--color-warm-5-90);
+    border: 1px dotted var(--red-light);
+    color: var(--red-light);
+    text-shadow: var(--text-shadow);
+    filter: drop-shadow(0px 1px 1px black);
+}
+.sheet.adventure-exporter .tab.contents h4.remove {
+    background: var(--color-warm-1);
+    border: 1px dotted var(--red-swffg);
+    color: var(--red-swffg);
+    text-shadow: var(
+  --text-shadow);
     filter: drop-shadow(0px 1px 1px black);
 }
 .sheet.adventure-exporter .tab.contents h4.add:hover,
