@@ -2,8 +2,13 @@
 
 
 ## Compatibility
-- Ready for v11 version.
+- Ready for v12 version.
 
+
+## v12.328.1901.1
+- initial v12 compatibility
+- fix: button roll selector display
+- Fixed some errors and added of others. 
 
 ## v11.315.1809.7
 - Monk Navigation Scene skin added

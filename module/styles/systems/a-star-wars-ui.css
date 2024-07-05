@@ -478,6 +478,10 @@ button:disabled {
     box-shadow: var(--glassy);
     border:unset;
 }
+.system-starwarsffg .fa-arrow-right-to-file:before,
+.system-starwarsffg .fa-file-import:before {
+    font-family: 'Font Awesome 5 Free';
+}
 .system-starwarsffg button.resetMedical.fas.fa-recycle {
     font-family: 'Font Awesome 5 Free';
     color: var(--color-warm-1);
@@ -1230,8 +1234,18 @@ button:disabled {
     clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
 }
 .system-starwarsffg #chat-log .chat-message h2.item-name {
-    font-size: 18px;
-    margin-top: 5px;
+    font-size: medium;
+    margin: 5px;
+}
+.starwarsffg .item-display h4 {
+    margin: auto;
+}
+.starwarsffg .item-display h4 input {
+    width: 50%!important;
+    border-radius: 25px;
+    box-shadow: var(--box-shadow);
+    background: var(--red-swffg);
+    color: var(--color-warm-1);
 }
 .starwarsffg .item-display .item-miss {
     font-size: large;
@@ -1264,7 +1278,6 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     filter: drop-shadow(0px 1px 1px black);
     box-shadow: var(--box-shadow);
 }
-
 
 /*Combat tracker
 ************************/
@@ -1688,6 +1701,9 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     color: var(--color-text-dark-primary);
     font-style: italic;
     text-shadow: var(--text-shadow);
+    --notchSize: 16px;
+    -webkit-clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 1000% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(1000% - var(--notchSize)));
+    clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 1000% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(1000% - var(--notchSize)));
 }
 .system-starwarsffg .journal-entry-page section.secret button.reveal {
     box-shadow: var(--glassy-shadow);
@@ -1704,6 +1720,9 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 .system-starwarsffg .sheet.journal-entry .pages-list .directory-item:not(.active) + .active {
     background-color: var(--color-cool-5-75);
+}
+.system-starwarsffg .sheet.journal-entry .pages-list .directory-item:is(.context, .active)::after {
+    border: none;
 }
 .system-starwarsffg .prosemirror menu button {
     border-radius: 25px;
