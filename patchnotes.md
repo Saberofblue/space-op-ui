@@ -5,6 +5,12 @@
 - Ready for v12 version.
 
 
+## v12.331.1903.1
+- Update v12.331 compatibility
+- Fixed the dark/light theme problem.
+- Fixed the problem of the menu being displayed below the windows in the chats.
+- Fixed some errors and added of others. 
+
 ## v12.328.1901.1
 - initial v12 compatibility
 - fix: button roll selector display

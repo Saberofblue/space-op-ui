@@ -107,6 +107,22 @@
     --scrollbar-color-track: none;
     --scrollbar-width: thin;
     --scrollbar-width-legacy: 3px;
+
+    --background:unset;
+}
+.application,
+.theme-light .application {
+    --background: var(--color-cool-5-90);
+    --color-text-primary: var(--color-light-2);
+    --color-header-background: rgba(0, 0, 0, 0.5);
+    --color-border: var(--color-cool-4);
+    --color-fieldset-border: var(--color-cool-3);
+    --color-form-hint: var(--color-light-5);
+    --color-form-hint-hover: var(--color-light-4);
+    --color-form-label: var(--color-light-4);
+    --color-form-label-hover: var(--color-light-3);
+    --color-select-option-bg: transparent;
+    --input-text-color: var(--color-light-3);
 }
 
 /* scrollbar
@@ -350,12 +366,30 @@ button:disabled {
 .system-starwarsffg input[type="time"], 
 .system-starwarsffg select, 
 .system-starwarsffg textarea {
-    color: var(--sta-main-color);
-    background: var(--color-cool-5-50);
-    border-width: 1px!important;
-    border-style: solid!important;
-    border-radius: 0px;
-    border-color: transparent!important;
+    --input-background-color: var(--color-cool-4-90);
+    --input-border-color: transparent;
+    --input-text-color: var(--color-light-3);
+    background: var(--input-background-color);
+    border: 1px solid var(--input-border-color);
+    outline: 1px solid transparent;
+    color: var(--input-text-color);
+    --input-box-shadow: none;
+    box-shadow: var(--input-box-shadow);
+    border-radius: 4px;
+    user-select: text;
+    transition: outline-color 0.5s;
+}
+.application input[type="text"]:focus, 
+.application input[type="number"]:focus, 
+.application input[type="password"]:focus, 
+.application input[type="date"]:focus, 
+.application input[type="time"]:focus, 
+.application input[type="search"]:focus, 
+.application input[type="file"]:focus, 
+.application select:focus {
+    background: var(--color-cool-4);
+    outline: 1px solid var(--color-cool-3);
+    color: var(--color-warm-1);
     text-shadow: var(--text-shadow);
 }
 .system-starwarsffg input[type="search"] {
@@ -456,16 +490,16 @@ button:disabled {
     transition: all 0.2s;
     box-shadow: var(--box-shadow-light);
 }
-.system-starwarsffg input[type="text"]:focus, 
-.system-starwarsffg input[type="number"]:focus, 
-.system-starwarsffg input[type="password"]:focus, 
-.system-starwarsffg input[type="date"]:focus, 
-.system-starwarsffg input[type="time"]:focus, 
-.system-starwarsffg input[type="search"]:focus {
-    color: var(--color-warm-1)!important;
-    background-color: var(--color-cool-5-90)!important;
-}
 .system-starwarsffg button,
+.application .window-header button.header-control {
+    color: var(--pfui-main-color);
+    Background: radial-gradient(var(--color-cool-4), var(--color-cool-5-90));
+    border-radius: 25px;
+    box-shadow: var(--glassy);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    border: unset;
+}
 .system-starwarsffg .dialog .dialog-buttons button,
 .system-starwarsffg .dialog .dialog-buttons button.default,
 .system-starwarsffg .folder-edit .window-content form button {
@@ -1121,8 +1155,6 @@ button:disabled {
 .system-starwarsffg #chat-log .chat-message {
     background: none!important;
     background-color: transparent!important;
-    backdrop-filter: blur(5px);
-    filter: drop-shadow(0px 1px 1px black);
 }
 .system-starwarsffg .destiny-flip.dPoolDark {
     background-color: white;
@@ -1176,7 +1208,7 @@ button:disabled {
     min-height: 35px;
     border: 3px double var(--red);
     color: var(--pfui-main-color);
-    background-color: var(--color-cool-5-50);
+    background-color: var(--color-cool-5-90);
     border-radius: 5px;
     text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
@@ -1188,9 +1220,10 @@ button:disabled {
     border: 2px solid var(--red);
     padding: 4px 4px 0px 4px;
     color: var(--sta-main-color);
-    background-color: var(--color-cool-5-25);
+    background-color: var(--color-cool-5-50);
     border-radius: 5px;
     text-shadow: 0 0 15px var(--red-light);
+    backdrop-filter: blur(5px);
     filter: drop-shadow(0px 1px 1px black);
     margin: inherit;
 }
@@ -1275,6 +1308,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background-color: var(--color-cool-5-50);
     border-radius: 5px;
     text-shadow: 0 0 15px var(--red-light);
+    backdrop-filter: blur(5px);
     filter: drop-shadow(0px 1px 1px black);
     box-shadow: var(--box-shadow);
 }
@@ -1637,6 +1671,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     font-size: larger;
     text-shadow: var(--text-shadow);
 }
+
 .system-starwarsffg .package-configuration aside.sidebar {
     border-right: 1px dotted var(--red);
 }
@@ -1874,7 +1909,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
 }
 .system-starwarsffg table tr:nth-child(even) {
-    background-color: var(--color-cool-4);
+    background-color: var(--color-cool-4-90);
 }
 .starwarsffg.sheet.actor .character .header-fields .specialization-pill, 
 .starwarsffg.sheet.actor .character .header-fields .species-pill, 

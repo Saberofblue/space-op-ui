@@ -145,7 +145,7 @@
   input[type="time"]:hover,
   select:hover,
   textarea:hover {
-    border-color: #004f7f;
+    border-color: var(--color-cool-3);
   }
   input[type="text"]:focus,
   input[type="number"]:focus,
@@ -154,8 +154,10 @@
   input[type="time"]:focus,
   select:focus,
   textarea:focus {
-    background-color: #004f7f3f;
-    box-shadow: none;
+    background: var(--color-cool-4);
+    outline: 1px solid var(--color-cool-3);
+    color: var(--color-warm-1);
+    text-shadow: var(--text-shadow);
   }
   textarea {
     border-color: #00273f;
