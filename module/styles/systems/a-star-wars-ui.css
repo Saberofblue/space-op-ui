@@ -259,6 +259,9 @@ body {
     background-image: url(../systems/artwork/Star-Wars_Background.webp);
     background-size: cover;
 }
+footer.nue {
+    border-top: 2px dotted var(--red-swffg);
+}
 .system-starwarsffg hr {
     border: none;
     border-top: 1px dotted var(--red-swffg);
@@ -1196,6 +1199,11 @@ button:disabled {
     margin: 0;
     background-size: 100%;
 }
+.starwarsffg.dice-roll {
+    border:unset!important;
+    border-radius: unset!important;
+    background: unset!important;
+}
 .system-starwarsffg #chat-log .chat-message .message-header {
     font-family: 'EarthOrbiter';
     text-transform: inherit;
@@ -1455,6 +1463,19 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border-radius: 25px;
 
     box-shadow: var(--glassy-shadow);
+}
+/* Other sheets
+************************/
+.starwarsffg.sheet.actor .vehicle .grid {
+    display: flex;
+    width: 100%;
+}
+.starwarsffg.sheet.actor .vehicle .header-fields .flex-group-right {
+    display: flex;
+    justify-content: center;
+}
+.starwarsffg.sheet.actor .vehicle .header-fields .profile-block .profile-img {
+    max-width: 200px!important;
 }
 
 
@@ -1907,6 +1928,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     --notchSize: 9px;
     -webkit-clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
     clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
+    border: unset;
 }
 .system-starwarsffg table tr:nth-child(even) {
     background-color: var(--color-cool-4-90);
@@ -2649,55 +2671,6 @@ form h3.form-header {
 .starwarsffg .item-sheet-vehicle-attachment .characteristic-item, 
 .starwarsffg .item-sheet-vehicle-attachment .block-background {
     background-color: var(--color-cool-5-50)!important;
-}
-
-/* Actor
-************************/
-.starwarsffg.sheet.actor.v2 .character .sheet-body .skillsTablesGrid {
-    height: unset!important;
-}
-.starwarsffg.sheet.actor .character .sheet-body .skillsTablesGrid {
-    height: unset!important;
-}
-.starwarsffg.sheet.actor.v2 .skillsTablesGrid {
-    max-height: calc(100% - 4.75rem);
-}
-.starwarsffg.sheet.actor .skillsTablesGrid {
-    max-height: calc(100% - 4rem);
-}
-
-/* Minion
-************************/
-.starwarsffg.sheet.actor.v2 .minion .sheet-body .skillsTablesGrid {
-    height: unset!important;
-}
-.starwarsffg.sheet.actor .minion .sheet-body .skillsTablesGrid {
-    height: unset!important;
-}
-.starwarsffg.sheet.actor.v2 .minion .skillsTablesGrid {
-    max-height: calc(100% - 4rem);
-}
-.starwarsffg.sheet.actor .minion .skillsTablesGrid {
-    max-height: calc(100% - 4rem);
-}
-/* Other sheets
-************************/
-.starwarsffg .item-sheet-forcepower .sheet-body {
-    height: calc(100% - 13.5rem)!important;
-}
-.starwarsffg.sheet.actor .vehicle .sheet-body {
-    height: calc(100% - 28rem)!important;
-}
-.starwarsffg.sheet.actor .vehicle .grid {
-    display: flex;
-    width: 100%;
-}
-.starwarsffg.sheet.actor .vehicle .header-fields .flex-group-right {
-    display: flex;
-    justify-content: center;
-}
-.starwarsffg.sheet.actor .vehicle .header-fields .profile-block .profile-img {
-    max-width: 200px!important;
 }
 .starwarsffg .item-sheet-gear .characteristic-item .characteristic .characteristic-value input, 
 .starwarsffg .item-sheet-talent .characteristic-item .characteristic .characteristic-value input, 

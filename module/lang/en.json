@@ -1,7 +1,4 @@
 {
-    "RPGUI.SETTINGS.HOTFIX": "Turn off the HOTFIX for the Default theme.",
-    "RPGUI.SETTINGS.HOTFIX_HINT": "You must disable the HOTFIX for the default theme if you're using the Mandar theme.",
-
     "RPGUI.SETTINGS.EnableTitle": "Roll Buttons: Replace roll type selector with buttons",
     "RPGUI.SETTINGS.EnableHint": "Replace the drop-down menu selector for roll types with a set of four buttons.",
     "RPGUI.SETTINGS.ReplaceButtonsTitle": "Roll Buttons: Use button style on all chat buttons",

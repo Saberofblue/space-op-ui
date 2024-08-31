@@ -5,6 +5,11 @@
 - Ready for v12 version.
 
 
+## v12.331.1903.2
+- Update v12 compatibility
+- remove the old main theme code.
+- fixed a few visual errors.
+
 ## v12.331.1903.1
 - Update v12.331 compatibility
 - Fixed the dark/light theme problem.
