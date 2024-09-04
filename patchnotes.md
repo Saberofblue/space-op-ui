@@ -5,6 +5,9 @@
 - Ready for v12 version.
 
 
+## v12.331.1903.3
+- fixed a few visual errors.
+
 ## v12.331.1903.2
 - Update v12 compatibility
 - remove the old main theme code.

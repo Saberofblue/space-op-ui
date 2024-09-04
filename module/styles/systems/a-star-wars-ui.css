@@ -213,6 +213,7 @@
   #pause > figcaption {
     font-family: 'EarthOrbiter';
     font-size: xx-large!important;
+    font-weight: bold;
     color: var(--sta-main-color);
     text-transform: uppercase;
     text-shadow: var(--text-shadow);
@@ -1283,10 +1284,14 @@ button:disabled {
 }
 .starwarsffg .item-display h4 input {
     width: 50%!important;
-    border-radius: 25px;
+    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    background: var(--red-swffg);
-    color: var(--color-warm-1);
+    background: var(--color-warm-3);
+    color: var(--pfui-main-grey-color);
+    font-weight: bold;
+    text-shadow: var(--text-shadow);
+    border: 3px solid var(--color-cool-5-25);
+    outline: 2px solid var(--color-cool-5);
 }
 .starwarsffg .item-display .item-miss {
     font-size: large;
@@ -1938,9 +1943,11 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .starwarsffg.sheet.actor .character .header-fields .career-pill, 
 .starwarsffg.sheet.actor .character .header-fields .signatureability-pill, 
 .starwarsffg.sheet.actor .character .header-fields .forcepower-pill {
-    padding: 0.1rem 0.5rem;
-    background-color: rgba(255, 255, 255, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: var(--color-cool-1);
+    background: radial-gradient(var(--color-cool-3), var(--color-cool-5-75)) !important;
+    border: 1px dotted var(--color-warm-1) !important;
+    border-radius: var(--border-radius-5) !important;
+    text-shadow: var(--text-shadow);
 }
 .system-starwarsffg table td, 
 .system-starwarsffg table th {
@@ -2100,7 +2107,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     color: var(--green)!important;
 }
 .starwarsffg .items .items-list .item {
-    border-bottom: 1px dotted var(--color-cool-2-90);
+    border-bottom: 1px dotted var(--color-cool-2-90)!important;
 }
 .system-starwarsffg .item-details .item-properties .tag {
     color: var(--pfui-main-color);
@@ -2391,6 +2398,14 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background: var(--red)!important;
     text-shadow: var(--text-shadow);
 }
+fieldset {
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-cool-5-50);
+    border-radius: 10px;
+    text-shadow: 0 0 15px var(--red-light);
+    border: 1px solid var(--red);
+}
+
 form h1.form-header, 
 form h2.form-header, 
 form h3.form-header {
