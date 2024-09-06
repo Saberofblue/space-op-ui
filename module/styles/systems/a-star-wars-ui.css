@@ -164,12 +164,20 @@
     src: url("./fonts/EarthOrbiterBold-vzD9.otf")format("opentype");
 }
 @font-face {
+    font-family: "MandaloreLaser";
+    src: url("./fonts/MandaloreLaser-x33B8.otf")format("opentype");
+}
+@font-face {
+    font-family: "MandaloreLaserTitle";
+    src: url("./fonts/MandaloreLaserTitle-GOOGy.otf")format("opentype");
+}
+@font-face {
     font-family: "AurebeshBold";
     src: url("./fonts/Aurebesh-Bold.otf")format("opentype");
 }
 @font-face {
-    font-family: "STJediSE";
-    src: url("./fonts/STJedise.ttf")format("truetype");
+    font-family: "SfDistantGalaxy";
+    src: url("./fonts/SfDistantGalaxy-0l3d.ttf")format("truetype");
 }
 @font-face {
     font-family: "EotESymbol";
@@ -211,9 +219,8 @@
     }
   }
   #pause > figcaption {
-    font-family: 'EarthOrbiter';
-    font-size: xx-large!important;
-    font-weight: bold;
+    font-family: 'SfDistantGalaxy';
+    font-size: 40px;
     color: var(--sta-main-color);
     text-transform: uppercase;
     text-shadow: var(--text-shadow);
@@ -966,6 +973,7 @@ button:disabled {
 .system-starwarsffg #players h3 {
     margin: 3px;
     padding: 4px;
+    font-family: 'mandalorelasertitle';
     border-bottom: 2px dotted var(--red-swffg);
 }
 .system-starwarsffg #players ol .player-active {
@@ -974,11 +982,12 @@ button:disabled {
 }
 .system-starwarsffg #players ol .player-name {
     font-size: x-small;
+    color: var(--color-warm-1);
     text-shadow: var(--text-shadow);
 }
 .system-starwarsffg #players ol .player-name.self {
-    color: var(--color-cool-1);
-    text-shadow: 0 0 15px var(--red-light);
+    color: var(--green);
+    text-shadow: var(--text-shadow);
 }
 
 /* Sidebar
@@ -1281,6 +1290,7 @@ button:disabled {
 }
 .starwarsffg .item-display h4 {
     margin: auto;
+    font-family: 'mandalorelasertitle';
 }
 .starwarsffg .item-display h4 input {
     width: 50%!important;
