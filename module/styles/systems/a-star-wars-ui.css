@@ -180,6 +180,10 @@
     src: url("./fonts/SfDistantGalaxy-0l3d.ttf")format("truetype");
 }
 @font-face {
+    font-family: "ToxiUI";
+    src: url("./fonts/ToxiUI.ttf")format("truetype");
+}
+@font-face {
     font-family: "EotESymbol";
     src: url("./fonts/EotESymbol-Regular-PLUS.otf") format("opentype");
   }
@@ -1733,6 +1737,10 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 
 /*journal-entry-page
 ************************/
+
+.sheet.journal-entry .journal-entry-page * {
+    text-align: justify;
+}
 .system-starwarsffg .journal-sheet .journal-header .title {
     background: linear-gradient(315deg, var(--color-cool-4), var(--color-cool-5-90));
     border: 1px solid var(--red-swffg)!important;
@@ -1748,6 +1756,9 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 }
 .system-starwarsffg .journal-entry-page .journal-page-content blockquote:not(h6+p+ul+blockquote, h6+p+blockquote, h6+ul+blockquote, h6+blockquote) {
     color: var(--color-warm-1);
+    font-family:'toxiui';
+    text-align: justify;
+    font-style: italic;
     text-shadow: var(--text-shadow);
     border-left-width: 0;
     border-top: 2px solid var(--color-cool-5);
@@ -1770,11 +1781,17 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border-radius: var(--border-radius-5);
     box-shadow: var(--glassy-shadow);
     color: var(--color-text-dark-primary);
+    text-align: justify;
     font-style: italic;
     text-shadow: var(--text-shadow);
     --notchSize: 16px;
     -webkit-clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 1000% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(1000% - var(--notchSize)));
     clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 1000% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(1000% - var(--notchSize)));
+}
+.system-starwarsffg .journal-entry-page section.secret :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
+    color: var(--color-light-5);
+    text-align: right;
+    font-style: italic;
 }
 .system-starwarsffg .journal-entry-page section.secret button.reveal {
     box-shadow: var(--glassy-shadow);
@@ -2357,7 +2374,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .system-starwarsffg .sheet nav.sheet-tabs .item {
     background: var(--color-cool-5-75);
     border: none;
-    font-size: small;
+    font-size: x-small;
     box-shadow: var(--glassy);
     height: 1.5rem;
     line-height: 0rem;
