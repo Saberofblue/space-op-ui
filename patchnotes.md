@@ -5,6 +5,13 @@
 - Ready for v12 version.
 
 
+## v12.331.1903.6
+- changed fonts for scene tab.
+- Improved Journal visual.
+- added a skin on some left sidebar buttons.
+- improved visibility of sidebar selection tabs.
+- fixed a few visual errors.
+
 ## v12.331.1903.5
 - Added Monk's Active tile Triggers compatibility.
 - Journal visual update.
