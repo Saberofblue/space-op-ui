@@ -367,7 +367,7 @@ border-color: var(--color-cool-3);
 }
 .multiple-dropdown .multiple-dropdown-option {
     color: var(--sta-main-color);
-    background: var(--red) !important;
+    background: var(--color-warm-3) !important;
     text-shadow: var(--text-shadow);
     border: unset;
     box-shadow: var(--box-shadow);
@@ -377,7 +377,7 @@ border-color: var(--color-cool-3);
 }
 .monks-active-tiles.sheet .items-list .item-header {
     color: var(--sta-main-color);
-    background: var(--red);
+    background: var(--color-warm-3);
     text-shadow: var(--text-shadow);
     border: unset;
     box-shadow: var(--box-shadow);
@@ -398,6 +398,52 @@ border-color: var(--color-cool-3);
     transition: outline-color 0.5s;
     text-shadow: var(--text-shadow);
 }
+.monks-active-tiles.sheet .items-list .item {
+    --input-background-color: var(--color-cool-4-90);
+    --input-border-color: var(--color-cool-3-90);
+    border-bottom: 1px dotted var(--input-border-color);
+    background: var(--input-background-color);
+    color: var(--green);
+}
+.monks-active-tiles.sheet .items-list .item .item-name {
+    color: var(--color-cool-1);
+    text-shadow: var(--text-shadow);
+}
+.monks-active-tiles div[data-tab="triggers"] .action-items .action-style {
+    color: var(--color-warm-2);
+    text-shadow: var(--text-shadow);
+}
+
+.monks-active-tiles div[data-tab="triggers"] .action-items .filter-style {
+    color: var(--bg3-alliance-opposition-red);
+    text-shadow: var(--text-shadow);
+}
+
+.monks-active-tiles div[data-tab="triggers"] .action-items .logic-style {
+    color: var(--color-cool-1);
+    text-shadow: var(--text-shadow);
+}
+
+.monks-active-tiles div[data-tab="triggers"] .action-items .entity-style {
+    color: var(--pfui-main-grey-color);
+    text-shadow: var(--text-shadow);
+}
+
+.monks-active-tiles div[data-tab="triggers"] .action-items .details-style {
+    color: var(--color-warm-1);
+    text-shadow: var(--text-shadow);
+}
+
+.monks-active-tiles div[data-tab="triggers"] .action-items .value-style {
+    color: var(--pfui-main-grey-color);
+    text-shadow: var(--text-shadow);
+}
+
+.monks-active-tiles div[data-tab="triggers"] .action-items .tag-style {
+    color: var(--bg3-blue-light);
+    text-shadow: var(--text-shadow);
+}
+
 
 /* Monk's Enhanced Journal */
 /*https://github.com/ironmonk88/monks-enhanced-journal*/
@@ -1231,4 +1277,12 @@ border-color: var(--color-cool-3);
     text-shadow: var(--text-shadow);
     background: var(--green);
     border: 1px solid var(--color-cool-5);
+}
+
+/*Mandar Sheet*/
+.starwarsffg.sheet .sheet-body {
+    height: calc(100% - 14.50rem)!important;
+}
+.starwarsffg.sheet.v2 .sheet-body.vehicle {
+    height: calc(100% - 28rem)!important;
 }

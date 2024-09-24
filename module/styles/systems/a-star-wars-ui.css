@@ -2008,6 +2008,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     background: radial-gradient(var(--color-cool-3), var(--color-cool-5-75)) !important;
     border: 1px dotted var(--color-warm-1) !important;
     border-radius: var(--border-radius-5) !important;
+    font-size: var(--font-size-12);
     text-shadow: var(--text-shadow);
 }
 .system-starwarsffg table td, 
@@ -2040,8 +2041,10 @@ section.chat-sidebar .jump-to-bottom > a:hover {
     border: 1px #333 solid !important;
 }
 .starwarsffg.sheet.actor .character .header-fields .drag-note {
-    color: var(--pfui-main-color);
+    color: var(--color-cool-1);
     text-shadow: var(--text-shadow);
+    font-size: var(--font-size-12);
+    border-radius: var(--border-radius-5)!important;
 }
 .starwarsffg.sheet.actor .character .header-fields .drag-note:hover {
     color: var(--green);

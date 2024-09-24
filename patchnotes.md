@@ -5,6 +5,10 @@
 - Ready for v12 version.
 
 
+## v12.331.1903.7
+- Update Monk's Active tile Triggers compatibility.
+- fixed a few visual errors.
+
 ## v12.331.1903.6
 - changed fonts for scene tab.
 - Improved Journal visual.
