@@ -15,7 +15,7 @@
       "flags": {}
     }
   ],
-  "version": "12.331.1903.7",
+  "version": "12.331.1903.8",
   "compatibility": {
     "minimum": "12",
     "verified": "12"
@@ -65,5 +65,5 @@
   ],
   "url": "https://gitlab.com/sasmira/space-op-ui",
   "manifest": "https://gitlab.com/sasmira/space-op-ui/-/raw/main/module/module.json",
-  "download": "https://gitlab.com/sasmira/space-op-ui/-/jobs/artifacts/v12.331.1903.7/raw/space-op-ui.zip?job=build"
+  "download": "https://gitlab.com/sasmira/space-op-ui/-/jobs/artifacts/v12.331.1903.8/raw/space-op-ui.zip?job=build"
 }

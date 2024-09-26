@@ -1467,7 +1467,9 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .combat-sidebar li.combatant.active {
     animation: glow 0.75s infinite alternate;
 }
-
+.directory .directory-item:is(.context, .active)::after {
+    border: unset;
+}
 
 /*Scene
 ************************/

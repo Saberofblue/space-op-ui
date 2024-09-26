@@ -5,7 +5,7 @@
 - Ready for v12 version.
 
 
-## v12.331.1903.7
+## v12.331.1903.8
 - Update Monk's Active tile Triggers compatibility.
 - fixed a few visual errors.
 
