@@ -1278,11 +1278,3 @@ border-color: var(--color-cool-3);
     background: var(--green);
     border: 1px solid var(--color-cool-5);
 }
-
-/*Mandar Sheet*/
-.starwarsffg.sheet .sheet-body {
-    height: calc(100% - 14.50rem)!important;
-}
-.starwarsffg.sheet.v2 .sheet-body.vehicle {
-    height: calc(100% - 28rem)!important;
-}

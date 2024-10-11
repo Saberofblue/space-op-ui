@@ -5,6 +5,9 @@
 - Ready for v12 version.
 
 
+## v12.331.1903.9
+- Chat update : Thematization “Send to chat” windows
+
 ## v12.331.1903.8
 - Update Monk's Active tile Triggers compatibility.
 - fixed a few visual errors.
