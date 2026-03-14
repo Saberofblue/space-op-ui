@@ -172,6 +172,196 @@
   backdrop-filter: blur(10px);
 }
 
+/* 1 — Body-level variables: text, sidebar, tables, content links */
+body.theme-light,
+.themed.theme-light {
+  --color-scheme: dark;
+  --color-text-emphatic: var(--color-light-1);
+  --color-text-primary: var(--color-light-2);
+  --color-text-secondary: var(--color-light-3);
+  --color-text-subtle: var(--color-light-5);
+  --color-text-selection-bg: var(--color-cool-3);
+  /* Content links */
+  --content-link-background: var(--color-cool-5-90);
+  --content-link-border-color: var(--color-light-6);
+  --content-link-icon-color: var(--color-light-4);
+  --content-link-text-color: var(--color-light-2);
+  /* Sidebar */
+  --sidebar-background: var(--color-cool-5-90);
+  --sidebar-separator: 1px solid var(--color-cool-4);
+  --sidebar-entry-hover-bg: rgba(255, 255, 255, 0.1);
+  --sidebar-folder-color: var(--color-dark-1);
+  /* Tables */
+  --table-background-color: var(--color-cool-5-50);
+  --table-header-bg-color: var(--color-cool-4);
+  --table-header-border-color: var(--color-cool-4);
+  --table-row-color-even: rgba(255, 255, 255, 0.1);
+  --table-row-color-highlight: var(--color-cool-3);
+}
+
+/* 2 — Application window variables (ApplicationV2 + legacy) */
+body.theme-light .application,
+body.theme-light.application,
+.themed.theme-light .application,
+.themed.theme-light.application,
+.application.theme-light {
+  --background: var(--color-cool-5-90) !important;
+  --color-header-background: rgba(0, 0, 0, 0.5);
+  --color-border: var(--color-cool-4);
+  --color-tabs-border: var(--color-light-5);
+  --color-fieldset-border: var(--color-cool-3);
+  --color-form-hint: var(--color-light-5);
+  --color-form-hint-hover: var(--color-light-4);
+  --color-form-label: var(--color-light-4);
+  --color-form-label-hover: var(--color-light-3);
+  --color-select-option-bg: transparent;
+}
+
+/* 3 — Inputs, selects, textareas */
+body.theme-light input,
+body.theme-light select,
+body.theme-light textarea,
+body.theme-light code-mirror,
+.themed.theme-light input,
+.themed.theme-light select,
+.themed.theme-light textarea,
+.themed.theme-light code-mirror {
+  --input-background-color: var(--color-cool-4);
+  --input-border-color: transparent;
+  --input-text-color: var(--color-light-3);
+  --input-focus-outline-color: var(--color-cool-3);
+  --input-placeholder-color: var(--color-light-5);
+}
+body.theme-light input:focus,
+body.theme-light select:focus,
+body.theme-light textarea:focus,
+.themed.theme-light input:focus,
+.themed.theme-light select:focus,
+.themed.theme-light textarea:focus {
+  --input-text-color: var(--color-light-1);
+}
+body.theme-light input:disabled,
+body.theme-light select:disabled,
+body.theme-light textarea:disabled,
+.themed.theme-light input:disabled,
+.themed.theme-light select:disabled,
+.themed.theme-light textarea:disabled {
+  --input-background-color: var(--color-cool-5);
+  --input-border-color: var(--color-cool-4);
+  --input-text-color: var(--color-light-4);
+}
+
+/* 4 — Buttons */
+body.theme-light a.button,
+body.theme-light button,
+body.theme-light kbd,
+.themed.theme-light a.button,
+.themed.theme-light button,
+.themed.theme-light kbd {
+  --button-background-color: var(--color-cool-5-50);
+  --button-border-color: var(--color-light-5);
+  --button-text-color: var(--color-light-3);
+  --button-focus-outline-color: var(--color-warm-2);
+  --button-hover-background-color: var(--color-warm-2);
+  --button-hover-border-color: var(--color-light-3);
+  --button-hover-text-color: var(--color-light-1);
+}
+body.theme-light a.button[disabled],
+body.theme-light button[disabled],
+.themed.theme-light a.button[disabled],
+.themed.theme-light button[disabled] {
+  --button-background-color: var(--color-cool-5);
+  --button-border-color: transparent;
+  --button-text-color: var(--color-light-5);
+  --button-hover-background-color: var(--color-cool-5);
+  --button-hover-border-color: transparent;
+  --button-hover-text-color: var(--color-light-5);
+}
+
+/* 5 — UI Controls & canvas HUDs */
+body.theme-light .ui-control,
+body.theme-light .placeable-hud,
+body.theme-light #measurement .waypoint-label,
+.themed.theme-light .ui-control,
+.themed.theme-light .placeable-hud,
+.themed.theme-light #measurement .waypoint-label {
+  --control-bg-color: var(--color-cool-5-75);
+  --control-border-color: var(--color-cool-4);
+  --control-icon-color: var(--color-light-2);
+  --control-hover-bg-color: var(--color-cool-5);
+  --control-hover-border-color: var(--color-cool-3);
+  --control-hover-icon-color: var(--color-light-1);
+  --control-active-bg-color: var(--color-cool-5);
+  --control-active-border-color: var(--color-warm-2);
+  --control-active-icon-color: var(--color-light-1);
+  --control-button-border-color: var(--color-warm-1);
+  --control-button-hover-bg-color: var(--color-warm-2);
+  --control-button-hover-border-color: var(--color-light-1);
+  --toggle-bg-color: rgba(34, 34, 72, 0.75);
+  --toggle-border-color: #5252d7;
+  --toggle-active-bg-color: #5252d7;
+  --toggle-active-border-color: #8484ff;
+}
+body.theme-light .placeable-hud,
+body.theme-light #measurement .waypoint-label,
+.themed.theme-light .placeable-hud,
+.themed.theme-light #measurement .waypoint-label {
+  --control-icon-color: rgba(255 255 255 / 70%);
+  --control-active-icon-color: rgba(255 255 255 / 70%);
+  --control-hover-icon-color: #fff;
+  --control-icon-filter: none;
+}
+
+/* 6 — Hotbar, chat, players, combat tracker, camera */
+body.theme-light #hotbar,
+.themed.theme-light #hotbar {
+  --slot-color: var(--color-cool-5-90);
+  --key-bg-color-empty: var(--color-cool-5);
+  --key-bg-color-full: var(--color-cool-5);
+  --key-text-color: var(--color-light-1);
+  --page-control-color: var(--color-cool-5);
+}
+body.theme-light #chat-message,
+.themed.theme-light #chat-message {
+  --text-color: var(--color-light-2);
+  --placeholder-color: var(--color-light-5);
+  --background-color: var(--color-cool-5);
+  --border-color: var(--color-cool-4);
+}
+body.theme-light #players,
+.themed.theme-light #players {
+  --background-color: var(--color-cool-5-75);
+  --border-color: var(--color-cool-4);
+  --player-name-idle-color: #baaddc;
+  --player-name-self-color: #c0eddb;
+  --color-rating-good: #58e558;
+  --color-rating-fair: #e3e365;
+  --color-rating-poor: #e85555;
+}
+body.theme-light #players button,
+.themed.theme-light #players button {
+  --button-text-color: var(--color-text-emphatic);
+  --button-hover-text-color: var(--color-text-emphatic);
+}
+body.theme-light .combat-tracker,
+.themed.theme-light .combat-tracker {
+  --active-input-bg-color: var(--color-cool-5);
+  --entry-hover-bg: rgba(255, 255, 255, 0.1);
+  --entry-active-bg: rgba(255, 255, 255, 0.15);
+  --token-effect-filter: none;
+}
+body.theme-light #token-hud,
+body.theme-light #measurement,
+.themed.theme-light #token-hud,
+.themed.theme-light #measurement {
+  --hud-icon-filter: none;
+}
+body.theme-light #camera-views,
+.themed.theme-light #camera-views {
+  --av-background-color: var(--color-cool-5-90);
+  --av-border-color: var(--color-cool-4);
+}
+
 /* scrollbar
 ====================================================== */
 * {
@@ -284,7 +474,7 @@
     filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
   }
   50% {
-    filter: drop-shadow(0 0 5px var(--ma-cyan));
+    filter: drop-shadow(0 0 5px var(--red-light));
   }
   100% {
     filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
@@ -296,7 +486,7 @@
 }
 #pause > figcaption {
   font-family: "Bruno Ace";
-  color: var(--ma-cyan);
+  color: var(--sta-main-color);
   font-size: xxx-large;
   text-transform: uppercase;
   text-shadow: var(--text-shadow);
@@ -539,20 +729,6 @@ li.ui-control[aria-pressed="true"],
 }
 .filepicker .current-dir button:focus {
   box-shadow: none;
-}
-a.content-link {
-  background: #0077af;
-  color: black;
-  margin: 1px 0px;
-  padding: 0px 4px;
-  border: none;
-  border-radius: 8px;
-}
-a.content-link i {
-  color: black;
-}
-a.content-link:hover {
-  background: #009dff;
 }
 form .notes,
 form .hint {
@@ -3264,22 +3440,17 @@ section.chat-sidebar .jump-to-bottom > a:hover {
   color: var(--ma-cyan);
 }
 .system-starwarsffg a.content-link {
-  background: var(--color-cool-4);
-  color: var(--ma-cyan);
-  box-shadow: var(--glassy-shadow);
-  text-shadow: var(--text-shadow);
-  filter: drop-shadow(0px 1px 1px black);
-}
-.system-starwarsffg a.content-link:hover {
-  background: var(--color-warm-3);
-  color: var(--ma-cyan);
-  box-shadow: var(--glassy-shadow);
+  background: unset;
+  border: unset;
+  color: var(--ma-teal);
   text-shadow: var(--text-shadow);
 }
 .system-starwarsffg a.content-link i {
-  color: var(--ma-cyan);
+  color: var(--ma-teal);
 }
-
+.system-starwarsffg a.content-link:hover {
+  color: var(--color-text-hyperlink);
+}
 /*Roll-Table
 ************************/
 .system-starwarsffg
@@ -4436,73 +4607,73 @@ form h3.form-header {
   border-radius: 3px;
   box-shadow: var(--box-shadow);
 }
-.starwarsffg span.dietype.starwars {
+span.dietype.starwars {
   font-family: "EotESymbol", sans-serif;
 }
-.starwarsffg span.dietype.genesys {
+span.dietype.genesys {
   font-family: "GenesysSymbol", sans-serif;
 }
-.starwarsffg span.dietype.ability {
+span.dietype.ability {
   color: var(--green) !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.advantage {
+span.dietype.advantage {
   color: var(--green) !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.boost {
+span.dietype.boost {
   color: lightskyblue !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.challenge {
+span.dietype.challenge {
   color: var(--red-light) !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.dark {
+span.dietype.dark {
   color: var(--color-cool-3-90) !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.despair {
+span.dietype.despair {
   color: var(--color-warm-2) !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.difficulty {
+span.dietype.difficulty {
   color: var(--rarity-unique) !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.forcepoint {
+span.dietype.forcepoint {
   color: white !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.failure {
+span.dietype.failure {
   color: var(--color-cool-1) !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.force {
+span.dietype.force {
   color: white !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.light {
+span.dietype.light {
   color: white !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.proficiency {
+span.dietype.proficiency {
   color: var(--sta-main-color) !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.setback {
+span.dietype.setback {
   color: var(--color-cool-3-90) !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.success {
+span.dietype.success {
   color: var(--green) !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.threat {
+span.dietype.threat {
   color: var(--color-cool-1) !important;
   text-shadow: var(--text-shadow);
 }
-.starwarsffg span.dietype.triumph {
+span.dietype.triumph {
   color: var(--color-warm-1) !important;
   text-shadow: var(--text-shadow);
 }
@@ -4979,6 +5150,9 @@ form h3.form-header {
   border-radius: 0;
   margin: 0;
   padding: 2px 8px;
+}
+ul li {
+  color: rgb(255 94 0);
 }
 .prosemirror menu .pm-dropdown li:hover {
   background-color: #70c2b4;
