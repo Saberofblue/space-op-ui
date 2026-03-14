@@ -3391,10 +3391,14 @@ section.chat-sidebar .jump-to-bottom > a:hover {
   border: none;
 }
 .system-starwarsffg .prosemirror menu button {
-  border-radius: 15px;
+  border-radius: 5px;
   background: var(--color-cool-5);
   color: var(--ma-cyan);
-  box-shadow: var(--glassy);
+}
+.system-starwarsffg #prosemirror-dropdown ul {
+  background: var(--color-cool-5);
+  border: unset;
+  text-shadow: var(--text-shadow);
 }
 .system-starwarsffg .prosemirror menu .pm-dropdown {
   background: var(--color-cool-5);
@@ -3419,7 +3423,7 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 .system-starwarsffg .prosemirror menu button.active {
   box-shadow: var(--glassy);
   background-color: var(--ma-cyan);
-  color: var(--color-cool-5);
+  color: var(--color-cool-5) !important;
 }
 .system-starwarsffg .prosemirror menu button.active:hover {
   background-color: var(--color-cool-4);
@@ -3505,7 +3509,11 @@ section.chat-sidebar .jump-to-bottom > a:hover {
   height: 145px;
   overflow-y: auto;
   box-shadow: var(--box-shadow);
-  background-color: var(--color-cool-5-50);
+  background: linear-gradient(
+    360deg,
+    var(--color-cool-4),
+    var(--color-cool-5-25)
+  ) !important;
   border-radius: 10px;
   text-shadow:
     0 0 5px var(--ma-teal),
@@ -3620,7 +3628,11 @@ section.chat-sidebar .jump-to-bottom > a:hover {
   text-shadow: var(--text-shadow);
 }
 .starwarsffg .skillsGrid .skillTable div.skill > div {
-  background: var(--color-cool-4);
+  background: linear-gradient(
+    360deg,
+    var(--color-cool-4),
+    var(--color-cool-5-25)
+  );
   text-shadow: var(--text-shadow);
 }
 .starwarsffg .skillsGrid .dice-pool img[src*="black-minus"] {
@@ -3821,7 +3833,6 @@ section.chat-sidebar .jump-to-bottom > a:hover {
 /*Bio
 ************************/
 .system-starwarsffg .editor-edit {
-  display: none;
   font-size: 1.25em;
   position: absolute;
   top: 5px;
@@ -3838,7 +3849,6 @@ section.chat-sidebar .jump-to-bottom > a:hover {
   box-shadow: var(--box-shadow);
 }
 .starwarsffg.sheet .editor-content {
-  height: 84%;
   box-shadow: var(--box-shadow);
   background-color: var(--color-cool-5-90);
   border-radius: 10px;
@@ -5121,11 +5131,6 @@ span.dietype.triumph {
 }
 .prosemirror menu {
   background: none;
-}
-.prosemirror menu .pm-dropdown {
-  background: #0077af;
-  border-radius: 0 13px 13px 0;
-  color: black;
 }
 .prosemirror menu .pm-dropdown i {
   color: black;

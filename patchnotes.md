@@ -4,6 +4,10 @@
 
 - Ready for v13 version.
 
+## v13.2
+
+- fixed a couple of minor bugs
+
 ## v13.1
 
 - WIP : rework for v13
