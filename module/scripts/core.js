@@ -1,27 +1,30 @@
-import ChatRollPrivacy from '../scripts/chat-roll-privacy.js';
+/**
+ * Space Opera UI — core.js
+ * Compatible FoundryVTT v13 (ApplicationV2, no jQuery)
+ */
 
-Hooks.on('ready', async () => {
+Hooks.on("ready", () => {
   // Retrait de la classe de Monk's Little Details
-  // Créer une erreur lorsque le module n'est pas activé
-  if (game.settings.settings.has('monks-little-details.window-css-changes')) {
-      game.settings.set("monks-little-details", "window-css-changes", false);
-      $("body").removeClass("change-windows");
+  // Crée une erreur lorsque le module n'est pas activé
+  if (game.settings.settings.has("monks-little-details.window-css-changes")) {
+    game.settings.set("monks-little-details", "window-css-changes", false);
+    // v13 : plus de jQuery — on utilise l'API DOM native
+    document.body.classList.remove("change-windows");
   }
 });
 
-Hooks.on("init", () => {
-  ChatRollPrivacy.init();
-});
+Hooks.on("renderSidebarTab", async (app, html) => {
+  if (!(app instanceof Settings)) return;
 
-Hooks.once('setup', function () {
-	ChatRollPrivacy.setup();
-});
+  // v13 : html peut être un HTMLElement natif (ApplicationV2) ou jQuery (App v1)
+  // On normalise en récupérant toujours l'élément DOM brut
+  const el = (html instanceof HTMLElement) ? html : html[0];
+  const details = el?.querySelector("#game-details");
+  if (!details) return;
 
-Hooks.on('renderSidebarTab', async (object, html) => {
-	if (object instanceof Settings) {
-	  const details = html.find('#game-details')
-	  const list = document.createElement('ul')
-	  list.innerHTML = await renderTemplate('modules/space-op-ui/templates/settings-info.hbs')
-	  details.append(list.firstChild)
-	}
+  const list = document.createElement("ul");
+  list.innerHTML = await renderTemplate(
+    "modules/space-op-ui/templates/settings-info.hbs",
+  );
+  if (list.firstChild) details.append(list.firstChild);
 });

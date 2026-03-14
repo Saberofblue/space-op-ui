@@ -90,10 +90,41 @@
     --color-scrollbar: #5d142b;
     --color-scrollbar-border: #8d151b;
 }
-
 @font-face {
     font-family: "EarthOrbiter";
-    src: url("./systems/fonts/EarthOrbiterBold-vzD9.otf")format("opentype");
+    src: url("./fonts/Earth-Orbiter-Bold.otf")format("opentype");
+}
+@font-face {
+    font-family: "MandaloreCondensed";
+    src: url("./fonts/Mandalore-Condensed.otf")format("opentype");
+}
+@font-face {
+    font-family: "MandaloreLaserTitle";
+    src: url("./fonts/Mandalore-Laser-Title.otf")format("opentype");
+}
+@font-face {
+    font-family: "MandaloreRough";
+    src: url("./fonts/Mandalore-Rough.otf")format("opentype");
+}
+@font-face {
+    font-family: "AurebeshBold";
+    src: url("./fonts/Aurebesh-Bold.otf")format("opentype");
+}
+@font-face {
+    font-family: "SfDistantGalaxy";
+    src: url("./fonts/Sf-Distant-Galaxy.ttf")format("truetype");
+}
+@font-face {
+    font-family: "ToxiUI";
+    src: url("./fonts/Toxi-UI.ttf")format("truetype");
+}
+@font-face {
+    font-family: "EotESymbol";
+    src: url("./fonts/EotE-Symbol-Regular-PLUS.otf") format("opentype");
+  }
+@font-face {
+    font-family: "GenesysSymbol";
+    src: url("./fonts/Genesys.ttf") format("truetype");
 }
 
 /* Adventurer Exporter */
@@ -315,8 +346,10 @@ header.svelte-auto-1g5ic18 ul li.svelte-auto-1g5ic18 {
     text-shadow: var(--text-shadow);
 }
 #module-management nav.list-filters a.filter.active {
+    color: var(--color-light-3);
     background: var(--color-cool-5-25);
     border-bottom: 2px solid var(--red-light);
+    text-shadow: var(--text-shadow);
 }
 #module-management .package-list .package-metadata, 
 #module-management .package-list .package-description {
@@ -1112,16 +1145,17 @@ border-color: var(--color-cool-3);
     color: var(--text-color-5);
 }
 
-/* Token Action HUD Classic */
+/* Token Action HUD */
 /*https://github.com/Drental/fvtt-tokenactionhud*/
 .tah-subtitle,
-#tah-character-name {
-    font-family: 'EarthOrbiter';
-    text-transform: inherit;
-    color: var(--sta-main-color)!important;
-    text-shadow: 0 0 15px var(--red-light)!important;
+#tah-groups #tah-character-name {
+    font-family: 'MandaloreLaserTitle';
+    --color-text-hyperlink: #ff6400;
+    color: var(--color-text-hyperlink);
+    backdrop-filter: blur(10px);
+    text-shadow: 0 0 15px var(--red-light);
     filter: drop-shadow(0px 1px 1px black);
-
+    box-shadow: var(--box-shadow);
 }
 #tah-expand-hud, 
 .tah-category button, 
@@ -1158,7 +1192,29 @@ border-color: var(--color-cool-3);
 .tagify--empty .tagify__input::before {
     color: var(--sta-main-color) !important;
 }
-
+.tah-group.tah-unlocked,
+.tah-group-button.disable-edit {
+    border: 1px solid var(--red);
+    color: var(--pfui-main-color);
+    background: var(--color-cool-5-75);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    border-radius: 3px;
+    box-shadow: var(--box-shadow);
+}
+#tah-expand-hud, 
+#tah-expand-hud:focus, 
+.tah-action-button, 
+.tah-action-button:focus, 
+.tah-group-button, 
+.tah-group-button:focus {
+    border: 1px solid var(--color-cool-2);
+    color: var(--color-cool-1);
+    background: var(--color-cool-5-90);
+    text-shadow: 0 0 15px var(--red-light);
+    filter: drop-shadow(0px 1px 1px black);
+    box-shadow: var(--box-shadow);
+}
 
 /* Share Media */
 /*https://github.com/DarKDinDoN/share-media*/

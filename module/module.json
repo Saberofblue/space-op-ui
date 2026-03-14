@@ -4,21 +4,16 @@
   "description": "Overhauls the Foundry UI and  StarWarsFFG games. Based on a fork of LCARS UI. <p>*** Join the official Discord server: <a href=\"https://discord.gg/foundryvtt\"> Official Discord</a></p><p>*** Rejoignez la communauté Francophone: <a href=\"https://discord.gg/pPSDNJk\">Francophone Discord</a></p>",
   "authors": [
     {
-      "name": "Fabulist",
-      "url": "https://foundryvtt.com/community/fabulist",
-      "flags": {}
-    },
-    {
       "name": "Sasmira",
       "email": "sasmyra@gmail.com",
       "url": "https://foundryvtt.com/community/sasmira",
       "flags": {}
     }
   ],
-  "version": "12.331.1903.9",
+  "version": "13.1",
   "compatibility": {
-    "minimum": "12",
-    "verified": "12"
+    "minimum": "13",
+    "verified": "13"
   },
   "relationships": {
     "systems": [
@@ -27,19 +22,14 @@
         "manifest": "https://raw.githubusercontent.com/StarWarsFoundryVTT/StarWarsFFG/master/system.json",
         "type": "system",
         "compatibility": {
-          "minimum": "1.900",
-          "verified": "1.903"
+          "minimum": "2.0.0",
+          "verified": "2.0.1"
         }
       }
     ]
   },
-  "esmodules": [
-    "scripts/core.js"
-  ],
-  "styles": [
-    "styles/compatibility.css",
-    "styles/core.css"
-  ],
+  "esmodules": ["scripts/core.js"],
+  "styles": ["styles/compatibility.css", "styles/core.css"],
   "media": [
     {
       "type": "setup",
@@ -63,7 +53,13 @@
       "flags": {}
     }
   ],
+  "flags": {
+    "hotReload": {
+      "extensions": ["css", "json"],
+      "paths": ["styles/", "lang/"]
+    }
+  },
   "url": "https://gitlab.com/sasmira/space-op-ui",
   "manifest": "https://gitlab.com/sasmira/space-op-ui/-/raw/main/module/module.json",
-  "download": "https://gitlab.com/sasmira/space-op-ui/-/jobs/artifacts/v12.331.1903.9/raw/space-op-ui.zip?job=build"
+  "download": "https://gitlab.com/sasmira/space-op-ui/-/jobs/artifacts/v13.1/raw/space-op-ui.zip?job=build"
 }

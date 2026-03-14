@@ -1,1847 +1,5001 @@
-@import "systems/a-star-wars-ui.css";
-@import "systems/improve-mandar.css";
-@import 'privacy-button.css';
-/*@import 'pause-icon-config.css';*/
+/* 1. Variables CSS Globales
+====================================================== */
+:root {
+  --ma-cyan: #00d4ff;
+  --ma-btn-hover-shadow:
+    0 0 14px rgba(0, 212, 255, 0.7), 0 2px 6px rgba(0, 0, 0, 0.9);
+  --ma-btn-hover: linear-gradient(
+    135deg,
+    rgba(0, 130, 180, 0.85),
+    rgba(0, 60, 90, 0.95)
+  );
+  --ma-teal: #0ef0c8;
 
+  --glassy:
+    0px 0px 3px 0px rgba(255, 255, 255, 0.4) inset,
+    0px 0px 2px 1px rgba(0, 0, 0, 1), 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  --glassy-shadow: var(--glassy), var(--box-shadow);
+  --glass-bg: rgba(20, 20, 20, 0.6);
+  --glass-bg-light: rgba(255, 255, 255, 0.1);
+  --glass-bg-dark: rgba(0, 0, 0, 0.7);
+  --pf2e-shadow-is-dark: 0px 1px var(--pf2e-half-transparent-dark);
+  --pf2e-translucent-middle: var(--pf2e-translucent-middle-for-light);
+  --pf2e-translucent-middle-for-light: hsla(0, 0%, 80%, 0.5);
+  --pf2e-translucent-very: var(--pf2e-translucent-very-for-light);
+  --pf2e-transcluent-very-for-light: hsla(0, 0%, 60%, 0.2);
+  --header-text-shadow: var(--pf2e-shadow-is-dark);
+  --filter-dark: invert(100%) drop-shadow(0px 1px 1px black);
+  --pf2e-half-transparent-dark: hsla(0, 0%, 0%, 0.5);
+  --color-text-hyperlink: #ff6400;
+  --gold-and-glow:
+    0 0 0 1px var(--tertiary), 0 0 0 2px #9f725b,
+    inset 0 0 3px rgba(255, 255, 255, 0.5);
+  --red: #5e0000;
+  --red-swffg: rgb(73, 12, 11);
+  --red-light: #ff0000;
+  --custom-trait: #61180e;
+  --green: #91a82a;
+  --pfui-main-color: #cfbda7;
+  --pfui-main-grey-color: #98968a;
+  --rpg-styled-ui-color: #837360;
+  --primary-remaster: hsl(153, 100%, 8%);
+  --primary-light-remaster: hsl(170, 96%, 19%);
+  --sta-main-color: #f7e06e;
+
+  --border-radius: 3px;
+  --border-radius-5: 5px;
+  --box-shadow: 0px 1px 2px black;
+  --box-shadow-light:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+    inset 0 0 0 2px rgba(0, 0, 0, 0.4),
+    inset 0px 0px 3px 1px var(--color-cool-3);
+  --text-shadow: 0px 1px 2px black;
+
+  --bg3-blue: #183541;
+  --bg3-blue-light: #0c93bd;
+  --bg3-alliance-opposition-red: #de1847;
+  --button-hover-background: radial-gradient(
+    circle,
+    var(--bg3-alliance-opposition-red) 0,
+    black 100%
+  );
+  --button-toggle-hover-background: radial-gradient(
+    circle,
+    var(--bg3-blue-light) 0,
+    var(--bg3-blue) 100%
+  );
+  --text-color-1: #f7f3e8;
+  --button-hover-text-color: var(--text-color-1);
+
+  --rarity-common: #7e7e7e;
+  --rarity-uncommon: #ff6400;
+  --rarity-rare: #0062ff;
+  --rarity-unique: #e127e1;
+
+  --color-gradient-linear: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(120, 20, 40, 0.5) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  --color-gradient-radial: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(120, 20, 40, 0.5) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+
+  /* Foundry2
+====================================================== */
+  --color-light-1: #f7f3e8;
+  --color-light-1-90: #f7f3e890;
+  --color-light-2: #efe6d8;
+  --color-light-2-90: #efe6d890;
+  --color-light-3: #e7d1b1;
+  --color-light-3-90: #e7d1b190;
+  --color-light-4: #d0b8a3;
+  --color-light-4-90: #d0b8a390;
+  --color-light-5: #9f8475;
+  --color-light-5-90: #9f847590;
+  --color-light-6: #816b66;
+  --color-light-6-90: #816b6690;
+  --color-warm-1: #ee9b3a;
+  --color-warm-1-90: #ee9b3a90;
+  --color-warm-2: #c9593f;
+  --color-warm-2-90: #c9593f90;
+  --color-warm-3: #5d142b;
+  --color-warm-3-90: #5d142b90;
+  --color-warm-4: #420418;
+  --color-warm-4-90: #42041890;
+  --color-warm-5: #26020d;
+  --color-warm-5-90: #26020d90;
+  --color-cool-1: #b1a0d4;
+  --color-cool-1-90: #b1a0d490;
+  --color-cool-2: #79689c;
+  --color-cool-2-90: #79689c90;
+  --color-cool-3: #584a75;
+  --color-cool-3-90: #584a7590;
+  --color-cool-4: #302831;
+  --color-cool-4-90: #30283190;
+  --color-cool-5: #0b0a13;
+  --color-cool-5-25: rgba(11, 10, 19, 0.25);
+  --color-cool-5-50: rgba(11, 10, 19, 0.5);
+  --color-cool-5-75: rgba(11, 10, 19, 0.75);
+  --color-cool-5-90: rgba(11, 10, 19, 0.9);
+
+  --color-level-error: #ce0707;
+  --color-level-error-bg: rgba(105, 0, 8, 0.8);
+  --color-level-error-border: #750003;
+  --color-level-info: #59a1f6;
+  --color-level-info-bg: rgba(47, 80, 132, 0.8);
+  --color-level-info-border: #5c87b9;
+  --color-level-success: #26b231;
+  --color-level-success-bg: rgba(26, 107, 34, 0.8);
+  --color-level-success-border: #1b8f23;
+  --color-level-warning: #ee9b3a;
+  --color-level-warning-bg: rgba(214, 150, 0, 0.8);
+  --color-level-warning-border: #b18404;
+  --color-scrollbar: #5d142b;
+  --color-scrollbar-border: #8d151b;
+
+  --scrollbar-color-thumb: var(--color-cool-5);
+  --scrollbar-color-track: none;
+  --scrollbar-width: thin;
+  --scrollbar-width-legacy: 3px;
+
+  --background: unset;
+
+  /* Extra variables from core.css */
+  --color-text-dark-primary: #afafaf;
+  --color-border-highlight: #0077af;
+}
+
+.application,
+.theme-light .application {
+  --background: var(--color-cool-5-90);
+  --color-text-primary: var(--color-light-2);
+  --color-header-background: rgba(0, 0, 0, 0.5);
+  --color-border: var(--color-cool-4);
+  --color-fieldset-border: var(--color-cool-3);
+  --color-form-hint: var(--color-light-5);
+  --color-form-hint-hover: var(--color-light-4);
+  --color-form-label: var(--color-light-4);
+  --color-form-label-hover: var(--color-light-3);
+  --color-select-option-bg: transparent;
+  --input-text-color: var(--color-light-3);
+  background: none !important;
+  border: none;
+  box-shadow: none;
+  border-radius: var(--border-radius-5);
+  color: var(--color-light-2);
+  filter: drop-shadow(0px 1px 1px black);
+  backdrop-filter: blur(10px);
+}
+
+/* scrollbar
+====================================================== */
+* {
+  scrollbar-color: var(--color-scrollbar) transparent;
+}
+
+/* 2. Polices Google (Teko, Roboto Condensed)
+====================================================== */
 @font-face {
-    font-family: "Teko";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/teko/v15/LYjNdG7kmE0gTaQ.ttf)
-      format("truetype");
-  }
-  @font-face {
-    font-family: "Roboto Condensed";
-    font-style: italic;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVj2ZhZI2eCN5jzbjEETS9weq8-19e7CA.ttf)
-      format("truetype");
-  }
-  @font-face {
-    font-family: "Roboto Condensed";
-    font-style: italic;
-    font-weight: 700;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDtCYYag.ttf)
-      format("truetype");
-  }
-  @font-face {
-    font-family: "Roboto Condensed";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVl2ZhZI2eCN5jzbjEETS9weq8-59U.ttf)
-      format("truetype");
-  }
-  @font-face {
-    font-family: "Roboto Condensed";
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meKCM.ttf)
-      format("truetype");
-  }
-  :root {
-    --color-text-dark-primary: #afafaf;
-    --color-text-hyperlink: #f7e06e;
-    --color-border-highlight: #0077af;
-  }
-  body {
-    scrollbar-color: #00273f transparent;
-    scrollbar-width: thin;
-    font-family: "Roboto Condensed", sans-serif;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    border: none;
-    margin: 1rem 0 0;
-  }
-  h1, 
-  h2 {
-    color: #f7e06e;
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-    background: #00273f;
-    text-shadow: var(--text-shadow);
-    box-shadow: var(--glassy);
+  font-family: "Teko";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/teko/v15/LYjNdG7kmE0gTaQ.ttf)
+    format("truetype");
 }
-  p {
-    margin: 0 0 0.5em;
-  }
-  strong {
-    color: #f7e06e;
-  }
-  section.secret {
-    border-color: #911308;
-    background-color: #300603;
-    padding-top: 4px;
-    font-weight: thin;
-    margin: 4px 0;
-    display: flex;
-    flex-direction: column;
-  }
-  section.secret button.reveal {
-    margin-left: auto;
-    margin-top: 0px;
-    border: none;
-    background-color: #911308;
-    color: #dfdfdf;
-  }
-  section.secret button.reveal:hover {
-    background-color: #f2200d;
-    color: white;
-  }
-  img {
-    border-style: none;
-  }
-  img#logo {
-    display: none;
-  }
-  nav#navigation {
-    left: 20px;
-  }
-  .app {
-    background-image: none;
-    background-color: #0f0f0fef;
-    border-radius: 20px;
-    color: #dfdfdf;
-  }
-  .app .window-header {
-    background-color: #00273f;
-    border-radius: 15px;
-    border-bottom: none;
-    margin: 5px;
-  }
-  .app .window-content {
-    background-image: none !important;
-    background-color: transparent;
-    color: #dfdfdf;
-  }
-  .minimized.window-header {
-    margin: 0px;
-  }
-  input[type="text"],
-  input[type="number"],
-  input[type="password"],
-  input[type="date"],
-  input[type="time"],
-  select,
-  textarea {
-    color: #f7e06e;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 0px;
-    border-color: #00273f;
-  }
-  input[type="text"]:hover,
-  input[type="number"]:hover,
-  input[type="password"]:hover,
-  input[type="date"]:hover,
-  input[type="time"]:hover,
-  select:hover,
-  textarea:hover {
-    border-color: var(--color-cool-3);
-  }
-  input[type="text"]:focus,
-  input[type="number"]:focus,
-  input[type="password"]:focus,
-  input[type="date"]:focus,
-  input[type="time"]:focus,
-  select:focus,
-  textarea:focus {
-    background: var(--color-cool-4);
-    outline: 1px solid var(--color-cool-3);
-    color: var(--color-warm-1);
-    text-shadow: var(--text-shadow);
-  }
-  textarea {
-    border-color: #00273f;
-  }
-  textarea:focus {
-    box-shadow: unset;
-  }
-  .dark input {
-    background: none;
-    color: #f7e06e;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 0px;
-    border-color: #00273f;
-  }
-  .dark input:hover {
-    border-color: #004f7f;
-  }
-  .dark input:focus {
-    background-color: #004f7f3f;
-    box-shadow: none;
-  }
-  option {
-    color: #f7e06e;
-    background-color: #0f0f0fef;
-  }
-  .sta.sheet.item option {
-    color: #f7e06e;
-    background-color: #0f0f0fef;
-  }
-  button {
-    background-color: #0077af;
-    border: none;
-    border-radius: 15px;
-    text-transform: uppercase;
-    --text-shadow: 0px 0px 1px black;
-    text-shadow: var(--text-shadow);
-    box-shadow: var(--glassy);
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVj2ZhZI2eCN5jzbjEETS9weq8-19e7CA.ttf)
+    format("truetype");
 }
-  button:hover {
-    background-color: #009dff;
-    box-shadow: var(--glassy);
-  }
-  button:focus {
-    box-shadow: none;
-  }
-  form button {
-    background-color: #0077af;
-    border: none;
-    border-radius: 15px;
-  }
-  form button:hover {
-    background-color: #009dff;
-    box-shadow: none;
-  }
-  form button:focus {
-    box-shadow: none;
-  }
-  .dark button {
-    background-color: #0077af;
-    border: none;
-    border-radius: 15px;
-  }
-  .dark button:hover {
-    background-color: #009dff;
-    box-shadow: none;
-  }
-  .dark button:focus {
-    box-shadow: none;
-  }
-  .filepicker .current-dir button {
-    background-color: #0077af;
-    border: none;
-    border-radius: 15px;
-  }
-  .filepicker .current-dir button:hover {
-    background-color: #009dff;
-    box-shadow: none;
-  }
-  .filepicker .current-dir button:focus {
-    box-shadow: none;
-  }
-  a:hover {
-    color: #fcf5cf;
-    text-shadow: none;
-  }
-  a.content-link {
-    background: #0077af;
-    color: black;
-    margin: 1px 0px;
-    padding: 0px 4px;
-    border: none;
-    border-radius: 8px;
-  }
-  a.content-link i {
-    color: black;
-  }
-  a.content-link:hover {
-    background: #009dff;
-  }
-  form .notes,
-  form .hint {
-    color: #afafaf;
-  }
-  .tox {
-    background-color: #dfdfdf;
-  }
-  .tabs .item.active {
-    color: #f7e06e;
-    text-shadow: unset;
-  }
-  .tabs .item.active:hover {
-    color: #fcf5cf;
-  }
-  .tabs .item:hover {
-    color: #009dff;
-  }
-  .filepicker .display-modes a {
-    background-color: #0077af;
-    border: unset;
-    color: black;
-    flex: 1 0 20px;
-    margin-left: 3px;
-    flex: 1;
-  }
-  .filepicker .display-modes a.active {
-    background-color: #f7e06e;
-    border: unset;
-    text-shadow: unset;
-  }
-  .filepicker .display-modes a.active:hover {
-    background-color: #fcf5cf;
-  }
-  .filepicker .display-modes a:hover {
-    background-color: #009dff;
-  }
-  .filepicker .directory > li {
-    color: #dfdfdf;
-  }
-  .filepicker .directory > li:hover {
-    color: white;
-    text-shadow: unset;
-  }
-  .filepicker .directory > li.picked {
-    color: #f7e06e;
-  }
-  .filepicker .directory > li.picked:hover {
-    color: white;
-  }
-  .folder-edit .window-content form input,
-  .folder-create .window-content form input {
-    color: #f7e06e;
-  }
-  .folder-edit .window-content form button,
-  .folder-create .window-content form button {
-    background-color: #0077af;
-    border: none;
-    border-radius: 15px;
-  }
-  .folder-edit .window-content form button:hover,
-  .folder-create .window-content form button:hover {
-    background-color: #009dff;
-    box-shadow: none;
-  }
-  .folder-edit .window-content form button:focus,
-  .folder-create .window-content form button:focus {
-    box-shadow: none;
-  }
-  #sidebar {
-    height: 100%;
-    right: 0px;
-    top: 0px;
-    margin: 0px;
-  }
-  #sidebar:not(.collapsed) {
-    background: unset;
-    background-color: #0f0f0fef;
-    border-radius: 0px;
-    width: 300px;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs {
-    margin-left: unset;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs > .item {
-    background-color: #0077af;
-    border: unset;
-    color: black;
-    flex: 1 0 20px;
-    margin-left: 3px;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs > .item.active {
-    background-color: #f7e06e;
-    border: unset;
-    text-shadow: unset;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs > .item.active:hover {
-    background-color: #fcf5cf;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs > .item:hover {
-    background-color: #009dff;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs > .item:nth-child(odd):hover {
-    background-color: #009dff;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs > .item.active :hover {
-    background-color: #fcf5cf;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs > .item.active:nth-child(odd):hover {
-    background-color: #fcf5cf;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs > .collapse {
-    background-color: #0077af;
-    border: unset;
-    color: black;
-    flex: 1 0 20px;
-    margin-left: 3px;
-    margin: 0 3px;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs > .collapse.active {
-    background-color: #f7e06e;
-    border: unset;
-    text-shadow: unset;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs > .collapse.active:hover {
-    background-color: #fcf5cf;
-  }
-  #sidebar:not(.collapsed) > #sidebar-tabs > .collapse:hover {
-    background-color: #009dff;
-  }
-  #sidebar:not(.collapsed) ~ .sta.tracker-container {
-    right: 304px;
-  }
-  #sidebar::before,
-  #sidebar::after {
-    all: unset;
-  }
-  #sidebar.collapsed {
-    border: none;
-  }
-  #sidebar.collapsed > #sidebar-tabs {
-    margin-left: unset;
-  }
-  #sidebar.collapsed > #sidebar-tabs > .item {
-    background-color: #0077af;
-    border: unset;
-    color: black;
-    flex: 1 0 20px;
-    margin-left: 3px;
-    margin: 0 0 3px;
-  }
-  #sidebar.collapsed > #sidebar-tabs > .item.active {
-    background-color: #f7e06e;
-    border: unset;
-    text-shadow: unset;
-  }
-  #sidebar.collapsed > #sidebar-tabs > .item.active:hover {
-    background-color: #fcf5cf;
-  }
-  #sidebar.collapsed > #sidebar-tabs > .item:hover {
-    background-color: #009dff;
-  }
-  #sidebar.collapsed > #sidebar-tabs > .item.active {
-    border-radius: 0;
-  }
-  #sidebar.collapsed > #sidebar-tabs > .collapse {
-    background-color: #0077af;
-    border: unset;
-    color: black;
-    flex: 1 0 20px;
-    margin-left: 3px;
-    margin: 0;
-  }
-  #sidebar.collapsed > #sidebar-tabs > .collapse.active {
-    background-color: #f7e06e;
-    border: unset;
-    text-shadow: unset;
-  }
-  #sidebar.collapsed > #sidebar-tabs > .collapse.active:hover {
-    background-color: #fcf5cf;
-  }
-  #sidebar.collapsed > #sidebar-tabs > .collapse:hover {
-    background-color: #009dff;
-  }
-  #sidebar .sidebar-tab {
-    margin-left: unset;
-    background: unset;
-    border-top: unset;
-  }
-  #sidebar .sidebar-tab .directory-header .create-entity,
-  #sidebar .sidebar-tab .directory-header .create-folder {
-    background-color: #0077af;
-    border: none;
-    border-radius: 15px;
-    font-weight: unset;
-  }
-  #sidebar .sidebar-tab .directory-header .create-entity:hover,
-  #sidebar .sidebar-tab .directory-header .create-folder:hover {
-    background-color: #009dff;
-    box-shadow: none;
-  }
-  #sidebar .sidebar-tab .directory-header .create-entity:focus,
-  #sidebar .sidebar-tab .directory-header .create-folder:focus {
-    box-shadow: none;
-  }
-  #chat-log .chat-message {
-    background-color: transparent;
-    border: 0px none;
-    border-radius: 0px;
-    padding: 0px;
-    margin: 8px 2px;
-    color: #dfdfdf;
-  }
-  #chat-log .chat-message .message-header {
-    border-radius: 8px 0px 0px 0px;
-    background-color: #00273f;
-    padding: 0 4px 0 8px;
-    color: white;
-  }
-  #chat-log .chat-message .message-content {
-    border-left: 4px solid #00273f;
-    border-radius: 0px;
-    padding: 4px 4px 0px 4px;
-    color: #dfdfdf;
-  }
-  #chat-log .chat-message .message-content .dice-roll .dice-formula,
-  #chat-log .chat-message .message-content .dice-roll .dice-total {
-    border: unset;
-    border-radius: unset;
-    box-shadow: unset;
-  }
-  #chat-log .chat-message .message-content .dice-roll .dice-formula {
-    line-height: 16px;
-  }
-  #chat-log .chat-message .message-content .dice-roll .dice-formula.title {
-    height: 45px;
-    line-height: 45px;
-  }
-  #chat-log .chat-message .message-content .dice-roll .dice-formula.title img {
-    margin-right: 4px;
-  }
-  #chat-log .chat-message .message-content .dice-roll .dice-total {
-    color: #f7e06e;
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-    font-size: 24px;
-    font-weight: unset;
-  }
-  #chat-log .chat-message .message-content .dice-roll .dice-total.failure {
-    color: #f54d3d;
-  }
-  #chat-log .chat-message .message-content .reroll-result {
-    background-color: unset;
-    margin-top: 0px;
-    color: #0077af;
-  }
-  #chat-log .chat-message .message-content .reroll-result:hover {
-    background-color: unset;
-    color: #009dff;
-  }
-  #chat-log .chat-message .table-draw .table-description {
-    border: none;
-    color: #dfdfdf;
-  }
-  #chat-log .chat-message .table-draw .result-text a.entity-link {
-    background: #0077af;
-  }
-  #chat-log .chat-message .table-draw img.result-image {
-    background: none;
-  }
-  #chat-controls .roll-type-select {
-    background: #000;
-  }
-  #chat-controls .control-buttons a {
-    background-color: unset;
-    color: #0077af;
-  }
-  #chat-controls .control-buttons a:hover {
-    color: #009dff;
-  }
-  #chat-form textarea {
-    color: #f7e06e;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 0px;
-    border-color: #00273f;
-    background: #000;
-  }
-  #chat-form textarea:hover {
-    border-color: #004f7f;
-  }
-  #chat-form textarea:focus {
-    background-color: #004f7f3f;
-    box-shadow: none;
-  }
-  .directory .directory-header .header-search input {
-    background: #000;
-  }
-  #context-menu li.context-item:hover {
-    text-shadow: unset;
-    background-color: #00273f;
-  }
-  .sta.tracker-container {
-    right: 300px;
-    bottom: 67px;
-    display: flex;
-    flex-direction: column;
-    background-color: #0f0f0fef;
-    border-radius: unset;
-    border-top-left-radius: 20px;
-    height: unset;
-  }
-  .sta.tracker-container .tracker-clickable {
-    width: 25px;
-    height: 30px;
-    top: 5px;
-    right: 0px;
-    bottom: unset;
-    z-index: 5;
-  }
-  .sta.tracker-container .tracker-clickable i.fas {
-    text-align: center;
-    vertical-align: middle;
-    width: 100%;
-    height: 100%;
-    color: #dfdfdf;
-  }
-  .sta.tracker-container .tracker-clickable i.fas:hover {
-    color: #f7e06e;
-  }
-  .sta.tracker-container .tracker {
-    position: unset;
-    width: 170px;
-    height: unset;
-    margin: 5px;
-    border-radius: unset;
-  }
-  .sta.tracker-container .tracker.momentum {
-    background: unset;
-    bottom: unset;
-  }
-  .sta.tracker-container .tracker.momentum .button-group {
-    border-color: #00273f;
-  }
-  .sta.tracker-container .tracker.threat {
-    background: unset;
-    bottom: unset;
-  }
-  .sta.tracker-container .tracker.threat .button-group {
-    border-color: #300603;
-  }
-  .sta.tracker-container .tracker.threat .button-group .button {
-    background-color: #911308;
-  }
-  .sta.tracker-container .tracker.threat .button-group .button:hover {
-    background-color: #f2200d;
-  }
-  .sta.tracker-container .tracker.threat .button-group .input {
-    color: #f54d3d;
-  }
-  .sta.tracker-container .tracker.threat .header {
-    border-color: #300603;
-  }
-  .sta.tracker-container .tracker .button-group {
-    display: flex;
-    flex-direction: row;
-    background-color: unset;
-    border-radius: 15px;
-    border-bottom-left-radius: 0px;
-    border-width: 0px 25px;
-    border-style: solid;
-    margin: unset;
-    width: 170px;
-    height: 30px;
-  }
-  .sta.tracker-container .tracker .button-group .button {
-    border-radius: 0px;
-    flex-shrink: 0;
-    color: black;
-    width: 39px;
-    margin: 0px 3px;
-    text-align: center;
-    vertical-align: middle;
-  }
-  .sta.tracker-container .tracker .button-group .button.decrease,
-  .sta.tracker-container .tracker .button-group .button.increase {
-    padding: 0px;
-  }
-  .sta.tracker-container .tracker .button-group .button i {
-    text-align: center;
-    vertical-align: middle;
-  }
-  .sta.tracker-container .tracker .button-group .button i:hover {
-    cursor: unset;
-    color: unset;
-  }
-  .sta.tracker-container .tracker .button-group input {
-    margin: 0px;
-    flex-grow: 1;
-    color: #f7e06e;
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-    color: #3fafff;
-    font-size: 28px;
-    height: 28px;
-    padding: 0px;
-    margin: 2px 0px 0px 0px;
-  }
-  .sta.tracker-container .tracker .header {
-    color: #f7e06e;
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-    border-radius: unset;
-    border: solid #00273f;
-    border-width: 0px 0px 0px 6px;
-    padding-right: 6px;
-    background-color: unset;
-    margin: unset;
-    width: unset;
-    font-size: 20px;
-    height: 25px;
-  }
-  .left-halfcircle-border {
-    border-radius: 18px 0 0 18px;
-    border-width: 0 0 0 18px;
-    box-shadow: unset;
-    padding-left: 0px;
-  }
-  .right-bar-border {
-    border-radius: unset;
-    border-width: 0 8px 0 0;
-    border-style: solid;
-    box-shadow: unset;
-    padding-right: 0px;
-  }
-  #controls {
-    padding: 5px 2px;
-  }
-  #controls ol.control-tools.main-controls {
-    margin-left: 5px;
-    margin-right: 0;
-    border-radius: unset;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    padding-left: 0px;
-  }
-  #controls ol.control-tools > li {
-    box-sizing: border-box;
-    width: 57px;
-    background-color: transparent;
-    border: unset;
-    border-color: transparent;
-    border-image-width: 0px;
-    text-align: start;
-    box-shadow: unset;
-    padding-left: 18px;
-    margin-bottom: 5px;
-  }
-  #controls ol.control-tools > li > i.fas,
-  #controls ol.control-tools > li i.far,
-  #controls ol.control-tools > li i.fa-solid,
-  #controls ol.control-tools > li i.fa-regular {
-    box-sizing: content-box;
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
-    color: black;
-    background-color: #0077af;
-    text-align: center;
-    vertical-align: top;
-    margin-left: 3px;
-  }
-  #controls ol.control-tools > li.active {
-    border-radius: 18px 0 0 18px;
-    border-width: 0 0 0 18px;
-    box-shadow: unset;
-    padding-left: 0px;
-    border-color: #f7e06e;
-  }
-  #controls ol.control-tools > li.active > i.fas,
-  #controls ol.control-tools > li.active i.far,
-  #controls ol.control-tools > li.active i.fa-solid,
-  #controls ol.control-tools > li.active i.fa-regular {
-    background-color: #f7e06e;
-  }
-  #controls ol.control-tools > li:hover {
-    border-radius: 18px 0 0 18px;
-    border-width: 0 0 0 18px;
-    box-shadow: unset;
-    padding-left: 0px;
-    border-color: #009dff;
-  }
-  #controls ol.control-tools > li:hover > i.fas,
-  #controls ol.control-tools > li:hover i.far,
-  #controls ol.control-tools > li:hover i.fa-solid,
-  #controls ol.control-tools > li:hover i.fa-regular {
-    background-color: #009dff;
-  }
-  #controls ol.control-tools > li:hover.active {
-    border-radius: 18px 0 0 18px;
-    border-width: 0 0 0 18px;
-    box-shadow: unset;
-    padding-left: 0px;
-    border-color: #fcf5cf;
-  }
-  #controls ol.control-tools > li:hover.active > i.fas,
-  #controls ol.control-tools > li:hover.active i.far,
-  #controls ol.control-tools > li:hover.active i.fa-solid,
-  #controls ol.control-tools > li:hover.active i.fa-regular {
-    background-color: #fcf5cf;
-  }
-  #controls ol.sub-controls.active {
-    margin-left: 3px;
-    border-radius: unset;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-  }
-  #controls ol.sub-controls.active .control-tool {
-    box-sizing: border-box;
-    width: 47px;
-    background-color: transparent;
-    border: unset;
-    border-color: transparent;
-    border-image-width: 0px;
-    text-align: start;
-    box-shadow: unset;
-    padding: 0 8px 0 0;
-    margin: 0 0 5px 0;
-  }
-  #controls ol.sub-controls.active .control-tool > i.fas,
-  #controls ol.sub-controls.active .control-tool i.far,
-  #controls ol.sub-controls.active .control-tool i.fa-solid,
-  #controls ol.sub-controls.active .control-tool i.fa-regular {
-    box-sizing: content-box;
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
-    color: black;
-    background-color: #0077af;
-    text-align: center;
-    vertical-align: top;
-    margin-left: 0px;
-  }
-  #controls ol.sub-controls.active .control-tool.active {
-    border-radius: unset;
-    border-width: 0 8px 0 0;
-    border-style: solid;
-    box-shadow: unset;
-    padding-right: 0px;
-    border-color: #f7e06e;
-  }
-  #controls ol.sub-controls.active .control-tool.active > i.fas,
-  #controls ol.sub-controls.active .control-tool.active i.far,
-  #controls ol.sub-controls.active .control-tool.active i.fa-solid,
-  #controls ol.sub-controls.active .control-tool.active i.fa-regular {
-    background-color: #f7e06e;
-  }
-  #controls ol.sub-controls.active .control-tool:hover {
-    border-radius: unset;
-    border-width: 0 8px 0 0;
-    border-style: solid;
-    box-shadow: unset;
-    padding-right: 0px;
-    border-color: #009dff;
-  }
-  #controls ol.sub-controls.active .control-tool:hover > i.fas,
-  #controls ol.sub-controls.active .control-tool:hover i.far,
-  #controls ol.sub-controls.active .control-tool:hover i.fa-solid,
-  #controls ol.sub-controls.active .control-tool:hover i.fa-regular {
-    background-color: #009dff;
-  }
-  #controls ol.sub-controls.active .control-tool:hover.active {
-    border-radius: unset;
-    border-width: 0 8px 0 0;
-    border-style: solid;
-    box-shadow: unset;
-    padding-right: 0px;
-    border-color: #fcf5cf;
-  }
-  #controls ol.sub-controls.active .control-tool:hover.active > i.fas,
-  #controls ol.sub-controls.active .control-tool:hover.active i.far,
-  #controls ol.sub-controls.active .control-tool:hover.active i.fa-solid,
-  #controls ol.sub-controls.active .control-tool:hover.active i.fa-regular {
-    background-color: #fcf5cf;
-  }
-  #controls ol.sub-controls.active .control-tool.toggle > i.fas,
-  #controls ol.sub-controls.active .control-tool.toggle i.far,
-  #controls ol.sub-controls.active .control-tool.toggle i.fa-solid,
-  #controls ol.sub-controls.active .control-tool.toggle i.fa-regular {
-    box-sizing: border-box;
-    border: 2px solid #0077af;
-    background-color: #0f0f0f7f;
-    color: #0077af;
-  }
-  #controls ol.sub-controls.active .control-tool.toggle.active {
-    border-radius: unset;
-    border-width: 0 8px 0 0;
-    border-style: solid;
-    box-shadow: unset;
-    padding-right: 0px;
-    border-color: #f7e06e;
-  }
-  #controls ol.sub-controls.active .control-tool.toggle.active > i.fas,
-  #controls ol.sub-controls.active .control-tool.toggle.active i.far,
-  #controls ol.sub-controls.active .control-tool.toggle.active i.fa-solid,
-  #controls ol.sub-controls.active .control-tool.toggle.active i.fa-regular {
-    border: 2px solid #f7e06e;
-    background-color: #0f0f0f7f;
-    color: #f7e06e;
-  }
-  #controls ol.sub-controls.active .control-tool.toggle.active > i.fas:hover,
-  #controls ol.sub-controls.active .control-tool.toggle.active i.far:hover,
-  #controls ol.sub-controls.active .control-tool.toggle.active i.fa-solid:hover,
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDtCYYag.ttf)
+    format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVl2ZhZI2eCN5jzbjEETS9weq8-59U.ttf)
+    format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meKCM.ttf)
+    format("truetype");
+}
+
+/* 3. Polices & Animations Star Wars
+====================================================== */
+@font-face {
+  font-family: "Bruno Ace";
+  src: url("./systems/fonts/Earth-Orbiter-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "MandaloreCondensed";
+  src: url("./systems/fonts/Mandalore-Condensed.otf") format("opentype");
+}
+@font-face {
+  font-family: "MandaloreLaserTitle";
+  src: url("./systems/fonts/Mandalore-Laser-Title.otf") format("opentype");
+}
+@font-face {
+  font-family: "MandaloreRough";
+  src: url("./systems/fonts/Mandalore-Rough.otf") format("opentype");
+}
+@font-face {
+  font-family: "AurebeshBold";
+  src: url("./systems/fonts/Aurebesh-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "SfDistantGalaxy";
+  src: url("./systems/fonts/Sf-Distant-Galaxy.ttf") format("truetype");
+}
+@font-face {
+  font-family: "ToxiUI";
+  src: url("./systems/fonts/Toxi-UI.ttf") format("truetype");
+}
+@font-face {
+  font-family: "EotESymbol";
+  src: url("./systems/fonts/EotE-Symbol-Regular-PLUS.otf") format("opentype");
+}
+@font-face {
+  font-family: "GenesysSymbol";
+  src: url("./systems/fonts/Genesys.ttf") format("truetype");
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 1px 1px #00d4ff;
+  }
+  to {
+    box-shadow: 0 0 3px 3px #00d4ff;
+  }
+}
+
+/*Game Paused
+************************/
+@keyframes pause-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulsate {
+  0% {
+    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 5px var(--ma-cyan));
+  }
+  100% {
+    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  }
+}
+
+#pause img {
+  display: none;
+}
+#pause > figcaption {
+  font-family: "Bruno Ace";
+  color: var(--ma-cyan);
+  font-size: xxx-large;
+  text-transform: uppercase;
+  text-shadow: var(--text-shadow);
+  animation: pulsate 3s infinite ease-in-out;
+}
+#pause::before {
+  content: "";
+  position: absolute;
+
+  margin-left: -100px;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: url("./systems/paused/pause-inner.svg") no-repeat 50% 50%;
+  animation-name: pause-spin;
+  animation-duration: 10000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+#pause::after {
+  content: "";
+  position: absolute;
+  margin-left: -100px;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: url("./systems/paused/pause-outer.svg") no-repeat 50% 50%;
+  animation-name: pause-spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+}
+
+/* 4. Arrière-plan Star Wars & Pied de page
+====================================================== */
+body {
+  background-image: url(./systems/artwork/Star-Wars_Background.webp);
+  background-size: cover;
+  scrollbar-color: #00273f transparent;
+  scrollbar-width: thin;
+  font-family: "Roboto Condensed", sans-serif;
+}
+footer.nue {
+  text-align: justify;
+  border-top: 2px dotted var(--red-swffg);
+}
+ul.plain,
+ol.plain {
+  padding: 2px;
+}
+/* ═══════════════════════════════════════════════════════════════
+   5. Styles Foundry génériques (tous systèmes)
+   ═══════════════════════════════════════════════════════════════ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  border: none;
+  margin: 1rem 0 0;
+}
+h1,
+h2 {
+  color: #f7e06e;
+  font-family: "Teko", sans-serif;
+  text-transform: uppercase;
+  background: #00273f;
+  text-shadow: var(--text-shadow);
+  box-shadow: var(--glassy);
+}
+p {
+  margin: 0 0 0.5em;
+}
+strong {
+  color: #f7e06e;
+}
+section.secret {
+  border-color: #911308;
+  background-color: #300603;
+  padding-top: 4px;
+  font-weight: thin;
+  margin: 4px 0;
+  display: flex;
+  flex-direction: column;
+}
+section.secret button.reveal {
+  margin-left: auto;
+  margin-top: 0px;
+  border: none;
+  background-color: #911308;
+  color: #dfdfdf;
+}
+section.secret button.reveal:hover {
+  background-color: #f2200d;
+  color: white;
+}
+img {
+  border-style: none;
+}
+img#logo {
+  display: none;
+}
+nav#navigation {
+  left: 20px;
+}
+.app {
+  background-image: none;
+  background-color: #0f0f0fef;
+  border-radius: 20px;
+  color: #dfdfdf;
+}
+.app .window-header {
+  background-color: #00273f;
+  border-radius: 15px;
+  border-bottom: none;
+  margin: 5px;
+}
+.app .window-content {
+  background-image: none !important;
+  background-color: transparent;
+  color: #dfdfdf;
+}
+.minimized.window-header {
+  margin: 0px;
+}
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+  color: #f7e06e;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0px;
+  border-color: #00273f;
+}
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="password"]:hover,
+input[type="date"]:hover,
+input[type="time"]:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--color-cool-3);
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus,
+textarea:focus {
+  background: var(--color-cool-4);
+  outline: 1px solid var(--color-cool-3);
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+}
+textarea:focus {
+  box-shadow: unset;
+}
+.dark input {
+  background: none;
+  color: #f7e06e;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0px;
+  border-color: #00273f;
+}
+.dark input:hover {
+  border-color: #004f7f;
+}
+.dark input:focus {
+  background-color: #004f7f3f;
+  box-shadow: none;
+}
+option {
+  color: #f7e06e;
+  background-color: #0f0f0fef;
+}
+.sta.sheet.item option {
+  color: #f7e06e;
+  background-color: #0f0f0fef;
+}
+button:hover {
+  background-color: #009dff;
+  box-shadow: var(--glassy);
+}
+.system-starwarsffg button:hover,
+.system-starwarsffg a.button:hover {
+  background: rgba(0, 40, 65, 0.92) !important;
+  border-color: rgba(0, 212, 255, 0.6) !important;
+  color: #00d4ff !important;
+  -webkit-text-fill-color: #00d4ff !important;
+  box-shadow: var(--glassy);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.65) !important;
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg button,
+.system-starwarsffg a.button {
+  color: var(--ma-teal) !important;
+  border: 1px solid var(--color-cool-3);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  background: var(--color-cool-5);
+  border-radius: 15px;
+  filter: drop-shadow(0px 1px 1px black);
+}
+button.ui-control[aria-pressed="true"],
+a.ui-control[aria-pressed="true"],
+li.ui-control[aria-pressed="true"],
+.placeable-hud .control-icon[aria-pressed="true"],
+.placeable-hud input[aria-pressed="true"] {
+  border: 2px solid var(--red-light);
+}
+.dark button {
+  background-color: #0077af;
+  border: none;
+  border-radius: 15px;
+}
+.dark button:hover {
+  background-color: #009dff;
+  box-shadow: none;
+}
+.dark button:focus {
+  box-shadow: none;
+}
+.filepicker .current-dir button {
+  background-color: #0077af;
+  border: none;
+  border-radius: 15px;
+}
+.filepicker .current-dir button:hover {
+  background-color: #009dff;
+  box-shadow: none;
+}
+.filepicker .current-dir button:focus {
+  box-shadow: none;
+}
+a.content-link {
+  background: #0077af;
+  color: black;
+  margin: 1px 0px;
+  padding: 0px 4px;
+  border: none;
+  border-radius: 8px;
+}
+a.content-link i {
+  color: black;
+}
+a.content-link:hover {
+  background: #009dff;
+}
+form .notes,
+form .hint {
+  color: #afafaf;
+}
+.tox {
+  background-color: #dfdfdf;
+}
+.tabs .item.active {
+  color: #f7e06e;
+  text-shadow: unset;
+}
+.tabs .item.active:hover {
+  color: #fcf5cf;
+}
+.tabs .item:hover {
+  color: #009dff;
+}
+.filepicker .display-modes a {
+  background-color: #0077af;
+  border: unset;
+  color: black;
+  flex: 1 0 20px;
+  margin-left: 3px;
+  flex: 1;
+}
+.filepicker .display-modes a.active {
+  background-color: #f7e06e;
+  border: unset;
+  text-shadow: unset;
+}
+.filepicker .display-modes a.active:hover {
+  background-color: #fcf5cf;
+}
+.filepicker .display-modes a:hover {
+  background-color: #009dff;
+}
+.filepicker .directory > li {
+  color: #dfdfdf;
+}
+.filepicker .directory > li:hover {
+  color: white;
+  text-shadow: unset;
+}
+.filepicker .directory > li.picked {
+  color: #f7e06e;
+}
+.filepicker .directory > li.picked:hover {
+  color: white;
+}
+.folder-edit .window-content form input,
+.folder-create .window-content form input {
+  color: #f7e06e;
+}
+.folder-edit .window-content form button,
+.folder-create .window-content form button {
+  background-color: #0077af;
+  border: none;
+  border-radius: 15px;
+}
+.folder-edit .window-content form button:hover,
+.folder-create .window-content form button:hover {
+  background-color: #009dff;
+  box-shadow: none;
+}
+.folder-edit .window-content form button:focus,
+.folder-create .window-content form button:focus {
+  box-shadow: none;
+}
+#sidebar:not(.collapsed) > #sidebar-tabs {
+  margin-left: unset;
+}
+#sidebar:not(.collapsed) > #sidebar-tabs > .item {
+  background-color: #0077af;
+  border: unset;
+  color: black;
+  flex: 1 0 20px;
+  margin-left: 3px;
+}
+#sidebar:not(.collapsed) > #sidebar-tabs > .item.active {
+  background-color: #f7e06e;
+  border: unset;
+  text-shadow: unset;
+}
+#sidebar:not(.collapsed) > #sidebar-tabs > .item.active:hover {
+  background-color: #fcf5cf;
+}
+#sidebar:not(.collapsed) > #sidebar-tabs > .item.active :hover {
+  background-color: #fcf5cf;
+}
+#sidebar:not(.collapsed) > #sidebar-tabs > .item.active:nth-child(odd):hover {
+  background-color: #fcf5cf;
+}
+#sidebar:not(.collapsed) > #sidebar-tabs > .collapse {
+  background-color: #0077af;
+  border: unset;
+  color: black;
+  flex: 1 0 20px;
+  margin-left: 3px;
+  margin: 0 3px;
+}
+#sidebar:not(.collapsed) > #sidebar-tabs > .collapse.active {
+  background-color: #f7e06e;
+  border: unset;
+  text-shadow: unset;
+}
+#sidebar:not(.collapsed) > #sidebar-tabs > .collapse.active:hover {
+  background-color: #fcf5cf;
+}
+#sidebar:not(.collapsed) > #sidebar-tabs > .collapse:hover {
+  background-color: #009dff;
+}
+#sidebar:not(.collapsed) ~ .sta.tracker-container {
+  right: 304px;
+}
+#sidebar::before,
+#sidebar::after {
+  all: unset;
+}
+#sidebar.collapsed {
+  border: none;
+}
+#sidebar.collapsed > #sidebar-tabs {
+  margin-left: unset;
+}
+#sidebar.collapsed > #sidebar-tabs > .item {
+  background-color: #0077af;
+  border: unset;
+  color: black;
+  flex: 1 0 20px;
+  margin-left: 3px;
+  margin: 0 0 3px;
+}
+#sidebar.collapsed > #sidebar-tabs > .item.active {
+  background-color: #f7e06e;
+  border: unset;
+  text-shadow: unset;
+  border-radius: 0;
+}
+#sidebar.collapsed > #sidebar-tabs > .item.active:hover {
+  background-color: #fcf5cf;
+}
+#sidebar.collapsed > #sidebar-tabs > .item:hover {
+  background-color: #009dff;
+}
+#sidebar.collapsed > #sidebar-tabs > .collapse {
+  background-color: #0077af;
+  border: unset;
+  color: black;
+  flex: 1 0 20px;
+  margin-left: 3px;
+  margin: 0;
+}
+#sidebar.collapsed > #sidebar-tabs > .collapse.active {
+  background-color: #f7e06e;
+  border: unset;
+  text-shadow: unset;
+}
+#sidebar.collapsed > #sidebar-tabs > .collapse.active:hover {
+  background-color: #fcf5cf;
+}
+#sidebar.collapsed > #sidebar-tabs > .collapse:hover {
+  background-color: #009dff;
+}
+#sidebar .sidebar-tab {
+  margin-left: unset;
+  background: var(--color-cool-5-25);
+  backdrop-filter: blur(10px);
+  border-top: unset;
+}
+#sidebar .sidebar-tab .directory-header .create-entity:hover,
+#sidebar .sidebar-tab .directory-header .create-folder:hover {
+  background-color: #009dff;
+  box-shadow: none;
+}
+#sidebar .sidebar-tab .directory-header .create-entity:focus,
+#sidebar .sidebar-tab .directory-header .create-folder:focus {
+  box-shadow: none;
+}
+.directory .directory-header .header-search input {
+  background: #000;
+}
+#context-menu li.context-item:hover {
+  text-shadow: unset;
+  background-color: #00273f;
+}
+.sta.tracker-container {
+  right: 300px;
+  bottom: 67px;
+  display: flex;
+  flex-direction: column;
+  background-color: #0f0f0fef;
+  border-radius: unset;
+  border-top-left-radius: 20px;
+  height: unset;
+}
+.sta.tracker-container .tracker-clickable {
+  width: 25px;
+  height: 30px;
+  top: 5px;
+  right: 0px;
+  bottom: unset;
+  z-index: 5;
+}
+.sta.tracker-container .tracker-clickable i.fas {
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  color: #dfdfdf;
+}
+.sta.tracker-container .tracker-clickable i.fas:hover {
+  color: #f7e06e;
+}
+.sta.tracker-container .tracker {
+  position: unset;
+  width: 170px;
+  height: unset;
+  margin: 5px;
+  border-radius: unset;
+}
+.sta.tracker-container .tracker.momentum {
+  background: unset;
+  bottom: unset;
+}
+.sta.tracker-container .tracker.momentum .button-group {
+  border-color: #00273f;
+}
+.sta.tracker-container .tracker.threat {
+  background: unset;
+  bottom: unset;
+}
+.sta.tracker-container .tracker.threat .button-group {
+  border-color: #300603;
+}
+.sta.tracker-container .tracker.threat .button-group .button {
+  background-color: #911308;
+}
+.sta.tracker-container .tracker.threat .button-group .button:hover {
+  background-color: #f2200d;
+}
+.sta.tracker-container .tracker.threat .button-group .input {
+  color: #f54d3d;
+}
+.sta.tracker-container .tracker.threat .header {
+  border-color: #300603;
+}
+.sta.tracker-container .tracker .button-group {
+  display: flex;
+  flex-direction: row;
+  background-color: unset;
+  border-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-width: 0px 25px;
+  border-style: solid;
+  margin: unset;
+  width: 170px;
+  height: 30px;
+}
+.sta.tracker-container .tracker .button-group .button {
+  border-radius: 0px;
+  flex-shrink: 0;
+  color: black;
+  width: 39px;
+  margin: 0px 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.sta.tracker-container .tracker .button-group .button.decrease,
+.sta.tracker-container .tracker .button-group .button.increase {
+  padding: 0px;
+}
+.sta.tracker-container .tracker .button-group .button i {
+  text-align: center;
+  vertical-align: middle;
+}
+.sta.tracker-container .tracker .button-group .button i:hover {
+  cursor: unset;
+  color: unset;
+}
+.sta.tracker-container .tracker .button-group input {
+  margin: 0px;
+  flex-grow: 1;
+  color: #f7e06e;
+  font-family: "Teko", sans-serif;
+  text-transform: uppercase;
+  color: #3fafff;
+  font-size: 28px;
+  height: 28px;
+  padding: 0px;
+  margin: 2px 0px 0px 0px;
+}
+.sta.tracker-container .tracker .header {
+  color: #f7e06e;
+  font-family: "Teko", sans-serif;
+  text-transform: uppercase;
+  border-radius: unset;
+  border: solid #00273f;
+  border-width: 0px 0px 0px 6px;
+  padding-right: 6px;
+  background-color: unset;
+  margin: unset;
+  width: unset;
+  font-size: 20px;
+  height: 25px;
+}
+.left-halfcircle-border {
+  border-radius: 18px 0 0 18px;
+  border-width: 0 0 0 18px;
+  box-shadow: unset;
+  padding-left: 0px;
+}
+.right-bar-border {
+  border-radius: unset;
+  border-width: 0 8px 0 0;
+  border-style: solid;
+  box-shadow: unset;
+  padding-right: 0px;
+}
+#controls {
+  padding: 5px 2px;
+}
+#controls ol.control-tools.main-controls {
+  margin-left: 5px;
+  margin-right: 0;
+  border-radius: unset;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0px;
+}
+#controls ol.control-tools > li {
+  box-sizing: border-box;
+  width: 57px;
+  background-color: transparent;
+  border: unset;
+  border-color: transparent;
+  border-image-width: 0px;
+  text-align: start;
+  box-shadow: unset;
+  padding-left: 18px;
+  margin-bottom: 5px;
+}
+#controls ol.control-tools > li > i.fas,
+#controls ol.control-tools > li i.far,
+#controls ol.control-tools > li i.fa-solid,
+#controls ol.control-tools > li i.fa-regular {
+  box-sizing: content-box;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  color: black;
+  background-color: #0077af;
+  text-align: center;
+  vertical-align: top;
+  margin-left: 3px;
+}
+#controls ol.control-tools > li.active {
+  border-radius: 18px 0 0 18px;
+  border-width: 0 0 0 18px;
+  box-shadow: unset;
+  padding-left: 0px;
+  border-color: #f7e06e;
+}
+#controls ol.control-tools > li.active > i.fas,
+#controls ol.control-tools > li.active i.far,
+#controls ol.control-tools > li.active i.fa-solid,
+#controls ol.control-tools > li.active i.fa-regular {
+  background-color: #f7e06e;
+}
+#controls ol.control-tools > li:hover {
+  border-radius: 18px 0 0 18px;
+  border-width: 0 0 0 18px;
+  box-shadow: unset;
+  padding-left: 0px;
+  border-color: #009dff;
+}
+#controls ol.control-tools > li:hover > i.fas,
+#controls ol.control-tools > li:hover i.far,
+#controls ol.control-tools > li:hover i.fa-solid,
+#controls ol.control-tools > li:hover i.fa-regular {
+  background-color: #009dff;
+}
+#controls ol.control-tools > li:hover.active {
+  border-radius: 18px 0 0 18px;
+  border-width: 0 0 0 18px;
+  box-shadow: unset;
+  padding-left: 0px;
+  border-color: #fcf5cf;
+}
+#controls ol.control-tools > li:hover.active > i.fas,
+#controls ol.control-tools > li:hover.active i.far,
+#controls ol.control-tools > li:hover.active i.fa-solid,
+#controls ol.control-tools > li:hover.active i.fa-regular {
+  background-color: #fcf5cf;
+}
+#controls ol.sub-controls.active {
+  margin-left: 3px;
+  border-radius: unset;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+#controls ol.sub-controls.active .control-tool {
+  box-sizing: border-box;
+  width: 47px;
+  background-color: transparent;
+  border: unset;
+  border-color: transparent;
+  border-image-width: 0px;
+  text-align: start;
+  box-shadow: unset;
+  padding: 0 8px 0 0;
+  margin: 0 0 5px 0;
+}
+#controls ol.sub-controls.active .control-tool > i.fas,
+#controls ol.sub-controls.active .control-tool i.far,
+#controls ol.sub-controls.active .control-tool i.fa-solid,
+#controls ol.sub-controls.active .control-tool i.fa-regular {
+  box-sizing: content-box;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  color: black;
+  background-color: #0077af;
+  text-align: center;
+  vertical-align: top;
+  margin-left: 0px;
+}
+#controls ol.sub-controls.active .control-tool.active {
+  border-radius: unset;
+  border-width: 0 8px 0 0;
+  border-style: solid;
+  box-shadow: unset;
+  padding-right: 0px;
+  border-color: #f7e06e;
+}
+#controls ol.sub-controls.active .control-tool.active > i.fas,
+#controls ol.sub-controls.active .control-tool.active i.far,
+#controls ol.sub-controls.active .control-tool.active i.fa-solid,
+#controls ol.sub-controls.active .control-tool.active i.fa-regular {
+  background-color: #f7e06e;
+}
+#controls ol.sub-controls.active .control-tool:hover {
+  border-radius: unset;
+  border-width: 0 8px 0 0;
+  border-style: solid;
+  box-shadow: unset;
+  padding-right: 0px;
+  border-color: #009dff;
+}
+#controls ol.sub-controls.active .control-tool:hover > i.fas,
+#controls ol.sub-controls.active .control-tool:hover i.far,
+#controls ol.sub-controls.active .control-tool:hover i.fa-solid,
+#controls ol.sub-controls.active .control-tool:hover i.fa-regular {
+  background-color: #009dff;
+}
+#controls ol.sub-controls.active .control-tool:hover.active {
+  border-radius: unset;
+  border-width: 0 8px 0 0;
+  border-style: solid;
+  box-shadow: unset;
+  padding-right: 0px;
+  border-color: #fcf5cf;
+}
+#controls ol.sub-controls.active .control-tool:hover.active > i.fas,
+#controls ol.sub-controls.active .control-tool:hover.active i.far,
+#controls ol.sub-controls.active .control-tool:hover.active i.fa-solid,
+#controls ol.sub-controls.active .control-tool:hover.active i.fa-regular {
+  background-color: #fcf5cf;
+}
+#controls ol.sub-controls.active .control-tool.toggle > i.fas,
+#controls ol.sub-controls.active .control-tool.toggle i.far,
+#controls ol.sub-controls.active .control-tool.toggle i.fa-solid,
+#controls ol.sub-controls.active .control-tool.toggle i.fa-regular {
+  box-sizing: border-box;
+  border: 2px solid #0077af;
+  background-color: #0f0f0f7f;
+  color: #0077af;
+}
+#controls ol.sub-controls.active .control-tool.toggle.active {
+  border-radius: unset;
+  border-width: 0 8px 0 0;
+  border-style: solid;
+  box-shadow: unset;
+  padding-right: 0px;
+  border-color: #f7e06e;
+}
+#controls ol.sub-controls.active .control-tool.toggle.active > i.fas,
+#controls ol.sub-controls.active .control-tool.toggle.active i.far,
+#controls ol.sub-controls.active .control-tool.toggle.active i.fa-solid,
+#controls ol.sub-controls.active .control-tool.toggle.active i.fa-regular {
+  border: 2px solid #f7e06e;
+  background-color: #0f0f0f7f;
+  color: #f7e06e;
+}
+#controls ol.sub-controls.active .control-tool.toggle.active > i.fas:hover,
+#controls ol.sub-controls.active .control-tool.toggle.active i.far:hover,
+#controls ol.sub-controls.active .control-tool.toggle.active i.fa-solid:hover,
+#controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-regular:hover {
+  border: 2px solid #fcf5cf;
+  background-color: #0f0f0f7f;
+  color: #fcf5cf;
+}
+#controls ol.sub-controls.active .control-tool.toggle.active:hover {
+  border-color: #fcf5cf;
+}
+#controls ol.sub-controls.active .control-tool.toggle:hover {
+  border-radius: unset;
+  border-width: 0 8px 0 0;
+  border-style: solid;
+  box-shadow: unset;
+  padding-right: 0px;
+  border-color: #009dff;
+}
+#controls ol.sub-controls.active .control-tool.toggle:hover > i.fas,
+#controls ol.sub-controls.active .control-tool.toggle:hover i.far,
+#controls ol.sub-controls.active .control-tool.toggle:hover i.fa-solid,
+#controls ol.sub-controls.active .control-tool.toggle:hover i.fa-regular {
+  border: 2px solid #009dff;
+  background-color: #0f0f0f7f;
+  color: #009dff;
+}
+#ui-top {
+  margin-top: 5px;
+}
+#ui-top.offset {
+  margin-left: -80px;
+}
+#ui-top.offset nav#navigation {
+  margin-top: unset;
+}
+#ui-top.offset nav#navigation #nav-toggle {
+  background: #0077af;
+  border: none;
+  border-radius: 17px 0 0 17px;
+  color: black;
+  margin-right: 3px;
+}
+#ui-top.offset nav#navigation #nav-toggle:hover {
+  background: #009dff;
+  text-shadow: none;
+}
+#ui-top.offset nav#navigation #scene-list .scene {
+  border-radius: 0;
+  border: unset;
+  box-shadow: unset;
+  background: #0077af;
+  color: black;
+  box-sizing: border-box;
+  height: 34px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+#ui-top.offset nav#navigation #scene-list .scene:hover {
+  background: #009dff;
+  color: black;
+}
+#ui-top.offset nav#navigation #scene-list .scene a {
+  color: unset;
+}
+#ui-top.offset nav#navigation #scene-list .scene a:hover {
+  color: unset;
+}
+#ui-top.offset nav#navigation #scene-list .scene.gm {
+  border: 2px solid #0077af;
+  background-color: #0f0f0fef;
+  color: #0077af;
+}
+#ui-top.offset nav#navigation #scene-list .scene.gm:hover {
+  border-color: #009dff;
+  color: #009dff;
+}
+#ui-top.offset nav#navigation #scene-list .scene.view {
+  background: #f7e06e;
+}
+#ui-top.offset nav#navigation #scene-list .scene.view:hover {
+  background: #fcf5cf;
+}
+#ui-top.offset nav#navigation #scene-list .scene.view.gm {
+  border-color: #f7e06e;
+  color: #f7e06e;
+  background: #0f0f0fef;
+}
+#ui-top.offset nav#navigation #scene-list .scene.view.gm:hover {
+  border-color: #fcf5cf;
+  color: #fcf5cf;
+}
+#ui-top.offset nav#navigation #scene-list .scene.active {
+  font-weight: bold;
+  background: #3d8f81;
+}
+#ui-top.offset nav#navigation #scene-list .scene.active:hover {
+  background: #70c2b4;
+}
+#ui-top.offset nav#navigation #scene-list .scene.active.view {
+  background: #f7e06e;
+}
+#ui-top.offset nav#navigation #scene-list .scene.active.view:hover {
+  background: #fcf5cf;
+}
+#ui-top.offset nav#navigation #scene-list .scene.active.view.gm {
+  border-color: #f7e06e;
+  color: #f7e06e;
+  font-weight: normal;
+  background: #0f0f0fef;
+}
+#ui-top.offset nav#navigation #scene-list .scene.active.view.gm:hover {
+  border-color: #fcf5cf;
+  color: #fcf5cf;
+}
+#ui-top.offset nav#navigation #scene-list .scene.active.gm {
+  border-color: #3d8f81;
+  color: #3d8f81;
+  background: #0f0f0fef;
+}
+#ui-top.offset nav#navigation #scene-list .scene.active.gm:hover {
+  border-color: #70c2b4;
+  color: #70c2b4;
+}
+#keybindings .binding .key {
+  background-color: #0077af;
+  border: none;
+  box-shadow: unset;
+}
+#keybindings .binding .key.uneditable {
+  background: #00273f;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   6. Système StarWarsFFG — Styles principaux
+   Source : systems/a-star-wars-ui.css
+   ═══════════════════════════════════════════════════════════════ */
+.system-starwarsffg hr {
+  border: none;
+  border-top: 1px dotted var(--red-swffg);
+  border-bottom: 1px dotted var(--red-swffg);
+}
+.system-starwarsffg a:hover {
+  color: var(--green);
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .rollable:hover,
+.system-starwarsffg .rollable:focus {
+  color: var(--green);
+  background: var(--color-warm-1);
+  border-radius: 15px;
+  text-shadow: none;
+  cursor: pointer;
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg form .notes,
+.system-starwarsffg form .hint {
+  color: #afafaf !important;
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .flex-group-center,
+.system-starwarsffg .flex-group-left,
+.system-starwarsffg .flex-group-right {
+  border: 1px solid transparent;
+}
+.system-starwarsffg .app {
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: var(--border-radius-5);
+  color: var(--color-light-2);
+  filter: drop-shadow(0px 1px 1px black);
+  backdrop-filter: blur(10px);
+}
+.system-starwarsffg #sidebar.app,
+.system-starwarsffg #destiny-tracker,
+.system-starwarsffg #ui-top.offset nav#navigation,
+.system-starwarsffg #controls ol.control-tools.main-controls,
+.system-starwarsffg #controls ol.control-tools.sub-controls.active {
+  backdrop-filter: none;
+  filter: none;
+}
+.system-starwarsffg .window-header {
+  background: none;
+  background-color: var(--color-cool-5-75) !important;
+  border-radius: var(--border-radius-5) !important;
+  margin: 3px 0px !important;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  border: 1px solid var(--red) !important;
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg .window-content {
+  padding: 8px 2px 5px 2px;
+  background: var(--color-cool-5-25) !important;
+  color: var(--pfui-main-color) !important;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-5);
+  margin: 3px 1px;
+}
+.starwarsffg.sheet.actor .window-content,
+.system-starwarsffg .sheet.journal-entry .window-content {
+  background: none !important;
+}
+.starwarsffg.sheet.actor.v2 .window-content {
+  padding: 8px 2px 5px 2px;
+  backdrop-filter: unset;
+  filter: unset;
+}
+.starwarsffg.sheet.actor.v2 .tabs .item {
+  text-shadow: var(--text-shadow);
+  color: var(--color-light-2);
+  font-size: 16pt;
+  height: 2rem;
+  flex: 0 0 1rem;
+  line-height: 1.5rem;
+}
+.starwarsffg.sheet.actor.v2 .tabs .item.active {
+  color: var(--ma-cyan);
+  background: var(--red) !important;
+  font-size: 16pt;
+  height: 2rem;
+  flex: 0 0 1rem;
+  line-height: 1.5rem;
+}
+.system-starwarsffg .window-app .window-resizable-handle {
+  border: 1px solid var(--red);
+  color: var(--ma-cyan);
+  background: var(--color-cool-5-50);
+  backdrop-filter: blur(3px);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+}
+button:disabled {
+  color: var(--color-cool-5);
+}
+.system-starwarsffg input[type="text"],
+.system-starwarsffg input[type="number"],
+.system-starwarsffg input[type="password"],
+.system-starwarsffg input[type="date"],
+.system-starwarsffg input[type="time"],
+.system-starwarsffg select,
+.system-starwarsffg textarea {
+  --input-background-color: var(--color-cool-4-90);
+  --input-border-color: transparent;
+  --input-text-color: var(--color-light-3);
+  background: var(--input-background-color);
+  border: 1px solid var(--input-border-color);
+  outline: 1px solid transparent;
+  color: var(--input-text-color);
+  --input-box-shadow: none;
+  box-shadow: var(--input-box-shadow);
+  border-radius: 4px;
+  user-select: text;
+  transition: outline-color 0.5s;
+}
+.application input[type="text"]:focus,
+.application input[type="number"]:focus,
+.application input[type="password"]:focus,
+.application input[type="date"]:focus,
+.application input[type="time"]:focus,
+.application input[type="search"]:focus,
+.application input[type="file"]:focus,
+.application select:focus {
+  background: var(--color-cool-4);
+  outline: 1px solid var(--color-cool-3);
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg input[type="search"],
+.ss-main,
+.ss-search input {
+  background: var(--color-cool-5-25) !important;
+  border: 1px solid var(--color-cool-5-25) !important;
+}
+.system-starwarsffg input[type="color"][data-edit] {
+  border: 2px groove var(--red);
+}
+.system-starwarsffg option,
+.system-starwarsffg optgroup {
+  font-family: inherit;
+  background: var(--color-cool-5-90);
+}
+.starwarsffg .dice-pool-dialog .pool-value {
+  border: unset !important;
+  background-color: var(--color-cool-2) !important;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow-light);
+}
+.starwarsffg .dice-pool-dialog .pool-value input {
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .initiative-dialog .pool-additional img {
+  border: 1px dotted white;
+}
+.system-starwarsffg .filepicker .favorites .path {
+  border: unset;
+  color: var(--ma-cyan);
+  background: var(--color-warm-3);
+  border-radius: 3px;
+}
+.system-starwarsffg .filepicker .directory {
+  border: unset;
+}
+.system-starwarsffg .filepicker .directory > li {
+  color: var(--color-light-2);
+  font-weight: normal !important;
+  text-shadow: var(--text-shadow);
+  background: var(--color-cool-5-25);
+  filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg .filepicker .current-dir button {
+  font-family: "Bruno Ace";
+  text-transform: inherit;
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-50);
+  border-radius: 15px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--glassy);
+  border: unset;
+}
+.system-starwarsffg .filepicker .current-dir button:hover {
+  color: var(--ma-cyan);
+  background-color: var(--color-cool-5-75);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg .filepicker .display-modes a {
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-50);
+  border-radius: 15px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--glassy);
+  border: unset;
+}
+.system-starwarsffg .filepicker .display-modes a:hover {
+  color: var(--ma-cyan);
+  background-color: var(--color-cool-5-75);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg .filepicker .display-modes a.active {
+  color: var(--color-warm-5);
+  background-color: var(--ma-cyan);
+  box-shadow: var(--glassy);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+}
+.system-starwarsffg input[type="checkbox"]:checked,
+.system-starwarsffg input[type="radio"]:checked {
+  accent-color: var(--green);
+}
+.system-starwarsffg .directory .directory-header .header-search {
+  margin: 3px 0px 0px 0px;
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-75);
+  border-radius: 25px 0 0 25px;
+  box-shadow: var(--box-shadow);
+  backdrop-filter: blur(5px);
+}
+.system-starwarsffg .directory .directory-header .header-search input {
+  background-color: var(--color-cool-5-25);
+  border-radius: 0;
+  border: none;
+  color: var(--color-light-2);
+  transition: all 0.2s;
+  box-shadow: var(--box-shadow-light);
+}
+.system-starwarsffg .dialog .dialog-buttons button,
+.system-starwarsffg .dialog .dialog-buttons button.default,
+.system-starwarsffg .folder-edit .window-content form button {
+  font-family: "Bruno Ace";
+  text-transform: inherit;
+  color: var(--color-light-2);
+  background: var(--color-cool-5-90);
+  text-shadow: var(--text-shadow);
+  box-shadow: var(--glassy);
+  border: unset;
+}
+.system-starwarsffg button.resetMedical.fas.fa-recycle {
+  color: var(--ma-cyan);
+}
+.system-starwarsffg button.resetMedical.fas.fa-recycle:hover {
+  color: var(--green);
+  box-shadow: var(--box-shadow-light);
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg
+  #sidebar
+  .sidebar-tab
+  .directory-header
+  .create-entity:hover,
+.system-starwarsffg
+  #sidebar
+  .sidebar-tab
+  .directory-header
+  .create-folder:hover {
+  color: var(--ma-cyan);
+  background-color: var(--color-cool-5-75);
+  box-shadow: var(--box-shadow);
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg li.folder > .folder-header h3 {
+  color: antiquewhite;
+  text-shadow: var(--text-shadow) !important;
+  font-family: "MandaloreLaserTitle";
+  text-transform: inherit;
+}
+.system-starwarsffg h1 {
+  background: transparent;
+  color: var(--ma-cyan);
+  font-family: "Bruno Ace";
+  text-transform: inherit;
+  box-shadow: unset;
+  border-radius: 5px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg h2 {
+  background: transparent;
+  color: var(--ma-cyan);
+  font-family: "Bruno Ace";
+  text-transform: inherit;
+  box-shadow: unset;
+  border-radius: 5px;
+  filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg h3.nue {
+  border-top: 1px dotted var(--red);
+  border-bottom: 1px dotted var(--red);
+}
+.system-starwarsffg p.nue {
+  text-align: justify;
+  color: var(--color-light-2);
+}
+
+.system-starwarsffg #context-menu ol.context-items,
+.system-starwarsffg #context-menu li.context-group > ol {
+  color: var(--color-light-2);
+  background: var(--color-cool-5);
+  border: unset;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg #context-menu li.context-item:hover {
+  color: var(--ma-cyan);
+  background: var(--color-cool-5);
+}
+
+/* Ui-Top
+************************/
+.system-starwarsffg #ui-top.offset nav#navigation #nav-toggle {
+  border-radius: 17px 0 0 17px;
+  margin-right: 3px;
+  border: 1px solid var(--red);
+  color: var(--color-light-2);
+  background: var(--color-cool-5-90);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #ui-top.offset nav#navigation #nav-toggle:hover {
+  background: var(--color-cool-5-90);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg #ui-top.offset nav#navigation #scene-list .scene.gm {
+  border-radius: 0 17px 0 17px;
+  margin-right: 3px;
+  border: 1px solid var(--red);
+  color: var(--color-light-2);
+  background: var(--color-cool-5-75);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #ui-top.offset nav#navigation #scene-list .scene.gm:hover {
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg
+  #ui-top.offset
+  nav#navigation
+  #scene-list
+  .scene.active.view.gm {
+  background: var(--color-cool-5-90);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg
+  #ui-top.offset
+  nav#navigation
+  #scene-list
+  .scene.active.view.gm:hover {
+  border-color: var(--ma-cyan);
+  color: var(--ma-cyan);
+}
+.system-starwarsffg #ui-top.offset nav#navigation #scene-list .scene.active.gm {
+  border-color: var(--red-light);
+  color: var(--red-light);
+  background: var(--color-cool-5-90);
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg
+  #ui-top.offset
+  nav#navigation
+  #scene-list
+  .scene.active.gm:hover {
+  border-color: var(--ma-cyan);
+  color: var(--ma-cyan);
+}
+.system-starwarsffg #ui-top.offset nav#navigation #scene-list .scene.view.gm {
+  border-color: var(--color-cool-2);
+  color: var(--color-cool-1);
+  background: var(--color-cool-5-90);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+}
+.system-starwarsffg
+  #ui-top.offset
+  nav#navigation
+  #scene-list
+  .scene.view.gm:hover {
+  border-color: var(--color-cool-1);
+  color: var(--color-cool-1);
+  background: var(--color-cool-5-50);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #ui-top.offset nav#navigation #scene-list .scene {
+  box-sizing: border-box;
+  height: 34px;
+  margin-bottom: 5px;
+  border-radius: 0 17px 0 17px;
+  margin-right: 3px;
+  border: 2px solid var(--red);
+  color: var(--ma-cyan);
+  background: var(--color-cool-3);
+  text-shadow: var(--text-shadow);
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #ui-top.offset nav#navigation #scene-list .scene:hover {
+  background: var(--color-cool-5);
+  color: var(--red-light);
+  box-shadow: 0 0 6px inset var(--red-light);
+}
+.system-starwarsffg #ui-top.offset nav#navigation #scene-list .scene.view {
+  background: var(--color-cool-1);
+  border-color: var(--ma-cyan);
+  color: var(--color-warm-3);
+}
+.system-starwarsffg
+  #ui-top.offset
+  nav#navigation
+  #scene-list
+  .scene.active.view {
+  background: var(--color-warm-1);
+}
+/* Ui-Left
+************************/
+.system-starwarsffg #controls ol.sub-controls.active .control-tool > i.fas,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool i.far,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool i.fa-solid,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool i.fa-regular,
+.system-starwarsffg
   #controls
-    ol.sub-controls.active
-    .control-tool.toggle.active
-    i.fa-regular:hover {
-    border: 2px solid #fcf5cf;
-    background-color: #0f0f0f7f;
-    color: #fcf5cf;
-  }
-  #controls ol.sub-controls.active .control-tool.toggle.active:hover {
-    border-color: #fcf5cf;
-  }
-  #controls ol.sub-controls.active .control-tool.toggle:hover {
-    border-radius: unset;
-    border-width: 0 8px 0 0;
-    border-style: solid;
-    box-shadow: unset;
-    padding-right: 0px;
-    border-color: #009dff;
-  }
-  #controls ol.sub-controls.active .control-tool.toggle:hover > i.fas,
-  #controls ol.sub-controls.active .control-tool.toggle:hover i.far,
-  #controls ol.sub-controls.active .control-tool.toggle:hover i.fa-solid,
-  #controls ol.sub-controls.active .control-tool.toggle:hover i.fa-regular {
-    border: 2px solid #009dff;
-    background-color: #0f0f0f7f;
-    color: #009dff;
-  }
-  #ui-top {
-    margin-top: 5px;
-  }
-  #ui-top.offset {
-    margin-left: -80px;
-  }
-  #ui-top.offset nav#navigation {
-    margin-top: unset;
-  }
-  #ui-top.offset nav#navigation #nav-toggle {
-    background: #0077af;
-    border: none;
-    border-radius: 17px 0 0 17px;
-    color: black;
-    margin-right: 3px;
-  }
-  #ui-top.offset nav#navigation #nav-toggle:hover {
-    background: #009dff;
-    text-shadow: none;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene {
-    border-radius: 0;
-    border: unset;
-    box-shadow: unset;
-    background: #0077af;
-    color: black;
-    box-sizing: border-box;
-    height: 34px;
-    margin-right: 3px;
-    margin-bottom: 5px;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene:hover {
-    background: #009dff;
-    color: black;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene a {
-    color: unset;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene a:hover {
-    color: unset;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.gm {
-    border: 2px solid #0077af;
-    background-color: #0f0f0fef;
-    color: #0077af;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.gm:hover {
-    border-color: #009dff;
-    color: #009dff;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.view {
-    background: #f7e06e;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.view:hover {
-    background: #fcf5cf;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.view.gm {
-    border-color: #f7e06e;
-    color: #f7e06e;
-    background: #0f0f0fef;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.view.gm:hover {
-    border-color: #fcf5cf;
-    color: #fcf5cf;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.active {
-    font-weight: bold;
-    background: #3d8f81;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.active:hover {
-    background: #70c2b4;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.active.view {
-    background: #f7e06e;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.active.view:hover {
-    background: #fcf5cf;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.active.view.gm {
-    border-color: #f7e06e;
-    color: #f7e06e;
-    font-weight: normal;
-    background: #0f0f0fef;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.active.view.gm:hover {
-    border-color: #fcf5cf;
-    color: #fcf5cf;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.active.gm {
-    border-color: #3d8f81;
-    color: #3d8f81;
-    background: #0f0f0fef;
-  }
-  #ui-top.offset nav#navigation #scene-list .scene.active.gm:hover {
-    border-color: #70c2b4;
-    color: #70c2b4;
-  }
-  #keybindings .binding .key {
-    background-color: #0077af;
-    border: none;
-    box-shadow: unset;
-  }
-  #keybindings .binding .key.uneditable {
-    background: #00273f;
-  }
-  .sta {
-    text-align: start;
-  }
-  .sta .window-content {
-    background-image: none !important;
-    background-color: transparent !important;
-    color: #dfdfdf;
-    padding: 8px;
-  }
-  .sta.sheet.item input[type="text"],
-  .sta.sheet.item input[type="number"],
-  .sta.sheet.item select {
-    color: #f7e06e;
-  }
-  .sta.sheet.item .text,
-  .sta.sheet.item .entry,
-  .sta.sheet.item .editor,
-  .sta.sheet.item .label {
-    color: #dfdfdf;
-  }
-  .sta.sheet.item .editor {
-    min-height: 50px;
-  }
-  .sta.sheet.item .editor .tox {
-    min-height: 300px;
-  }
-  .sta.sheet.actor .main-content {
-    background: unset !important;
-    padding: 0;
-  }
-  .sta.sheet.actor .lcars-column {
-    border-color: #00273f;
-    border-radius: 12px 0 0 0;
-    border-style: solid;
-    border-width: 24px 0 0 6px;
-    flex: 12px;
-    flex-grow: 0;
-    flex-shrink: 1;
-  }
-  .sta.sheet.actor .lcars-column .lcars-header-block1,
-  .sta.sheet.actor .lcars-column .lcars-header-block2,
-  .sta.sheet.actor .lcars-column .lcars-attribute-title-block,
-  .sta.sheet.actor .lcars-column .lcars-attribute-general-block1,
-  .sta.sheet.actor .lcars-column .lcars-attribute-general-block2,
-  .sta.sheet.actor .lcars-column .lcars-attribute-general-block3,
-  .sta.sheet.actor .lcars-column .lcars-item1-connect-block,
-  .sta.sheet.actor .lcars-column .lcars-item2-connect-block,
-  .sta.sheet.actor .lcars-column .lcars-item1-general-block,
-  .sta.sheet.actor .lcars-column .lcars-item2-top-block,
-  .sta.sheet.actor .lcars-column .lcars-item2-general-block1,
-  .sta.sheet.actor .lcars-column .lcars-item2-general-block2,
-  .sta.sheet.actor .lcars-column .lcars-header-extendedtask1,
-  .sta.sheet.actor .lcars-column .lcars-header-extendedtask2,
-  .sta.sheet.actor .lcars-column .lcars-header-extendedtask3,
-  .sta.sheet.actor .lcars-column .lcars-header-extendedtask4,
-  .sta.sheet.actor .lcars-column .lcars-body-extendedtask1,
-  .sta.sheet.actor .lcars-column .lcars-body-extendedtask2 {
-    background-color: #00273f;
-    border-radius: unset;
-    visibility: hidden;
-  }
-  .sta.sheet.actor .main > .row {
-    margin-bottom: 8px;
-    max-height: 308px;
-  }
-  .sta.sheet.actor .main > .row .column .section .header.row {
-    background-color: unset;
-    color: white;
-    font-weight: unset;
-    border: solid #00273f;
-    border-width: 0 0 0 8px;
-    margin-top: 4px;
-  }
-  .sta.sheet.actor .main > .row .column .section .title {
-    color: #f7e06e;
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-    text-align: left;
-    line-height: 24px;
-    display: flex;
-    margin-bottom: 4px;
-  }
-  .sta.sheet.actor .main > .row .column .section .title::before {
-    content: "";
-    flex-grow: 1;
-    background-color: #00273f;
-    margin-right: 8px;
-  }
-  .sta.sheet.actor .main > .row .column .section .title::after {
-    content: "";
-    width: 20px;
-    background-color: #00273f;
-    margin-left: 8px;
-    border-radius: 0 15px 15px 0;
-    border-color: #00273f;
-    border-width: 0 20px 0 0;
-  }
-  .sta.sheet.actor .main > .row .column .section .stat.row {
-    flex-direction: row-reverse;
-    align-items: center;
-  }
-  .sta.sheet.actor .main > .row .column .section .check-button {
-    color: #f7e06e;
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-    font-weight: unset;
-    font-size: 24px;
-    color: #0077af;
-    text-align: center;
-    background-color: transparent;
-    border: solid #0077af;
-    border-width: 0 20px;
-    width: unset;
-    margin: 8px 16px 4px;
-  }
-  .sta.sheet.actor .main > .row .column .section .check-button.btn2.challenge {
-    color: #911308;
-    border-color: #911308;
-  }
-  .sta.sheet.actor
-    .main
-    > .row
-    .column
-    .section
-    .check-button.btn2.challenge:hover {
-    color: #f2200d;
-    border-color: #f2200d;
-  }
-  .sta.sheet.actor .main > .row .column .section .check-button.btn.attribute {
-    border-color: #0077af;
-  }
-  .sta.sheet.actor
-    .main
-    > .row
-    .column
-    .section
-    .check-button.btn.attribute:hover {
-    color: #009dff;
-    border-color: #009dff;
-  }
-  .sta.sheet.actor
-    .main
-    > .row
-    .column
-    .section
-    .entry.row.talent-tooltip-container {
-    border: unset;
-  }
-  .sta.sheet.actor
-    .main
-    > .row
-    .column
-    .section
-    .entry.row.talent-tooltip-container
-    .list-entry.talent-tooltip-text {
-    font-size: 12px;
-    color: #afafaf;
-    line-height: unset;
-  }
-  .sta.sheet.actor .main > .row .column .section.scale,
-  .sta.sheet.actor .main > .row .column .section.resistance {
-    background-color: unset;
-    display: flex;
-    flex-direction: row;
-    height: auto;
-  }
-  .sta.sheet.actor .main > .row .column .section.scale .title,
-  .sta.sheet.actor .main > .row .column .section.resistance .title {
-    flex-grow: 1;
-    background-color: unset;
-    display: unset;
-    text-align: right;
-    margin-left: 0;
-    margin-right: 8px;
-    line-height: 30px;
-  }
-  .sta.sheet.actor .main > .row .column .section.scale .title::before,
-  .sta.sheet.actor .main > .row .column .section.resistance .title::before,
-  .sta.sheet.actor .main > .row .column .section.scale .title::after,
-  .sta.sheet.actor .main > .row .column .section.resistance .title::after {
-    all: unset;
-  }
-  .sta.sheet.actor .main > .row .column .section.scale .field.numeric-entry,
-  .sta.sheet.actor .main > .row .column .section.resistance .field.numeric-entry {
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-    color: #f7e06e;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 0px;
-    border-color: #00273f;
-    flex-grow: 0;
-    margin-right: 0;
-    font-size: 24px;
-  }
-  .sta.sheet.actor .main > .row .column .section.scale .field.numeric-entry:hover,
-  .sta.sheet.actor
-    .main
-    > .row
-    .column
-    .section.resistance
-    .field.numeric-entry:hover {
-    border-color: #004f7f;
-  }
-  .sta.sheet.actor .main > .row .column .section.scale .field.numeric-entry:focus,
-  .sta.sheet.actor
-    .main
-    > .row
-    .column
-    .section.resistance
-    .field.numeric-entry:focus {
-    background-color: #004f7f3f;
-    box-shadow: none;
-  }
-  .sta.sheet.actor .main > .row .column .section .row .control {
-    color: #0077af;
-  }
-  .sta.sheet.actor .main > .row .column .section .row .control:hover {
-    color: #009dff;
-  }
-  .sta.sheet.actor .main > .row .column .section .row .control .edit {
-    color: #0077af;
-  }
-  .sta.sheet.actor .main > .row .column .section .row .control .edit:hover {
-    color: #009dff;
-  }
-  .sta.sheet.actor .main > .row .column .section .row .control .delete {
-    color: #911308;
-  }
-  .sta.sheet.actor .main > .row .column .section .row .control .delete:hover {
-    color: #f2200d;
-  }
-  .sta.sheet.actor .main > .row .column .section.img {
-    padding-top: 4px;
-    text-align: center;
-  }
-  .sta.sheet.actor .main > .row .column.left-column,
-  .sta.sheet.actor .main > .row .column.center-column,
-  .sta.sheet.actor .main > .row .column.right-column {
-    border: unset;
-  }
-  .sta.sheet.actor .main > .row .column.center-column,
-  .sta.sheet.actor .main > .row .column.right-column {
-    margin-left: 8px;
-  }
-  .sta.sheet.actor .main > .row:nth-child(1) .lcars-column {
-    order: 0;
-  }
-  .sta.sheet.actor .main > .row:nth-child(1) .column.left-column {
-    order: 2;
-    margin-left: 8px;
-  }
-  .sta.sheet.actor .main > .row:nth-child(1) .column.center-column {
-    order: 1;
-    margin-left: 0px;
-  }
-  .sta.sheet.actor .main > .row:nth-child(1) .column.right-column {
-    order: 3;
-  }
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.discipline,
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.department {
-    display: flex;
-    flex-direction: column;
-  }
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.discipline
-    > div:nth-child(1),
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.department
-    > div:nth-child(1) {
-    order: 1;
-  }
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.discipline
-    > div:nth-child(2),
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.department
-    > div:nth-child(2) {
-    order: 2;
-    margin-top: 0px;
-  }
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.discipline
-    > div:nth-child(3),
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.department
-    > div:nth-child(3) {
-    order: 3;
-  }
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.discipline
-    > div:nth-child(4),
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.department
-    > div:nth-child(4) {
-    order: 4;
-  }
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.discipline
-    > div:nth-child(5),
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.department
-    > div:nth-child(5) {
-    order: 6;
-  }
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.discipline
-    > div:nth-child(6),
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.department
-    > div:nth-child(6) {
-    order: 8;
-  }
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.discipline
-    > div:nth-child(7),
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.department
-    > div:nth-child(7) {
-    order: 7;
-  }
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.discipline
-    > div:nth-child(8),
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.department
-    > div:nth-child(8) {
-    order: 5;
-  }
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.discipline
-    > div:nth-child(9),
-  .sta.sheet.actor
-    .main
-    > .row:nth-child(1)
-    .column.right-column
-    .section.department
-    > div:nth-child(9) {
-    order: 9;
-  }
-  .sta.sheet.actor .main-content > .header {
-    margin-bottom: 8px;
-  }
-  .sta.sheet.actor .header-fields {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-  }
-  .sta.sheet.actor .header-fields .section.reputation {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    order: 4;
-  }
-  .sta.sheet.actor .header-fields .section.reputation .title {
-    width: fit-content;
-    height: 14px;
-    margin: 0 4px;
-  }
-  .sta.sheet.actor .header-fields .section.reputation .track {
-    flex-grow: 1;
-  }
-  .sta.sheet.actor .header-fields .section.reputation .track .bar .box.rep {
-    background-color: #00273f;
-    color: #dfdfdf;
-    flex-grow: 1;
-  }
-  .sta.sheet.actor .header-fields .section.reputation .track .bar .box.rep:hover {
-    background-color: #004f7f;
-  }
-  .sta.sheet.actor
-    .header-fields
-    .section.reputation
-    .track
-    .bar
-    .box.rep.selected {
-    background-color: #0077af;
-    color: black;
-  }
-  .sta.sheet.actor
-    .header-fields
-    .section.reputation
-    .track
-    .bar
-    .box.rep.selected:hover {
-    background-color: #009dff;
-  }
-  .sta.sheet.actor.character .header .lcars-column {
-    border-color: #00273f;
-    border-radius: 0 0 0 12px;
-    border-style: solid;
-    border-width: 0 0 14px 6px;
-  }
-  .sta.sheet.actor.character .header-fields .row:nth-child(odd) {
-    margin-bottom: 8px;
-  }
-  .sta.sheet.actor.character .header-fields .row:nth-child(3) input {
-    color: #f7e06e;
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-    font-size: 28px;
-    height: 48px;
-    line-height: 48px;
-  }
-  .sta.sheet.actor.starship .header .lcars-column,
-  .sta.sheet.actor.smallcraft .header .lcars-column {
-    border-color: #00273f;
-    border-radius: 0 0 0 12px;
-    border-style: solid;
-    border-width: 0 0 26px 6px;
-  }
-  .sta.sheet.actor.starship .header-fields .row:nth-child(2),
-  .sta.sheet.actor.smallcraft .header-fields .row:nth-child(2),
-  .sta.sheet.actor.starship .header-fields .row:nth-child(4),
-  .sta.sheet.actor.smallcraft .header-fields .row:nth-child(4) {
-    margin-bottom: 8px;
-  }
-  .sta.sheet.actor.starship .header-fields .row:nth-child(2) input,
-  .sta.sheet.actor.smallcraft .header-fields .row:nth-child(2) input {
-    color: #f7e06e;
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-    font-size: 28px;
-    height: 48px;
-    line-height: 48px;
-  }
-  .sta.sheet.actor.smallcraft .header-fields .row:nth-child(4) {
-    margin-bottom: 0;
-  }
-  .sta.sheet.actor.extendedtask .row:nth-child(1) .lcars-column {
-    border-width: 0 0 0 6px;
-    border-radius: 0;
-  }
-  .sta.sheet.actor.extendedtask
-    .row:nth-child(1)
-    .column-headerfields1-name-extendedtasks,
-  .sta.sheet.actor.extendedtask
-    .row:nth-child(1)
-    .column-headerfields1-other-extendedtasks {
-    padding: 0;
-    width: unset;
-  }
-  .sta.sheet.actor.extendedtask
-    .row:nth-child(1)
-    .column-headerfields1-name-extendedtasks
-    input,
-  .sta.sheet.actor.extendedtask
-    .row:nth-child(1)
-    .column-headerfields1-other-extendedtasks
-    input {
-    color: #f7e06e;
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-    font-size: 28px;
-    height: 48px;
-    line-height: 48px;
-  }
-  .sta.sheet.actor.extendedtask
-    .row:nth-child(1)
-    .column-headerfields1-name-extendedtasks {
-    flex-grow: 1;
-    width: auto;
-    margin-bottom: 8px;
-  }
-  .sta.sheet.actor.extendedtask
-    .row:nth-child(1)
-    .column-headerfields1-other-extendedtasks {
-    flex-grow: 0;
-    flex-shrink: 1;
-    width: 60px;
-  }
-  .sta.sheet.actor.extendedtask
-    .row:nth-child(1)
-    .column-headerfields1-other-extendedtasks
-    .numeric-entry {
-    width: 100%;
-    margin: unset;
-  }
-  .sta.sheet.actor.extendedtask
-    .row:nth-child(1)
-    .column-headerfields1-other-extendedtasks:nth-child(1) {
-    margin-right: 1px;
-  }
-  .sta.sheet.actor.extendedtask .row:nth-child(2) {
-    margin-bottom: 8px;
-  }
-  .sta.sheet.actor.extendedtask .row:nth-child(2) .lcars-column {
-    border-color: #00273f;
-    border-radius: 0 0 0 12px;
-    border-style: solid;
-    border-width: 0 0 26px 6px;
-  }
-  .sta.sheet.actor.extendedtask
-    .row:nth-child(2)
-    .column-headerfields2-extendedtasks {
-    padding: 0;
-    width: unset;
-  }
-  .sta.sheet.actor.extendedtask
-    .row:nth-child(2)
-    .column-headerfields2-extendedtasks
-    .numeric-entry {
-    width: 100%;
-    margin: unset;
-  }
-  .sta.sheet.actor.extendedtask .row:nth-child(3) {
-    display: none;
-  }
-  .sta.sheet.actor.extendedtask .row:nth-child(4) {
-    border-color: #00273f;
-    border-radius: 0 0 0 12px;
-    border-style: solid;
-    border-width: 0 0 24px 6px;
-    content: "Progress";
-    padding: 4px 0 0 2px;
-  }
-  .sta.sheet.actor.extendedtask .row:nth-child(4) .lcars-column {
-    display: none;
-  }
-  .sta.sheet.actor.extendedtask .row .extendedtask-divider {
-    display: none;
-  }
-  .sta.sheet.actor.extendedtask .row .track {
-    flex-grow: 1;
-    width: auto;
-  }
-  .sta.sheet.actor.extendedtask .row .track .row {
-    margin-bottom: 4px;
-    padding: 0px;
-    border: none;
-  }
-  .sta.sheet.actor.extendedtask .row .track .box.extendedtask {
-    color: #f7e06e;
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-    background-color: #0077af;
-    color: black;
-  }
-  .sta.sheet.actor.extendedtask .row .track .box.extendedtask:hover {
-    background-color: #009dff;
-  }
-  .sta.sheet.actor.extendedtask .row .track .box.extendedtask.selected {
-    background-color: #f7e06e;
-  }
-  .sta.sheet.actor.extendedtask .row .track .box.extendedtask.selected:hover {
-    background-color: #fcf5cf;
-  }
-  .sta.sheet.actor .title {
-    color: #dfdfdf;
-    font-size: 14px;
-    text-align: start;
-    vertical-align: bottom;
-    height: unset;
-  }
-  .sta.sheet.actor .secondary-title {
-    color: #dfdfdf;
-  }
-  .sta.sheet.actor .track .bar .box {
-    border: unset;
-    margin: 0 2px;
-  }
-  .sta.sheet.actor .track .bar .box:hover {
-    box-shadow: unset;
-  }
-  .sta.sheet.actor .track .bar .box.stress,
-  .sta.sheet.actor .track .bar .box.shields {
-    background-color: #911308;
-    color: black;
-    flex-grow: 1;
-  }
-  .sta.sheet.actor .track .bar .box.stress:hover,
-  .sta.sheet.actor .track .bar .box.shields:hover {
-    background-color: #f2200d;
-  }
-  .sta.sheet.actor .track .bar .box.stress.selected,
-  .sta.sheet.actor .track .bar .box.shields.selected {
-    background-color: #0077af;
-    color: black;
-  }
-  .sta.sheet.actor .track .bar .box.stress.selected:hover,
-  .sta.sheet.actor .track .bar .box.shields.selected:hover {
-    background-color: #009dff;
-  }
-  .sta.sheet.actor .track .bar .box.determination,
-  .sta.sheet.actor .track .bar .box.power {
-    background-color: #00273f;
-    color: #dfdfdf;
-    flex-grow: 1;
-  }
-  .sta.sheet.actor .track .bar .box.determination:hover,
-  .sta.sheet.actor .track .bar .box.power:hover {
-    background-color: #004f7f;
-  }
-  .sta.sheet.actor .track .bar .box.determination.selected,
-  .sta.sheet.actor .track .bar .box.power.selected {
-    background-color: #f7e06e;
-    color: black;
-  }
-  .sta.sheet.actor .track .bar .box.determination.selected:hover,
-  .sta.sheet.actor .track .bar .box.power.selected:hover {
-    background-color: #fcf5cf;
-  }
-  .sta.sheet.actor .track .bar .box.crew {
-    background-color: #3d8f81;
-    color: #dfdfdf;
-    flex-grow: 1;
-  }
-  .sta.sheet.actor .track .bar .box.crew:hover {
-    background-color: #70c2b4;
-  }
-  .sta.sheet.actor .track .bar .box.crew.selected {
-    background-color: #f7a76e;
-    color: black;
-  }
-  .sta.sheet.actor .track .bar .box.crew.selected:hover {
-    background-color: #fac49e;
-  }
-  .sta.sheet.actor .text-entry {
-    color: #f7e06e;
-  }
-  .sta.sheet.actor .numeric-entry {
-    color: #f7e06e;
-    text-align: end;
-  }
-  .sta.sheet.actor .list-entry {
-    color: #dfdfdf;
-  }
-  .sta.sheet.actor .row.entry {
-    align-items: center;
-  }
-  .sta.sheet.actor .attribute .list-entry,
-  .sta.sheet.actor .discipline .list-entry,
-  .sta.sheet.actor .system .list-entry,
-  .sta.sheet.actor .department .list-entry {
-    text-align: center;
-  }
-  .sta.sheet.actor .main .row .column .section.note .header.row.item {
-    display: none;
-  }
-  .sta.sheet.actor
-    .main
-    .row
-    .column
-    .section.note
-    .header.row.item
-    .one-column-no-roll {
-    display: none;
-  }
-  .sta.sheet.actor .belongings .two-column-with-roll-secondary {
-    text-align: end;
-    margin-right: 4px;
-  }
-  .sta.sheet.actor .section.crew {
-    margin-top: 8px;
-  }
-  .sta.sheet.actor .label {
-    color: #dfdfdf;
-  }
-  .sta p {
-    color: #dfdfdf;
-  }
-  .sta h4.list-entry {
-    margin-top: unset;
-  }
-  .sheet.journal-entry .journal-entry-content {
-    background: none;
-    border: none;
-  }
-  .sta-form .label {
-    color: #dfdfdf;
-  }
-  .sta-form .numeric-entry {
-    color: #f7e06e;
-    text-align: end;
-  }
-  .app.dialog .window-content .dialog-content {
-    color: #dfdfdf;
-    background-color: unset;
-    padding: 0 13px;
-  }
-  .app.dialog .window-content .form-group input,
-  .app.dialog .window-content .form-group select {
-    color: #f7e06e;
-  }
-  .app.dialog .window-content .dialog-buttons {
-    background-color: unset;
-    margin: 5px;
-  }
-  .dialog > .window-content .dialog-button.roll.default,
-  .dialog > .window-content .dialog-button.dialog-button.ok.default,
-  .dialog > .window-content .dialog-button.dialog-button.yes,
-  .dialog > .window-content .dialog-button.dialog-button.no {
-    background-color: #0077af;
-    color: black;
-    font-weight: unset;
-  }
-  .dialog > .window-content .dialog-button.roll.default:hover,
-  .dialog > .window-content .dialog-button.dialog-button.ok.default:hover,
-  .dialog > .window-content .dialog-button.dialog-button.yes:hover,
-  .dialog > .window-content .dialog-button.dialog-button.no:hover {
-    background-color: #009dff;
-  }
-  .dialog .dialog-buttons button {
-    background-color: #0077af;
-    border: none;
-    border-radius: 15px;
-  }
-  .dialog .dialog-buttons button:hover {
-    background-color: #009dff;
-    box-shadow: none;
-  }
-  .dialog .dialog-buttons button:focus {
-    box-shadow: none;
-  }
-  .monks-active-tiles div[data-tab="triggers"] .action-items .action-style {
-    color: #f7e06e;
-  }
-  .monks-active-tiles div[data-tab="triggers"] .action-items .value-style {
-    color: white;
-  }
-  .monks-active-tiles div[data-tab="triggers"] .action-items .entity-style {
-    color: white;
-  }
-  .monks-active-tiles.sheet .items-list .item .item-name {
-    color: #dfdfdf;
-  }
-  .action-sheet .display-value {
-    color: #f7e06e;
-  }
-  .prosemirror menu {
-    background: none;
-  }
-  .prosemirror menu .pm-dropdown {
-    background: #0077af;
-    border-radius: 0 13px 13px 0;
-    color: black;
-  }
-  .prosemirror menu .pm-dropdown i {
-    color: black;
-  }
-  .prosemirror menu .pm-dropdown i:hover {
-    color: black;
-  }
-  .prosemirror menu .pm-dropdown > i {
-    color: black;
-  }
-  .prosemirror menu .pm-dropdown > i:hover {
-    color: black;
-  }
-  .prosemirror menu .pm-dropdown ul {
-    background-color: #3d8f81;
-    border: none;
-    border-radius: 0;
-    padding: 0px;
-  }
-  .prosemirror menu .pm-dropdown li {
-    background: none;
-    border-radius: 0;
-    margin: 0;
-    padding: 2px 8px;
-  }
-  .prosemirror menu .pm-dropdown li:hover {
-    background-color: #70c2b4;
-  }
-  .prosemirror menu button {
-    background: #0077af;
-    border-radius: 0px;
-  }
-  .prosemirror menu button:hover {
-    background-color: #009dff;
-  }
-  .prosemirror menu button.active {
-    background-color: #f7e06e;
-  }
-  .prosemirror menu button.active:hover {
-    background-color: #fcf5cf;
+  ol.sub-controls.active
+  .control-tool
+  i.fa-bookmark,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool
+  i.fa-duotone.fa-bow-arrow {
+  border: 1px solid var(--red);
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-75);
+  border-radius: 3px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
 }
-  
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover
+  > i.fas,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool:hover i.far,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover
+  i.fa-solid,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover
+  i.fa-regular,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover
+  i.fa-bookmark,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover
+  i.fa-duotone.fa-bow-arrow {
+  background-color: var(--color-cool-5-75);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg #controls ol.sub-controls.active .control-tool:hover {
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.active
+  > i.fas,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.active i.far,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.active
+  i.fa-solid,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.active
+  i.fa-regular,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.active
+  i.fa-bookmark,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.active
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.active
+  i.fa-duotone.fa-bow-arrow {
+  background-color: var(--color-cool-5-75);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.active {
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover.active
+  > i.fas,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover.active
+  i.far,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover.active
+  i.fa-solid,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover.active
+  i.fa-regular,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover.active
+  i.fa-bookmark,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover.active
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover.active
+  i.fa-duotone.fa-bow-arrow {
+  background-color: var(--color-cool-5);
+  box-shadow: var(--box-shadow);
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool:hover.active {
+  border-color: var(--color-cool-5);
+  box-shadow: var(--box-shadow);
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg #controls ol.control-tools > li > i.fas,
+.system-starwarsffg #controls ol.control-tools > li i.far,
+.system-starwarsffg #controls ol.control-tools > li i.fa-solid,
+.system-starwarsffg #controls ol.control-tools > li i.fa-jedi,
+.system-starwarsffg #controls ol.control-tools > li i.fa-regular,
+.system-starwarsffg #controls ol.control-tools > li i.fa-bookmark,
+.system-starwarsffg
+  #controls
+  ol.control-tools
+  > li
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg #controls ol.control-tools > li i.fa-duotone.fa-bow-arrow {
+  box-sizing: content-box;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  vertical-align: top;
+  margin-left: 3px;
+  border: 1px solid var(--red);
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-75);
+  border-radius: 3px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg
+  #controls
+  ol.control-tools
+  > li
+  i.fa-duotone.fa-object-subtract {
+  width: 32px;
+  height: 33px;
+}
+.system-starwarsffg #controls ol.control-tools > li.active > i.fas,
+.system-starwarsffg #controls ol.control-tools > li.active i.far,
+.system-starwarsffg #controls ol.control-tools > li.active i.fa-solid,
+.system-starwarsffg #controls ol.control-tools > li.active i.fa-jedi,
+.system-starwarsffg #controls ol.control-tools > li.active i.fa-regular,
+.system-starwarsffg #controls ol.control-tools > li.active i.fa-bookmark,
+.system-starwarsffg
+  #controls
+  ol.control-tools
+  > li.active
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg
+  #controls
+  ol.control-tools
+  > li.active
+  i.fa-duotone.fa-bow-arrow {
+  background-color: var(--color-cool-5-75);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg #controls ol.control-tools > li.active {
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg #controls ol.control-tools > li:hover.active > i.fas,
+.system-starwarsffg #controls ol.control-tools > li:hover.active i.far,
+.system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-solid,
+.system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-jedi,
+.system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-regular,
+.system-starwarsffg #controls ol.control-tools > li:hover.active i.fa-bookmark,
+.system-starwarsffg
+  #controls
+  ol.control-tools
+  > li:hover.active
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg
+  #controls
+  ol.control-tools
+  > li:hover.active
+  i.fa-duotone.fa-bow-arrow {
+  background-color: var(--color-cool-5);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #controls ol.control-tools > li:hover.active {
+  border-color: var(--color-cool-5);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #controls ol.control-tools > li:hover > i.fas,
+.system-starwarsffg #controls ol.control-tools > li:hover i.far,
+.system-starwarsffg #controls ol.control-tools > li:hover i.fa-solid,
+.system-starwarsffg #controls ol.control-tools > li:hover i.fa-jedi,
+.system-starwarsffg #controls ol.control-tools > li:hover i.fa-regular,
+.system-starwarsffg #controls ol.control-tools > li:hover i.fa-bookmark,
+.system-starwarsffg
+  #controls
+  ol.control-tools
+  > li:hover
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg
+  #controls
+  ol.control-tools
+  > li:hover
+  i.fa-duotone.fa-bow-arrow {
+  background-color: var(--color-cool-5-75);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg #controls ol.control-tools > li:hover {
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle
+  > i.fas,
+.system-starwarsffg #controls ol.sub-controls.active .control-tool.toggle i.far,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle
+  i.fa-solid,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle
+  i.fa-jedi,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle
+  i.fa-regular,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle
+  i.fa-bookmark,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle
+  i.fa-duotone.fa-bow-arrow {
+  border: 2px solid var(--red-light);
+  background-color: var(--color-cool-5-90);
+  color: var(--red-light);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle:hover
+  > i.fas,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle:hover
+  i.far,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle:hover
+  i.fa-solid,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle:hover
+  i.fa-jedi,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle:hover
+  i.fa-regular,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle:hover
+  i.fa-bookmark,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle:hover
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle:hover
+  i.fa-duotone.fa-bow-arrow {
+  background-color: var(--color-cool-5-50);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle:hover {
+  border-color: var(--green);
+  box-shadow: var(--box-shadow);
+  animation: glow 0.75s infinite alternate;
+}
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  > i.fas,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.far,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-solid,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-jedi,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-regular,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-bookmark,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-duotone.fa-bow-arrow {
+  border: 2px solid var(--green);
+  background-color: var(--color-cool-5-90);
+  color: var(--green);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active {
+  border-color: var(--green);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  > i.fas:hover,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.far:hover,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-solid:hover,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-jedi:hover,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-regular:hover
+  .system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-bookmark:hover,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-duotone.fa-object-subtract,
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active
+  i.fa-duotone.fa-bow-arrow {
+  background-color: var(--color-cool-5-75);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg
+  #controls
+  ol.sub-controls.active
+  .control-tool.toggle.active:hover {
+  border-color: var(--red-light);
+  box-shadow: var(--box-shadow);
+  animation: glow 0.75s infinite alternate;
+}
+
+/* Ui-bottom
+************************/
+.system-starwarsffg #hotbar .bar-controls {
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  text-shadow: var(--text-shadow);
+  backdrop-filter: blur(3px);
+}
+.system-starwarsffg #hotbar .macro .macro-key {
+  font-family: "Bruno Ace";
+  text-transform: inherit;
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+}
+.system-starwarsffg #hotbar .macro.inactive {
+  background: var(--color-cool-5-75);
+  border: 1px solid var(--color-cool-5);
+  background: linear-gradient(
+    315deg,
+    var(--color-cool-4),
+    var(--color-cool-5-25)
+  );
+  border-radius: 15px;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #hotbar .macro.active {
+  background: var(--color-cool-5-75);
+  border-radius: 15px;
+  border: 2px solid var(--color-cool-2);
+  box-shadow: var(--box-shadow);
+}
+
+/* Players
+************************/
+.system-starwarsffg #players #players-active,
+.system-starwarsffg #players #players-inactive {
+  font-family: "Bruno Ace";
+  text-transform: inherit;
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  background-color: var(--color-cool-5-25);
+  backdrop-filter: blur(10px);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+  width: 210px;
+}
+.system-starwarsffg #players h3 .players-mode {
+  font-size: var(--font-size-20);
+  margin: 0 10px;
+  color: var(--ma-cyan);
+}
+.system-starwarsffg #players h3 {
+  margin: 3px;
+  padding: 4px;
+  font-family: "mandalorelasertitle";
+  border-bottom: 2px dotted var(--red-swffg);
+}
+.system-starwarsffg #players ol .player-active {
+  flex: 0 0 10px;
+  height: 10px;
+}
+.system-starwarsffg #players ol .player-name {
+  font-size: x-small;
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg #players ol .player-name.self {
+  color: var(--green);
+  text-shadow: var(--text-shadow);
+}
+
+/* Sidebar
+************************/
+.system-starwarsffg #sidebar:not(.collapsed) > #sidebar-tabs > .item.active {
+  background-color: var(--color-cool-5-50);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  border: 1px solid var(--red);
+  box-shadow: var(--box-shadow);
+  outline: 1px solid;
+}
+.system-starwarsffg
+  #sidebar:not(.collapsed)
+  > #sidebar-tabs
+  > .item.active
+  :hover {
+  background-color: var(--color-warm-4);
+}
+.system-starwarsffg
+  #sidebar:not(.collapsed)
+  > #sidebar-tabs
+  > .item.active:hover {
+  background-color: var(--color-warm-4);
+}
+.system-starwarsffg
+  #sidebar:not(.collapsed)
+  > #sidebar-tabs
+  > .item.active:nth-child(odd):hover {
+  background-color: var(--color-warm-4);
+}
+.system-starwarsffg #sidebar:not(.collapsed) > #sidebar-tabs > .item {
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-75);
+  border-radius: 10px 10px 0 0;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #sidebar:not(.collapsed) > #sidebar-tabs > .item:hover {
+  background-color: var(--color-cool-5-50);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg
+  #sidebar:not(.collapsed)
+  > #sidebar-tabs
+  > .item:nth-child(odd):hover {
+  background-color: var(--color-cool-5-50);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+#sidebar:not(.collapsed) > #sidebar-tabs > .item:hover {
+  background-color: var(--color-cool-5-50);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg #sidebar:not(.collapsed) > #sidebar-tabs > .collapse {
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-75);
+  border-radius: 10px 10px 0 0;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #sidebar:not(.collapsed) > #sidebar-tabs > .collapse:hover {
+  background-color: var(--color-cool-5-50);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg #sidebar.collapsed > #sidebar-tabs > .item {
+  border: unset;
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-75);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #sidebar.collapsed > #sidebar-tabs > .item.active {
+  border: unset;
+  background-color: var(--color-cool-5-50);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg #sidebar.collapsed > #sidebar-tabs > .item.active:hover {
+  background-color: var(--color-warm-4);
+}
+.system-starwarsffg #sidebar.collapsed > #sidebar-tabs > .item:hover {
+  background-color: var(--color-cool-5-50);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg #sidebar.collapsed > #sidebar-tabs > .collapse {
+  border: unset;
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-50);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #sidebar.collapsed > #sidebar-tabs > .collapse:hover {
+  background-color: var(--color-cool-5-50);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  border-color: var(--color-text-hyperlink);
+  box-shadow: 0 0 6px inset var(--color-text-hyperlink);
+}
+.system-starwarsffg li.folder.collapsed > .folder-header {
+  border-radius: 25px 0 0 25px;
+  box-shadow: var(--glassy-shadow);
+  text-shadow: var(--text-shadow);
+  background: var(--color-cool-5-90);
+}
+.system-starwarsffg li.folder > .folder-header {
+  padding: 6px;
+  line-height: 24px;
+  border-top: 1px solid var(--color-border-dark);
+  border-bottom: 1px solid var(--color-border-dark);
+  border-radius: 25px 0 0 25px;
+  box-shadow: var(--glassy-shadow);
+  text-shadow: var(--text-shadow);
+  background: var(--color-cool-5-75);
+}
+.system-starwarsffg .folder .folder .subdirectory {
+  border-bottom: 1px dotted var(--red-swffg);
+}
+.system-starwarsffg .directory .directory-item.folder .context {
+  border-color: var(--color-warm-2);
+  background-color: var(--red-swffg) !important;
+}
+
+/*Chat
+************************/
+.system-starwarsffg textarea {
+  border: 3px double var(--red) !important;
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+  backdrop-filter: blur(5px);
+  background: var(--color-cool-5-50);
+}
+.system-starwarsffg #chat-form textarea {
+  color: var(--ma-cyan);
+  background: #000;
+  background-color: var(--color-cool-5-50);
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg #chat button:hover {
+  color: var(--ma-cyan);
+  background-color: var(--color-cool-5-75);
+}
+.system-starwarsffg .destiny-flip.dPoolDark {
+  background-color: white;
+  border-radius: 0;
+  color: var(--color-warm-4);
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .destiny-flip.dPoolLight {
+  background-color: #b8383b25;
+  border-radius: 0;
+  color: white;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .dice-result .roll-success {
+  font-size: large;
+  color: var(--green) !important;
+  filter: contrast(5);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .dice-result .roll-failure {
+  font-size: large;
+  color: var(--color-warm-2) !important;
+  filter: contrast(5);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .ffgDiceArray {
+  justify-content: center !important;
+}
+.starwarsffg .dice-tooltip .part-header {
+  border-bottom: 1px dotted var(--color-warm-3);
+}
+.system-starwarsffg .dice-tooltip .dice-rolls {
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+.system-starwarsffg .dice-tooltip .dice-rolls .roll {
+  min-width: unset;
+  margin: 0;
+  background-size: 100%;
+}
+.starwarsffg.dice-roll {
+  border: unset !important;
+  border-radius: unset !important;
+  background: unset !important;
+}
+.system-starwarsffg .chat-message {
+  margin: 10px 3px 3px 10px;
+  padding: unset;
+  border: 3px double var(--red);
+  font-family: "Bruno Ace";
+  text-transform: inherit;
+  vertical-align: middle;
+  color: var(--color-light-2);
+  background: transparent;
+  border-radius: 5px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  box-shadow: var(--box-shadow);
+  backdrop-filter: blur(5px);
+  filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg .chat-message .message-header {
+  margin: 0 0 2px 0;
+  padding: 5px;
+  border-bottom: 3px double var(--red);
+  color: var(--color-light-2);
+  background: var(--color-cool-5-50);
+  text-shadow: var(--text-shadow);
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+  filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg .chat-message .message-content,
+.system-starwarsffg .chat-message .message-content b {
+  margin: 2px 0 0 0;
+  padding: 5px;
+  background: var(--color-cool-5-50);
+  border-top: 3px double var(--red);
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+  filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg .chat-message.message .message-content .updateNotification {
+  background: unset !important;
+}
+.system-starwarsffg .chat-message .item-details {
+  text-align: center;
+  padding: unset;
+  margin: 5px;
+  color: var(--color-cool-1);
+  background: var(--color-cool-4);
+  border: 1px dotted var(--color-warm-1);
+  border-radius: 10px;
+  text-shadow: var(--text-shadow);
+  filter: drop-shadow(0px 1px 1px black);
+  --notchSize: 9px;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+}
+.system-starwarsffg .chat-message .item-display img {
+  height: 35px;
+  border-radius: 15px;
+  box-shadow: var(--glassy-shadow);
+}
+.system-starwarsffg .chat-message .item-display {
+  text-align: center;
+  padding: 0.5rem;
+  margin: 5px;
+  color: var(--color-cool-1);
+  background: radial-gradient(
+    var(--color-cool-3),
+    var(--color-cool-5-25)
+  ) !important;
+  border: 1px dotted var(--color-warm-1) !important;
+  border-radius: 10px;
+  text-shadow: var(--text-shadow);
+  filter: drop-shadow(0px 1px 1px black);
+  --notchSize: 9px !important;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+}
+.system-starwarsffg .chat-message h2.item-name {
+  font-size: medium;
+  margin: 5px;
+}
+.system-starwarsffg
+  .sheet.journal-entry.application
+  .journal-sidebar
+  .toc
+  .page-heading
+  .page-index {
+  color: var(--color-light-1);
+}
+.starwarsffg .item-display h4 {
+  margin: auto;
+  font-family: "mandalorelasertitle";
+}
+.starwarsffg .item-display h4 input {
+  width: 50% !important;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background: var(--color-warm-3);
+  color: var(--pfui-main-grey-color);
+  font-weight: bold;
+  text-shadow: var(--text-shadow);
+  border: 3px solid var(--color-cool-5-25);
+  outline: 2px solid var(--color-cool-5);
+}
+.starwarsffg .item-display .item-miss {
+  font-size: large;
+  color: var(--red-light) !important;
+}
+section.chat-sidebar .jump-to-bottom > a {
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-75);
+  border-radius: 5px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+}
+section.chat-sidebar .jump-to-bottom > a:hover {
+  color: var(--ma-cyan);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+}
+.system-starwarsffg #rpg-ui-buttons button {
+  flex: 0 1 auto;
+  min-height: 36px;
+  max-height: 36px;
+  padding-top: 3px;
+  transition:
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out;
+  border: 1px solid #3e000078;
+  background: var(--color-cool-5);
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-50);
+  border-radius: 5px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  backdrop-filter: blur(5px);
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+}
+
+/*Combat tracker
+************************/
+.system-starwarsffg .combat-sidebar .combat-tracker-header {
+  border-left: none;
+  padding: 4px 4px 0px 4px;
+  color: var(--ma-cyan);
+  background-color: var(--color-cool-5-25);
+  backdrop-filter: blur(5px);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border-bottom: 2px dotted var(--red-swffg);
+}
+.combat-sidebar .combat-tracker-header nav.encounters h4 {
+  font-size: large;
+  font-family: "Bruno Ace";
+  color: var(--bg3-alliance-opposition-red);
+  text-shadow: var(--tjs-default-text-shadow-focus-hover);
+}
+.combat-sidebar .combat-tracker-header div.encounter-controls h3 {
+  font-size: large;
+  font-family: "Bruno Ace";
+}
+.combat-sidebar .combat-tracker-header a.combat-button {
+  font-size: var(--font-size-14);
+  flex: 0 0 var(--control-width);
+  color: var(--color-cool-1);
+  text-shadow: var(--text-shadow);
+}
+.combat-sidebar #combat-tracker {
+  backdrop-filter: blur(10px);
+}
+.starwarsffg #combat-tracker .encounter-controls .actor-header {
+  font-size: 14px;
+  font-family: "Bruno Ace";
+  color: var(--pfui-main-grey-color-color);
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .combat-sidebar #combat-controls {
+  border-left: none;
+  color: var(--ma-cyan);
+  background-color: var(--color-cool-5-25);
+  backdrop-filter: blur(5px);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border-top: 2px dotted var(--red-swffg);
+}
+.starwarsffg #combat-tracker .slot-Enemy {
+  background: rgba(146, 52, 20, 0.3) !important;
+  color: var(--color-level-info) !important;
+  border-radius: 15px;
+  margin: 5px;
+  border-top: 1px solid var(--color-warm-1);
+  border-bottom: 1px solid var(--color-warm-1);
+}
+.starwarsffg #combat-tracker .slot-Friendly {
+  background: rgba(21, 87, 134, 0.3) !important;
+  color: var(--color-warm-1) !important;
+  border-radius: 15px;
+  margin: 5px;
+  border-top: 1px solid var(--color-level-info);
+  border-bottom: 1px solid var(--color-level-info);
+}
+.starwarsffg #combat-tracker .slot-Neutral {
+  --color-cool-3-50: #584a7550;
+  background: var(--color-cool-3-50) !important;
+  color: var(--pfui-main-color) !important;
+  border-radius: 15px;
+  margin: 5px;
+  border-top: 1px solid var(--color-cool-1);
+  border-bottom: 1px solid var(--color-cool-1);
+}
+.combat-sidebar li.combatant .token-name .combatant-control {
+  color: var(--color-cool-1-90);
+}
+.combat-sidebar .combat-tracker-header a.combat-button:hover,
+.combat-sidebar li.combatant .token-name .combatant-control:hover {
+  color: var(--bg3-alliance-opposition-red);
+}
+.system-starwarsffg .combat-sidebar li.combatant .token-image {
+  margin: 0;
+  border-radius: 25px !important;
+  height: var(--sidebar-item-height) !important;
+  width: var(--sidebar-item-height) !important;
+}
+.starwarsffg #combat-tracker .slot-claimed {
+  display: none;
+  filter: unset;
+}
+.starwarsffg #combat-tracker .slot-Enemy .claimed {
+  display: none;
+  filter: unset;
+}
+.combat-sidebar li.combatant.active {
+  animation: glow 0.75s infinite alternate;
+}
+.directory .directory-item:is(.context, .active)::after {
+  border: unset;
+}
+
+/*Scene
+************************/
+.system-starwarsffg #scenes .scene {
+  height: 35px;
+}
+.system-starwarsffg #scenes .scene h3 {
+  line-height: 35px;
+  text-shadow: 2px 1px 2px #000;
+  font-family: "MandaloreRough";
+  font-size: var(--font-size-28);
+  border-radius: 25px 0 0 25px;
+}
+.system-starwarsffg #sidebar .directory .directory-item .document-name:hover {
+  color: var(--green);
+  text-shadow: 2px 1px 2px #000;
+}
+
+/*Actor
+************************/
+.system-starwarsffg .directory .directory-item {
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  background: var(--color-cool-5-50);
+  border-radius: 25px 0 0 25px;
+  margin: 3px 0px 7px 3px;
+}
+.system-starwarsffg .directory .directory-item.document {
+  border: none;
+  margin: 3px 0px 7px 3px;
+  color: var(--ma-cyan);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  background: linear-gradient(45deg, var(--color-cool-4), var(--color-cool-5));
+  border-radius: 25px 0 0 25px;
+  border-bottom: 2px solid var(--color-cool-4);
+}
+.system-starwarsffg #sidebar #actors .directory .directory-item.document {
+  margin: 3px 0px 7px 3px;
+  line-height: normal;
+  color: var(--ma-cyan);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  background-color: var(--color-cool-5-25);
+  border-radius: 15px;
+
+  box-shadow: var(--glassy-shadow);
+}
+/* Other sheets
+************************/
+.starwarsffg.sheet.actor .vehicle .grid {
+  display: flex;
+  width: 100%;
+}
+.starwarsffg.sheet.actor .vehicle .header-fields .flex-group-right {
+  display: flex;
+  justify-content: center;
+}
+.starwarsffg.sheet.actor
+  .vehicle
+  .header-fields
+  .profile-block
+  img.profile-img {
+  max-width: 200px;
+}
+.starwarsffg.sheet.actor
+  .window-content
+  .vehicle
+  .sheet-header
+  .header-fields
+  .defense-block
+  .defense-value.port {
+  left: calc(50% - 120px);
+}
+.starwarsffg.sheet.actor
+  .window-content
+  .vehicle
+  .sheet-header
+  .header-fields
+  .defense-block
+  .defense-value.starboard {
+  right: calc(50% - 120px);
+}
+
+/*Items
+************************/
+.system-starwarsffg .directory .directory-item .document-name {
+  margin: 0;
+  border-radius: 0;
+  box-shadow: var(--glassy-shadow);
+  height: 35px;
+}
+.system-starwarsffg .directory .directory-item .document-name a {
+  display: grid;
+  height: 22px;
+  align-content: center;
+  margin: 7px;
+}
+.system-starwarsffg .directory .directory-item img {
+  border-radius: 25px 0 0 25px;
+  flex: 0 0 35px;
+  height: 35px;
+  width: 35px;
+}
+.system-starwarsffg #sidebar #items .directory-list .directory-item {
+  margin: 3px 3px 7px 3px;
+  color: var(--ma-cyan);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  background-color: var(--color-cool-5-75);
+  border-radius: 25px 0 0 25px;
+}
+
+/*Journal
+************************/
+.system-starwarsffg .directory .journalentry .document-name {
+  text-align: center;
+  height: 30px;
+  border-radius: 25px 0 0 25px;
+}
+.system-starwarsffg .directory .journalentry .document-name a {
+  display: grid;
+  height: 20px;
+  align-content: center;
+  margin: 7px;
+}
+.system-starwarsffg .sheet.journal-entry .journal-entry-page h2 {
+  background: transparent;
+  color: var(--color-warm-2);
+  font-family: "Bruno Ace";
+  text-transform: inherit;
+  box-shadow: unset;
+  border-radius: 5px;
+  filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg .sheet.journal-entry .journal-entry-page h3 {
+  background: transparent;
+  color: var(--color-cool-1);
+  font-family: "Bruno Ace";
+  text-transform: inherit;
+  text-align: right;
+  text-decoration: underline;
+  box-shadow: unset;
+  border-radius: 5px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg .sheet.journal-entry .journal-entry-page h4 {
+  background: transparent;
+  color: var(--color-level-info);
+  font-family: "Bruno Ace";
+  text-transform: inherit;
+  box-shadow: unset;
+  border-radius: 5px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+}
+.sheet.journal-entry .pages-list .page-heading .page-title {
+  color: var(--ma-cyan);
+}
+.sheet.journal-entry .pages-list .h2 .heading-link {
+  text-indent: var(--level-indent);
+  color: var(--color-warm-2);
+}
+.sheet.journal-entry .pages-list .h2 .heading-link:hover {
+  color: var(--green) !important;
+  text-shadow: var(--text-shadow);
+}
+.sheet.journal-entry .pages-list .h3 .heading-link {
+  text-indent: calc(1.5 * var(--level-indent));
+  color: var(--color-cool-1);
+}
+.sheet.journal-entry .pages-list .h3 .heading-link:hover {
+  color: var(--green) !important;
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .sheet.journal-entry .pages-list .heading-link {
+  font-size: var(--font-size-11);
+}
+
+/*Playlist
+************************/
+.system-starwarsffg .directory .directory-item.document.playlist {
+  border: none;
+  color: var(--ma-cyan);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  background-color: var(--color-cool-5-90);
+  border-radius: 25px 0 0 25px;
+  border-bottom: 2px solid var(--color-cool-4);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg .playlists-sidebar .global-control .playlist-header {
+  margin: 3px 0px 0px 0px;
+  color: var(--color-light-2);
+  background: var(--color-cool-5-25);
+  border: none;
+  backdrop-filter: blur(10px);
+  border-radius: 25px 0 0 25px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg .playlists-sidebar .global-control .playlist-sounds {
+  margin: 6px 0px 3px 6px;
+  padding: 6px;
+  background-color: var(--color-cool-5-25);
+  box-shadow: unset;
+  border-radius: 5px;
+  backdrop-filter: blur(10px);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  color: var(--color-light-2);
+  box-shadow: var(--box-shadow);
+}
+
+/*Compendium
+************************/
+.system-starwarsffg .compendium-sidebar .directory-item.compendium {
+  margin: 8px 0px 8px 3px;
+  height: 45px;
+  border: none;
+}
+.system-starwarsffg
+  .compendium-sidebar
+  .directory-item.compendium
+  .compendium-name {
+  font-size: var(--font-size-14);
+  text-transform: uppercase;
+  line-height: 0.5rem;
+  margin-bottom: 10px;
+}
+.system-starwarsffg
+  .compendium-sidebar
+  .directory-item.compendium:hover
+  .compendium-banner {
+  opacity: unset;
+  filter: contrast(1);
+}
+.system-starwarsffg
+  .compendium-sidebar
+  .directory-item.compendium.locked
+  .compendium-banner {
+  opacity: 0.6;
+  filter: sepia(1);
+}
+.system-starwarsffg
+  .compendium-sidebar
+  .directory-item.compendium.locked:hover
+  .compendium-banner {
+  opacity: unset;
+  filter: contrast(1);
+}
+.system-starwarsffg .directory .directory-footer:not(:empty) {
+  color: var(--ma-cyan);
+  background: var(--color-cool-5-25);
+  backdrop-filter: blur(5px);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+}
+
+/*Game setting
+************************/
+.system-starwarsffg .settings-sidebar div {
+  margin: 0 4px 0 8px;
+}
+.system-starwarsffg .settings-sidebar h2 {
+  border-top: 1px solid var(--color-warm-1);
+  border-bottom: 1px solid var(--color-warm-1);
+  background-color: var(--color-cool-5) !important;
+}
+.system-starwarsffg .settings-sidebar #game-details {
+  background-color: var(--color-cool-5-75);
+  box-shadow: unset;
+  border-radius: 5px;
+  text-shadow: var(--text-shadow);
+  filter: drop-shadow(0px 1px 1px black);
+  color: var(--color-cool-1);
+}
+.system-starwarsffg .settings-sidebar li.folder > .folder-header {
+  border-radius: 0 25px 25px 0;
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg .settings-sidebar button,
+.system-starwarsffg .settings-sidebar a.button {
+  text-transform: inherit;
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-50);
+  border-radius: 25px 0 0 25px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--glassy);
+}
+.system-starwarsffg .form-group > label {
+  color: var(--ma-cyan);
+  border-radius: 15px;
+  font-size: larger;
+  text-shadow: var(--text-shadow);
+}
+
+.system-starwarsffg .package-configuration aside.sidebar {
+  border-right: 1px dotted var(--red);
+}
+.system-starwarsffg .package-configuration aside.sidebar .entry-filter {
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-50);
+
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg
+  .package-configuration
+  aside.sidebar
+  nav.tabs
+  .category-tab {
+  border-bottom: 1px dotted var(--red);
+  margin: 0 2px 0 0;
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg
+  .package-configuration
+  aside.sidebar
+  nav.tabs
+  .category-tab.active {
+  font-weight: unset;
+  text-transform: uppercase;
+  color: var(--sta-main-color) !important;
+  background: var(--color-cool-5-25);
+}
+
+/*journal-entry-page
+************************/
+
+.sheet.journal-entry .journal-entry-page * {
+  text-align: justify;
+}
+.system-starwarsffg .journal-sheet .journal-header .title {
+  background: linear-gradient(
+    315deg,
+    var(--color-cool-4),
+    var(--color-cool-5-90)
+  );
+  border: 1px solid var(--red-swffg) !important;
+  --notchSize: 9px;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+}
+.system-starwarsffg .journal-sheet.journal-entry-page.text {
+  background: var(--color-cool-5-50);
+}
+.system-starwarsffg .sheet.journal-entry .scrollable {
+  background-color: transparent;
+}
+.system-starwarsffg
+  .journal-entry-page
+  .journal-page-content
+  blockquote:not(
+    h6 + p + ul + blockquote,
+    h6 + p + blockquote,
+    h6 + ul + blockquote,
+    h6 + blockquote
+  ) {
+  color: var(--ma-cyan);
+  font-family: "toxiui";
+  text-align: justify;
+  font-style: italic;
+  text-shadow: var(--text-shadow);
+  border-left-width: 0;
+  border-top: 2px solid var(--color-cool-5);
+  border-bottom: 2px solid var(--color-cool-5);
+  background-color: var(--color-warm-3);
+  border-radius: 5px;
+  padding: 4px 12px;
+  margin-left: 0;
+  margin-right: 0;
+  box-shadow: var(--glassy-shadow);
+  --notchSize: 16px;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+}
+.system-starwarsffg .journal-entry-page section.secret {
+  padding: 0 5px;
+  border-top: 1px solid var(--color-border-dark-5);
+  border-bottom: 1px solid var(--color-border-dark-5);
+  background: #584a754d;
+  border-radius: var(--border-radius-5);
+  box-shadow: var(--glassy-shadow);
+  color: var(--color-text-dark-primary);
+  text-align: justify;
+  font-style: italic;
+  text-shadow: var(--text-shadow);
+  --notchSize: 16px;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+}
+.system-starwarsffg
+  .journal-entry-page
+  section.secret
+  :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
+  color: var(--color-light-5);
+  text-align: right;
+  font-style: italic;
+}
+.system-starwarsffg .journal-entry-page section.secret button.reveal {
+  box-shadow: var(--glassy-shadow);
+}
+.system-starwarsffg .journal-entry-page section.secret.revealed {
+  background: none !important;
+}
+.system-starwarsffg
+  .sheet.journal-entry
+  .pages-list
+  .directory-item.active:last-of-type {
+  border-bottom: 1px solid var(--color-warm-1);
+}
+.system-starwarsffg
+  .sheet.journal-entry
+  .pages-list
+  .directory-item.active:first-of-type {
+  border-top: 1px solid var(--color-warm-1);
+  background-color: var(--color-cool-5-75);
+}
+.system-starwarsffg
+  .sheet.journal-entry
+  .pages-list
+  .directory-item:not(.active)
+  + .active {
+  background-color: var(--color-cool-5-75);
+}
+.system-starwarsffg
+  .sheet.journal-entry
+  .pages-list
+  .directory-item:is(.context, .active)::after {
+  border: none;
+}
+.system-starwarsffg .prosemirror menu button {
+  border-radius: 15px;
+  background: var(--color-cool-5);
+  color: var(--ma-cyan);
+  box-shadow: var(--glassy);
+}
+.system-starwarsffg .prosemirror menu .pm-dropdown {
+  background: var(--color-cool-5);
+  color: var(--ma-cyan);
+  font-family: fantasy;
+}
+.system-starwarsffg .prosemirror menu button:hover {
+  background-color: var(--color-cool-4);
+  color: var(--ma-cyan);
+  box-shadow: var(--glassy);
+}
+.system-starwarsffg .prosemirror menu .pm-dropdown li {
+  background-color: var(--color-cool-4);
+  color: var(--ma-cyan);
+  box-shadow: var(--glassy);
+}
+.system-starwarsffg .prosemirror menu .pm-dropdown li:hover {
+  background: var(--color-cool-5);
+  color: var(--ma-cyan);
+  box-shadow: var(--glassy);
+}
+.system-starwarsffg .prosemirror menu button.active {
+  box-shadow: var(--glassy);
+  background-color: var(--ma-cyan);
+  color: var(--color-cool-5);
+}
+.system-starwarsffg .prosemirror menu button.active:hover {
+  background-color: var(--color-cool-4);
+  color: var(--ma-cyan);
+}
+.system-starwarsffg .prosemirror.menu-dialog form {
+  background: var(--color-cool-5-25);
+
+  filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg form .form-group .form-fields > label {
+  color: var(--color-cool-1);
+}
+.system-starwarsffg .prosemirror menu .pm-dropdown > i {
+  color: var(--ma-cyan);
+}
+.system-starwarsffg .prosemirror menu .pm-dropdown > i:hover {
+  color: var(--ma-cyan);
+}
+.system-starwarsffg a.content-link {
+  background: var(--color-cool-4);
+  color: var(--ma-cyan);
+  box-shadow: var(--glassy-shadow);
+  text-shadow: var(--text-shadow);
+  filter: drop-shadow(0px 1px 1px black);
+}
+.system-starwarsffg a.content-link:hover {
+  background: var(--color-warm-3);
+  color: var(--ma-cyan);
+  box-shadow: var(--glassy-shadow);
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg a.content-link i {
+  color: var(--ma-cyan);
+}
+
+/*Roll-Table
+************************/
+.system-starwarsffg
+  .roll-table-config
+  table.table-results
+  .table-result
+  .result-image
+  img {
+  background: var(--color-warm-1);
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg
+  .roll-table-config
+  .prosemirror
+  .editor-container
+  .editor-content {
+  background: var(--color-cool-5-25);
+  border-radius: var(--border-radius-5);
+}
+.system-starwarsffg .roll-table-config table.table-results .table-header {
+  border: 1px solid var(--color-cool-5);
+}
+/*Character Sheet
+************************/
+/*Character
+************************/
+.starwarsffg.sheet.actor.app {
+  background-image: none;
+  background-color: transparent;
+  background: none;
+  border: none;
+  border-radius: var(--border-radius-5);
+  color: var(--color-light-2);
+}
+.starwarsffg.sheet.actor .window-header {
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-75);
+  border-radius: var(--border-radius-5);
+  margin: 0px 1px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg.sheet.actor .character .header-fields .header-description-block {
+  font-size: 10.5pt;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  min-height: 145px;
+  height: 145px;
+  overflow-y: auto;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-50);
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg.sheet.actor .character .header-fields .profile-block {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-50);
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg.sheet.actor .character .header-fields .profile-img {
+  background: linear-gradient(
+    45deg,
+    var(--color-cool-4),
+    var(--color-cool-5-25)
+  );
+  margin: 3px;
+  border-radius: 10px;
+}
+.starwarsffg.sheet.actor .character .header-fields .header-name input {
+  box-shadow: var(--box-shadow);
+  background: linear-gradient(
+    45deg,
+    var(--color-cool-4),
+    var(--color-cool-5-25)
+  ) !important;
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red) !important;
+  color: unset !important;
+}
+.system-starwarsffg table {
+  width: 95%;
+  margin: 5px 0px 5px 5px;
+  background: var(--color-cool-5-50);
+  --notchSize: 9px;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  border: unset;
+}
+.system-starwarsffg table tr:nth-child(even) {
+  background-color: var(--color-cool-4-90);
+}
+.starwarsffg.sheet.actor .character .header-fields .specialization-pill,
+.starwarsffg.sheet.actor .character .header-fields .species-pill,
+.starwarsffg.sheet.actor .character .header-fields .career-pill,
+.starwarsffg.sheet.actor .character .header-fields .signatureability-pill,
+.starwarsffg.sheet.actor .character .header-fields .forcepower-pill {
+  color: var(--color-cool-1);
+  background: radial-gradient(
+    var(--color-cool-3),
+    var(--color-cool-5-75)
+  ) !important;
+  border: 1px dotted var(--color-warm-1) !important;
+  border-radius: var(--border-radius-5) !important;
+  font-size: var(--font-size-12);
+  text-shadow: var(--text-shadow);
+}
+.system-starwarsffg table td,
+.system-starwarsffg table th {
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .skillsGrid {
+  padding: 5px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-50);
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg .skillsGrid .skillTypeGrid.skillColumnGrid {
+  border: 1px solid var(--color-cool-4) !important;
+  background-color: var(--color-cool-5-50) !important;
+}
+.starwarsffg .skillsGrid .skillTable .skillsHeader div {
+  color: var(--color-warm-1) !important;
+  background-color: var(--red-swffg) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .skillsGrid .skillTable div.skill > div {
+  background: var(--color-cool-4);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .skillsGrid .dice-pool img[src*="black-minus"] {
+  border: 1px #333 solid !important;
+}
+.starwarsffg.sheet.actor .character .header-fields .drag-note {
+  color: var(--color-cool-1);
+  text-shadow: var(--text-shadow);
+  font-size: var(--font-size-12);
+  border-radius: var(--border-radius-5) !important;
+}
+.starwarsffg.sheet.actor .character .header-fields .drag-note:hover {
+  color: var(--green);
+  text-shadow: 0 0 8px white;
+}
+.starwarsffg .attribute .shadow-right .shadow-text {
+  font-weight: normal !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .tabs .item {
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-50);
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg .tabs .item:hover {
+  color: #fcf5cf;
+}
+.starwarsffg.sheet.actor
+  .character
+  .sheet-body
+  .general
+  .resource.full
+  table
+  thead,
+.starwarsffg.sheet.actor
+  .character
+  .sheet-body
+  .obligation
+  .resource.full
+  table
+  thead {
+  background: var(--red-swffg) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .characteristic {
+  border: 3px double rgba(0, 0, 0, 0.5) !important;
+  border-color: #00273f !important;
+  background: none !important;
+}
+.starwarsffg.sheet.actor
+  .characteristic-item
+  .characteristic
+  .characteristic-value
+  input {
+  background: none;
+}
+.starwarsffg .attribute .block-background {
+  padding: 4px 5px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-50);
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg.sheet.actor .tabs .item {
+  padding: 0 !important;
+  text-transform: lowercase;
+  height: 1rem;
+  line-height: 0.9rem;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-75);
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg .tabs .item.active {
+  text-decoration: underline !important;
+  font-weight: normal !important;
+  color: var(--ma-cyan);
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-50);
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg.sheet.item .tab[data-tab].attributes {
+  color: var(--ma-cyan);
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-50);
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg .characteristics .characteristic-item {
+  padding: 5px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-75) !important;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red) !important;
+  --notchSize: 10px !important;
+}
+.starwarsffg .characteristics .characteristic-item.flex-group-center {
+  --notchSize: 9px;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+}
+.starwarsffg .skillsGrid .skillTable .careerskill-rank {
+  margin-top: 1px;
+  width: 26px;
+  height: 26px;
+  border-radius: 15px;
+  background: var(--color-cool-5);
+  box-shadow: var(--box-shadow-light);
+}
+
+/*Character Sheet
+************************/
+/*Equipment
+************************/
+.starwarsffg .items {
+  padding: 5px 5px !important;
+  box-shadow: var(--box-shadow) !important;
+  background-color: var(--color-cool-5-90) !important;
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  border: 1px solid var(--red);
+}
+.starwarsffg .items .items-header {
+  color: var(--ma-cyan);
+}
+.starwarsffg .items .items-list .item .toggle-equipped {
+  color: var(--red-light) !important;
+}
+.starwarsffg .items .items-list .item .toggle-equipped.active {
+  color: var(--green) !important;
+}
+.starwarsffg .items .items-list .item {
+  border-bottom: 1px dotted var(--color-cool-2-90) !important;
+}
+.system-starwarsffg .item-details .item-properties .tag {
+  color: var(--color-light-2);
+  border: 1px solid var(--color-warm-1) !important;
+  border-radius: 0px !important;
+  background: var(--red) !important;
+  text-shadow: var(--text-shadow);
+}
+
+/*Character Sheet
+************************/
+/*Skill
+************************/
+.starwarsffg .talent-list .talents-header {
+  color: var(--ma-cyan);
+}
+
+/*Character Sheet
+************************/
+/*Bio
+************************/
+.system-starwarsffg .editor-edit {
+  display: none;
+  font-size: 1.25em;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 4px;
+  padding: 1px 2px;
+  border: 1px solid var(--red);
+  color: var(--ma-cyan);
+  background: var(--color-cool-5-50);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--box-shadow);
+}
+.starwarsffg.sheet .editor-content {
+  height: 84%;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-90);
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  border: 1px solid var(--red);
+}
+.starwarsffg.sheet .editor-content * {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  padding: 5px 5px 0px 5px;
+}
+
+/*NPC Sheet
+************************/
+/*Character
+************************/
+.starwarsffg .block-background {
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-75) !important;
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg .minion .profile-img {
+  background: linear-gradient(
+    45deg,
+    var(--color-cool-4),
+    var(--color-cool-5-25)
+  );
+  --notchSize: 9px;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+}
+.starwarsffg.sheet .window-content header.sheet-header h1 input {
+  background: linear-gradient(
+    45deg,
+    var(--color-cool-4),
+    var(--color-cool-5-25)
+  );
+  border: 1px dotted var(--red);
+  --notchSize: 9px;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  filter: drop-shadow(0px 1px 1px black);
+}
+
+/*Item Sheet
+************************/
+.starwarsffg.sheet.item.app {
+  background-image: none;
+  background-color: transparent;
+  background: none;
+  border: none;
+  border-radius: var(--border-radius-5);
+  color: var(--color-light-2);
+}
+.starwarsffg.sheet.item .window-header {
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-75);
+  border-radius: var(--border-radius-5);
+  margin: 0px 1px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg.sheet.item img {
+  box-shadow: var(--box-shadow);
+  background: linear-gradient(
+    45deg,
+    var(--color-cool-3),
+    var(--color-cool-5-50)
+  );
+  border-radius: var(--border-radius-5);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red) !important;
+}
+.starwarsffg .item-name .restricted {
+  color: var(--bg3-alliance-opposition-red) !important;
+}
+.starwarsffg .item-details .restricted {
+  color: var(--bg3-alliance-opposition-red) !important;
+}
+.starwarsffg.sheet.item
+  .characteristic
+  .characteristic-value.restricted::after {
+  font-weight: bold;
+  color: var(--bg3-alliance-opposition-red) !important;
+}
+.starwarsffg .attributes .attributes-header {
+  padding: 5px;
+  margin: 0 0 5px 0;
+  border: unset !important;
+  border-radius: 5px;
+  font-weight: bold;
+  background: var(--red-swffg) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .charname input {
+  color: var(--sta-main-color) !important;
+}
+.starwarsffg .item-sheet-vehicle-weapon .charname input {
+  color: #cccae3 !important;
+}
+.starwarsffg .item-sheet-vehicle-weapon .block-background {
+  color: var(--color-warm-1) !important;
+}
+.starwarsffg .item-sheet-weapon .charname input {
+  color: #bffebf !important;
+}
+.starwarsffg .item-sheet-weapon .block-background {
+  color: var(--color-warm-1) !important;
+}
+.starwarsffg .item-sheet-armor .charname input {
+  color: #e9c09e !important;
+}
+.starwarsffg .item-sheet-armor .block-background {
+  color: var(--color-warm-1) !important;
+}
+.starwarsffg .item-sheet-talent .charname input {
+  color: var(--red-light) !important;
+}
+.starwarsffg .item-sheet-criticalinjury .charname input {
+  color: var(--red-light) !important;
+}
+.starwarsffg .item-sheet-criticalinjury .block-background {
+  color: var(--color-warm-1) !important;
+}
+.starwarsffg .item-sheet-gear .charname input {
+  color: #e9c6fd !important;
+}
+.starwarsffg .item-sheet-modifiers .charname input {
+  color: #e9c6fd !important;
+}
+.starwarsffg .talent-background {
+  background-color: unset !important;
+  background: radial-gradient(var(--color-cool-3), var(--color-cool-4));
+  border-bottom: 2px solid var(--color-cool-3);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .talent-background.talent-passive .talent-header {
+  background-color: #464855;
+}
+.starwarsffg .talent-background .talent-header div {
+  vertical-align: inherit !important;
+}
+.starwarsffg .talent-connector .talent-connector-up,
+.starwarsffg .talent-connector .talent-connector-side {
+  background-color: unset;
+  background: radial-gradient(var(--green), transparent);
+}
+.starwarsffg .item-sheet-forcepower .talent-cost {
+  background: var(--color-cool-5) !important;
+  color: var(--red-light) !important;
+}
+.starwarsffg .item-sheet-forcepower .talent-cost input {
+  background: var(--color-cool-5-50) !important;
+  color: var(--green) !important;
+}
+.starwarsffg .item-sheet-signatureability .talent-cost input {
+  background: var(--color-cool-5-50) !important;
+  color: var(--green) !important;
+}
+/*Dialog
+************************/
+.system-starwarsffg .sheet.journal-entry .journal-sidebar {
+  background-color: transparent;
+}
+.system-starwarsffg .sheet.journal-entry .journal-entry-content {
+  background-color: var(--color-cool-5-75);
+}
+
+.system-starwarsffg .dialog .window-content .dialog-content {
+  color: var(--color-warm-1) !important;
+}
+.system-starwarsffg .dialog > .window-content .dialog-button.roll.default,
+.system-starwarsffg
+  .dialog
+  > .window-content
+  .dialog-button.dialog-button.ok.default,
+.system-starwarsffg .dialog > .window-content .dialog-button.dialog-button.yes,
+.system-starwarsffg .dialog > .window-content .dialog-button.dialog-button.no {
+  font-family: "Bruno Ace";
+  text-transform: inherit;
+  color: var(--color-light-2);
+  background-color: var(--color-cool-5-50) !important;
+  border: none;
+  border-radius: 15px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  box-shadow: var(--glassy);
+}
+.system-starwarsffg .dialog > .window-content .dialog-button.roll.default:hover,
+.system-starwarsffg
+  .dialog
+  > .window-content
+  .dialog-button.dialog-button.ok.default:hover,
+.system-starwarsffg
+  .dialog
+  > .window-content
+  .dialog-button.dialog-button.yes:hover,
+.system-starwarsffg
+  .dialog
+  > .window-content
+  .dialog-button.dialog-button.no:hover {
+  color: var(--ma-cyan);
+  background-color: var(--color-cool-5-75);
+  box-shadow: var(--box-shadow);
+}
+.system-starwarsffg form .form-group span.units {
+  color: var(--color-light-2);
+}
+.system-starwarsffg form .form-group.slim .form-fields > label {
+  color: var(--color-light-2);
+}
+.system-starwarsffg .sheet nav.sheet-tabs {
+  border-top: unset;
+  border-bottom: unset;
+}
+.system-starwarsffg .sheet nav.sheet-tabs .item {
+  background: var(--color-cool-5-75);
+  border: none;
+  font-size: x-small;
+  box-shadow: var(--glassy);
+  height: 1.5rem;
+  line-height: 0rem;
+  --notchSize: 0.5rem;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+}
+.system-starwarsffg .token-sheet nav.sheet-tabs .item {
+  background: var(--color-cool-5-75);
+  font-size: small;
+  border: none;
+  box-shadow: var(--glassy);
+  height: 2.8rem;
+  line-height: 1rem;
+}
+.system-starwarsffg input[type="range"] + .range-value {
+  color: var(--ma-cyan);
+  background: var(--color-cool-5-50);
+  border: 1px solid #00273f;
+  border-radius: 15px;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg.sheet.item.v2 .tabs .item {
+  color: var(--color-light-2);
+  font-size: 16pt;
+  height: 2rem;
+  flex: 0 0 1rem;
+  line-height: 1rem;
+  margin: 0.1rem;
+  background: var(--color-cool-5-75);
+  border: none;
+  box-shadow: var(--glassy);
+}
+.starwarsffg.sheet.item.v2 .tabs .item.active {
+  color: var(--ma-cyan);
+  background: var(--red) !important;
+  font-size: 16pt;
+  height: 2rem;
+  flex: 0 0 1rem;
+  line-height: 1rem;
+  text-shadow: var(--text-shadow);
+  --notchSize: 9px;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+}
+.system-starwarsffg .sheet nav.sheet-tabs .item.active {
+  color: var(--ma-cyan);
+  background: var(--red) !important;
+  text-shadow: var(--text-shadow);
+}
+fieldset {
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-50);
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  border: 1px solid var(--red);
+}
+
+form h1.form-header,
+form h2.form-header,
+form h3.form-header {
+  color: var(--color-cool-1);
+  border-top: unset;
+  border-bottom: 1px dotted var(--red-swffg);
+}
+/*Sidebar Popout
+************************/
+.system-starwarsffg .app.sidebar-popout {
+  background: none;
+  border: none;
+  border-radius: var(--border-radius-5);
+  color: var(--color-light-2);
+}
+.system-starwarsffg .app.sidebar-popout .window-header {
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-75);
+  border-radius: var(--border-radius-5);
+  margin: 0px 1px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+
+/* Token Hud 
+*************************/
+#token-hud .status-effects {
+  background: none;
+  box-shadow: none;
+  border: none;
+  padding: 0px;
+  top: -65px;
+  gap: 8px;
+  color: var(--color-light-2);
+}
+#token-hud .status-effects .title-bar {
+  color: var(--color-light-2);
+  font-size: var(--font-size-20);
+  text-transform: uppercase;
+  top: -40px;
+  border: 1px solid var(--color-cool-5);
+  background: linear-gradient(45deg, var(--color-cool-3), var(--color-cool-5));
+  box-shadow: var(--box-shadow);
+  text-shadow: 0 0 3px black;
+  border-radius: var(--border-radius);
+}
+.placeable-hud .control-icon picture:hover {
+  opacity: 1;
+  filter: brightness(1.1) saturate(1.5) !important;
+}
+.placeable-hud input[type="text"] {
+  border-radius: var(--border-radius);
+  background: radial-gradient(var(--color-cool-5-50), transparent);
+  box-shadow: var(--box-shadow);
+  transition:
+    text-shadow 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border 0.15s ease-in-out,
+    color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out,
+    backdrop-filter 0.15s ease-in-out,
+    border-radius 0.15s;
+  color: var(--color-light-2);
+  text-shadow: 0px 0px 3px black;
+  backdrop-filter: brightness(0.8) blur(5px);
+  filter: drop-shadow(0px 1px 0px black);
+  border: 1px solid black;
+}
+#token-hud .attribute.bar2 input {
+  border: 1px solid var(--rarity-rare) !important;
+}
+#token-hud .attribute.bar1 input {
+  border: 1px solid #7cd000 !important;
+}
+.placeable-hud .control-icon[data-action="visibility"],
+.placeable-hud .control-icon[data-action="effects"],
+.placeable-hud .control-icon[data-action="combat"],
+.placeable-hud .control-icon[data-action="locked"],
+.placeable-hud .control-icon[data-action="target"],
+.placeable-hud .control-icon[data-action="active"],
+.placeable-hud .control-icon[data-action="mystify"] {
+  border-radius: 15px;
+  background: none;
+  box-shadow: var(--box-shadow);
+  transition:
+    text-shadow 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border 0.15s ease-in-out,
+    color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out,
+    backdrop-filter 0.15s ease-in-out,
+    border-radius 0.15s;
+  color: var(--color-light-2);
+  text-shadow: 0px 0px 3px black;
+  backdrop-filter: blur(5px);
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid black;
+}
+.placeable-hud .control-icon {
+  border-radius: 15px;
+  background: none;
+  box-shadow: var(--box-shadow);
+  transition:
+    text-shadow 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border 0.15s ease-in-out,
+    color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out,
+    backdrop-filter 0.15s ease-in-out,
+    border-radius 0.15s;
+  color: var(--color-light-2);
+  text-shadow: 0px 0px 3px black;
+  backdrop-filter: brightness(0.8) blur(5px);
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid black;
+}
+.placeable-hud .control-icon img {
+  filter: drop-shadow(0px 1px 1px black);
+  transition:
+    text-shadow 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border 0.15s ease-in-out,
+    color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out,
+    backdrop-filter 0.15s ease-in-out,
+    border-radius 0.15s;
+}
+.placeable-hud
+  .control-icon[data-action="visibility"]:not(.disabled, :disabled):hover,
+.placeable-hud
+  .control-icon[data-action="effects"]:not(.disabled, :disabled):hover,
+.placeable-hud
+  .control-icon[data-action="combat"]:not(.disabled, :disabled):hover,
+.placeable-hud
+  .control-icon[data-action="locked"]:not(.disabled, :disabled):hover,
+.placeable-hud
+  .control-icon[data-action="target"]:not(.disabled, :disabled):hover,
+.placeable-hud
+  .control-icon[data-action="active"]:not(.disabled, :disabled):hover,
+.placeable-hud
+  .control-icon[data-action="mystify"]:not(.disabled, :disabled):hover {
+  background: var(--button-toggle-hover-background);
+  color: var(--button-hover-text-color);
+  border: 1px solid var(--color-cool-5);
+  box-shadow: var(--box-shadow);
+}
+.placeable-hud .control-icon.active > img {
+  filter: sepia(100%) saturate(2000%) drop-shadow(2px 4px 6px black)
+    hue-rotate(-50deg);
+}
+.placeable-hud .control-icon:hover > img {
+  filter: sepia() grayscale(0.95) brightness(1) drop-shadow(0px 1px 1px black);
+}
+.placeable-hud .control-icon:not(.disabled, :disabled):hover {
+  background: var(--button-hover-background);
+  color: var(--button-hover-text-color);
+  border: 1px solid var(--color-cool-5);
+  box-shadow: var(--box-shadow);
+}
+#token-hud .attribute i.fas {
+  position: absolute;
+  top: -15px;
+  left: -8px;
+  font-size: var(--font-size-18);
+  color: var(--color-cool-2);
+  text-shadow: 0px 1px 2px black;
+}
+.placeable-hud .control-icon[data-action="visibility"].view,
+.placeable-hud .control-icon[data-action="visibility"].selected,
+.placeable-hud .control-icon[data-action="visibility"].active,
+.placeable-hud .control-icon[data-action="effects"].view,
+.placeable-hud .control-icon[data-action="effects"].selected,
+.placeable-hud .control-icon[data-action="effects"].active,
+.placeable-hud .control-icon[data-action="combat"].view,
+.placeable-hud .control-icon[data-action="combat"].selected,
+.placeable-hud .control-icon[data-action="combat"].active,
+.placeable-hud .control-icon[data-action="locked"].view,
+.placeable-hud .control-icon[data-action="locked"].selected,
+.placeable-hud .control-icon[data-action="locked"].active,
+.placeable-hud .control-icon[data-action="target"].view,
+.placeable-hud .control-icon[data-action="target"].selected,
+.placeable-hud .control-icon[data-action="target"].active,
+.placeable-hud .control-icon[data-action="active"].view,
+.placeable-hud .control-icon[data-action="active"].selected,
+.placeable-hud .control-icon[data-action="active"].active,
+.placeable-hud .control-icon[data-action="mystify"].view,
+.placeable-hud .control-icon[data-action="mystify"].selected,
+.placeable-hud .control-icon[data-action="mystify"].active {
+  background: var(--button-hover-background);
+  outline: 1px solid var(--color-warm-3);
+  text-decoration: none !important;
+  font-weight: unset !important;
+  text-shadow: var(--text-shadow);
+  animation: glow 0.75s infinite alternate;
+}
+#token-hud .status-effects .effect-control {
+  box-shadow: var(--box-shadow);
+  filter: sepia(1) brightness(0.6);
+  text-shadow: 0px 0px 3px black;
+  background: linear-gradient(
+    45deg,
+    var(--color-cool-3),
+    var(--color-cool-5-25)
+  );
+}
+#token-hud .status-effects .effect-control:hover {
+  opacity: 1;
+  filter: contrast(1);
+}
+#token-hud .status-effects .effect-control.overlay {
+  border: 2px solid var(--red-light);
+}
+#token-hud .status-effects .effect-control img {
+  border: none;
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  box-shadow: var(--box-shadow);
+}
+#token-hud .status-effects .effect-control.active {
+  filter: brightness(1.1) saturate(1);
+}
+#token-hud .status-effects .effect-control.active img {
+  border: 2px solid var(--color-warm-1);
+  filter: brightness(1.1) saturate(1);
+  opacity: 0.75;
+}
+#token-hud .status-effects .effect-control:not(.active):hover img {
+  border: 2px solid var(--green);
+  opacity: 1;
+}
+#token-hud .status-effects .effect-control .badge {
+  right: 0px;
+  top: 0px;
+  width: 1.2rem;
+  color: var(--color-light-2);
+  background-color: var(--red);
+  border: 1px solid var(--color-cool-5);
+  border-radius: 0px 25% 0px 0px;
+  box-shadow: var(--box-shadow);
+  text-shadow: 0px 1px 2px black;
+}
+
+/* Vendor Sheet 
+*************************/
+.system-starwarsffg .vendor_item {
+  display: flex;
+  justify-content: center;
+  height: calc(100% + 3.5rem);
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-cool-5-50);
+  border-radius: 10px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg.sheet .item-pill {
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.starwarsffg .item-display .item-pill {
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+.starwarsffg .item-display .item-pill:hover {
+  color: var(--color-cool-5);
+  text-shadow: var(--text-shadow);
+  background-color: var(--green) !important;
+  border: 1px solid var(--color-cool-5);
+  animation: glow 0.75s infinite alternate;
+}
+.starwarsffg .header-fields .row div {
+  color: unset !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   7. Thème Mandar — Surcharges uniques
+   Source : systems/improve-mandar.css (doublons supprimés)
+   ═══════════════════════════════════════════════════════════════ */
+/* Mandar theme 
+*************************/
+.starwarsffg.sheet .sheet-body {
+  background: unset !important;
+  border-top: unset !important;
+  border-image: unset !important;
+}
+.starwarsffg.sheet.v2 .sheet-body.vehicle {
+  height: calc(100% - 28rem) !important;
+}
+.starwarsffg .header-fields .minion-name {
+  background: none !important;
+}
+.starwarsffg .minion .sheet-header .minion-name h1 input {
+  text-align: center;
+  font-size: larger;
+  color: var(--sta-main-color) !important;
+  background: var(--color-cool-5-50);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .item-sheet-talent .header-fields h1 input,
+.starwarsffg .item-sheet-gear .header-fields h1 input,
+.starwarsffg .item-sheet-weapon .header-fields h1 input,
+.starwarsffg .item-sheet-armor .header-fields h1 input,
+.starwarsffg .item-sheet-vehicle-weapon .header-fields h1 input,
+.starwarsffg .item-sheet-vehicle-attachment .header-fields h1 input,
+.starwarsffg .item-sheet-criticalinjury .header-fields h1 input {
+  padding-left: 0 !important;
+}
+.starwarsffg .item-sheet-weapon .characteristic-item,
+.starwarsffg .item-sheet-weapon .block-background,
+.starwarsffg .item-sheet-armor .characteristic-item,
+.starwarsffg .item-sheet-armor .block-background,
+.starwarsffg .item-sheet-gear .characteristic-item,
+.starwarsffg .item-sheet-gear .block-background,
+.starwarsffg .item-sheet-vehicle-weapon .characteristic-item,
+.starwarsffg .item-sheet-vehicle-weapon .block-background,
+.starwarsffg .item-sheet-vehicle-attachment .characteristic-item,
+.starwarsffg .item-sheet-vehicle-attachment .block-background {
+  background-color: var(--color-cool-5-50) !important;
+}
+.starwarsffg
+  .item-sheet-gear
+  .characteristic-item
+  .characteristic
+  .characteristic-value
+  input,
+.starwarsffg
+  .item-sheet-talent
+  .characteristic-item
+  .characteristic
+  .characteristic-value
+  input,
+.starwarsffg
+  .item-sheet-weapon
+  .characteristic-item
+  .characteristic
+  .characteristic-value
+  input,
+.starwarsffg
+  .item-sheet-armor
+  .characteristic-item
+  .characteristic
+  .characteristic-value
+  input,
+.starwarsffg
+  .item-sheet-vehicle-weapon
+  .characteristic-item
+  .characteristic
+  .characteristic-value
+  input,
+.starwarsffg
+  .item-sheet-vehicle-attachment
+  .characteristic-item
+  .characteristic
+  .characteristic-value
+  input {
+  color: var(--ma-cyan);
+  background-color: var(--color-cool-5-90);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg .item-sheet-gear .characteristic-item .characteristic,
+.starwarsffg .item-sheet-talent .characteristic-item .characteristic,
+.starwarsffg .item-sheet-weapon .characteristic-item .characteristic,
+.starwarsffg .item-sheet-armor .characteristic-item .characteristic,
+.starwarsffg .item-sheet-vehicle-weapon .characteristic-item .characteristic,
+.starwarsffg
+  .item-sheet-vehicle-attachment
+  .characteristic-item
+  .characteristic {
+  border-radius: 50% !important;
+  background: var(--color-cool-5-90) !important;
+}
+/* Import OGGDUDE
+************************/
+.starwarsffg.data-import .data-importer-window .import-progress {
+  background: none;
+}
+.starwarsffg.data-import
+  .data-importer-window
+  .import-progress
+  .import-progress-bar {
+  height: 23px;
+  background: linear-gradient(
+    90deg,
+    var(--bg3-alliance-opposition-red) 15%,
+    var(--green) 75%
+  );
+  border-radius: 3px;
+  box-shadow: var(--box-shadow);
+}
+.starwarsffg span.dietype.starwars {
+  font-family: "EotESymbol", sans-serif;
+}
+.starwarsffg span.dietype.genesys {
+  font-family: "GenesysSymbol", sans-serif;
+}
+.starwarsffg span.dietype.ability {
+  color: var(--green) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.advantage {
+  color: var(--green) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.boost {
+  color: lightskyblue !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.challenge {
+  color: var(--red-light) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.dark {
+  color: var(--color-cool-3-90) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.despair {
+  color: var(--color-warm-2) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.difficulty {
+  color: var(--rarity-unique) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.forcepoint {
+  color: white !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.failure {
+  color: var(--color-cool-1) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.force {
+  color: white !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.light {
+  color: white !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.proficiency {
+  color: var(--sta-main-color) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.setback {
+  color: var(--color-cool-3-90) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.success {
+  color: var(--green) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.threat {
+  color: var(--color-cool-1) !important;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg span.dietype.triumph {
+  color: var(--color-warm-1) !important;
+  text-shadow: var(--text-shadow);
+}
+/* Item card
+**************************/
+.starwarsffg.item-card .card-header.collapsible {
+  border: unset;
+  color: var(--color-light-2);
+  background: unset;
+  border-radius: unset;
+  text-shadow: var(--text-shadow);
+  text-align: center;
+}
+.starwarsffg.item-card .card-header.flexrow,
+.starwarsffg.item-card .card-header .title {
+  font-family: "Bruno Ace";
+  font-size: 1.25em;
+  color: unset;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  padding: 4px 2px 4px 2px;
+  background: linear-gradient(
+    45deg,
+    var(--color-cool-4),
+    var(--color-cool-5-25)
+  );
+  border: 1px dotted var(--red);
+  filter: drop-shadow(0px 1px 1px black);
+  --notchSize: 0.25rem;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+}
+.starwarsffg.item-card .card-header.collapsible .title b {
+  padding: unset;
+}
+.starwarsffg.item-card .card-header.collapsible .summary {
+  padding: inherit;
+}
+.starwarsffg.item-card .card-header.collapsible .icon {
+  box-shadow: var(--box-shadow);
+  background: linear-gradient(
+    45deg,
+    var(--color-cool-3),
+    var(--color-cool-5-50)
+  );
+  border-radius: var(--border-radius-5);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  border: 1px solid var(--red);
+}
+.starwarsffg.item-card .name-stacked.border {
+  border-right: unset;
+  color: var(--color-light-2);
+  font-style: italic;
+  text-transform: uppercase;
+}
+.starwarsffg.item-card .card-header.collapsible .stat {
+  padding: 0px 3px 0px 3px;
+  --icon-color: #ff595e;
+  color: var(--icon-color);
+  font-weight: 600;
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-mug-hot:before,
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-wrench:before {
+  --icon-color: #dc9456;
+  color: var(--icon-color);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-search:before,
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-level-up-alt:before,
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-turn-up:before,
+.starwarsffg.item-card
+  .card-header.collapsible
+  .stat
+  i.fa-magnifying-glass:before {
+  color: var(--color-cool-1);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-hand-fist:before {
+  --icon-color: #ff595e;
+  color: var(--icon-color);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-skull:before {
+  color: var(--bg3-alliance-opposition-red);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-jedi:before,
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-bullseye:before {
+  color: var(--green);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-dollar-sign:before {
+  --icon-color: #aab0b3;
+  color: var(--icon-color);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg.item-card
+  .card-header.collapsible
+  .stat
+  i.fa-weight-hanging:before {
+  color: var(--ma-cyan);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-first-aid:before,
+.starwarsffg.item-card .card-header.collapsible .stat i.fa-kit-medical:before {
+  --icon-color: #1fb222;
+  color: var(--icon-color);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg.item-card .card-header.collapsible .stat.stat-right {
+  border-right: 2px groove var(--color-light-5-90);
+  color: var(--color-light-1);
+}
+.starwarsffg.item-card .stat.not-present {
+  color: gray;
+}
+.starwarsffg.item-card .name-stacked.border .subtitle {
+  color: var(--ma-cyan);
+  font-size: large;
+  padding: 0 0 3px;
+}
+.starwarsffg.item-card .stat.stat-right .restricted {
+  color: var(--red-light);
+  padding: inherit;
+  animation: glow 0.25s infinite alternate;
+}
+.starwarsffg.item-card i.fas.fa-fw.collapse-toggle.fa-chevron-down::before,
+.starwarsffg.item-card i.fas.fa-fw.collapse-toggle.fa-chevron-left::before {
+  color: var(--bg3-alliance-opposition-red);
+  text-shadow: var(--text-shadow);
+}
+.starwarsffg.item-card .card-content.details {
+  text-align: justify;
+  padding: 4px;
+  background: linear-gradient(
+    45deg,
+    var(--color-cool-4),
+    var(--color-cool-5-25)
+  );
+  border: 1px dotted var(--red);
+  filter: drop-shadow(0px 1px 1px black);
+  --notchSize: 0.25rem;
+  -webkit-clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+}
+.starwarsffg.item-card .card-content.details h3 {
+  text-shadow: var(--text-shadow);
+  margin: 0.5rem 0 0.25rem;
+  border-bottom: 1px dotted var(--red-swffg);
+}
+.starwarsffg.item-card .properties ul {
+  padding: 0;
+  margin: 0.25rem 0;
+}
+.starwarsffg.item-card .properties b {
+  --color-warm-1: var(--color-light-2);
+  color: var(--ma-cyan);
+}
+.starwarsffg.item-card .wrapper .properties {
+  margin: 5px;
+  text-align: center;
+}
+.starwarsffg.item-card .wrapper .properties .tag {
+  color: var(--color-light-2);
+  border: 1px solid var(--color-warm-1);
+  border-radius: 0;
+  background: var(--red);
+  text-shadow: var(--text-shadow);
+  text-align: center;
+}
+.starwarsffg.item-card .wrapper .properties .tag .item-pill {
+  color: var(--color-light-1);
+  text-shadow: var(--text-shadow);
+}
+/* Destiny tracker
+*************************/
+#destiny-tracker {
+  box-shadow: none;
+  background: transparent;
+  position: absolute;
+  /* Dropdown Button */
+  /* Dropdown button on hover & focus */
+  /* The container <div> - needed to position the dropdown content */
+  /* Dropdown Content (Hidden by Default) */
+  /* Change color of dropdown links on hover */
+  /* Show the dropdown menu on hover */
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+}
+#destiny-tracker .window-content {
+  box-shadow: unset;
+  background-color: unset !important;
+  margin: unset;
+  backdrop-filter: unset;
+  filter: unset;
+  border: none;
+}
+#destiny-tracker header.window-header {
+  display: none;
+}
+.swffg-destiny .group-manager {
+  padding: 1px 0px 0px 2px;
+}
+#destiny-tracker .dropbtn {
+  color: white;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  text-shadow: 0 0 5px black;
+}
+#destiny-tracker .dropbtn i {
+  margin: 0;
+}
+#destiny-tracker .dropbtn:hover,
+#destiny-tracker .dropbtn:focus {
+  background-color: var(--color-cool-5-90);
+  box-shadow: 0 0 1rem #ff6400;
+}
+#destiny-tracker .dropdown {
+  position: relative;
+  display: inline-block;
+}
+#destiny-tracker .dropdown-content {
+  display: contents;
+  position: absolute;
+  max-width: 50px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+#destiny-tracker .dropdown-content a {
+  padding: 8px 4px !important;
+  text-decoration: none;
+  display: grid;
+  font-size: 15px;
+  color: var(--color-light-2);
+  background: var(--color-cool-5);
+  border-radius: 5px;
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+  filter: drop-shadow(0px 1px 1px black);
+  margin-bottom: 5px;
+  width: 100% !important;
+}
+#destiny-tracker .dropdown-content a:hover {
+  color: var(--ma-cyan);
+  text-shadow:
+    0 0 5px var(--ma-teal),
+    0 1px 2px black;
+}
+#destiny-tracker .dropdown:hover .dropbtn {
+  --color-text-hyperlink: #ff6400;
+  background-color: var(--color-text-hyperlink);
+}
+#destiny-tracker .show {
+  display: block;
+  width: 200%;
+}
+#destiny-tracker .show a:hover {
+  --color-text-hyperlink: #ff6400;
+  background-color: var(--color-text-hyperlink);
+}
+.swffg-destiny-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+.swffg-destiny {
+  box-sizing: content-box;
+  color: var(--color-light-2);
+  font-family: "Roboto Condensed", sans-serif !important;
+  font-size: 2rem;
+  height: auto;
+  bottom: 0px;
+  line-height: auto;
+  margin: 0.5rem;
+  pointer-events: none;
+  text-align: center;
+  width: auto;
+  display: flex;
+  z-index: 70;
+  background: unset;
+  border: unset;
+  border-radius: 5px;
+  box-shadow: unset;
+  gap: 2px;
+}
+.swffg-destiny.swffg-groupmanager {
+  pointer-events: auto;
+}
+.starwarsffg .group-manager {
+  color: var(--color-cool-1) !important;
+}
+.swffg-destiny #destinyLight {
+  background: var(--color-cool-5-90)
+    url("./systems/artwork/dice/starwars/lightside.webp") no-repeat center !important;
+  background-size: contain !important;
+}
+.swffg-destiny #destinyDark {
+  background: var(--color-cool-5-90)
+    url("./systems/artwork/dice/starwars/darkside.webp") no-repeat center !important;
+  background-size: contain !important;
+}
+.swffg-destiny .destiny-points {
+  flex: 0 0 4rem;
+  position: relative;
+  cursor: pointer;
+  padding: 0.25rem;
+  pointer-events: auto;
+  margin: 0.25rem;
+  width: 4rem;
+  height: 4rem;
+  line-height: 3.25rem;
+  text-shadow: 1px 2px 1px black;
+  border-radius: 15px;
+  box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.75);
+  --color-text-hyperlink: #ff6400;
+  color: var(--color-text-hyperlink);
+  font-size: xxx-large;
+  font-weight: bold;
+  filter: drop-shadow(0px 1px 1px black);
+}
+.swffg-destiny .destiny-points:hover {
+  box-shadow: 0 0 1.2rem #ff6400;
+  filter: drop-shadow(0 0 5px var(--red-light));
+  animation: glow 0.75s infinite alternate;
+}
+.swffg-destiny .destiny-points span {
+  bottom: 0;
+  color: var(--ma-cyan);
+  font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif;
+  text-transform: uppercase;
+  text-shadow: var(--text-shadow);
+  font-size: 0.75rem;
+  left: 50%;
+  line-height: 0.5rem;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 80px;
+}
+.swffg-destiny #context-menu {
+  font-size: 0.875rem;
+}
+.ffg-destiny-roll {
+  border: unset;
+  border-radius: 5px !important;
+}
+.starwarsffg.sheet.item.v2 {
+  background-color: unset !important;
+}
+
+.app.dialog .window-content .dialog-content {
+  color: #dfdfdf;
+  background-color: unset;
+  padding: 0 13px;
+}
+.app.dialog .window-content .form-group input,
+.app.dialog .window-content .form-group select {
+  color: #f7e06e;
+}
+.app.dialog .window-content .dialog-buttons {
+  background-color: unset;
+  margin: 5px;
+}
+.dialog > .window-content .dialog-button.roll.default,
+.dialog > .window-content .dialog-button.dialog-button.ok.default,
+.dialog > .window-content .dialog-button.dialog-button.yes,
+.dialog > .window-content .dialog-button.dialog-button.no {
+  background-color: #0077af;
+  color: black;
+  font-weight: unset;
+}
+.dialog > .window-content .dialog-button.roll.default:hover,
+.dialog > .window-content .dialog-button.dialog-button.ok.default:hover,
+.dialog > .window-content .dialog-button.dialog-button.yes:hover,
+.dialog > .window-content .dialog-button.dialog-button.no:hover {
+  background-color: #009dff;
+}
+.dialog .dialog-buttons button {
+  background-color: #0077af;
+  border: none;
+  border-radius: 15px;
+}
+.dialog .dialog-buttons button:hover {
+  background-color: #009dff;
+  box-shadow: none;
+}
+.dialog .dialog-buttons button:focus {
+  box-shadow: none;
+}
+.monks-active-tiles div[data-tab="triggers"] .action-items .action-style {
+  color: #f7e06e;
+}
+.monks-active-tiles div[data-tab="triggers"] .action-items .value-style {
+  color: white;
+}
+.monks-active-tiles div[data-tab="triggers"] .action-items .entity-style {
+  color: white;
+}
+.monks-active-tiles.sheet .items-list .item .item-name {
+  color: #dfdfdf;
+}
+.action-sheet .display-value {
+  color: #f7e06e;
+}
+.prosemirror menu {
+  background: none;
+}
+.prosemirror menu .pm-dropdown {
+  background: #0077af;
+  border-radius: 0 13px 13px 0;
+  color: black;
+}
+.prosemirror menu .pm-dropdown i {
+  color: black;
+}
+.prosemirror menu .pm-dropdown i:hover {
+  color: black;
+}
+.prosemirror menu .pm-dropdown > i {
+  color: black;
+}
+.prosemirror menu .pm-dropdown > i:hover {
+  color: black;
+}
+.prosemirror menu .pm-dropdown ul {
+  background-color: #3d8f81;
+  border: none;
+  border-radius: 0;
+  padding: 0px;
+}
+.prosemirror menu .pm-dropdown li {
+  background: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 2px 8px;
+}
+.prosemirror menu .pm-dropdown li:hover {
+  background-color: #70c2b4;
+}
+.prosemirror menu button {
+  background: #0077af;
+  border-radius: 0px;
+}
+.prosemirror menu button:hover {
+  background-color: #009dff;
+}
+.prosemirror menu button.active {
+  background-color: #f7e06e;
+}
+.prosemirror menu button.active:hover {
+  background-color: #fcf5cf;
+}
 
 /*Hotbar
 ************************/
@@ -1850,13 +5004,13 @@
 }
 #hotbar .macro.inactive {
   background: var(--color-cool-5-75);
-  border-radius: 50%;
+  border-radius: 15px;
   border: 2px solid var(--rpg-styled-ui-color);
   box-shadow: var(--glassy) 0px 0px 10px 0px;
 }
 #hotbar .macro.active {
   background: var(--color-cool-5-75);
-  border-radius: 50%;
+  border-radius: 15px;
   border: 2px solid var(--rpg-styled-ui-color);
   box-shadow: var(--glassy) 0px 0px 10px 0px;
 }
@@ -1864,7 +5018,7 @@
   border: 2px solid var(--color-warm-2);
 }
 #hotbar .macro:hover {
-  box-shadow: 0 0 10px var(--color-shadow-highlight) inset!important;
+  box-shadow: 0 0 10px var(--color-shadow-highlight) inset !important;
 }
 #hotbar .macro .macro-key {
   top: initial;
@@ -1877,11 +5031,11 @@
 #hotbar .macro .macro-icon {
   position: relative;
   z-index: 2;
-  border-radius: 50%;
+  border-radius: 15px;
 }
 #hotbar #macro-list {
   grid-gap: 8px;
-  border:none;
+  border: none;
 }
 #hotbar .bar-controls {
   color: var(--rpg-styled-ui-color);
@@ -1891,37 +5045,36 @@
   text-shadow: var(--text-shadow);
 }
 
-
 /*Playlist
 ************************/
 .playlists-sidebar h4 {
   text-shadow: (var(--text-shadow));
 }
-input[type=range]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   box-shadow: unset;
   border-radius: 3px;
   background: var(--color-cool-5);
   border: 1px solid var(--color-cool-4);
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: linear-gradient(90deg, var(--green)33%, var(--red-light));
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: linear-gradient(90deg, var(--green) 33%, var(--red-light));
 }
-input[type=range]::-webkit-slider-thumb {
-  border-radius: 50%;
+input[type="range"]::-webkit-slider-thumb {
+  border-radius: 15px;
   box-shadow: unset;
 }
-input[type=range]:disabled::-webkit-slider-thumb {
+input[type="range"]:disabled::-webkit-slider-thumb {
   background: var(--color-cool-3);
   border: 1px solid var(--color-cool-4);
   background: var(--color-cool-4);
   border: 1px solid var(--color-cool-3);
 }
-input[type=range]:not(:disabled)::-webkit-slider-thumb {
+input[type="range"]:not(:disabled)::-webkit-slider-thumb {
   background: var(--color-warm-2);
   border: 1px solid var(--color-warm-1);
   transition: outline 0.15s;
 }
-input[type=range]:not(:disabled)::-webkit-slider-thumb:hover {
+input[type="range"]:not(:disabled)::-webkit-slider-thumb:hover {
   background: var(--color-warm-3);
 }
 .playlists-sidebar .sound-control[data-action="sound-stop"] {
@@ -1929,7 +5082,7 @@ input[type=range]:not(:disabled)::-webkit-slider-thumb:hover {
   transition: outline 0.15s;
 }
 .playlists-sidebar .sound-control[data-action="sound-stop"]:hover {
-  color: var(--color-warm-1);
+  color: var(--ma-cyan);
 }
 .playlists-sidebar .sound-control {
   color: var(--green);
@@ -1937,4 +5090,18 @@ input[type=range]:not(:disabled)::-webkit-slider-thumb:hover {
 }
 .playlists-sidebar .sound-control:hover {
   color: var(--color-warm-2);
+}
+
+/* Pc Wizard 
+************************/
+.starwarsffg.wizard label,
+.starwarsffg.wizard .review-item,
+.ss-main .ss-values .ss-placeholder,
+.starwarsffg.wizard .dt-container .dt-info,
+.starwarsffg.wizard .dt-container .dt-input {
+  color: var(--ma-cyan) !important;
+}
+.starwarsffg .state_bad {
+  color: var(--red-light) !important;
+  text-shadow: var(--text-shadow);
 }
