@@ -1,3 +1,8 @@
+## v14.0.1
+
+- Re-scoped stylesheet copies (non-default system id) now resolve their asset URLs against the module's styles folder.
+- Fixed @font-face paths in compatibility.css (./fonts/ -> ./systems/fonts/).
+
 ## v14.0
 
 - Foundry VTT 14 support (verified 14.368; still runs on 13).
