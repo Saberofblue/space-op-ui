@@ -22,7 +22,16 @@ Hooks.once("init", async () => {
   const upstreamId = "starwarsffg";
   const ownId = game.system.id;
   if (ownId === upstreamId) return;
-  const rescope = (css) => css.replace(new RegExp(`\.system-${upstreamId}(?![\w-])`, "g"), `.system-${ownId}`);
+  const styleBase = "modules/space-op-ui/styles/";
+  const rescope = (css) =>
+    css
+      .replace(new RegExp(`\\.system-${upstreamId}(?![\\w-])`, "g"), `.system-${ownId}`)
+      // the copies are injected as <style> in the document head, so relative asset URLs must be
+      // resolved against the stylesheet folder they were written for
+      .replace(/url\(\s*(["']?)(?!\/|https?:|data:|#)([^"')]+)\1\s*\)/g, (m, q, rel) => {
+        const abs = new URL(rel, `http://localhost/${styleBase}`).pathname.slice(1);
+        return `url(${q}${abs}${q})`;
+      });
   for (const file of ["compatibility.css", "core.css"]) {
     try {
       const css = await (await fetch(`modules/space-op-ui/styles/${file}`)).text();

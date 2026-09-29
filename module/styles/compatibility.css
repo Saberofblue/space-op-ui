@@ -92,39 +92,39 @@
 }
 @font-face {
     font-family: "EarthOrbiter";
-    src: url("./fonts/Earth-Orbiter-Bold.otf")format("opentype");
+    src: url("./systems/fonts/Earth-Orbiter-Bold.otf")format("opentype");
 }
 @font-face {
     font-family: "MandaloreCondensed";
-    src: url("./fonts/Mandalore-Condensed.otf")format("opentype");
+    src: url("./systems/fonts/Mandalore-Condensed.otf")format("opentype");
 }
 @font-face {
     font-family: "MandaloreLaserTitle";
-    src: url("./fonts/Mandalore-Laser-Title.otf")format("opentype");
+    src: url("./systems/fonts/Mandalore-Laser-Title.otf")format("opentype");
 }
 @font-face {
     font-family: "MandaloreRough";
-    src: url("./fonts/Mandalore-Rough.otf")format("opentype");
+    src: url("./systems/fonts/Mandalore-Rough.otf")format("opentype");
 }
 @font-face {
     font-family: "AurebeshBold";
-    src: url("./fonts/Aurebesh-Bold.otf")format("opentype");
+    src: url("./systems/fonts/Aurebesh-Bold.otf")format("opentype");
 }
 @font-face {
     font-family: "SfDistantGalaxy";
-    src: url("./fonts/Sf-Distant-Galaxy.ttf")format("truetype");
+    src: url("./systems/fonts/Sf-Distant-Galaxy.ttf")format("truetype");
 }
 @font-face {
     font-family: "ToxiUI";
-    src: url("./fonts/Toxi-UI.ttf")format("truetype");
+    src: url("./systems/fonts/Toxi-UI.ttf")format("truetype");
 }
 @font-face {
     font-family: "EotESymbol";
-    src: url("./fonts/EotE-Symbol-Regular-PLUS.otf") format("opentype");
+    src: url("./systems/fonts/EotE-Symbol-Regular-PLUS.otf") format("opentype");
   }
 @font-face {
     font-family: "GenesysSymbol";
-    src: url("./fonts/Genesys.ttf") format("truetype");
+    src: url("./systems/fonts/Genesys.ttf") format("truetype");
 }
 
 /* Adventurer Exporter */
