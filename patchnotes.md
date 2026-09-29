@@ -1,3 +1,8 @@
+## v14.0.2
+
+- Under a non-default Star Wars FFG system id (e.g. starwarsffg_sandbox) the theme now also re-scopes the rules written against the system's own sheet class, so character and item sheets get the full theme (readable text on dark panels) instead of a half-applied one.
+- The re-scoped stylesheet copies are injected into the modules cascade layer, matching how Foundry loads module styles, so sheet tab sizes match the default system id.
+
 ## v14.0.1
 
 - Re-scoped stylesheet copies (non-default system id) now resolve their asset URLs against the module's styles folder.

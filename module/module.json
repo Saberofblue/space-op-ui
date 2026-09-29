@@ -10,7 +10,7 @@
       "flags": {}
     }
   ],
-  "version": "14.0.1",
+  "version": "14.0.2",
   "compatibility": {
     "minimum": "13",
     "verified": "14.368"
@@ -81,5 +81,5 @@
   },
   "url": "https://github.com/Saberofblue/space-op-ui",
   "manifest": "https://github.com/Saberofblue/space-op-ui/releases/latest/download/module.json",
-  "download": "https://github.com/Saberofblue/space-op-ui/releases/download/14.0.1/module.zip"
+  "download": "https://github.com/Saberofblue/space-op-ui/releases/download/14.0.2/module.zip"
 }
