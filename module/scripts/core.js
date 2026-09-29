@@ -40,7 +40,14 @@ Hooks.once("init", async () => {
       const css = await (await fetch(`modules/space-op-ui/styles/${file}`)).text();
       const style = document.createElement("style");
       style.dataset.spaceOpUi = file;
-      style.textContent = rescope(css);
+      // Foundry 13+ loads module stylesheets in the `modules` cascade layer; the copies must live
+      // there too, or they outrank every layered rule (the system's own included) and the sheets
+      // render differently from the default system id. @import rules cannot sit inside a layer
+      // block, so they are hoisted above it.
+      const rescoped = rescope(css);
+      const imports = rescoped.match(/^\s*@import[^;]*;/gm) ?? [];
+      const body = rescoped.replace(/^\s*@import[^;]*;/gm, "");
+      style.textContent = `${imports.join("\n")}\n@layer modules {\n${body}\n}`;
       document.head.append(style);
     } catch (err) {
       console.error(`space-op-ui | could not re-scope ${file} for system ${ownId}`, err);
