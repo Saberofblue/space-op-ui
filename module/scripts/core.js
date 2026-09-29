@@ -26,6 +26,9 @@ Hooks.once("init", async () => {
   const rescope = (css) =>
     css
       .replace(new RegExp(`\\.system-${upstreamId}(?![\\w-])`, "g"), `.system-${ownId}`)
+      // the theme also styles the system's own sheet class (.starwarsffg.sheet.actor ...), which the
+      // system renames along with its id; rewrite those too or the sheet gets a half-applied theme
+      .replace(new RegExp(`\\.${upstreamId}(?![\\w-])`, "g"), `.${ownId}`)
       // the copies are injected as <style> in the document head, so relative asset URLs must be
       // resolved against the stylesheet folder they were written for
       .replace(/url\(\s*(["']?)(?!\/|https?:|data:|#)([^"')]+)\1\s*\)/g, (m, q, rel) => {
