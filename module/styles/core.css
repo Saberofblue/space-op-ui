@@ -5284,3 +5284,32 @@ input[type="range"]:not(:disabled)::-webkit-slider-thumb:hover {
   color: var(--red-light) !important;
   text-shadow: var(--text-shadow);
 }
+
+/* ------------------------------------------------------------------ */
+/* Canvas speech bubbles                                               */
+/* The theme sets --color-text-primary to its light text colour, which  */
+/* Foundry's bubbles inherit while keeping their light background -     */
+/* near-white on near-white. Give bubbles the theme's dark glass panel  */
+/* so the light text reads (contrast well above 7:1 on any scene).      */
+/* ------------------------------------------------------------------ */
+.system-starwarsffg #chat-bubbles .chat-bubble {
+  background: rgba(11, 10, 19, 0.92);
+  border: 2px solid rgba(14, 240, 200, 0.55);
+  color: var(--color-light-2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 6px rgba(14, 240, 200, 0.25);
+}
+.system-starwarsffg #chat-bubbles .chat-bubble .bubble-content {
+  color: inherit;
+}
+.system-starwarsffg #chat-bubbles .chat-bubble.emote {
+  background: rgba(11, 10, 19, 0.88);
+  border-color: rgba(145, 168, 42, 0.6);
+  color: var(--color-light-2);
+  font-style: italic;
+}
+.system-starwarsffg #chat-bubbles .chat-bubble.chatter {
+  background: rgba(11, 10, 19, 0.75);
+  border: none;
+  color: var(--color-light-2);
+}

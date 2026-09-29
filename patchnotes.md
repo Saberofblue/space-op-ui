@@ -1,3 +1,10 @@
+## v14.0
+
+- Foundry VTT 14 support (verified 14.368; still runs on 13).
+- Canvas speech bubbles: the theme's light text inherited into Foundry's light bubble made them unreadable; bubbles now use the theme's dark glass panel with light text.
+- Runs under any Star Wars FFG system id (e.g. the starwarsffg_sandbox build): the theme re-scopes its stylesheets to the running system's body class at startup.
+- The settings-tab info row is back (the v13/v14 settings tab is an ApplicationV2; the old renderSidebarTab hook no longer fires).
+
 # Patch Notes
 
 ## Compatibility
